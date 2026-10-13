@@ -1,26 +1,92 @@
-# Model notes for the topic defense
+# Detailed model notes for the topic defense
 
-These notes record the complete derivation behind the shorter proposal and
-slides. They are preparation material, not an additional claim.
+These notes record the full logic behind the shorter proposal and slides. They
+are written for a reader who has not seen the thesis.
 
-## 1. Timing
+## 1. Objects in the data
+
+For bank `j`, credit segment `s`, and month `t`:
+
+```text
+s_jst = i_jst - r_t
+D_jst = s_jst - median_{k != j}{s_kst}
+```
+
+- `i_jst`: lending rate charged by bank `j`.
+- `r_t`: policy rate.
+- `s_jst`: spread over the policy rate.
+- `D_jst`: deviation from the peer-bank median spread.
+- `k`: index for other banks inside the median.
+
+`D_jst = 0.02` means 2 percentage points above the peer median if rates are
+expressed as decimals. The forecast target at horizon `h` is
+`NPL_{js,t+h}`, the non-performing loan balance divided by the total
+outstanding loan balance in that portfolio cell. The exact non-performing
+classification follows the data dictionary.
+
+## 2. Full notation
+
+| Symbol | Definition and role |
+|---|---|
+| `D` | Relative spread after suppressing `j,s,t`; stage-one choice |
+| `mathcal D` | Compact feasible interval `[D_lower,D_upper]` |
+| `kappa` | Segment opacity in `[0,1]`; not the peer-bank index `k` |
+| `L(D,kappa)` | Potential loan volume; assumed positive and decreasing in `D` |
+| `q_bar` | Baseline probability of default before sorting and screening |
+| `a(kappa)` | Change in pre-screen risk caused by one more unit of `D` |
+| `q0(D,kappa)` | Default probability in the pool before screening |
+| `e` | Screening effort chosen after the price-sorted pool is observed |
+| `e_bar` | Maximum feasible screening effort |
+| `g(kappa)` | Default-risk reduction produced by one unit of effort |
+| `c(kappa)` | Convex effort-cost shifter |
+| `q(D,e,kappa)` | Default probability after screening |
+| `R_bar + D` | Payoff if a loan performs |
+| `F` | Funding and operating cost independent of effort |
+| `h(kappa)=g(kappa)^2/c(kappa)` | Screening leverage |
+| `beta(kappa)` | Conditional price-risk slope `dq*/dD` |
+| `kappa_star` | Opacity at which selection and screening leverage are equal |
+| `rho_h` | Positive mapping from origination risk to the later NPL ratio |
+
+## 3. Timing and why it matters
 
 1. A borrower segment with opacity `kappa` is given.
-2. The bank posts the relative spread `D` and faces demand `L(D,kappa)`.
-3. The price-sorted pool has default probability
-   `q0(D,kappa) = q_bar + a(kappa) D`.
-4. The bank observes the pool and chooses screening effort `e`.
-5. Screening changes conditional default to
-   `q(D,e,kappa) = q0(D,kappa) - g(kappa)e`.
-6. Repayment and default are realized.
+2. The bank posts relative spread `D` and faces `L(D,kappa)` potential loans.
+3. Price sorting produces an applicant pool with risk `q0(D,kappa)`.
+4. The bank observes that pool and chooses screening effort `e`.
+5. Screening changes booked quality; later repayment or default is realized.
+6. At horizon `h`, the portfolio-level NPL ratio is measured.
 
-The compact set for `D` and continuity close the pricing stage. The topic
-proposition is deliberately about the continuation map conditional on `D`.
-Solving a specific demand system for `D*` is an extension, not a hidden step.
+The compact set for `D` and continuity close the pricing stage. The proposition
+is deliberately about the continuation quality map conditional on an observed
+`D`. Solving a particular oligopoly for `D*` is an extension, not a hidden
+step. This distinction also prevents a forecasting result from being described
+as a causal price intervention.
 
-## 2. Screening problem
+## 4. Applicant-pool sorting
 
-For a fixed `D`, profit per potential origination is
+Before screening,
+
+```text
+q0(D,kappa) = q_bar + a(kappa)D,  a(kappa) > 0.
+```
+
+For fixed opacity, a higher relative price raises the default probability of
+the unscreened pool. Economically, the bank loses more price-sensitive
+comparison shoppers and retains a worse mix. The function `a(kappa)` measures
+the strength of that sorting response. The proposition assumes `a' < 0`:
+when segments are more opaque and borrowers compare offers less effectively,
+pool composition responds less strongly to a relative-price difference.
+
+## 5. Screening technology and bank problem
+
+Effort reduces default probability linearly:
+
+```text
+q(D,e,kappa) = q0(D,kappa) - g(kappa)e.
+```
+
+The restriction `g > 0` says more investigation improves booked quality. The
+cost `c(kappa)e^2/2` is convex. For any posted `D`, profit per potential loan is
 
 ```text
 pi(e;D,kappa)
@@ -28,19 +94,38 @@ pi(e;D,kappa)
     - F - c(kappa)e^2/2.
 ```
 
-The first-order condition is
+Multiplying this continuation value by `L(D,kappa)` gives the full nested
+problem. Demand matters for the stage-one price choice, but it is constant with
+respect to `e` inside the screening subgame.
+
+## 6. Solving the screening subgame
+
+Differentiate profit with respect to effort:
 
 ```text
-g(kappa)[R_bar + D] - c(kappa)e = 0.
+d pi/de = g(kappa)[R_bar + D] - c(kappa)e.
 ```
 
-Since the second derivative is `-c(kappa) < 0`, the interior solution is
+The first term is the marginal benefit: effort reduces default by `g` and each
+avoided default preserves the performing-loan payoff `R_bar + D`. The second
+term is marginal effort cost. The second derivative is
+
+```text
+d^2 pi/de^2 = -c(kappa) < 0,
+```
+
+so the unique interior optimum is
 
 ```text
 e*(D,kappa) = [g(kappa)/c(kappa)] [R_bar + D].
 ```
 
-Substitution into portfolio quality gives
+The comparative static is `de*/dD = g/c > 0`: a higher performing-loan payoff
+makes screening more valuable.
+
+## 7. Optimized risk and the two-channel decomposition
+
+Substitute `e*` into the risk technology:
 
 ```text
 q*(D,kappa)
@@ -51,61 +136,101 @@ q*(D,kappa)
 Define `h(kappa) = g(kappa)^2/c(kappa)`. Then
 
 ```text
-dq*/dD = a(kappa) - h(kappa).
+beta(kappa) = dq*/dD = a(kappa) - h(kappa).
 ```
 
-This is the paper's previously asserted `selection minus screening` slope, now
-derived from a bank optimization problem.
+`a` is the deterioration in the pool caused by price sorting. `h` is the
+quality improvement caused by the optimal increase in screening. `h` is not
+screening effort; it is the strength with which a higher price changes quality
+through the optimized screening decision.
 
-## 3. Threshold proof
+## 8. Threshold proposition and proof
 
-Let `f(kappa) = a(kappa)-h(kappa)`. Under continuity, endpoint crossing gives
-at least one root by the intermediate value theorem. Since `a' < 0` and
-`h' > 0`, `f' = a'-h' < 0`, so the root is unique. Strict monotonicity also
-immediately gives the sign on each side.
+Let `f(kappa)=a(kappa)-h(kappa)`. Assume:
 
-The cross-partial is the same derivative:
+1. `e*` is interior and `q*` lies in `(0,1)` on the admissible domain.
+2. `a` and `h` are continuous.
+3. `a'(kappa) < 0`.
+4. `h'(kappa) > 0`.
+5. `a(0) > h(0)` and `a(1) < h(1)`.
+
+By continuity and endpoint crossing, the intermediate value theorem gives at
+least one root `kappa_star` of `f`. Since
+
+```text
+f'(kappa) = a'(kappa) - h'(kappa) < 0,
+```
+
+`f` is strictly decreasing, so the root is unique. The sign of `f` is positive
+below the root and negative above it. The cross-partial is
 
 ```text
 d^2 q*/(dD dkappa) = a'(kappa)-h'(kappa) < 0.
 ```
 
-## 4. The condition that cannot be hidden
+## 9. The substantive condition that must remain visible
 
-Because `h = g^2/c`, logarithmic differentiation gives
+Because `h=g^2/c`, logarithmic differentiation gives
 
 ```text
 h'/h = 2g'/g - c'/c.
 ```
 
-Therefore `h' > 0` requires `2g'/g > c'/c`. If opacity only raises screening
-cost `c`, the screening leverage falls and the proposed reversal becomes less
-likely. The defensible interpretation is that opacity creates more latent
-heterogeneity, so an extra unit of investigation has a larger marginal
-information gain `g`; that gain must rise fast enough to dominate cost.
+Therefore `h'>0` requires `2g'/g > c'/c`. If opacity only raises screening
+cost, screening leverage falls and the sign reversal becomes less likely. The
+economic hypothesis is narrower: opacity creates enough latent heterogeneity
+that an extra unit of investigation becomes more informative, and this rise in
+information value dominates the rise in cost.
 
-This condition is sufficient and testable. It should never be presented as an
-automatic consequence of opacity.
+This is a maintained, falsifiable sufficient condition. It is not automatic
+and is not part of the definition of opacity.
 
-## 5. General repayment function
+## 10. Mapping origination risk to the NPL ratio
 
-With any differentiable increasing repayment `R(D)`, the solution becomes
+The theory and the measured outcome are deliberately different:
+
+- `q*_{jst}` is the default probability attached to new credit at origination.
+- `NPL_{js,t+h}` is a later stock ratio for the whole portfolio cell.
+
+The forecasting bridge is
 
 ```text
-e* = g R(D)/c,
-q* = q_bar + aD - h R(D),
+NPL_{js,t+h} = alpha_h + rho_h q*_{jst} + u_{js,t+h},  rho_h > 0.
+```
+
+Under this monotone link, the sign of the predictive response to `D` is the
+sign of `rho_h beta(kappa)`, and therefore the sign of `beta`. This bridge must
+be tested; it is not an identity or a causal structural equation.
+
+## 11. Boundary solutions and robustness
+
+If the unconstrained effort lies outside `[0,e_bar]`, the actual solution is
+
+```text
+e_c(D,kappa) = min{e_bar, max{0, g(kappa)[R_bar+D]/c(kappa)}}.
+```
+
+The derivative changes at the corners, so Proposition 1 is stated for the
+interior region. The simulation checks this restriction over an explicit
+parameter grid.
+
+With a differentiable increasing payoff `R(D)`, the solution becomes
+
+```text
+e* = g R(D)/c
+q* = q_bar + aD - h R(D)
 dq*/dD = a - h R'(D).
 ```
 
-The linear specification normalizes `R'(D)=1`. The general threshold compares
-selection with `h(kappa)R'(D)` and may depend on `D` if `R'` is not constant.
+The linear specification normalizes `R'(D)=1`. With nonlinear repayment, the
+threshold compares selection with `h(kappa)R'(D)` and can depend on `D`.
 
-## 6. What the model does not claim
+## 12. What the model does not claim
 
 - It does not identify a causal effect of raising a bank's price.
+- It does not equate the origination probability `q*` with the stock NPL ratio.
 - It does not claim the empirical opacity proxy equals structural `kappa`.
-- It does not prove that a threshold exists without the endpoint inequalities.
-- It does not say costly screening is the negative channel.
-- It does not yet solve an oligopoly pricing equilibrium. The compact first
-  stage establishes existence while the contribution focuses on screening and
-  the conditional price-quality signal.
+- It does not prove a threshold without continuity, monotonicity, and endpoint
+  crossing.
+- It does not say costly screening creates the negative channel.
+- It establishes existence, but not a closed-form oligopoly price `D*`.
