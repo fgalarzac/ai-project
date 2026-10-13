@@ -1,59 +1,164 @@
-% Topic document -- 2 to 4 pages in THIS format (11pt, 1-inch margins).
-% It accompanies the 20-minute topic presentation.
+% Topic document -- 2 to 4 pages, 11pt, 1-inch margins.
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
-\usepackage{xcolor}
+\usepackage{booktabs}
 \usepackage[round]{natbib}
 \usepackage[colorlinks=true,allcolors=blue!50!black]{hyperref}
+\setlength{\bibsep}{2pt}
 
-\newcommand{\replace}[1]{\par\smallskip\noindent
-  \fcolorbox{orange!80!black}{yellow!12}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-  \small\textbf{Replace.} #1}}\par\smallskip}
-
-\title{Project Topic: Your Working Title}
-\author{Your Name \\ \small\url{https://github.com/your-user/ai-project}}
-\date{Topic presentation, October 2026}
+\title{When Can a Higher Loan Spread Predict Lower Delinquency?\\
+\large Endogenous Screening under Borrower Opacity}
+\author{Fabián Matías Galarza Chumbe\\
+\small\url{https://github.com/fgalarzac/ai-project}}
+\date{Topic presentation, October 14, 2026}
 
 \begin{document}
 \maketitle
 
 \section{The question and the track}
-\replace{One paragraph. The question in one sentence, and the track:
-\textbf{Track A} --- you relax an assumption of a course paper and re-derive the
-proposition it affects; or \textbf{Track B} --- you formulate the economic model
-behind your own thesis.}
 
-\section{The baseline and the assumption you change}
-\replace{Track A: cite the paper, the exact proposition and page, and state the
-assumption you relax, in the paper's notation. Track B: state the model your
-thesis currently lacks or cites as a black box. Write the agent's problem
-formally --- what is maximised, over which variable, under which constraints.}
+\textbf{Question.} When does a bank's loan rate, measured relative to peers in
+the same product, maturity, currency, and month, predict lower rather than
+higher future delinquency? This is a \textbf{Track B} project: it supplies the
+missing agent problem behind my thesis on Peruvian commercial banks. The thesis
+currently writes the predictive slope as a reduced-form difference between an
+adverse-selection channel and a screening channel. The adaptation below makes
+the bank choose screening, derives both channels from primitives, and states
+the condition under which their ranking reverses with borrower opacity. The
+object is a forecasting mechanism, not a causal effect of changing a posted
+rate.
 
-\section{The result you expect}
-\replace{Write the first-order condition you expect to obtain, and say which
-result of the baseline you expect to change and in which direction. This is a
-conjecture: it is graded on being precise, not on being right.}
+\section{The baseline and the model the thesis currently lacks}
 
-\begin{equation}\label{eq:foc}
-  \frac{\partial}{\partial e}\Bigl[\, a e - \tfrac{c}{2} e^{2} \Bigr]
-  \;=\; a - c e \;=\; 0 .
+The ingredients exist separately. In \citet{varian1980}, informed and
+uninformed buyers generate price dispersion. In \citet{broecker1990}, banks
+with imperfect credit tests compete in interest rates, and a rate cut can
+improve the attracted pool. \citet{ruckes2004} endogenizes screening intensity
+and obtains an inverse-U response to the prior probability of a good borrower.
+\citet{dellariccia2006} shows how information asymmetries across banks can
+switch an equilibrium between screening and pooling. My adaptation combines a
+relative-price sorting margin with a continuous screening choice and makes
+borrower opacity the moderator.
+
+Let \(D\in\mathcal D=[\underline D,\overline D]\) be the bank's spread
+relative to its peers and \(\kappa\in[0,1]\) the opacity of the borrower
+segment. The game has two stages. First, the bank posts \(D\) and receives
+continuous loan demand \(L(D,\kappa)>0\), with \(L_D<0\). Second, after observing the
+applicant pool, it chooses screening effort \(e\in[0,\bar e]\). Before
+screening, the probability of default among potential originations is
+\begin{equation}
+q^0(D,\kappa)=\bar q+a(\kappa)D, \qquad a(\kappa)>0.
+\label{eq:pool}
 \end{equation}
+The coefficient \(a\) is the sorting effect of a relative price: a higher
+spread loses comparison shoppers and worsens the remaining pool. Screening
+lowers default according to
+\begin{equation}
+q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e,
+\label{eq:quality}
+\end{equation}
+and costs \(c(\kappa)e^2/2\) per loan. A performing loan pays
+\(R(D)=\bar R+D>0\), while \(F\) collects funding and operating costs that do
+not depend on screening. The bank's problem is
+\begin{equation}
+\max_{D\in\mathcal D}\;L(D,\kappa)
+\left\{\max_{e\in[0,\bar e]}
+ [1-q^0(D,\kappa)+g(\kappa)e]R(D)-F-
+ \frac{c(\kappa)}2e^2\right\}.
+\label{eq:problem}
+\end{equation}
+Compactness and continuity give a first-stage solution. The proposed result is
+about the continuation quality map \(q^*(D,\kappa)\), which is defined for any
+observed relative price, including the equilibrium price and price variation
+generated by bank-specific cost or markup shocks. This keeps the forecasting
+claim separate from a causal comparative static of \(D^*\).
+
+\section{The result I expect}
+
+For an interior screening choice, the first- and second-order conditions are
+\begin{equation}
+g(\kappa)R(D)-c(\kappa)e=0,
+\qquad \frac{\partial^2\pi}{\partial e^2}=-c(\kappa)<0.
+\label{eq:foc}
+\end{equation}
+Thus
+\begin{equation}
+e^*(D,\kappa)=\frac{g(\kappa)}{c(\kappa)}(\bar R+D),
+\quad
+q^*(D,\kappa)=\bar q+a(\kappa)D-h(\kappa)(\bar R+D),
+\quad
+h(\kappa)\equiv\frac{g(\kappa)^2}{c(\kappa)}.
+\label{eq:solution}
+\end{equation}
+The new object \(h\) is \emph{screening leverage}: the effect on portfolio
+quality of the screening response induced by a larger loan payoff.
+
+\textbf{Candidate Proposition 1 (opacity threshold).} Suppose: (i) the
+solution is interior and \(q^*\in(0,1)\); (ii) \(a\) and \(h\) are continuous;
+(iii) \(a'(\kappa)<0\); (iv) \(h'(\kappa)>0\), equivalently
+\(2g'(\kappa)/g(\kappa)>c'(\kappa)/c(\kappa)\); and (v)
+\(a(0)>h(0)\) while \(a(1)<h(1)\). Then there is a unique
+\(\kappa^*\in(0,1)\) satisfying \(a(\kappa^*)=h(\kappa^*)\), and
+\begin{equation}
+\beta(\kappa)\equiv\frac{\partial q^*}{\partial D}
+=a(\kappa)-h(\kappa)
+\begin{cases}
+>0,&\kappa<\kappa^*,\\
+=0,&\kappa=\kappa^*,\\
+<0,&\kappa>\kappa^*.
+\end{cases}
+\qquad
+\frac{\partial^2q^*}{\partial D\partial\kappa}=a'-h'<0.
+\label{eq:threshold}
+\end{equation}
+The proof is the intermediate value theorem plus strict monotonicity. If future
+delinquency satisfies \(m_{t+s}=\rho_s q_t^*+\varepsilon_{t+s}\), with
+\(\rho_s>0\), its predictive slope has the same sign. Importantly, higher
+screening cost alone makes \(h\) smaller and cannot deliver the reversal. The
+economic restriction is that opacity raises the marginal information gain
+enough to dominate any increase in cost. This is a falsifiable sufficient
+condition, not a definition disguised as a result.
 
 \section{Why this is not already solved}
-\replace{Where you looked: the paper's appendices, its working-paper versions,
-and the papers that cite it. Say what you found and why it does not answer your
-question. ``The model did not find it'' is not evidence.}
+
+I checked the model and appendices of the accessible 2004 version of
+\citet{ruckes2004}, the 2005 working-paper record and the full IMF reprint of
+\citet{dellariccia2006}, and the stated equilibrium result of
+\citet{broecker1990}. Broecker fixes the testing technology and studies how
+rate competition sorts borrowers. Ruckes solves for screening intensity and
+mixed loan pricing as economic prospects change, but does not characterize the
+sign of relative price as a default signal across opacity segments.
+Dell'Ariccia and Marquez vary information asymmetry across banks and derive
+screening-versus-pooling regimes, not a continuous price-to-quality derivative.
+Varian supplies the shopper/captive-buyer logic but has neither screening nor
+default. The proposed derivative \(a(\kappa)-h(\kappa)\), its threshold, and
+the distinction between costly screening and valuable screening therefore do
+not appear in those baselines.
 
 \section{Plan and risks}
-\replace{What you will prove, what you will simulate, and what you will
-formalize in Lean. Name the step most likely to fail and what you will do if it
-does.}
 
+I will prove Proposition 1 and a robustness version with a general increasing
+repayment function \(R(D)\), simulate the full parameter region rather than a
+single calibration, and formalize the threshold theorem in Lean after freezing
+the paper proposition. The code already checks the FOC, SOC, crossing,
+monotonicity, interiority, and probability bounds for a transparent
+calibration. The empirical thesis will map the theoretical \(\kappa\) to
+pre-specified segment-level opacity proxies and test out-of-sample forecasts;
+it will not label the estimated coefficient causal.
+
+The main risk is condition (iv). If the data or a richer signal technology do
+not support increasing screening leverage, I will not force a sign reversal.
+The fallback result will characterize three regions, \(a>h\), \(a=h\), and
+\(a<h\), and treat the existence of a threshold as an estimable restriction.
+A second risk is an endogenous-price confound; the fallback is to keep the
+theorem explicitly conditional on observed \(D\), add bank and
+segment-by-month controls, and interpret the exercise only as forecasting.
+
+\small
 \bibliographystyle{plainnat}
 \bibliography{../paper/references}
-\nocite{acemoglu2018race}
 
 \end{document}
