@@ -9,7 +9,10 @@
 \usetheme{default}
 \usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{footline}{%
+  \hfill\usebeamerfont{page number in head/foot}%
+  \insertframenumber\,/\,\inserttotalframenumber\hspace{1em}\vskip2pt%
+}
 \setbeamerfont{frametitle}{size=\large,series=\bfseries}
 \setbeamercolor{structure}{fg=blue!50!black}
 \setbeamercolor{alerted text}{fg=orange!75!black}
@@ -382,7 +385,10 @@
 
 \begin{frame}{4 · Where the contribution sits in the literature}
   \scriptsize
-  \begin{tabular}{p{0.18\textwidth} p{0.33\textwidth} p{0.40\textwidth}}
+  \begin{tabular}{
+    >{\raggedright\arraybackslash}p{0.18\textwidth}
+    >{\raggedright\arraybackslash}p{0.33\textwidth}
+    >{\raggedright\arraybackslash}p{0.40\textwidth}}
     \toprule
     \textbf{Baseline} & \textbf{What it contributes} & \textbf{What this project adds} \\
     \midrule
