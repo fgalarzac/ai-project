@@ -72,3 +72,35 @@ Higher screening cost alone cannot generate the negative slope.
 **What I did with it:** Accepted after correcting the original thesis
 narrative. The correction is explicit in the README, proposal, slides, code,
 speaker notes, and defense Q&A.
+
+## 4. October 13, 2026 — add context and expand to 25 minutes
+
+**Prompt**
+
+```text
+De cara a la presentación y al read me, tienes que poner mayor contexto.
+Recuerda que le estás explicando a alguien como si este no supiera del tema.
+Define cada variable. Haz énfasis en el modelo y explícalo mejor, a detalle.
+No uses “deliquency”, ese término está mal. Considera, mejor, 25 minutos de
+presentación. Lo de ahora está muy corto. Arma bien la presentación de modo en
+el que se pueda lograr los objetivos de la presentación y sacar la mayor nota
+posible. Actualiza los demás puntos del repositorio en caso corresponda (de
+cara al topic presentation). El modelo debe quedar claro. Genera también los
+otros outputs adicionales que hiciste (como guion o preparación de preguntas).
+```
+
+**Relevant answer**
+
+```text
+The observed outcome is now called the non-performing loan ratio (NPL ratio),
+while q0, q, and q* are theoretical default probabilities. The README,
+proposal, and 25-minute deck define every index, choice, parameter, and
+intermediate object; derive the screening FOC step by step; distinguish
+origination risk from a future portfolio stock ratio; and state the model's
+non-causal scope. The supporting materials now include a timed Spanish script,
+an expanded defense Q&A, and a one-page formula cheat sheet.
+```
+
+**What I did with it:** Accepted. The topic materials now assume no prior
+knowledge, devote most of the presentation to the agent problem and its
+derivation, and use NPL-ratio terminology consistently.

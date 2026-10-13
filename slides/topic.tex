@@ -1,12 +1,11 @@
-% Topic presentation -- 20 minutes.
+% Topic presentation -- designed for 25 minutes including a short buffer.
 \documentclass[aspectratio=169,11pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{amsmath,amssymb}
-\usepackage{booktabs}
+\usepackage{booktabs,array}
 \usepackage{graphicx}
-\usepackage{array}
 \usetheme{default}
 \usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
@@ -16,8 +15,9 @@
 \setbeamercolor{alerted text}{fg=orange!75!black}
 \newcommand{\selection}{\textcolor{blue!60!black}{selection}}
 \newcommand{\screening}{\textcolor{orange!80!black}{screening}}
+\newcommand{\npl}{\operatorname{NPL}}
 
-\title{When Can a Higher Loan Spread\\Predict Lower Delinquency?}
+\title{Relative Loan Pricing as an Early-Warning Signal\\of Non-Performing Loans}
 \subtitle{Endogenous screening under borrower opacity · Track B}
 \author{Fabián Matías Galarza Chumbe}
 \date{October 14, 2026}
@@ -32,242 +32,401 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{1 · Question and track}
-  \Large
-  When does a bank's \alert{relative loan spread} predict a safer rather than
-  a riskier future portfolio?
-
-  \vspace{1.0em}
-  \normalsize
+\begin{frame}{1 · Why should we care?}
   \begin{columns}[T,onlytextwidth]
-    \column{0.48\textwidth}
-      \textbf{Object observed today}
-      \[
-        D_{jst}=i_{jst}-\operatorname{median}_{k\ne j} i_{kst}
-      \]
-    \column{0.48\textwidth}
-      \textbf{Outcome observed later}
-      \[
-        m_{js,t+h}=\text{delinquency rate}
-      \]
+    \column{0.53\textwidth}
+      \textbf{The information problem}
+      \begin{itemize}
+        \item Loan prices are observed when credit is originated.
+        \item Portfolio risk becomes visible only after loans mature.
+        \item A supervisor therefore needs an \alert{early-warning signal}.
+      \end{itemize}
+    \column{0.43\textwidth}
+      \begin{block}{Outcome to forecast}
+        \centering
+        \(\npl=\dfrac{\text{non-performing balance}}
+        {\text{total outstanding balance}}\)
+      \end{block}
+      \small The exact non-performing classification follows the data
+      provider's definition.
   \end{columns}
-  \vspace{0.4em}
-  \textbf{Track B:} formalize the missing bank problem behind my thesis on
-  Peruvian commercial banking.
+  \vfill
+  \centering
+  A high lending rate can reflect \textbf{riskier applicants} or
+  \textbf{stronger bank screening}. Which signal wins?
 \end{frame}
 
-\begin{frame}{1 · Why the sign is not obvious}
+\begin{frame}{1 · Research question and contribution}
+  \Large
+  When does a higher loan spread relative to peer banks predict a
+  \alert{higher} future NPL ratio---and when can it predict a \alert{lower} one?
+
+  \vspace{0.8em}
+  \normalsize
+  \begin{block}{Track B adaptation}
+    The thesis proposed selection minus screening in reduced form. This project
+    adds the bank's screening choice, derives the sign from a first-order
+    condition, and identifies an opacity threshold.
+  \end{block}
+  \begin{alertblock}{Interpretation boundary}
+    This is a forecasting mechanism conditional on an observed price, not the
+    causal effect of forcing a bank to raise its lending rate.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{1 · Constructing the price signal}
+  \small
+  For bank \(j\), credit segment \(s\), and month \(t\):
+  \[
+    s_{jst}=i_{jst}-r_t,
+    \qquad
+    D_{jst}=s_{jst}-\operatorname{median}_{k\ne j}\{s_{kst}\}.
+  \]
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \begin{tabular}{@{}ll@{}}
+        \(i_{jst}\) & bank lending rate \\
+        \(r_t\) & policy rate \\
+        \(s_{jst}\) & spread over policy \\
+        \(D_{jst}\) & deviation from peer median \\
+        \(k\) & another bank in the peer group
+      \end{tabular}
+    \column{0.46\textwidth}
+      \begin{block}{Illustrative example}
+        Lending rate: 18\% \quad Policy rate: 5\%\\
+        Bank spread: 13\% \quad Peer median: 11\%\\[0.3em]
+        \centering\alert{\(D=13\%-11\%=2\) percentage points}
+      \end{block}
+  \end{columns}
+  \vfill
+  \footnotesize Comparison is within product, maturity, currency, and month.
+\end{frame}
+
+\begin{frame}{1 · Why the sign is ambiguous}
   \begin{columns}[T,onlytextwidth]
     \column{0.47\textwidth}
       \begin{block}{\selection\ channel}
-        A higher relative price loses comparison shoppers and can leave a
-        worse applicant pool.
+        A bank priced above peers loses comparison shoppers and may be left
+        with a riskier applicant pool.
         \[
           \frac{\partial q^0}{\partial D}=a(\kappa)>0
         \]
+        Higher \(D\) \(\Rightarrow\) higher pre-screen risk.
       \end{block}
     \column{0.47\textwidth}
       \begin{block}{\screening\ channel}
-        A higher performing-loan payoff raises the return to screening and can
-        improve booked quality.
+        A performing loan is more valuable at a higher price, so preventing
+        default through screening becomes more valuable.
         \[
           \frac{\partial e^*}{\partial D}>0
         \]
+        Higher \(D\) \(\Rightarrow\) more screening.
       \end{block}
   \end{columns}
   \vfill
   \centering
-  \alert{Borrower opacity changes which mechanism dominates.}
+  \alert{Borrower opacity changes the relative strength of these channels.}
 \end{frame}
 
-\begin{frame}{2 · Model: timing and primitives}
+\begin{frame}{2 · Timing: who chooses what, and when?}
   \begin{enumerate}
-    \item Segment opacity \(\kappa\in[0,1]\) is observed.
-    \item The bank posts \(D\in[\underline D,\overline D]\) and faces
-          demand \(L(D,\kappa)\), with \(L_D<0\).
-    \item Its applicant pool has pre-screen default probability
-          \[
-            q^0(D,\kappa)=\bar q+a(\kappa)D.
-          \]
-    \item The bank chooses screening \(e\in[0,\bar e]\), producing
-          \[
-            q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e.
-          \]
+    \item A borrower segment with opacity \(\kappa\) is given.
+    \item The bank posts relative spread \(D\) and faces potential volume
+          \(L(D,\kappa)\).
+    \item Price sorting creates an applicant pool with risk \(q^0(D,\kappa)\).
+    \item After observing the pool, the bank chooses screening effort \(e\).
+    \item Screening produces booked risk \(q(D,e,\kappa)\).
+    \item At horizon \(h\), the portfolio NPL ratio is observed.
   \end{enumerate}
-  \vspace{0.3em}
-  A performing loan pays \(R(D)=\bar R+D\). Screening costs
-  \(c(\kappa)e^2/2\) per loan.
+  \vfill
+  \begin{block}{Why this order matters}
+    \(D\) is predetermined inside the screening subgame, so the bank's effort
+    response can be solved cleanly and then mapped to future portfolio risk.
+  \end{block}
 \end{frame}
 
-\begin{frame}{2 · Model: the bank's problem}
+\begin{frame}{2 · Notation I: state, choices, and probabilities}
+  \small
+  \begin{tabular}{>{\(}l<{\)} p{0.78\textwidth}}
+    \toprule
+    \text{Symbol} & \textbf{Meaning} \\
+    \midrule
+    \kappa\in[0,1] & opacity of the borrower segment; higher means harder to compare \\
+    D\in\mathcal D & relative spread chosen by the bank; \(\mathcal D\) is compact \\
+    L(D,\kappa) & potential loan volume, with \(L_D<0\) \\
+    \bar q & baseline default probability \\
+    q^0(D,\kappa) & default probability before screening \\
+    e\in[0,\bar e] & screening effort and its maximum feasible level \\
+    q(D,e,\kappa) & default probability after screening \\
+    \bottomrule
+  \end{tabular}
+  \vfill
+  \centering
+  \(\kappa\) is an economic characteristic of a segment; it is not the
+  peer-bank index \(k\) used in the median.
+\end{frame}
+
+\begin{frame}{2 · Notation II: technology, payoffs, and result}
+  \small
+  \begin{tabular}{>{\(}l<{\)} p{0.76\textwidth}}
+    \toprule
+    \text{Symbol} & \textbf{Meaning} \\
+    \midrule
+    a(\kappa)>0 & sensitivity of pre-screen risk to the relative spread \\
+    g(\kappa)>0 & reduction in default probability from one unit of effort \\
+    c(\kappa)>0 & convex screening-cost shifter \\
+    R(D)=\bar R+D & payoff if the loan performs \\
+    F & funding and operating cost independent of effort \\
+    h(\kappa)=g(\kappa)^2/c(\kappa) & screening leverage; not effort itself \\
+    \beta(\kappa) & optimized risk slope \(\partial q^*/\partial D\) \\
+    \kappa^* & opacity at which \(\beta(\kappa^*)=0\) \\
+    \bottomrule
+  \end{tabular}
+  \vfill
+  \footnotesize Rates and probabilities are written as decimals; model
+  parameters are restricted so all probabilities remain in \((0,1)\).
+\end{frame}
+
+\begin{frame}{2 · Step 1: price sorting forms the pool}
+  \[
+    \boxed{q^0(D,\kappa)=\bar q+a(\kappa)D},
+    \qquad a(\kappa)>0.
+  \]
+  \begin{itemize}
+    \item \(q^0\): probability of default among applicants \emph{before}
+          the bank screens them.
+    \item \(\bar q\): baseline risk when the bank is priced at the peer median,
+          \(D=0\).
+    \item \(a(\kappa)\): how strongly the composition of applicants changes
+          when the bank moves above or below peers.
+  \end{itemize}
+  \vfill
+  \begin{block}{Maintained selection restriction}
+    \(a'(\kappa)<0\): price sorting is weaker in more opaque segments because
+    applicants are assumed to compare offers less effectively.
+  \end{block}
+\end{frame}
+
+\begin{frame}{2 · Step 2: screening changes booked risk}
+  \[
+    \boxed{q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e}
+  \]
+  \begin{columns}[T,onlytextwidth]
+    \column{0.50\textwidth}
+      \textbf{Technology}
+      \begin{itemize}
+        \item \(e\): investigation, verification, and underwriting effort.
+        \item \(g(\kappa)e\): reduction in default probability.
+        \item \(g>0\): more effort improves booked quality.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \textbf{Cost}
+      \[
+        C(e,\kappa)=\frac{c(\kappa)}{2}e^2
+      \]
+      Convexity means each additional unit of effort is more expensive than
+      the previous one.
+  \end{columns}
+  \vfill
+  \footnotesize Interiority requires \(0<e^*(D,\kappa)<\bar e\); the code
+  verifies it over the illustrative parameter grid.
+\end{frame}
+
+\begin{frame}{2 · The bank's complete two-stage problem}
   \small
   \[
   \max_{D\in\mathcal D}\;L(D,\kappa)
   \left\{\max_{e\in[0,\bar e]}
-  \underbrace{[1-q^0(D,\kappa)+g(\kappa)e](\bar R+D)}_{\text{expected repayment}}
-  -F-\frac{c(\kappa)}2e^2\right\}.
+  \underbrace{[1-q^0(D,\kappa)+g(\kappa)e](\bar R+D)}_{\text{expected performing-loan payoff}}
+  -\underbrace{F}_{\text{other cost}}
+  -\underbrace{\frac{c(\kappa)}2e^2}_{\text{screening cost}}
+  \right\}.
   \]
-
-  \vspace{0.8em}
   \begin{itemize}
-    \item The compact price set closes the first stage.
-    \item The proposition concerns \(q^*(D,\kappa)\), the quality map
-          conditional on an observed price.
-    \item This is a forecasting statement, not a causal effect of forcing a
-          bank to change \(D\).
+    \item The outer problem chooses the relative price and loan volume.
+    \item The inner problem chooses screening after the pool is observed.
+    \item A compact \(\mathcal D\) and continuity give a first-stage solution.
   \end{itemize}
+  \vfill
+  \begin{alertblock}{Scope of the proposition}
+    I solve the inner problem exactly. The result is the conditional quality
+    map \(q^*(D,\kappa)\), not a closed-form oligopoly price \(D^*\).
+  \end{alertblock}
 \end{frame}
 
-\begin{frame}{3 · Screening FOC and closed form}
+\begin{frame}{3 · Solving the screening decision}
+  \textbf{Marginal benefit = marginal cost:}
   \[
     \frac{\partial\pi}{\partial e}
-    =g(\kappa)(\bar R+D)-c(\kappa)e=0,
-    \qquad
-    \frac{\partial^2\pi}{\partial e^2}=-c(\kappa)<0.
+    =\underbrace{g(\kappa)(\bar R+D)}_{\text{benefit of one more effort unit}}
+    -\underbrace{c(\kappa)e}_{\text{marginal effort cost}}=0.
   \]
   \[
-    \boxed{e^*(D,\kappa)=\frac{g(\kappa)}{c(\kappa)}(\bar R+D)}
+    \frac{\partial^2\pi}{\partial e^2}=-c(\kappa)<0
+    \quad\Rightarrow\quad
+    \boxed{e^*(D,\kappa)=\frac{g(\kappa)}{c(\kappa)}(\bar R+D)}.
   \]
+  \vfill
+  \begin{block}{Economic comparative static}
+    \[
+      \frac{\partial e^*}{\partial D}=\frac{g(\kappa)}{c(\kappa)}>0.
+    \]
+    A larger payoff from a performing loan makes screening more valuable.
+  \end{block}
+\end{frame}
+
+\begin{frame}{3 · Substitution reveals the two forces}
+  Substitute optimal effort into the risk technology:
   \[
-    \boxed{q^*(D,\kappa)=\bar q+a(\kappa)D
-    -\underbrace{\frac{g(\kappa)^2}{c(\kappa)}}_{h(\kappa)}(\bar R+D)}
+    q^*(D,\kappa)=\bar q+a(\kappa)D
+    -\underbrace{\frac{g(\kappa)^2}{c(\kappa)}}_{h(\kappa)}(\bar R+D).
   \]
-  \vspace{0.3em}
+  Differentiate with respect to the observed relative spread:
+  \[
+    \boxed{\beta(\kappa)=\frac{\partial q^*}{\partial D}
+      =\underbrace{a(\kappa)}_{\selection:\;pool\ worsens}
+      -\underbrace{h(\kappa)}_{\screening:\;quality\ improves}.}
+  \]
+  \vfill
   \centering
-  \(h(\kappa)\) is \alert{screening leverage}, not screening effort itself.
+  \(\beta>0\): high price predicts more risk. \quad
+  \(\beta<0\): high price predicts less risk.
 \end{frame}
 
-\begin{frame}{3 · Candidate Proposition 1}
-  Assume interiority, feasible probabilities, continuity, and
+\begin{frame}{3 · Candidate Proposition 1: an opacity threshold}
+  \small
+  Assume interiority and feasible probabilities, plus
   \[
-    a'(\kappa)<0, \qquad h'(\kappa)>0, \qquad
-    a(0)>h(0), \quad a(1)<h(1).
+    a,h\text{ continuous},\quad a'(\kappa)<0,\quad h'(\kappa)>0,
+    \quad a(0)>h(0),\quad a(1)<h(1).
   \]
-  Then a unique \(\kappa^*\in(0,1)\) solves \(a(\kappa^*)=h(\kappa^*)\), and
+  Then one and only one \(\kappa^*\in(0,1)\) solves
+  \(a(\kappa^*)=h(\kappa^*)\), and
   \[
-    \boxed{\beta(\kappa)\equiv\frac{\partial q^*}{\partial D}
-      =a(\kappa)-h(\kappa)}
+    \beta(\kappa)
+    \begin{cases}
+      >0,&\kappa<\kappa^*,\\
+      =0,&\kappa=\kappa^*,\\
+      <0,&\kappa>\kappa^*.
+    \end{cases}
+    \qquad
+    \frac{\partial^2q^*}{\partial D\partial\kappa}=a'-h'<0.
   \]
-  is positive below \(\kappa^*\), zero at \(\kappa^*\), and negative above it.
-  Moreover,
-  \[
-    \frac{\partial^2q^*}{\partial D\partial\kappa}=a'(\kappa)-h'(\kappa)<0.
-  \]
+  \vfill
+  \textbf{Proof idea:} continuity plus endpoint crossing gives existence;
+  strict monotonicity of \(a-h\) gives uniqueness.
 \end{frame}
 
-\begin{frame}{3 · What the key condition really says}
+\begin{frame}{3 · The key restriction---and the important correction}
   \begin{columns}[c,onlytextwidth]
-    \column{0.48\textwidth}
+    \column{0.47\textwidth}
       \[
-        h(\kappa)=\frac{g(\kappa)^2}{c(\kappa)},
-        \qquad
-        h'>0
+        h(\kappa)=\frac{g(\kappa)^2}{c(\kappa)}
       \]
-      is equivalent to
+      Log differentiation gives
       \[
-        2\frac{g'}{g}>\frac{c'}{c}.
+        \frac{h'}{h}=2\frac{g'}{g}-\frac{c'}{c}.
       \]
-      \begin{alertblock}{Correction to the thesis narrative}
-        Higher screening cost alone cannot create the negative slope. Opacity
-        must raise the marginal information gain enough to dominate its cost.
-      \end{alertblock}
     \column{0.49\textwidth}
-      \centering
+      \begin{alertblock}{What is required}
+        \(h'>0\) only if the marginal information gain \(g\) grows fast enough
+        to dominate any rise in screening cost \(c\).
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.7em}
+  \begin{block}{What is \emph{not} true}
+    Higher screening cost by itself does not generate a safer high-price bank.
+    It lowers \(h\) and makes screening less likely to dominate selection.
+  \end{block}
+  \centering
+  This visible, falsifiable condition is the conceptual improvement over the
+  thesis's reduced-form statement.
+\end{frame}
+
+\begin{frame}{3 · Illustrative calibration: not empirical evidence}
+  \begin{columns}[c,onlytextwidth]
+    \column{0.61\textwidth}
       \includegraphics[width=\linewidth]{../code/figures/opacity_threshold.pdf}
+    \column{0.35\textwidth}
+      \small
+      \begin{itemize}
+        \item Blue: selection \(a(\kappa)\) falls.
+        \item Orange: leverage \(h(\kappa)\) rises.
+        \item Their crossing creates \(\kappa^*\approx0.64\).
+        \item Right panel: \(\beta=a-h\) changes sign once.
+      \end{itemize}
+      \vspace{0.5em}
+      \alert{Purpose:} verify logic, bounds, and a non-empty parameter region.
   \end{columns}
 \end{frame}
 
-\begin{frame}{3 · From origination quality to future delinquency}
-  Let future observed delinquency satisfy
+\begin{frame}{3 · From origination risk to the future NPL ratio}
   \[
-    m_{j,s,t+h}=\rho_h q^*_{j,s,t}+\varepsilon_{j,s,t+h},
+    \boxed{\npl_{js,t+h}=\alpha_h+\rho_h q^*_{jst}+u_{js,t+h}},
     \qquad \rho_h>0.
   \]
-  Then
-  \[
-    \operatorname{sign}\left(
-    \frac{\partial\mathbb E_t[m_{j,s,t+h}]}{\partial D_{j,s,t}}
-    \right)
-    =\operatorname{sign}[a(\kappa_s)-h(\kappa_s)].
-  \]
-  \vspace{0.7em}
   \begin{itemize}
-    \item \(D\) is computed within product, maturity, currency, and month.
-    \item \(\kappa_s\) is an ordinal segment-opacity proxy, not a directly
-          estimated structural primitive.
-    \item The empirical exercise compares out-of-sample forecasts.
+    \item \(q^*_{jst}\): theoretical default probability attached to new
+          lending at origination.
+    \item \(\npl_{js,t+h}\): later stock ratio for the portfolio cell.
+    \item \(\alpha_h\): horizon-specific baseline; \(u_{js,t+h}\): other shocks.
+    \item \(\rho_h>0\): riskier originations weakly worsen the later portfolio.
   \end{itemize}
+  \vfill
+  \begin{block}{Testable implication}
+    The predictive slope has sign
+    \(\operatorname{sign}[\rho_h\beta(\kappa)]\). The empirical test asks whether
+    \(D\) improves out-of-sample NPL-ratio forecasts by opacity group and horizon.
+  \end{block}
 \end{frame}
 
-\begin{frame}{4 · Why this is not already solved}
+\begin{frame}{4 · Where the contribution sits in the literature}
+  \scriptsize
+  \begin{tabular}{p{0.18\textwidth} p{0.33\textwidth} p{0.40\textwidth}}
+    \toprule
+    \textbf{Baseline} & \textbf{What it contributes} & \textbf{What this project adds} \\
+    \midrule
+    Varian (1980) & Shoppers and captive buyers generate price dispersion. & Adds bank screening and loan default risk. \\
+    \addlinespace
+    Broecker (1990) & Rate competition interacts with imperfect credit tests. & Makes screening a continuous effort choice. \\
+    \addlinespace
+    Ruckes (2004) & Screening intensity responds to prior borrower quality. & Studies the sign of a relative-price signal across opacity. \\
+    \addlinespace
+    Dell'Ariccia and Marquez (2006) & Information asymmetry generates screening or pooling regimes. & Derives a continuous \(a(\kappa)-h(\kappa)\) decomposition and threshold. \\
+    \bottomrule
+  \end{tabular}
+  \vfill
+  \normalsize
+  \centering
+  \alert{Narrow novelty claim:} relative-price sorting + endogenous screening +
+  a condition for the sign of the forecasting signal.
+\end{frame}
+
+\begin{frame}{5 · Execution plan, risks, and final takeaway}
+  \small
   \begin{columns}[T,onlytextwidth]
+    \column{0.49\textwidth}
+      \textbf{Execution}
+      \begin{enumerate}
+        \item Prove the threshold and a general-\(R(D)\) robustness result.
+        \item Map the full admissible parameter region in simulation.
+        \item Compare rolling out-of-sample NPL-ratio forecasts.
+        \item Formalize the frozen theorem in Lean.
+      \end{enumerate}
     \column{0.47\textwidth}
-      \textbf{Varian (1980)}
-
-      Shoppers and captive buyers generate price dispersion.
-
-      \textcolor{orange!80!black}{Gap:} no screening or default.
-
-      \vspace{0.9em}
-      \textbf{Broecker (1990)}
-
-      Imperfect tests interact with rate competition.
-
-      \textcolor{orange!80!black}{Gap:} testing is not a continuous effort choice.
-    \column{0.47\textwidth}
-      \textbf{Ruckes (2004)}
-
-      Screening responds to business-cycle borrower quality.
-
-      \textcolor{orange!80!black}{Gap:} no opacity threshold for the relative-price signal.
-
-      \vspace{0.9em}
-      \textbf{Dell'Ariccia and Marquez (2006)}
-
-      Interbank information asymmetry selects screening or pooling.
-
-      \textcolor{orange!80!black}{Gap:} no continuous \(\partial q^*/\partial D\) decomposition.
+      \textbf{Risks and disciplined fallbacks}
+      \begin{itemize}
+        \item If \(h'>0\) fails, report the \(a>h\), \(a=h\), and \(a<h\)
+              regions without forcing a threshold.
+        \item If pricing confounds interpretation, retain a predictive design
+              with bank and segment-by-month controls.
+      \end{itemize}
   \end{columns}
   \vfill
-  \footnotesize
-  Checked: model sections and appendices, the working-paper record, and the IMF reprint.
-\end{frame}
-
-\begin{frame}{5 · Proof, simulation, and Lean plan}
-  \begin{enumerate}
-    \item \textbf{Proof:} Proposition 1, then a robustness result for general
-          increasing \(R(D)\).
-    \item \textbf{Simulation:} map the parameter region where \(a-h\) crosses
-          zero and verify interiority and probability bounds.
-    \item \textbf{Forecasting:} evaluate whether \(D\) improves predictions of
-          \(m_{t+h}\) by segment opacity and horizon.
-    \item \textbf{Lean:} formalize the threshold theorem after its assumptions
-          and statement are frozen.
-  \end{enumerate}
-  \vspace{0.5em}
-  Already checked in code: FOC, SOC, monotonicity, unique crossing, effort
-  bounds, and \(q^*\in(0,1)\).
-\end{frame}
-
-\begin{frame}{5 · Main risk and disciplined fallback}
-  \begin{block}{Most likely failure}
-    The maintained condition \(h'(\kappa)>0\) may fail in a richer signal
-    technology or in calibration.
-  \end{block}
-  \begin{block}{Fallback result}
-    Do not force a reversal. Characterize the three identified regions
-    \[
-      a(\kappa)>h(\kappa),\qquad
-      a(\kappa)=h(\kappa),\qquad
-      a(\kappa)<h(\kappa),
-    \]
-    and treat threshold existence as an estimable restriction.
-  \end{block}
-  \vfill
-  \centering
-  \Large
-  The contribution is the \alert{condition for the sign}, not a guaranteed
-  negative coefficient.
+  \begin{alertblock}{Takeaway}
+    The contribution is not “high rates are safe.” It is the explicit condition
+    under which a relative price switches from a risk signal to a screening signal.
+  \end{alertblock}
 \end{frame}
 
 \end{document}

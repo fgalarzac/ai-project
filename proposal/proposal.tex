@@ -1,16 +1,17 @@
-% Topic document -- 2 to 4 pages, 11pt, 1-inch margins.
+% Topic document -- target: 2 to 4 pages, 11pt, 1-inch margins.
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.88in]{geometry}
 \usepackage{amsmath,amssymb}
-\usepackage{booktabs}
+\usepackage{booktabs,array}
 \usepackage{xcolor}
 \usepackage[round]{natbib}
 \usepackage[colorlinks=true,allcolors=blue!50!black]{hyperref}
-\setlength{\bibsep}{2pt}
+\setlength{\bibsep}{1.5pt}
+\setlength{\parskip}{2pt}
 
-\title{When Can a Higher Loan Spread Predict Lower Delinquency?\\
+\title{Relative Loan Pricing as an Early-Warning Signal of Non-Performing Loans\\
 \large Endogenous Screening under Borrower Opacity}
 \author{Fabián Matías Galarza Chumbe\\
 \small\url{https://github.com/fgalarzac/ai-project}}
@@ -18,94 +19,152 @@
 
 \begin{document}
 \maketitle
+\vspace{-1.2em}
 
-\section{The question and the track}
+\section{Question, motivation, and track}
 
-\textbf{Question.} When does a bank's loan rate, measured relative to peers in
-the same product, maturity, currency, and month, predict lower rather than
-higher future delinquency? This is a \textbf{Track B} project: it supplies the
-missing agent problem behind my thesis on Peruvian commercial banks. The thesis
-currently writes the predictive slope as a reduced-form difference between an
-adverse-selection channel and a screening channel. The adaptation below makes
-the bank choose screening, derives both channels from primitives, and states
-the condition under which their ranking reverses with borrower opacity. The
-object is a forecasting mechanism, not a causal effect of changing a posted
-rate.
+A bank supervisor observes loan prices before portfolios mature. Can a bank's
+unusually high price serve as an early-warning signal for its future
+non-performing loan ratio (NPL ratio)? The sign is not obvious. A high price
+can worsen the applicant pool through adverse selection, but it also makes a
+performing loan more valuable and may induce the bank to screen more carefully.
 
-\section{The baseline and the model the thesis currently lacks}
+\textbf{Question.} When does a higher loan spread relative to comparable banks
+predict a higher future NPL ratio, and when can it predict a lower one? This is
+a \textbf{Track B} project. My thesis proposed the two mechanisms in reduced
+form; this adaptation adds the bank's missing optimization problem, derives
+the screening response from primitives, and states the restrictions required
+for the predictive sign to reverse with borrower opacity. The claim is about
+forecasting, not a causal effect of forcing a bank to change its rate.
 
-The ingredients exist separately. In \citet{varian1980}, informed and
-uninformed buyers generate price dispersion. In \citet{broecker1990}, banks
-with imperfect credit tests compete in interest rates, and a rate cut can
-improve the attracted pool. \citet{ruckes2004} endogenizes screening intensity
-and obtains an inverse-U response to the prior probability of a good borrower.
-\citet{dellariccia2006} shows how information asymmetries across banks can
-switch an equilibrium between screening and pooling. My adaptation combines a
-relative-price sorting margin with a continuous screening choice and makes
-borrower opacity the moderator.
-
-Let \(D\in\mathcal D=[\underline D,\overline D]\) be the bank's spread
-relative to its peers and \(\kappa\in[0,1]\) the opacity of the borrower
-segment. The game has two stages. First, the bank posts \(D\) and receives
-continuous loan demand \(L(D,\kappa)>0\), with \(L_D<0\). Second, after observing the
-applicant pool, it chooses screening effort \(e\in[0,\bar e]\). Before
-screening, the probability of default among potential originations is
+Index banks by (j), comparable credit segments by (s), pricing months by
+(t), and forecast horizons by (h). The empirical signal is built in two
+steps:
 \begin{equation}
-q^0(D,\kappa)=\bar q+a(\kappa)D, \qquad a(\kappa)>0.
+s_{jst}=i_{jst}-r_t,
+\qquad
+D_{jst}=s_{jst}-\operatorname{median}_{k\ne j}\{s_{kst}\},
+\label{eq:signal}
+\end{equation}
+where (i_{jst}) is the lending rate, (r_t) the policy rate, (s_{jst})
+the spread over policy, and (D_{jst}) the spread relative to peer banks in
+the same segment and month. Thus (D_{jst}=0.02) means two percentage points
+above the peer median when rates are decimals. The observed outcome is
+\begin{equation}
+\operatorname{NPL}_{js,t+h}
+=\frac{\text{non-performing loan balance}_{js,t+h}}
+       {\text{total outstanding loan balance}_{js,t+h}},
+\label{eq:npl}
+\end{equation}
+using the data provider's loan-classification rule.
+
+\section{Agent problem and economic mechanism}
+
+The model suppresses (j,s,t) to make the mechanism readable. Borrower
+opacity is (kappa\in[0,1]): a larger value means applicants are harder to
+compare using readily available information. The timing is: (1) a segment
+with (kappa) is given; (2) the bank posts the relative spread (D); (3)
+price sorting forms an applicant pool; (4) the bank observes that pool and
+chooses screening effort (e); and (5) repayment or default is realized.
+
+Before screening, the applicant pool has default probability
+\begin{equation}
+q^0(D,kappa)=\bar q+a(kappa)D,
+\qquad \bar q\in(0,1),\quad a(kappa)>0.
 \label{eq:pool}
 \end{equation}
-The coefficient \(a\) is the sorting effect of a relative price: a higher
-spread loses comparison shoppers and worsens the remaining pool. Screening
-lowers default according to
+Here (ar q) is baseline default risk and (a(kappa)) is the sensitivity
+of pool quality to relative price. The positive sign captures the selection
+channel: a higher relative price loses more price-sensitive applicants and
+worsens the unscreened pool. Screening effort (e\in[0,\bar e]) changes risk
+to
 \begin{equation}
-q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e,
+q(D,e,kappa)=q^0(D,kappa)-g(kappa)e,
+\qquad g(kappa)>0,
 \label{eq:quality}
 \end{equation}
-and costs \(c(\kappa)e^2/2\) per loan. A performing loan pays
-\(R(D)=\bar R+D>0\), while \(F\) collects funding and operating costs that do
-not depend on screening. The bank's problem is
+where (g(kappa)) is the reduction in default probability produced by one
+unit of effort. Effort costs (c(kappa)e^2/2), with (c(kappa)>0).
+
+Let (R(D)=\bar R+D>0) be the payoff from a performing loan,
+(F) funding and operating cost independent of effort, and
+(L(D,kappa)>0) potential loan volume, with (L_D<0). The bank solves
 \begin{equation}
-\max_{D\in\mathcal D}\;L(D,\kappa)
+\max_{D\in\mathcal D} L(D,kappa)
 \left\{\max_{e\in[0,\bar e]}
- [1-q^0(D,\kappa)+g(\kappa)e]R(D)-F-
- \frac{c(\kappa)}2e^2\right\}.
+[1-q^0(D,kappa)+g(kappa)e](\bar R+D)
+-F-\frac{c(kappa)}2e^2\right\},
 \label{eq:problem}
 \end{equation}
-Compactness and continuity give a first-stage solution. The proposed result is
-about the continuation quality map \(q^*(D,\kappa)\), which is defined for any
-observed relative price, including the equilibrium price and price variation
-generated by bank-specific cost or markup shocks. This keeps the forecasting
-claim separate from a causal comparative static of \(D^*\).
+where the feasible price set
+(mathcal D=[\underline D,\overline D]) is compact. Continuity and compactness
+ensure a first-stage price solution. The topic result studies the continuation
+quality map (q^*(D,kappa)) for any observed relative price, including an
+equilibrium price or variation generated by bank-specific markup and cost
+shocks. A particular demand system would be needed for a closed-form (D^*),
+but not for the conditional forecasting mechanism.
 
-\section{The result I expect}
+\begin{table}[t]
+\centering\small
+\begin{tabular}{>{\(}l<{\)} p{0.74\textwidth}}
+\toprule
+\text{Symbol} & \textbf{Meaning} \\
+\midrule
+D & relative spread chosen in stage one \\
+\kappa & borrower-segment opacity \\
+q^0,\ q & default probability before and after screening \\
+e,\ \bar e & screening effort and its upper bound \\
+a & price-sorting sensitivity of the applicant pool \\
+g,\ c & quality gain per effort unit and screening-cost shifter \\
+\bar R+D,\ F & performing-loan payoff and effort-independent cost \\
+L & potential loan volume \\
+\bottomrule
+\end{tabular}
+\caption{Primitive objects in the model.}
+\label{tab:notation}
+\end{table}
 
-For an interior screening choice, the first- and second-order conditions are
+\section{Expected first-order condition and result}
+
+Fix (D). The marginal benefit of effort is the quality gain times the payoff
+from performance, (g(kappa)(\bar R+D)); its marginal cost is
+(c(kappa)e). The first- and second-order conditions are
 \begin{equation}
-g(\kappa)R(D)-c(\kappa)e=0,
-\qquad \frac{\partial^2\pi}{\partial e^2}=-c(\kappa)<0.
+g(kappa)(\bar R+D)-c(kappa)e=0,
+\qquad \frac{\partial^2\pi}{\partial e^2}=-c(kappa)<0.
 \label{eq:foc}
 \end{equation}
-Thus
+For an interior solution,
 \begin{equation}
-e^*(D,\kappa)=\frac{g(\kappa)}{c(\kappa)}(\bar R+D),
-\quad
-q^*(D,\kappa)=\bar q+a(\kappa)D-h(\kappa)(\bar R+D),
-\quad
-h(\kappa)\equiv\frac{g(\kappa)^2}{c(\kappa)}.
+e^*(D,kappa)=\frac{g(kappa)}{c(kappa)}(\bar R+D).
+\label{eq:effort}
+\end{equation}
+A higher (D) raises the payoff from avoiding default and therefore raises
+screening effort. Substituting \eqref{eq:effort} into \eqref{eq:quality} gives
+\begin{equation}
+q^*(D,kappa)=\bar q+a(kappa)D
+-h(kappa)(\bar R+D),
+\qquad
+h(kappa)\equiv\frac{g(kappa)^2}{c(kappa)}.
 \label{eq:solution}
 \end{equation}
-The new object \(h\) is \emph{screening leverage}: the effect on portfolio
-quality of the screening response induced by a larger loan payoff.
+The object (h) is \emph{screening leverage}: the improvement in quality
+created by the optimal screening response to a marginally larger payoff. It is
+not the effort level itself. The central decomposition is
+\begin{equation}
+\boxed{\beta(kappa)\equiv\frac{\partial q^*}{\partial D}
+=\underbrace{a(kappa)}_{\text{worse selection}}
+-\underbrace{h(kappa)}_{\text{stronger screening}}.}
+\label{eq:beta}
+\end{equation}
 
 \textbf{Candidate Proposition 1 (opacity threshold).} Suppose: (i) the
-solution is interior and \(q^*\in(0,1)\); (ii) \(a\) and \(h\) are continuous;
-(iii) \(a'(\kappa)<0\); (iv) \(h'(\kappa)>0\), equivalently
-\(2g'(\kappa)/g(\kappa)>c'(\kappa)/c(\kappa)\); and (v)
-\(a(0)>h(0)\) while \(a(1)<h(1)\). Then there is a unique
-\(\kappa^*\in(0,1)\) satisfying \(a(\kappa^*)=h(\kappa^*)\), and
+solution is interior and (q^*\in(0,1)); (ii) (a) and (h) are continuous;
+(iii) (a'(kappa)<0); (iv) (h'(kappa)>0); and (v)
+(a(0)>h(0)) while (a(1)<h(1)). Then a unique
+(kappa^*\in(0,1)) solves (a(kappa^*)=h(kappa^*)), and
 \begin{equation}
-\beta(\kappa)\equiv\frac{\partial q^*}{\partial D}
-=a(\kappa)-h(\kappa)
+\beta(kappa)
 \begin{cases}
 >0,&\kappa<\kappa^*,\\
 =0,&\kappa=\kappa^*,\\
@@ -115,48 +174,61 @@ solution is interior and \(q^*\in(0,1)\); (ii) \(a\) and \(h\) are continuous;
 \frac{\partial^2q^*}{\partial D\partial\kappa}=a'-h'<0.
 \label{eq:threshold}
 \end{equation}
-The proof is the intermediate value theorem plus strict monotonicity. If future
-delinquency satisfies \(m_{t+s}=\rho_s q_t^*+\varepsilon_{t+s}\), with
-\(\rho_s>0\), its predictive slope has the same sign. Importantly, higher
-screening cost alone makes \(h\) smaller and cannot deliver the reversal. The
-economic restriction is that opacity raises the marginal information gain
-enough to dominate any increase in cost. This is a falsifiable sufficient
-condition, not a definition disguised as a result.
+Continuity and endpoint crossing give existence by the intermediate value
+theorem; (a'-h'<0) gives uniqueness. The key economic restriction is exposed
+by logarithmic differentiation:
+\begin{equation}
+\frac{h'}h=2\frac{g'}g-\frac{c'}c.
+\label{eq:keycondition}
+\end{equation}
+Therefore, higher screening cost alone cannot create the negative slope: it
+reduces (h). Opacity must raise the marginal information gain (g) fast
+enough to dominate any rise in (c). This is a falsifiable sufficient
+condition, not an implication built into the definition of opacity.
+
+The theory's (q^*_{jst}) is default probability for newly originated credit,
+whereas \(operatorname{NPL}_{js,t+h}\) is a later stock ratio. I connect them
+through the explicit forecasting map
+\begin{equation}
+\operatorname{NPL}_{js,t+h}=\alpha_h+\rho_hq^*_{jst}+u_{js,t+h},
+\qquad \rho_h>0.
+\label{eq:mapping}
+\end{equation}
+If this monotone map is supported, the predictive slope has the sign of
+(ho_h\beta(kappa)), hence the sign of (eta). Equation
+\eqref{eq:mapping} is a bridge to measurement, not a causal structural
+equation.
 
 \section{Why this is not already solved}
 
-I checked the model and appendices of the accessible 2004 version of
-\citet{ruckes2004}, the 2005 working-paper record and the full IMF reprint of
-\citet{dellariccia2006}, and the stated equilibrium result of
-\citet{broecker1990}. Broecker fixes the testing technology and studies how
-rate competition sorts borrowers. Ruckes solves for screening intensity and
-mixed loan pricing as economic prospects change, but does not characterize the
-sign of relative price as a default signal across opacity segments.
-Dell'Ariccia and Marquez vary information asymmetry across banks and derive
-screening-versus-pooling regimes, not a continuous price-to-quality derivative.
-Varian supplies the shopper/captive-buyer logic but has neither screening nor
-default. The proposed derivative \(a(\kappa)-h(\kappa)\), its threshold, and
-the distinction between costly screening and valuable screening therefore do
-not appear in those baselines.
+The ingredients exist separately. \citet{varian1980} explains price dispersion
+using informed and uninformed buyers, but has neither screening nor default.
+\citet{broecker1990} combines rate competition with imperfect credit tests, but
+does not make testing a continuous effort choice. \citet{ruckes2004}
+endogenizes screening intensity as economic prospects change, but does not
+characterize the sign of a relative-price signal across opacity segments.
+\citet{dellariccia2006} shows how information asymmetry across banks selects
+screening or pooling regimes, rather than deriving a continuous
+(\partial q^*/\partial D) decomposition. The narrow contribution here is to
+combine relative-price sorting with endogenous screening and identify the
+condition for a unique opacity threshold.
 
-\section{Plan and risks}
+\section{Plan, validation, and risks}
 
-I will prove Proposition 1 and a robustness version with a general increasing
-repayment function \(R(D)\), simulate the full parameter region rather than a
-single calibration, and formalize the threshold theorem in Lean after freezing
-the paper proposition. The code already checks the FOC, SOC, crossing,
-monotonicity, interiority, and probability bounds for a transparent
-calibration. The empirical thesis will map the theoretical \(\kappa\) to
-pre-specified segment-level opacity proxies and test out-of-sample forecasts;
-it will not label the estimated coefficient causal.
+I will (1) write a full proof of Proposition 1 and a robustness result for a
+general increasing payoff (R(D)); (2) simulate the complete admissible
+parameter region instead of reporting only one calibration; (3) test whether
+(D) improves out-of-sample NPL-ratio forecasts by opacity group and horizon;
+and (4) formalize the threshold theorem in Lean after its assumptions are
+frozen. Current code symbolically checks the FOC, SOC, and derivative and
+numerically checks crossing, monotonicity, interior effort, and probability
+bounds.
 
-The main risk is condition (iv). If the data or a richer signal technology do
-not support increasing screening leverage, I will not force a sign reversal.
-The fallback result will characterize three regions, \(a>h\), \(a=h\), and
-\(a<h\), and treat the existence of a threshold as an estimable restriction.
-A second risk is an endogenous-price confound; the fallback is to keep the
-theorem explicitly conditional on observed \(D\), add bank and
-segment-by-month controls, and interpret the exercise only as forecasting.
+The main risk is that (h'(kappa)>0) fails. I will then report the three
+regions (a>h), (a=h), and (a<h) without forcing a threshold. A second
+risk is endogenous pricing. The empirical fallback is explicitly predictive:
+bank and segment-by-month controls, rolling out-of-sample evaluation, and no
+causal interpretation of the price coefficient.
 
 \small
 \bibliographystyle{plainnat}
