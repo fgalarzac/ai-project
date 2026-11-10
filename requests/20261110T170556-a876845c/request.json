@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "python3",
+    ".scratch/galarza/recover_checkpoint.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/PaperInterface.lean",
+    "papers/Galarza26RelativeCredit/ProofInterface.lean"
+  ],
+  "upload_sha256": "578205540270b4c75e5ba8a18c1b1fdd4d470b0827285d39c75e21bfeb25e0e7"
+}
