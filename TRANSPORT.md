@@ -1,0 +1,1 @@
+Temporary, sequential Linux execution transport for Galarza26RelativeCredit. Requests are issued by the authenticated local formalizer; responses preserve real command output. No OpenAI credentials are stored here.
