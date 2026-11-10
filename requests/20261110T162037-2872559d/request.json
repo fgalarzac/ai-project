@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    ".scratch/galarza/Optimization.lean"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".scratch/galarza/Optimization.lean"
+  ],
+  "upload_sha256": "a0bc9e47e00c9f1ae2b1fe85d6a5c82541b64c116703b57a2902f56949bda270"
+}
