@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    ".scratch/galarza/restore_git_tracking.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "lakefile.toml"
+  ],
+  "upload_sha256": "74c3923868d8063c80649844a9ca3cf8d582a54514816141e63baf7fdadeca76"
+}
