@@ -1,0 +1,10 @@
+usage: paper_contribution.py init-spec [-h] --version VERSION --output OUTPUT
+                                       source
+
+positional arguments:
+  source             local source PDF/text/TeX artifact
+
+options:
+  -h, --help         show this help message and exit
+  --version VERSION  exact source version
+  --output OUTPUT    new JSON path
