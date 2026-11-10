@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "pdftotext",
+    "papers/Galarza26RelativeCredit/source.pdf",
+    "papers/Galarza26RelativeCredit/source.txt"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/source.txt"
+  ],
+  "upload_sha256": "bfeaed6b5863e06f721c20230864e1aefaec55147ca5ba0cc4a30af8c6c6a66e"
+}
