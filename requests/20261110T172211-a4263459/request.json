@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.ProofInterface"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/Model.lean",
+    "papers/Galarza26RelativeCredit/PaperInterface.lean",
+    "papers/Galarza26RelativeCredit/ProofInterface.lean"
+  ],
+  "upload_sha256": "b53a553a3fd97f5a315de0d1e6d2df98a500438e08b3ed73a913ba1753398fdd"
+}
