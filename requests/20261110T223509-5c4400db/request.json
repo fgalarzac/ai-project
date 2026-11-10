@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_v11_raw_source_spec_screening.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--emit-current-template",
+    "--v11-review-graph"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
