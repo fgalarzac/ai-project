@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.Calculus"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/Calculus.lean"
+  ],
+  "upload_sha256": "699312ae52a6e02c104243c6bd0b57f9d410775ecfcb01844b33f4aa7fd2371a"
+}
