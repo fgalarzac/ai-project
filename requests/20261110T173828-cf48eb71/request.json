@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "papers/Galarza26RelativeCredit/audit/LEAN_IMPORT_CLOSURE_RECEIPT.json"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
