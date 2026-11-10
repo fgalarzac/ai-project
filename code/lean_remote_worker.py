@@ -19,6 +19,17 @@ def command(argv, cwd, **kwargs):
     return subprocess.run(argv, cwd=cwd, check=True, **kwargs)
 
 
+def git_retry(argv, cwd, **kwargs):
+    """Retry transport failures while retaining the exact pending commit."""
+    for attempt in range(6):
+        try:
+            return command(argv, cwd, **kwargs)
+        except subprocess.CalledProcessError:
+            if attempt == 5:
+                raise
+            time.sleep(2 ** attempt)
+
+
 def safe_extract(archive: Path, root: Path):
     root = root.resolve()
     with tarfile.open(archive, "r:gz") as bundle:
@@ -33,12 +44,19 @@ def main():
     control = Path(os.environ["LEAN_CONTROL_DIR"])
     aml = Path(os.environ["LEAN_AML_DIR"])
     branch = os.environ["LEAN_CONTROL_BRANCH"]
+    bootstrap = control / 'bootstrap' / 'restore.tar.gz'
+    if bootstrap.exists():
+        manifest = json.loads((bootstrap.parent/'manifest.json').read_text())
+        if hashlib.sha256(bootstrap.read_bytes()).hexdigest() != manifest['archive_sha256']:
+            raise ValueError('Bootstrap archive digest mismatch')
+        safe_extract(bootstrap, aml)
+        print('Restored exact paper workspace from transport bootstrap', flush=True)
     command(["git", "config", "user.name", "Lean execution transport"], control)
     command(["git", "config", "user.email", "lean-transport@users.noreply.github.com"], control)
     deadline = time.monotonic() + 5.6 * 3600
     print("Persistent Linux worker ready", flush=True)
     while time.monotonic() < deadline:
-        command(["git", "fetch", "-q", "origin", branch], control)
+        git_retry(["git", "fetch", "-q", "origin", branch], control)
         command(["git", "reset", "--hard", f"origin/{branch}"], control, stdout=subprocess.DEVNULL)
         pending = [p for p in sorted((control / "requests").glob("*/request.json"))
                    if not (control / "responses" / p.parent.name / "result.json").exists()]
@@ -85,7 +103,7 @@ def main():
             (response / "result.json").write_text(json.dumps(result, indent=2)+"\n")
             command(["git", "add", "responses/"+request_path.parent.name], control)
             command(["git", "commit", "-q", "-m", "Record Linux execution "+request_path.parent.name], control)
-            command(["git", "push", "-q", "origin", "HEAD:"+branch], control)
+            git_retry(["git", "push", "-q", "origin", "HEAD:"+branch], control)
             print("Completed", result, flush=True)
             if request.get("shutdown"):
                 return
