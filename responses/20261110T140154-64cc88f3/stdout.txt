@@ -1,0 +1,31 @@
++ /opt/hostedtoolcache/Python/3.12.16/x64/bin/python3 scripts/new_paper.py https://github.com/fgalarzac/ai-project/blob/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf --folder Galarza26RelativeCredit --title 'El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera' --authors 'Fabián Matías Galarza Chumbe' --version 'Manuscrito para discusión, 10 de noviembre de 2026, commit dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad' --official-url https://github.com/fgalarzac/ai-project/blob/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf --pdf-url https://raw.githubusercontent.com/fgalarzac/ai-project/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf --namespace Galarza26RelativeCredit --with-notes
+wrote papers/Galarza26RelativeCredit/.gitignore
+wrote papers/Galarza26RelativeCredit/README.md
+wrote papers/Galarza26RelativeCredit/status.json
+wrote papers/Galarza26RelativeCredit/audit/library_semantic_review.json
+wrote papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_screening.json
+wrote papers/Galarza26RelativeCredit/audit/defect_support_match_llm.json
+wrote papers/Galarza26RelativeCredit/audit/assumption_match_llm.json
+wrote papers/Galarza26RelativeCredit/audit/source_proof_fidelity.json
+wrote papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json
+wrote papers/Galarza26RelativeCredit/review-dashboard.sh
+wrote papers/Galarza26RelativeCredit/docs/FORMALIZATION_PLAN.md
+wrote papers/Galarza26RelativeCredit/docs/FORMALIZATION_WORKING_MEMO.md
+wrote papers/Galarza26RelativeCredit/MainTheorems.lean
+wrote papers/Galarza26RelativeCredit/Assumptions.lean
+wrote papers/Galarza26RelativeCredit/PaperInterface.lean
+wrote papers/Galarza26RelativeCredit/ProofInterface.lean
+wrote papers/Galarza26RelativeCredit.lean
+wrote papers/Galarza26RelativeCredit/PAPER_NOTES.md
+downloaded papers/Galarza26RelativeCredit/source.pdf
+extracted papers/Galarza26RelativeCredit/source.txt
+no --statement-spec supplied; PaperInterface.lean contains no theorem placeholder
+wrote papers/Galarza26RelativeCredit/README.md from paper-local status
+wrote papers/Galarza26RelativeCredit/docs/FORMALIZATION_NOTES.md from paper-local status
+paper-local status sync complete: 2 changed; aggregate status/docs/site deferred to integration or release
+deferred dashboard cache: freeze the source inventory and PaperInterface first, then run `python3 scripts/review_dashboard.py --paper Galarza26RelativeCredit --refresh-cache` once
+paper scaffold ready: papers/Galarza26RelativeCredit
++ /opt/hostedtoolcache/Python/3.12.16/x64/bin/python3 scripts/sync_paper_status.py --paper Galarza26RelativeCredit
+paper-local status sync complete: 0 changed; aggregate status/docs/site deferred to integration or release
+paper contribution scaffold ready: papers/Galarza26RelativeCredit
+next: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python3 scripts/paper_contribution.py check Galarza26RelativeCredit --fast

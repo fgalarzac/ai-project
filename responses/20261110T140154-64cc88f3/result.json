@@ -1,0 +1,31 @@
+{
+  "request_id": "20261110T140154-64cc88f3",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/paper_contribution.py",
+    "new",
+    "https://github.com/fgalarzac/ai-project/blob/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf",
+    "--folder",
+    "Galarza26RelativeCredit",
+    "--title",
+    "El precio relativo del cr\u00e9dito como se\u00f1al de morosidad: evaluaci\u00f3n \u00f3ptima, restricciones y composici\u00f3n de la cartera",
+    "--authors",
+    "Fabi\u00e1n Mat\u00edas Galarza Chumbe",
+    "--version",
+    "Manuscrito para discusi\u00f3n, 10 de noviembre de 2026, commit dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad",
+    "--official-url",
+    "https://github.com/fgalarzac/ai-project/blob/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf",
+    "--pdf-url",
+    "https://raw.githubusercontent.com/fgalarzac/ai-project/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf",
+    "--namespace",
+    "Galarza26RelativeCredit",
+    "--with-notes"
+  ],
+  "started_utc": "2026-11-10T14:01:58Z",
+  "exit_code": 0,
+  "elapsed_seconds": 2.471,
+  "download_sha256": "ac58b1068fe3932b47241018a3249db9cca1db3308140389f0ce5543c7d449de",
+  "finished_utc": "2026-11-10T14:02:01Z"
+}
