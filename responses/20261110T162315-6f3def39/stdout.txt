@@ -1,0 +1,4 @@
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:236:theorem HasDerivWithinAt.liminf_right_slope_le (hf : HasDerivWithinAt f f' (Ici x) x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:284:theorem HasDerivWithinAt.liminf_right_norm_slope_le (hf : HasDerivWithinAt f f' (Ici x) x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:297:* `HasDerivWithinAt.liminf_right_norm_slope_le` for a stronger version using
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:299:theorem HasDerivWithinAt.liminf_right_slope_norm_le (hf : HasDerivWithinAt f f' (Ici x) x)

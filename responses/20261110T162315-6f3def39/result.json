@@ -1,0 +1,16 @@
+{
+  "request_id": "20261110T162315-6f3def39",
+  "argv": [
+    "grep",
+    "-R",
+    "-n",
+    "-E",
+    "HasDeriv(Within)?At.*(min|max)|theorem.*min.*HasDeriv|theorem.*max.*HasDeriv",
+    ".lake/packages/mathlib/Mathlib/Analysis/Calculus"
+  ],
+  "started_utc": "2026-11-10T16:23:17Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.008,
+  "download_sha256": "fdb5e885c27363835a7fc0d03dca7f388c9794a1e4699dcc3c8dcc2814d8c2c8",
+  "finished_utc": "2026-11-10T16:23:17Z"
+}
