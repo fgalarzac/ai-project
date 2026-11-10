@@ -1,0 +1,82 @@
+✖ [3298/3298] Building Galarza26RelativeCredit.Stock (2.4s)
+trace: .> LEAN_PATH=/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/cslib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Vlasov/Vlasov/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/Stock.lean -o /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/Stock.olean -i /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/Stock.ilean -c /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/Stock.c --setup /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/Stock.setup.json --json
+error: papers/Galarza26RelativeCredit/Stock.lean:23:28: `simp` made no progress
+error: papers/Galarza26RelativeCredit/Stock.lean:37:4: failed to prove positivity/nonnegativity/nonzeroness
+error: papers/Galarza26RelativeCredit/Stock.lean:62:52: Application type mismatch: The argument
+  not_lt_of_ge (LT.lt.le hw)
+has type
+  ¬w < 0
+but is expected to have type
+  ¬(w < 0 ∧ beta < 0)
+in the application
+  Or.resolve_right (mul_pos_iff.mp h) (not_lt_of_ge (LT.lt.le hw))
+error: papers/Galarza26RelativeCredit/Stock.lean:66:52: Application type mismatch: The argument
+  not_lt_of_ge (LT.lt.le hw)
+has type
+  ¬w < 0
+but is expected to have type
+  ¬(w < 0 ∧ 0 < beta)
+in the application
+  Or.resolve_right (mul_neg_iff.mp h) (not_lt_of_ge (LT.lt.le hw))
+error: papers/Galarza26RelativeCredit/Stock.lean:77:6: Type mismatch
+  this
+has type
+  composition < -(w * beta)
+but is expected to have type
+  composition < w * -beta
+error: papers/Galarza26RelativeCredit/Stock.lean:91:4: Type mismatch
+  HasDerivAt.const_mul (-epsilon) (hasDerivAt_id D)
+has type
+  HasDerivAt (fun y ↦ -epsilon * id y) (-epsilon * 1) D
+but is expected to have type
+  HasDerivAt (fun x ↦ -epsilon * x) (-epsilon) D
+error: papers/Galarza26RelativeCredit/Stock.lean:131:16: don't know how to synthesize implicit argument `f₁'`
+  @HasDerivAt.unique ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedAddCommGroup
+    RCLike.toInnerProductSpaceReal.toNormedSpace (cohortWeight B0 (exponentialBalance B1 epsilon))
+    (-epsilon * cohortWeight B0 (exponentialBalance B1 epsilon) D *
+      (1 - cohortWeight B0 (exponentialBalance B1 epsilon) D))
+    ?m.574 D hw
+context:
+B0 B1 m0 epsilon : ℝ
+q : ℝ → ℝ
+D beta : ℝ
+hB0 : 0 < B0
+hB1 : 0 < B1
+hq : HasDerivAt q beta D
+hBpos : ∀ (x : ℝ), 0 < exponentialBalance B1 epsilon x
+hgeneral :
+  have w := cohortWeight B0 (exponentialBalance B1 epsilon) D;
+  have wprime := -epsilon * exponentialBalance B1 epsilon D * B0 / (B0 + exponentialBalance B1 epsilon D) ^ 2;
+  HasDerivAt (portfolioRatio B0 m0 (exponentialBalance B1 epsilon) q) (w * beta + wprime * (q D - m0)) D
+hw :
+  HasDerivAt (cohortWeight B0 (exponentialBalance B1 epsilon))
+    (-epsilon * cohortWeight B0 (exponentialBalance B1 epsilon) D *
+      (1 - cohortWeight B0 (exponentialBalance B1 epsilon) D))
+    D
+⊢ ℝ
+error: papers/Galarza26RelativeCredit/Stock.lean:131:7: failed to infer `have` declaration type
+error: papers/Galarza26RelativeCredit/Stock.lean:119:57: unsolved goals
+case h.e'_9
+B0 B1 m0 epsilon : ℝ
+q : ℝ → ℝ
+D beta : ℝ
+hB0 : 0 < B0
+hB1 : 0 < B1
+hq : HasDerivAt q beta D
+hBpos : ∀ (x : ℝ), 0 < exponentialBalance B1 epsilon x
+hgeneral :
+  have w := cohortWeight B0 (exponentialBalance B1 epsilon) D;
+  have wprime := -epsilon * exponentialBalance B1 epsilon D * B0 / (B0 + exponentialBalance B1 epsilon D) ^ 2;
+  HasDerivAt (portfolioRatio B0 m0 (exponentialBalance B1 epsilon) q) (w * beta + wprime * (q D - m0)) D
+hw :
+  HasDerivAt (cohortWeight B0 (exponentialBalance B1 epsilon))
+    (-epsilon * cohortWeight B0 (exponentialBalance B1 epsilon) D *
+      (1 - cohortWeight B0 (exponentialBalance B1 epsilon) D))
+    D
+⊢ cohortWeight B0 (exponentialBalance B1 epsilon) D *
+      (beta - epsilon * (1 - cohortWeight B0 (exponentialBalance B1 epsilon) D) * (q D - m0)) =
+    cohortWeight B0 (exponentialBalance B1 epsilon) D * beta +
+      -epsilon * exponentialBalance B1 epsilon D * B0 / (B0 + exponentialBalance B1 epsilon D) ^ 2 * (q D - m0)
+error: Lean exited with code 1
+Some required targets logged failures:
+- Galarza26RelativeCredit.Stock
