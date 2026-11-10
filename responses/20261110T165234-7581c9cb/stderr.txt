@@ -1,0 +1,1 @@
+v11 source-map preparation refused: prose definition `relative_price_definition` is invalid: prose definition defined_entity_kind must be one of: object, predicate; prose definition definitional_clause must literally contain defined_object
