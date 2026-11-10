@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T162024-2475a18b",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/formalization_protocol.py"
+  ],
+  "started_utc": "2026-11-10T16:20:28Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.064,
+  "download_sha256": "2373a64a28b1fc0fd39016fa1dd114a569b7cebd4eb276a109801eedc115ae46",
+  "finished_utc": "2026-11-10T16:20:29Z"
+}
