@@ -1,0 +1,21 @@
+✔ [3300/3305] Built Galarza26RelativeCredit.PaperInterface (2.2s)
+⚠ [3303/3305] Replayed Galarza26RelativeCredit.Stock
+warning: papers/Galarza26RelativeCredit/Stock.lean:88:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:103:71: This simp argument is unused:
+  id
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵i̵d̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:103:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:105:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3304/3305] Built Galarza26RelativeCredit.MainTheorems (1.9s)
+✔ [3305/3305] Built Galarza26RelativeCredit.ProofInterface (2.3s)
+Build completed successfully (3305 jobs).
