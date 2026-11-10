@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_library_semantic_review.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--refresh-current",
+    "--v11-review-graph",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
