@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "grep",
+    "-R",
+    "-n",
+    "-E",
+    "HasDeriv(Within)?At.*(min|max)|theorem.*min.*HasDeriv|theorem.*max.*HasDeriv",
+    ".lake/packages/mathlib/Mathlib/Analysis/Calculus"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
