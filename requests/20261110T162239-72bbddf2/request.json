@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "HasRightDerivAt|HasLeftDerivAt",
+    ".lake/packages/mathlib/Mathlib"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
