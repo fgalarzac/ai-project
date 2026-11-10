@@ -1,0 +1,23 @@
+usage: paper_contribution.py [-h]
+                             {doctor,init-spec,new,scope,check,prepare-pr} ...
+
+Create and validate an isolated AppliedModelingLib paper contribution. This is
+the stable contributor-facing facade. It deliberately keeps a single-paper
+pull request independent from every unchanged paper. The same base/head
+classifier is used locally and in CI; anything outside the exact paper-owned
+boundary escalates to a docs, aggregate-only, or repository integration lane
+according to its actual scope.
+
+positional arguments:
+  {doctor,init-spec,new,scope,check,prepare-pr}
+    doctor              check required and optional local tools
+    init-spec           create a SHA-256-pinned statement-spec template
+    new                 create a contributor-safe paper scaffold
+    scope               classify an exact base/head contribution for CI or
+                        review
+    check               run paper-owned validation
+    prepare-pr          require a clean isolated branch and run its final
+                        checks
+
+options:
+  -h, --help            show this help message and exit

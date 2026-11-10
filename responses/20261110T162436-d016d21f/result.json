@@ -1,0 +1,15 @@
+{
+  "request_id": "20261110T162436-d016d21f",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/paper_contribution.py",
+    "--help"
+  ],
+  "started_utc": "2026-11-10T16:24:38Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.164,
+  "download_sha256": "ac2d4a21a3f6782eeeb34e85cddf1949b5521288fffb24adacbbcc329514bb90",
+  "finished_utc": "2026-11-10T16:24:38Z"
+}
