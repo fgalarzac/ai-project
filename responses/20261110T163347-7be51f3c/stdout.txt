@@ -1,0 +1,56 @@
+✔ [3297/3298] Built Galarza26RelativeCredit.Model (2.3s)
+✖ [3298/3298] Building Galarza26RelativeCredit.Stock (2.9s)
+trace: .> LEAN_PATH=/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/cslib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Vlasov/Vlasov/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/Stock.lean -o /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/Stock.olean -i /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/Stock.ilean -c /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/Stock.c --setup /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/Stock.setup.json --json
+info: papers/Galarza26RelativeCredit/Stock.lean:50:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+error: papers/Galarza26RelativeCredit/Stock.lean:37:44: unsolved goals
+case h.e'_9
+B0 m0 : ℝ
+B q : ℝ → ℝ
+D Bprime beta : ℝ
+hBD : 0 < B D
+hB0 : 0 < B0
+hB : HasDerivAt B Bprime D
+hq : HasDerivAt q beta D
+hden : B0 + B D ≠ 0
+hnum : HasDerivAt ((fun x ↦ B0 * m0) + B * q) (0 + (Bprime * q D + B D * beta)) D
+hdenDeriv : HasDerivAt ((fun x ↦ B0) + B) (0 + Bprime) D
+hquot :
+  HasDerivAt (((fun x ↦ B0 * m0) + B * q) / ((fun x ↦ B0) + B))
+    (((0 + (Bprime * q D + B D * beta)) * ((fun x ↦ B0) + B) D - ((fun x ↦ B0 * m0) + B * q) D * (0 + Bprime)) /
+      ((fun x ↦ B0) + B) D ^ 2)
+    D
+⊢ B D * B0 * beta * ((fun x ↦ B0) + B) D ^ 2 + B D ^ 2 * beta * ((fun x ↦ B0) + B) D ^ 2 +
+        B0 * Bprime * q D * ((fun x ↦ B0) + B) D ^ 2 -
+      B0 * Bprime * m0 * ((fun x ↦ B0) + B) D ^ 2 =
+    B D * B0 * Bprime * q D * ((fun x ↦ B0) + B) D * 2 - B D * B0 * Bprime * ((fun x ↦ B0 * m0) + B * q) D * 2 +
+                  B D * B0 ^ 2 * beta * ((fun x ↦ B0) + B) D +
+                B D ^ 2 * B0 * beta * ((fun x ↦ B0) + B) D * 2 +
+              B D ^ 2 * Bprime * q D * ((fun x ↦ B0) + B) D -
+            B D ^ 2 * Bprime * ((fun x ↦ B0 * m0) + B * q) D +
+          B D ^ 3 * beta * ((fun x ↦ B0) + B) D +
+        B0 ^ 2 * Bprime * q D * ((fun x ↦ B0) + B) D -
+      B0 ^ 2 * Bprime * ((fun x ↦ B0 * m0) + B * q) D
+warning: papers/Galarza26RelativeCredit/Stock.lean:87:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:102:71: This simp argument is unused:
+  id
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵i̵d̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:102:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:104:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- Galarza26RelativeCredit.Stock
