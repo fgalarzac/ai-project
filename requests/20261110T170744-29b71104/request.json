@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/draft_semantic_preflight.py",
+    "--paper",
+    "Galarza26RelativeCredit"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/audit/paper_statement_map.json"
+  ],
+  "upload_sha256": "7a94062dcb376f2a022e16d4c361f8aa5bd84f9b9408228175a39683137aec7e"
+}
