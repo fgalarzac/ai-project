@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T222215-a2aa20e0",
+  "argv": [
+    "git",
+    "fetch",
+    "--unshallow",
+    "origin"
+  ],
+  "started_utc": "2026-11-10T22:22:20Z",
+  "exit_code": 0,
+  "elapsed_seconds": 13.297,
+  "download_sha256": "aa675fa567e4d69bade30d2ac2334deaddff5c4b822467c5b83aaaad98cefe31",
+  "finished_utc": "2026-11-10T22:22:33Z"
+}
