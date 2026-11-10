@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T223716-622628a3",
+  "argv": [
+    "python3",
+    "-c",
+    "import json, pathlib, subprocess\np=pathlib.Path(\".scratch/galarza/tex_install_result.json\")\ncommands=[[\"lean\",\"--version\"],[\"pdftotext\",\"-v\"],[\"git\",\"rev-parse\",\"HEAD\"],[\"git\",\"diff\",\"--name-only\",\"194edcc95df74806a39b961d10dedddc6e730cce\",\"--\",\"scripts\",\"config\",\"skills\"]]\nfor c in commands:\n    r=subprocess.run(c,text=True,capture_output=True,check=True)\n    print(json.dumps({\"argv\":c,\"stdout\":r.stdout.strip(),\"stderr\":r.stderr.strip()},ensure_ascii=False))\nprint(json.dumps({\"tex_install_result\":json.loads(p.read_text()) if p.exists() else None}))"
+  ],
+  "started_utc": "2026-11-10T22:37:20Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.114,
+  "download_sha256": "2cca96ea1c589fb15f502bb6cb4eb9aa4ee82eb18c2333c0f277075bedb4c9ad",
+  "finished_utc": "2026-11-10T22:37:20Z"
+}
