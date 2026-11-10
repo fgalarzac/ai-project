@@ -1,0 +1,113 @@
+{
+  "acceptance_credential": false,
+  "actions": [
+    {
+      "commands": [
+        "python3 scripts/final_closure_receipt.py --paper Galarza26RelativeCredit --record-current-lean-import-closure"
+      ],
+      "id": "record_current_lean_import_closure",
+      "reason": "fresh v11 closeout needs Lean's transitive paper-build closure before semantic review; this portable carrier is not an acceptance credential",
+      "state": "ready_now"
+    }
+  ],
+  "current_protocol": "v11_graph_native",
+  "expensive_planning_deferred": true,
+  "legacy_planner_consulted": false,
+  "next_action": {
+    "commands": [
+      "python3 scripts/final_closure_receipt.py --paper Galarza26RelativeCredit --record-current-lean-import-closure"
+    ],
+    "id": "record_current_lean_import_closure",
+    "reason": "fresh v11 closeout needs Lean's transitive paper-build closure before semantic review; this portable carrier is not an acceptance credential",
+    "state": "ready_now"
+  },
+  "paper": "Galarza26RelativeCredit",
+  "readiness_matrix": {
+    "acceptance_credential": false,
+    "blockers": [],
+    "lanes": {
+      "final_validation_report_status": {
+        "errors": [],
+        "ready": null,
+        "scope": "controlled Closeout Status/status.json agreement only",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "focused_build_target": {
+        "errors": [],
+        "ready": true,
+        "scope": "exact path-independent paper-root Lake target"
+      },
+      "paper_local_proof_surface": {
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-elaborated declaration, proof, and axiom closure",
+        "state": "deferred_to_lean_graph_and_focused_build"
+      },
+      "required_artifacts": {
+        "missing": [],
+        "ready": true,
+        "scope": "source, interface, status, and Lean entrypoint inputs"
+      },
+      "review_surface_projection": {
+        "errors": [],
+        "ready": true,
+        "scope": "generated status navigation projected from typed source routes; not semantic or proof evidence"
+      },
+      "review_surface_structure": {
+        "errors": [],
+        "findings": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "typed source/Spec/proof routes and Lean-elaborated declaration membership",
+        "state": "deferred_to_typed_route_and_lean_graph_preflight"
+      },
+      "semantic_and_recursive_gates": {
+        "proof_placeholder_scope": "exact Lean-loaded import closure",
+        "reason": "the planner does not duplicate semantic receipt producers or turn legacy missing fields into new closeout requirements",
+        "state": "deferred_to_authoritative_closeout"
+      },
+      "source_intake_boundary": {
+        "acceptance_credential": false,
+        "authority": "reviewed_source_inventory_v1",
+        "errors": [],
+        "path": "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+        "ready": true,
+        "state": "current"
+      },
+      "strict_closeout_documents": {
+        "errors": [],
+        "ready": null,
+        "scope": "strict ERROR-class report and source-first audit gates",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "terminal_presentation_artifacts": {
+        "missing": [
+          "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.tex",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf"
+        ],
+        "ready": false,
+        "required_now": false,
+        "scope": "final report and rendered dependency DAG",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "tracked_lean_import_closure": {
+        "errors": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-loaded repository and external module closure",
+        "state": "deferred_to_lean_owned_import_closure"
+      }
+    },
+    "ready": true
+  },
+  "requires_fresh_strict_closeout": true,
+  "schema": 2,
+  "screening_container_preflight": {
+    "current": false,
+    "errors": [
+      "v11 screening lacks reviewer and validation-time metadata"
+    ],
+    "semantic_acceptance": false
+  }
+}
