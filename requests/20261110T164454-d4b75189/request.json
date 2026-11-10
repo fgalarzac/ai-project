@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.ProofInterface"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "upload_sha256": "2e5899ed4fa11bace830b8098d87282c3db566cab1ccec81ab32726e005d12c9"
+}
