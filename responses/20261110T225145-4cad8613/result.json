@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T225145-4cad8613",
+  "argv": [
+    "python3",
+    "-c",
+    "import pathlib,subprocess\nd=pathlib.Path(\"papers/Galarza26RelativeCredit/docs\")\nr=subprocess.run([\"latexmk\",\"-pdf\",\"-interaction=nonstopmode\",\"-halt-on-error\",\"DependencyDAG.tex\"],cwd=d,text=True,capture_output=True)\nprint(r.stdout[-3000:]); print(r.stderr)\nraise SystemExit(r.returncode)"
+  ],
+  "started_utc": "2026-11-10T22:51:50Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.465,
+  "download_sha256": "7b501aa5a6c53037727a57457cd1717f59dd0bfb2a76af02e00bd59ac571a2c8",
+  "finished_utc": "2026-11-10T22:51:51Z"
+}
