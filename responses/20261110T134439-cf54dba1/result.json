@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T134439-cf54dba1",
+  "argv": [
+    "python3",
+    "scripts/paper_contribution.py",
+    "doctor"
+  ],
+  "started_utc": "2026-11-10T14:00:04Z",
+  "exit_code": 0,
+  "elapsed_seconds": 1.117,
+  "download_sha256": "145179b01daeef853c814dba58a15352966b2a7a11138cd7c2eb426c5f72c9df",
+  "finished_utc": "2026-11-10T14:00:05Z"
+}
