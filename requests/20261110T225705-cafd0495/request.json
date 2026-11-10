@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "sha256sum",
+    ".lake/closeout-objects/sha256/34/34df5111ece43e6c16fb71fd3d941d744d4591658b5f4b0ba615f2918592bd4d.json",
+    ".lake/closeout-objects/sha256/2d/2da484f9f4772088d7377315336b6c2ba3e0528bd206b82604d3fe2122b0bd3b.json"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".lake/closeout-objects/sha256/34/34df5111ece43e6c16fb71fd3d941d744d4591658b5f4b0ba615f2918592bd4d.json",
+    ".lake/closeout-objects/sha256/2d/2da484f9f4772088d7377315336b6c2ba3e0528bd206b82604d3fe2122b0bd3b.json"
+  ]
+}
