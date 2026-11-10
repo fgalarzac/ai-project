@@ -1,0 +1,10 @@
+.scratch/galarza/TieExample.lean:44:4: error: Function expected at
+  selectionDomain
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (1 / 2)
+
+Hint: The identifier `selectionDomain` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+.scratch/galarza/TieExample.lean:51:10: error: No goals to be solved
