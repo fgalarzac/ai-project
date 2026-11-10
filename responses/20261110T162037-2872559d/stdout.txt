@@ -1,0 +1,19 @@
+.scratch/galarza/Optimization.lean:31:5: warning: unused variable `hE`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+.scratch/galarza/Optimization.lean:31:18: warning: unused variable `hq`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+.scratch/galarza/Optimization.lean:108:2: error: unsolved goals
+case neg
+qbar a g c Rbar E D : ℝ
+hg : 0 < g
+p : ℝ := priorRisk qbar a D
+z : ℝ := g * premium Rbar D / c
+m : ℝ := min E z
+hmin : min z (min E (p / g)) = min m (p / g)
+hmp : ¬m ≤ p / g
+hpm : p / g ≤ m
+hmg : p ≤ m * g
+hnonpos : p - g * m ≤ 0
+⊢ p * (1 - 1) = 0
