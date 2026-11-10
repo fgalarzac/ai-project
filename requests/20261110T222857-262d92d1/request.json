@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "fetch",
+    ".scratch/galarza/engine_registration.bundle",
+    "HEAD"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit.lean"
+  ],
+  "upload_sha256": "572f05eb2fb36f88bd1fbebf3dedabcf35f3ff0ecdab335b722d702e517330e2"
+}
