@@ -1,0 +1,12 @@
+{
+  "request_id": "20261110T171846-cfcdbe37",
+  "argv": [
+    "python3",
+    ".scratch/galarza/check_axioms.py"
+  ],
+  "started_utc": "2026-11-10T17:18:49Z",
+  "exit_code": 0,
+  "elapsed_seconds": 4.073,
+  "download_sha256": "de6d996d98e6c3169c3f362356304fb8364c6747e4c65b74e9a5d19a040ade8b",
+  "finished_utc": "2026-11-10T17:18:53Z"
+}
