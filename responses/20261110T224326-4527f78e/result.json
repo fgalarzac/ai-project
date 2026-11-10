@@ -1,0 +1,22 @@
+{
+  "request_id": "20261110T224326-4527f78e",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_paper_semantic_prerequisites.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--decisions",
+    "papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_45a683c44d73e6f6ae86db09a913c9d1fde562e52f815137fb954208837cabe0.json",
+    "--validator",
+    "Independent Codex CLI reviewer, thread 01a1c79d-967f-7b00-b62e-6fadc8845320",
+    "--v11-review-graph",
+    "--write"
+  ],
+  "started_utc": "2026-11-10T22:43:32Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.765,
+  "download_sha256": "47ebd9284338bec9d6d8bbde70f22374eccbb5d7d1f4a54cf72aace7530bda4a",
+  "finished_utc": "2026-11-10T22:43:32Z"
+}
