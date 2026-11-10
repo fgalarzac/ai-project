@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-10",
+  "body_pages": 11,
+  "paper_format": "11pt, 1-inch margins, single column",
+  "body_count_method": "body:end label in compiled .aux, checked against conclusion/reference transition in PDF",
+  "visual_review": "All final paper pages, all final slides, derivation guide contact sheets; enlarged equations, tables and Lean slide inspected. No visual clipping observed.",
+  "pdfs": {
+    "proposal/proposal.pdf": {
+      "pages": 4,
+      "sha256": "ead44056c842bff297b4ce0d380bcdb27ce2df0153cbca1f66df3bdeac607bb9",
+      "external_links": 4,
+      "text_outside_page": 0
+    },
+    "slides/topic.pdf": {
+      "pages": 19,
+      "sha256": "6a92a1b55e9a6910aba099dd630611cf4350b640c807dd3727c56a9784a26014",
+      "external_links": 1,
+      "text_outside_page": 0
+    },
+    "slides/final.pdf": {
+      "pages": 27,
+      "sha256": "a0673735675cb7d319bd1bf6feb6c37ecdd0b28b892060c70c63e6faed256177",
+      "external_links": 5,
+      "text_outside_page": 0
+    },
+    "paper/paper.pdf": {
+      "pages": 14,
+      "sha256": "4cfc53bc27fb3f7cbdbe11e5f790e0ea9b9c84043ebcb5dd1d75973a933417d2",
+      "external_links": 17,
+      "text_outside_page": 0
+    },
+    "hand/guia_derivaciones.pdf": {
+      "pages": 6,
+      "sha256": "1c72e00f139f9a7724656f32ab4510c407780bbaa76b21a367cad1c76a593a47",
+      "external_links": 0,
+      "text_outside_page": 0
+    }
+  },
+  "tex_warnings": {
+    "proposal/proposal.pdf": [],
+    "slides/topic.pdf": [],
+    "slides/final.pdf": [],
+    "paper/paper.pdf": [],
+    "hand/guia_derivaciones.pdf": []
+  },
+  "rendered_with": "PyMuPDF; contact sheets inspected by assistant",
+  "presentation": {
+    "slides": 27,
+    "estimated_seconds": 1780,
+    "talk_time": "29 minutes 40 seconds",
+    "discussion_budget": "about 15 minutes",
+    "method": "Sum of per-slide explanation budgets in timing.json; no observed oral rehearsal"
+  },
+  "workflow_sha256": "e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f",
+  "numerical_verification": {
+    "threshold": 0.6404669227310321,
+    "beta0": 0.13,
+    "beta1": -0.08512663259572752,
+    "min_effort": 0.22360679774997896,
+    "max_effort": 0.40029857213267417,
+    "min_risk": 0.08888090598991708,
+    "max_risk": 0.23800000000000004,
+    "max_optimizer_gap": 3.78406055379088e-08,
+    "max_derivative_gap": 1.0508421910415677e-10,
+    "max_stock_derivative_gap": 2.585059943882584e-11,
+    "cohort_slope": 0.13,
+    "stock_slope": -0.03400000000000002,
+    "regime_counts": {
+      "risk_floor": 437,
+      "capacity": 293,
+      "interior": 765
+    },
+    "mean_signal_pp": -1.0000000000000009,
+    "median_signal_pp": 2.4999999999999996,
+    "seed": 20261110,
+    "checks_passed": 4018,
+    "check_families": [
+      "Hypothetical mean/median signal sign changes",
+      "Invalid economic domains fail",
+      "P1/P2: capacity removes negative slope",
+      "P1: capacity kink at D=0",
+      "P1: capacity slope",
+      "P1: completing square",
+      "P1: every regime covered",
+      "P1: feasible optimizer",
+      "P1: finite-difference regime slopes",
+      "P1: independent bounded optimizer",
+      "P1: independent optimizer converged",
+      "P1: interior slope",
+      "P1: opposite one-sided slopes",
+      "P1: risk floor",
+      "P1: strict concavity c>0",
+      "P1: zero capacity",
+      "P1: zero-risk boundary",
+      "P2: feasible interior rectangle",
+      "P2: independent threshold root",
+      "P2: leverage log derivative",
+      "P2: unique crossing",
+      "P2: worsening technology without reversal",
+      "P3: composition counterexample with opposite signs",
+      "P3: independent finite-difference stock slope",
+      "P3: numerical counterexample agrees with exact rational constants in paper and Lean",
+      "P3: stock identity",
+      "P3: volume derivative",
+      "Peer mean cancels common base",
+      "Peer median cancels common base",
+      "Public context frozen transcription"
+    ]
+  },
+  "lean": {
+    "supplement": "Three exact rational arithmetic declarations checked with decide +kernel",
+    "official_p1_p2_p3": "open",
+    "official_check_exit": 1,
+    "blocker": "POSIX fcntl missing on Windows; required agent unavailable; merged paper prerequisite not completed"
+  }
+}

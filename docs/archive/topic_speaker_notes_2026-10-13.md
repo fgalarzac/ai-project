@@ -1,3 +1,5 @@
+> Versión histórica del tema de octubre de 2026. Conserva la mediana, la calibración y el alcance de ese avance. Para el modelo revisado, sus restricciones y el vínculo flujo-stock, usar `paper/paper.pdf` y `slides/final.pdf`.
+
 # Guion detallado para el Topic Presentation
 
 **Duración objetivo:** 24:00 de exposición + 1:00 de margen = 25 minutos.

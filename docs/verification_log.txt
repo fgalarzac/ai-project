@@ -1,0 +1,24 @@
+{
+  "threshold": 0.6404669227310321,
+  "beta0": 0.13,
+  "beta1": -0.08512663259572752,
+  "min_effort": 0.22360679774997896,
+  "max_effort": 0.40029857213267417,
+  "min_risk": 0.08888090598991708,
+  "max_risk": 0.23800000000000004,
+  "max_optimizer_gap": 3.78406055379088e-08,
+  "max_derivative_gap": 1.0508421910415677e-10,
+  "max_stock_derivative_gap": 2.585059943882584e-11,
+  "cohort_slope": 0.13,
+  "stock_slope": -0.03400000000000002,
+  "regime_counts": {
+    "risk_floor": 437,
+    "capacity": 293,
+    "interior": 765
+  },
+  "mean_signal_pp": -1.0000000000000009,
+  "median_signal_pp": 2.4999999999999996,
+  "seed": 20261110,
+  "checks_passed": 4018
+}
+PASS: P1--P3, corners, counterexamples, sensitivity and five final figures.

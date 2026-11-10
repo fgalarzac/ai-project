@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\matia\Documents\Codex\2026-11-10\files-mentioned-by-the-user-pt\work\AppliedModelingLib\scripts\paper_contribution.py", line 39, in <module>
+    from scripts.closeout_execution_state import (
+  File "C:\Users\matia\Documents\Codex\2026-11-10\files-mentioned-by-the-user-pt\work\AppliedModelingLib\scripts\closeout_execution_state.py", line 18, in <module>
+    import fcntl
+ModuleNotFoundError: No module named 'fcntl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\matia\Documents\Codex\2026-11-10\files-mentioned-by-the-user-pt\work\AppliedModelingLib\scripts\paper_contribution.py", line 46, in <module>
+    from closeout_execution_state import closeout_worker_state_path, read_execution_state
+  File "C:\Users\matia\Documents\Codex\2026-11-10\files-mentioned-by-the-user-pt\work\AppliedModelingLib\scripts\closeout_execution_state.py", line 18, in <module>
+    import fcntl
+ModuleNotFoundError: No module named 'fcntl'

@@ -1,0 +1,14 @@
+{
+  "python": "3.11.11",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0",
+    "matplotlib": "3.10.0",
+    "pypdf": "7.0.0",
+    "PyMuPDF": "2.1"
+  },
+  "tectonic": "0.17.0",
+  "lean": "4.30.0-rc2"
+}
