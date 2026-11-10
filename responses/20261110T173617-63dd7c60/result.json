@@ -1,0 +1,15 @@
+{
+  "request_id": "20261110T173617-63dd7c60",
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "papers/Galarza26RelativeCredit.lean",
+    "papers/Galarza26RelativeCredit"
+  ],
+  "started_utc": "2026-11-10T17:36:24Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.008,
+  "download_sha256": "7c298e165855fb307c85572d51bc9530aa8a0e7c00299b56a4f47b479c1d47b4",
+  "finished_utc": "2026-11-10T17:36:24Z"
+}
