@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "grep",
+    "-R",
+    "-n",
+    "-E",
+    "intermediate_value.*(zero|Intermediate)|IntermediateValueIntermediate|exists_eq_zero.*Icc|intermediate_value_Icc",
+    ".lake/packages/mathlib/Mathlib/Topology",
+    ".lake/packages/mathlib/Mathlib/Analysis"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
