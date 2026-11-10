@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "git",
+    "checkout",
+    "--detach",
+    "4d30604f45ddd6848fd87691c8e3ca63881b073b"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit.lean"
+  ]
+}
