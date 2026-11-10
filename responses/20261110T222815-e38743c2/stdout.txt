@@ -1,0 +1,21 @@
+{
+  "acceptance_credential": false,
+  "actions": [
+    {
+      "id": "inspect_engine_registration",
+      "reason": "formalization engine runtime material differs from clean HEAD: lakefile.toml; commit an append-only registered transition before closeout",
+      "required": true,
+      "state": "ready_now"
+    }
+  ],
+  "expensive_planning_deferred": true,
+  "next_action": {
+    "id": "inspect_engine_registration",
+    "reason": "formalization engine runtime material differs from clean HEAD: lakefile.toml; commit an append-only registered transition before closeout",
+    "required": true,
+    "state": "ready_now"
+  },
+  "paper": "Galarza26RelativeCredit",
+  "schema": 2,
+  "strict_closeout_required_for_acceptance": true
+}
