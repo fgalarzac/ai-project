@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/formalization_protocol.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
