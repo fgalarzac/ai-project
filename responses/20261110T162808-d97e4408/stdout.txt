@@ -1,0 +1,16 @@
+.scratch/galarza/Calculus.lean:9:2: error: Type mismatch: After simplification, term
+  HasDerivAt.const_add qbar (HasDerivAt.const_mul a (hasDerivAt_id D))
+ has type
+  HasDerivAt (HMul.hMul a) a D
+but is expected to have type
+  HasDerivAt (priorRisk qbar a) a D
+.scratch/galarza/Calculus.lean:53:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+.scratch/galarza/Calculus.lean:195:27: error(lean.unknownIdentifier): Unknown identifier `neg_min`
+.scratch/galarza/Calculus.lean:195:2: error: Type mismatch: After simplification, term
+  hneg
+ has type
+  AffineGerm (fun y => -min (-f y) (-g y)) s x
+but is expected to have type
+  AffineGerm (fun y => max (f y) (g y)) s x
