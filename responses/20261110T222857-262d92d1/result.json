@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T222857-262d92d1",
+  "argv": [
+    "git",
+    "fetch",
+    ".scratch/galarza/engine_registration.bundle",
+    "HEAD"
+  ],
+  "started_utc": "2026-11-10T22:29:02Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.032,
+  "download_sha256": "b81e87c4ba6e547f92c6cf333f15428677a2ff03db0b10c49926759b3afafc1f",
+  "finished_utc": "2026-11-10T22:29:02Z"
+}
