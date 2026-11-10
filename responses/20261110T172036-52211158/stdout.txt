@@ -1,0 +1,1 @@
+{"started_pid": 6324, "log": "/home/runner/work/_temp/AppliedModelingLib/.scratch/galarza/tex_install.log"}
