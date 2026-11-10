@@ -1,0 +1,513 @@
+{
+  "acceptance_credential": false,
+  "lean_dependency_support": {
+    "library_declarations": {},
+    "paper_declarations": {
+      "Galarza26RelativeCredit.ContinuationProblem": {
+        "declaration_kind": "non_definition",
+        "display": "field feasible:\nGalarza26RelativeCredit.ContinuationProblem \u2192 Set \u211d\n\nfield payoff:\nGalarza26RelativeCredit.ContinuationProblem \u2192 \u211d \u2192 \u211d",
+        "display_sha256": "54d7be24a3776d94e4c5182fdd8c1f34f2676c62798038e6f1d953a5a494cb25",
+        "elaborated_signature_sha256": "94cc6ab0f76b57f65c1fd778d9838536ef616e49fb7b47217b40faeef381cf79",
+        "root_expanded": false
+      },
+      "Galarza26RelativeCredit.ContinuationProblem.IsMaximizer": {
+        "declaration_kind": "definition",
+        "display": "type:\nGalarza26RelativeCredit.ContinuationProblem \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (problem : Galarza26RelativeCredit.ContinuationProblem) (e : \u211d) =>\n  e \u2208 problem.feasible \u2227 \u2200 x \u2208 problem.feasible, problem.payoff x \u2264 problem.payoff e",
+        "display_sha256": "d84e01f93868b4b5c354b307719a1abf417e6e2267483a30eed64360322e0cb4",
+        "elaborated_signature_sha256": "03b3e83d1e7b0cb2401a934839b77a2738a48b36fa85432e421ae49afe442537",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.capacityRegime": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (qbar a g c Rbar E D : \u211d) =>\n  E < g * Galarza26RelativeCredit.premium Rbar D / c \u2227 E < Galarza26RelativeCredit.priorRisk qbar a D / g",
+        "display_sha256": "5c99906e8ce68cc4adbac50fd1435c05ddef1b97706d7d2ae1fb710217891e5c",
+        "elaborated_signature_sha256": "eb21f733f7d0b22a9a10bdf171097b47315aa5c1353f9c877d349ab921e396bc",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.exponentialBalance": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B1 epsilon D : \u211d) => B1 * Real.exp (-epsilon * D)",
+        "display_sha256": "fabb992a27cb4480007cca375ec7af2e53d3ec0cc9add607763d3546449dc5e7",
+        "elaborated_signature_sha256": "d8b643d1963043bf85e3b918c7d6da13b0c31843bbc2bae47ddf4a8db08a595a",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.floorRegime": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (qbar a g c Rbar E D : \u211d) =>\n  Galarza26RelativeCredit.priorRisk qbar a D / g < g * Galarza26RelativeCredit.premium Rbar D / c \u2227\n    Galarza26RelativeCredit.priorRisk qbar a D / g < E",
+        "display_sha256": "3a21b1998e24e66a641e0b16cde23657e071c209574585163f9094463e38e695",
+        "elaborated_signature_sha256": "a612b79c0c2c861e4ba76f2528edb35b593385ce9d35a0faa0e867f97193d117",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.interiorRegime": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (qbar a g c Rbar E D : \u211d) =>\n  g * Galarza26RelativeCredit.premium Rbar D / c < E \u2227\n    g * Galarza26RelativeCredit.premium Rbar D / c < Galarza26RelativeCredit.priorRisk qbar a D / g",
+        "display_sha256": "a110762f5b45c031ad53215608447ee7fb0fd4a4c81193c2ae75c87ff3f25d50",
+        "elaborated_signature_sha256": "82dfea774c185f81bfe8f9ddd2487d962a677627b3be6d63714d48f90ac73096",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.optimalEffort": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (qbar a g c Rbar E D : \u211d) =>\n  min (g * Galarza26RelativeCredit.premium Rbar D / c) (min E (Galarza26RelativeCredit.priorRisk qbar a D / g))",
+        "display_sha256": "6b34ef92a8655e3399ef2adf42030f0b8d9b3a538bcbf4a728fe9846031e0521",
+        "elaborated_signature_sha256": "6f93d523fb8aafb54141569b0e2d36fe12f56df3fdc3e503794cff7bc7d2621e",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.optimalRisk": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (qbar a g c Rbar E D : \u211d) =>\n  max 0 (Galarza26RelativeCredit.priorRisk qbar a D - g * min E (g * Galarza26RelativeCredit.premium Rbar D / c))",
+        "display_sha256": "06cbed0a5f13129e420c8e8ca9a239fb9d4fc0755ecb8243be0adf5d5fb39c6c",
+        "elaborated_signature_sha256": "0b008ce45234745eba045a6933bfc140cb42db5639491fe3758c9f8a942c8d95",
+        "root_expanded": true
+      },
+      "Galarza26RelativeCredit.portfolioRatio": {
+        "declaration_kind": "definition",
+        "display": "type:\n\u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) => Galarza26RelativeCredit.impairedBalance B0 m0 B q D / (B0 + B D)",
+        "display_sha256": "53de563ef793cd39c2285b9b0c9ec1f8ab4451ae1dd4af87a3b1ecec749a806a",
+        "elaborated_signature_sha256": "e56b089e979201a20f302b579b53aa13721b10dae2194431b6ba13995c9ecbfa",
+        "root_expanded": true
+      }
+    }
+  },
+  "non_evidence": true,
+  "paper": "Galarza26RelativeCredit",
+  "persisted": false,
+  "reviewer_instruction": "Use this only to repair the source map or Lean interface before graph acquisition. A context-isolated reviewer must return matches, mismatch, or uncertain for each row; for a row with an approved_corrected_target, it may return matches_approved_corrected_target only when the fully expanded Lean target matches that displayed approved correction. If an otherwise reasonable source-model interpretation needs maintainer confirmation, the reviewer may return needs_maintainer_clarification with the exact source passage, Lean reading, and affected scope. No verdict from this bundle is a ledger judgment or closeout evidence. Resolve named dependencies through lean_dependency_support: these are Lean-emitted owner displays, not additional source claims or standalone source-review rows.",
+  "schema": "applied-modeling-lib.draft-semantic-preflight/v1",
+  "semantic_preflight_import_module": "Galarza26RelativeCredit.ProofInterface",
+  "source_model_and_definition_rows": [
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.bankProfit",
+      "lean_exact_declaration_source": "/-- Expected profit per unit originated, for fixed price and primitives; (2). -/\ndef bankProfit (qbar a g c Rbar F D e : \u211d) : \u211d :=\n  (1 - priorRisk qbar a D + g * e) * premium Rbar D - F - screeningCost c e",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 75,
+        "column_start": 0,
+        "line_end": 60,
+        "line_start": 58
+      },
+      "lean_exact_declaration_source_sha256": "267f46063b856aaca0ba90f57e3f4c18b1ebaadb982118603e1d3833116266ae",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (qbar a g c Rbar F D e : \u211d) =>\n  (1 - Galarza26RelativeCredit.priorRisk qbar a D + g * e) * Galarza26RelativeCredit.premium Rbar D - F -\n    Galarza26RelativeCredit.screeningCost c e",
+      "lean_expanded_target_sha256": "f61bff4e975b18397e68850ec589e88d180b075e7fcc982b718d637099c630a4",
+      "review_id": "source-declaration:Galarza26RelativeCredit.bankProfit:assumption_3_conditioned_payoff",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 3 (Remuneraci\u00f3n y problema condicionado). El premio normalizado por desempe\u00f1o es\nR(D) = R\u0304 + D > 0 y F es un costo por unidad independiente de e. El banco resuelve\nma\u0301x\ne\u2208[0,u(D,\u03ba)]\n\n\u03c0(e; D, \u03ba) = [1 \u2212 q 0 (D, \u03ba) + g(\u03ba)e]R(D) \u2212 F \u2212\n\nc(\u03ba) 2\ne .\n2\n\n(2)\n\nEl precio, la referencia de pares y \u03ba se mantienen \ufb01jos al evaluar desviaciones de esfuerzo.",
+      "source_input_sha256": "65639946070f63ab9de83fc0723994d6d7243bfb5620effc69243c9d118ef02b",
+      "source_item": "assumption_3_conditioned_payoff",
+      "source_statement": "Supuesto 3: premio Rbar+D positivo, costo fijo independiente del esfuerzo y maximizaci\u00f3n condicionada manteniendo precio, pares y opacidad fijos."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.cohortWeight",
+      "lean_exact_declaration_source": "/-- Deterministic/continuous-population exposure weight from S5. -/\ndef cohortWeight (B0 : \u211d) (B : \u211d \u2192 \u211d) (D : \u211d) : \u211d := B D / (B0 + B D)",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 69,
+        "column_start": 0,
+        "line_end": 90,
+        "line_start": 89
+      },
+      "lean_exact_declaration_source_sha256": "5d2e150ed12935cb95939707f6617b07048b7e253ccd18f1fcbc229da8c8615f",
+      "lean_expanded_target": "type:\n\u211d \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B0 : \u211d) (B : \u211d \u2192 \u211d) (D : \u211d) => B D / (B0 + B D)",
+      "lean_expanded_target_sha256": "e4c68c315a603f3d810fc3e58b588dd26aa6ee55630a94285eafa91455a44c31",
+      "review_id": "source-declaration:Galarza26RelativeCredit.cohortWeight:stock_model_construction",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Fijemos un horizonte h. B0 > 0 es el saldo de cr\u00e9ditos antiguos todav\u00eda vigente en esa fecha y\nm0 \u2208 [0, 1] su proporci\u00f3n en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva\nque permanece en cartera a h, despu\u00e9s de amortizaci\u00f3n normal. Denote w(D) = B(D)/(B0 +B(D)).",
+      "source_input_sha256": "1719f080c884fcd4b89f27a62c7c9f24026cb563828a2ac7059797ccc94c8d26",
+      "source_item": "stock_model_construction",
+      "source_statement": "Construcci\u00f3n de dos cohortes con saldo antiguo, mora antigua, saldo nuevo positivo y peso w=B/(B0+B)."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.conditionedContinuationProblem",
+      "lean_exact_declaration_source": "/-- The paper's conditioned continuation problem, including both (2) and its\nS2 feasibility constraint. -/\ndef conditionedContinuationProblem (qbar a g c Rbar F E D : \u211d) : ContinuationProblem where\n  feasible := feasibleEfforts qbar a g E D\n  payoff := fun e \u21a6 bankProfit qbar a g c Rbar F D e",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 52,
+        "column_start": 0,
+        "line_end": 76,
+        "line_start": 72
+      },
+      "lean_exact_declaration_source_sha256": "1a044630af585f330c4a6b2cf96c54fe6312f52b9dd0bca8560be7716bd1c097",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 Galarza26RelativeCredit.ContinuationProblem\n\nvalue:\nfun (qbar a g c Rbar F E D : \u211d) =>\n  { feasible := Galarza26RelativeCredit.feasibleEfforts qbar a g E D,\n    payoff := fun (e : \u211d) => Galarza26RelativeCredit.bankProfit qbar a g c Rbar F D e }",
+      "lean_expanded_target_sha256": "4ee5f82682ec8d854b16ee484d0be1555347c7fea0aa54dae70ceda708b6b651",
+      "review_id": "source-declaration:Galarza26RelativeCredit.conditionedContinuationProblem:governing_continuation_model",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Ambiente y decisi\u00f3n del banco\n\n4.1.\n\nAgentes, informaci\u00f3n, unidades y cronolog\u00eda\n\nEl \u00fanico agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes\ny los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego\nestrat\u00e9gico. El supervisor observa D y m\u00e1s tarde un ratio de cartera, pero no el esfuerzo ni toda la\ncomposici\u00f3n de riesgo. La opacidad \u03ba \u2208 [0, 1] es una caracter\u00edstica ex\u00f3gena del segmento: un valor\nmayor representa menor informaci\u00f3n veri\ufb01cable inicial. No se estima este \u00edndice ni se equipara\nautom\u00e1ticamente microempresa con opacidad alta.\nLa cronolog\u00eda es: primero se \ufb01jan segmento, tecnolog\u00eda y precio observado; despu\u00e9s se forma el\nconjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;\n\ufb01nalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los\npar\u00e1metros al decidir. La incertidumbre de desempe\u00f1o permanece y se integra en su objetivo. El\nprecio es un argumento del problema de continuaci\u00f3n, no una variable resuelta en equilibrio.\nq 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte\nestandarizada. e y \u03ba son \u00edndices. D se mide en unidades de tasa anual decimal. Los pagos y costos\nse normalizan por sol de cr\u00e9dito. La sensibilidad monetaria del premio de desempe\u00f1o a una unidad\nde D se normaliza a uno. Esto es una simpli\ufb01caci\u00f3n de remuneraci\u00f3n, no una conversi\u00f3n exacta de\ntasas efectivas a cualquier plazo contractual.",
+      "source_input_sha256": "964663d99fd3e8837c89e231bf91c1ec02e3bdbc2cfde4d0df7f834917bcf289",
+      "source_item": "governing_continuation_model",
+      "source_statement": "Ambiente de continuaci\u00f3n de precio fijo: banco neutral al riesgo, opacidad ex\u00f3gena, precio y tecnolog\u00eda fijados antes del esfuerzo, y riesgo realizado despu\u00e9s de originar."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.conditionedPayoff",
+      "lean_exact_declaration_source": "/-- The positive performance premium in Assumption 3 on the admissible domain.\nThe objective and feasible set themselves are `bankProfit` and\n`feasibleEfforts`; their explicit arguments keep price fixed during an effort\ncomparison. -/\ndef conditionedPayoff (Rbar lower upper : \u211d) : Prop :=\n  \u2200 D \u2208 Icc lower upper, 0 < premium Rbar D",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 43,
+        "column_start": 0,
+        "line_end": 118,
+        "line_start": 113
+      },
+      "lean_exact_declaration_source_sha256": "f16604be9152dba8149b99b410bb799b768e96b798036ccdc90298874b1946d2",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (Rbar lower upper : \u211d) => \u2200 D \u2208 Set.Icc lower upper, 0 < Galarza26RelativeCredit.premium Rbar D",
+      "lean_expanded_target_sha256": "504ec4febae286a799f13dee978d62f72a2791103ffed8035b3a5c98b011b6c9",
+      "review_id": "source-declaration:Galarza26RelativeCredit.conditionedPayoff:assumption_3_conditioned_payoff",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 3 (Remuneraci\u00f3n y problema condicionado). El premio normalizado por desempe\u00f1o es\nR(D) = R\u0304 + D > 0 y F es un costo por unidad independiente de e. El banco resuelve\nma\u0301x\ne\u2208[0,u(D,\u03ba)]\n\n\u03c0(e; D, \u03ba) = [1 \u2212 q 0 (D, \u03ba) + g(\u03ba)e]R(D) \u2212 F \u2212\n\nc(\u03ba) 2\ne .\n2\n\n(2)\n\nEl precio, la referencia de pares y \u03ba se mantienen \ufb01jos al evaluar desviaciones de esfuerzo.",
+      "source_input_sha256": "65639946070f63ab9de83fc0723994d6d7243bfb5620effc69243c9d118ef02b",
+      "source_item": "assumption_3_conditioned_payoff",
+      "source_statement": "Supuesto 3: premio Rbar+D positivo, costo fijo independiente del esfuerzo y maximizaci\u00f3n condicionada manteniendo precio, pares y opacidad fijos."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.crossingConditions",
+      "lean_exact_declaration_source": "/-- Mathematical content of Assumption 4, including the two strict\ninteriority conditions at the compared price for every opacity. -/\ndef crossingConditions (qbar Rbar E D0 : \u211d)\n    (a g c : \u211d \u2192 \u211d) : Prop :=\n  ContinuousOn a (Icc 0 1) \u2227 ContinuousOn g (Icc 0 1) \u2227\n  ContinuousOn c (Icc 0 1) \u2227\n  (\u2200 k \u2208 Icc (0 : \u211d) 1, 0 < a k \u2227 0 < g k \u2227 0 < c k) \u2227\n  StrictAntiOn (fun k \u21a6 screeningAdvantage (a k) (g k) (c k)) (Icc 0 1) \u2227\n  0 < screeningAdvantage (a 0) (g 0) (c 0) \u2227\n  screeningAdvantage (a 1) (g 1) (c 1) < 0 \u2227\n  (\u2200 k \u2208 Icc (0 : \u211d) 1, interiorRegime qbar (a k) (g k) (c k) Rbar E D0)",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 72,
+        "column_start": 0,
+        "line_end": 147,
+        "line_start": 137
+      },
+      "lean_exact_declaration_source_sha256": "11e71ff330c3100b3f0270bd9d49d8d5554e42777ac4479f470992cae13a8ad6",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 Prop\n\nvalue:\nfun (qbar Rbar E D0 : \u211d) (a g c : \u211d \u2192 \u211d) =>\n  ContinuousOn a (Set.Icc 0 1) \u2227\n    ContinuousOn g (Set.Icc 0 1) \u2227\n      ContinuousOn c (Set.Icc 0 1) \u2227\n        (\u2200 k \u2208 Set.Icc 0 1, 0 < a k \u2227 0 < g k \u2227 0 < c k) \u2227\n          StrictAntiOn (fun (k : \u211d) => Galarza26RelativeCredit.screeningAdvantage (a k) (g k) (c k)) (Set.Icc 0 1) \u2227\n            0 < Galarza26RelativeCredit.screeningAdvantage (a 0) (g 0) (c 0) \u2227\n              Galarza26RelativeCredit.screeningAdvantage (a 1) (g 1) (c 1) < 0 \u2227\n                \u2200 k \u2208 Set.Icc 0 1, Galarza26RelativeCredit.interiorRegime qbar (a k) (g k) (c k) Rbar E D0",
+      "lean_expanded_target_sha256": "400221a67da9a1866722fea30adf502ad64cf256695151e529fc9c6881422bf1",
+      "review_id": "source-declaration:Galarza26RelativeCredit.crossingConditions:assumption_4_crossing_conditions",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 4 (Condiciones su\ufb01cientes para el cruce). En \u03ba \u2208 [0, 1], a, g, c son continuas y positivas.\nLa funci\u00f3n a \u2212 H es estrictamente decreciente y satisface a(0) > H(0) y a(1) < H(1). Al precio D0\nque se compara se cumplen estrictamente las dos condiciones de interioridad de la primera l\u00ednea de\n(4) para todo \u03ba.",
+      "source_input_sha256": "7824fc57f2e780f582a609cc18fe088001785ab9b795b6a3410aa83aca67884a",
+      "source_item": "assumption_4_crossing_conditions",
+      "source_statement": "Supuesto 4: continuidad y positividad, beta estrictamente decreciente, signos opuestos en extremos e interioridad estricta en D0."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.feasibleEfforts",
+      "lean_exact_declaration_source": "/-- The feasible effort interval from S2. -/\ndef feasibleEfforts (qbar a g E D : \u211d) : Set \u211d :=\n  Set.Icc 0 (min E (priorRisk qbar a D / g))",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 44,
+        "column_start": 0,
+        "line_end": 56,
+        "line_start": 54
+      },
+      "lean_exact_declaration_source_sha256": "2dba925a98f5420a61a4893b568eb207f185c3d9564ba51f6c0047459b55ccf0",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (qbar a g E D a_1 : \u211d) => Set.Icc 0 (min E (Galarza26RelativeCredit.priorRisk qbar a D / g)) a_1",
+      "lean_expanded_target_sha256": "3d1e082d1ba881d9f911e96349c0604f29c30d742827cf071c77c993002d6793",
+      "review_id": "source-declaration:Galarza26RelativeCredit.feasibleEfforts:assumption_2_technology_capacity_cost",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.",
+      "source_input_sha256": "194aae5101319cbb5e84c341fec9d630dd365a5647ff8e04e507907f4b266389",
+      "source_item": "assumption_2_technology_capacity_cost",
+      "source_statement": "Supuesto 2: productividad y costo positivos, capacidad no negativa, tecnolog\u00eda lineal, costo cuadr\u00e1tico y esfuerzo factible truncado por capacidad y riesgo cero."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.impairedBalance",
+      "lean_exact_declaration_source": "/-- Expected impaired balance from the source's two-cohort ledger under S5. -/\ndef impairedBalance (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) : \u211d :=\n  B0 * m0 + B D * q D",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 21,
+        "column_start": 0,
+        "line_end": 94,
+        "line_start": 92
+      },
+      "lean_exact_declaration_source_sha256": "cb62a48d38556aa314e21f7ed7db9b9b06bce52a1f6fe43127919762b208201a",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) => B0 * m0 + B D * q D",
+      "lean_expanded_target_sha256": "92a5e2425b6a95f101da1910152dd5239c60249b3ca90165e0c2b52b75032f36",
+      "review_id": "source-declaration:Galarza26RelativeCredit.impairedBalance:assumption_5_stock_accounting",
+      "review_kind": "source_model_or_definition",
+      "source_input": "\fSupuesto 5 (Contabilidad y maduraci\u00f3n). Al horizonte, el saldo de cada cohorte es determinista\no se trata como exposici\u00f3n de una poblaci\u00f3n continua. El riesgo q \u2217 (D) coincide con la fracci\u00f3n\nesperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortizaci\u00f3n\ny el tama\u00f1o del cr\u00e9dito no seleccionan riesgo adicional no recogido en q \u2217 . B0 , m0 son constantes\nal variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasi\ufb01caciones que\nalteren esta identidad en el ejercicio.",
+      "source_input_sha256": "5a116e46ba666f225d903f8cb78c6a433b0ba481ddd957feff677b0b3fc84942",
+      "source_item": "assumption_5_stock_accounting",
+      "source_statement": "Supuesto 5: contabilidad determinista o de poblaci\u00f3n continua, riesgo condicional en cartera, ausencia de selecci\u00f3n adicional, B0 y m0 fijos, B positivo diferenciable y sin ajustes extra."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.premium",
+      "lean_exact_declaration_source": "/-- Performance premium; paper S3. -/\ndef premium (Rbar D : \u211d) : \u211d := Rbar + D",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 40,
+        "column_start": 0,
+        "line_end": 46,
+        "line_start": 45
+      },
+      "lean_exact_declaration_source_sha256": "a25eea6675bfd8d54f05065c9fe77eb58b8551f3efcd57278f6e829632b37f89",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (Rbar D : \u211d) => Rbar + D",
+      "lean_expanded_target_sha256": "60215417354513ddf783c44bc8347d4bc6efed5f9e4179735d9ed39e7e1daf99",
+      "review_id": "source-declaration:Galarza26RelativeCredit.premium:assumption_3_conditioned_payoff",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 3 (Remuneraci\u00f3n y problema condicionado). El premio normalizado por desempe\u00f1o es\nR(D) = R\u0304 + D > 0 y F es un costo por unidad independiente de e. El banco resuelve\nma\u0301x\ne\u2208[0,u(D,\u03ba)]\n\n\u03c0(e; D, \u03ba) = [1 \u2212 q 0 (D, \u03ba) + g(\u03ba)e]R(D) \u2212 F \u2212\n\nc(\u03ba) 2\ne .\n2\n\n(2)\n\nEl precio, la referencia de pares y \u03ba se mantienen \ufb01jos al evaluar desviaciones de esfuerzo.",
+      "source_input_sha256": "65639946070f63ab9de83fc0723994d6d7243bfb5620effc69243c9d118ef02b",
+      "source_item": "assumption_3_conditioned_payoff",
+      "source_statement": "Supuesto 3: premio Rbar+D positivo, costo fijo independiente del esfuerzo y maximizaci\u00f3n condicionada manteniendo precio, pares y opacidad fijos."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.priorRisk",
+      "lean_exact_declaration_source": "/-- Prior credit-event fraction; paper S1. -/\ndef priorRisk (qbar a D : \u211d) : \u211d := qbar + a * D",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 48,
+        "column_start": 0,
+        "line_end": 43,
+        "line_start": 42
+      },
+      "lean_exact_declaration_source_sha256": "b668f9f690fa31121b70444ca2b9f3b47456f2f07158769d1c8dc8bd2aee207e",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (qbar a D : \u211d) => qbar + a * D",
+      "lean_expanded_target_sha256": "e9d27102f6dee5f19da33bd28b2fe1ea46ee41d30c93751446a993e54d2bb6d5",
+      "review_id": "source-declaration:Galarza26RelativeCredit.priorRisk:assumption_1_selection_domain",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 1 (Selecci\u00f3n y dominio). Para cada \u03ba \ufb01jo, a = a(\u03ba) > 0, q\u0304 \u2208 (0, 1) y D pertenece a un\nintervalo compacto D. La probabilidad previa es q 0 (D, \u03ba) = q\u0304 + a(\u03ba)D \u2208 [0, 1] en todo D.",
+      "source_input_sha256": "552406bd00a7871f02e7eeb53638a4bb38ec9e4f8932bc8b368ffb8000ed491b",
+      "source_item": "assumption_1_selection_domain",
+      "source_statement": "Supuesto 1: selecci\u00f3n af\u00edn positiva y riesgo previo en [0,1] sobre un intervalo compacto de precios."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.relativePrice",
+      "lean_exact_declaration_source": "/-- The paper's simple, unweighted peer comparison.  The peer vector has\n`n + 3` entries, so the empirical minimum of three other banks is built into\nthe carrier and the evaluated bank is supplied separately. -/\ndef relativePrice {n : \u2115} (ownRate baseRate : \u211d)\n    (peerRates : Fin (n + 3) \u2192 \u211d) : \u211d :=\n  (ownRate - baseRate) -\n    (\u2211 k, (peerRates k - baseRate)) / (Fintype.card (Fin (n + 3)) : \u211d)",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 70,
+        "column_start": 0,
+        "line_end": 27,
+        "line_start": 21
+      },
+      "lean_exact_declaration_source_sha256": "6e2e85c699f470227329b10388fe9ba6cb470f2ff828f423d632616fef2730de",
+      "lean_expanded_target": "type:\n{n : \u2115} \u2192 \u211d \u2192 \u211d \u2192 (Fin (n + 3) \u2192 \u211d) \u2192 \u211d\n\nvalue:\nfun {n : \u2115} (ownRate baseRate : \u211d) (peerRates : Fin (n + 3) \u2192 \u211d) =>\n  ownRate - baseRate - (\u2211 k : Fin (n + 3), (peerRates k - baseRate)) / \u2191(Fintype.card (Fin (n + 3)))",
+      "lean_expanded_target_sha256": "047df3eed9acee42bd094397f09002fea5ec45ff152e8f314b3d11115bded758",
+      "review_id": "source-declaration:Galarza26RelativeCredit.relativePrice:relative_price_definition",
+      "review_kind": "source_model_or_definition",
+      "source_input": "De\ufb01nici\u00f3n principal del precio relativo\n\nSea j un banco, s una celda de tipo de cr\u00e9dito, modalidad o tramo de plazo y moneda, y t la\nfecha del reporte. Denote por ijst su tasa anual en decimales y por bst una base com\u00fan en la misma\nmoneda. Sea P\u2212j,st el conjunto de otros bancos con observaci\u00f3n v\u00e1lida y n\u2212j,st su tama\u00f1o. De\ufb01no\nDjst = (ijst \u2212 bst ) \u2212\n\n1\nn\u2212j,st\n\n\u2211\n\n(ikst \u2212 bst ) = ijst \u2212\n\nk\u2208P\u2212j,st\n\n1\n\n\u2211\n\nn\u2212j,st\n\nk\n\nikst .\n\n(1)\n\nEl banco evaluado no entra en su referencia. D = 0.02 signi\ufb01ca dos puntos porcentuales por encima\ndel promedio de pares. Se usa el promedio simple, coherente con el plan y transparente cuando no\nse observan desembolsos por tramo. No es la tasa promedio del sistema ponderada por operaciones.\nSe exigir\u00edan al menos tres pares para la aplicaci\u00f3n emp\u00edrica.",
+      "source_input_sha256": "ea0ef61bef84baa301e936d74411943890b00bb6cd73d822e444c2c7252ecfff",
+      "source_item": "relative_price_definition",
+      "source_statement": "Definici\u00f3n principal del precio relativo como tasa propia menos promedio simple de al menos tres bancos pares, con la base com\u00fan cancelada."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.relativePrice_eq_rate_gap",
+      "lean_exact_declaration_source": "/-- Algebraic cancellation of the common base in the paper's equation (1). -/\ntheorem relativePrice_eq_rate_gap {n : \u2115} (ownRate baseRate : \u211d)\n    (peerRates : Fin (n + 3) \u2192 \u211d) :\n    relativePrice ownRate baseRate peerRates =\n      ownRate - (\u2211 k, peerRates k) / (Fintype.card (Fin (n + 3)) : \u211d) := by\n  have hcard : (Fintype.card (Fin (n + 3)) : \u211d) \u2260 0 := by\n    simp only [Fintype.card_fin, ne_eq]\n    positivity\n  simp only [relativePrice, Finset.sum_sub_distrib, Finset.sum_const,\n    Finset.card_univ, nsmul_eq_mul, Fintype.card_fin]\n  field_simp\n  ring",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 6,
+        "column_start": 0,
+        "line_end": 40,
+        "line_start": 29
+      },
+      "lean_exact_declaration_source_sha256": "a01e78a5c0e35af55205cc2839f745e9851bc7a7dc4476ef877e4fc43037a469",
+      "lean_expanded_target": "\u2200 {n : \u2115} (ownRate baseRate : \u211d) (peerRates : Fin (n + 3) \u2192 \u211d),\n  Galarza26RelativeCredit.relativePrice ownRate baseRate peerRates =\n    ownRate - (\u2211 k : Fin (n + 3), peerRates k) / \u2191(Fintype.card (Fin (n + 3)))",
+      "lean_expanded_target_sha256": "41b3a8bf34315dbd90d0c17a7c451426e026bb29f40c5e8d0d55262dafd99e8a",
+      "review_id": "source-declaration:Galarza26RelativeCredit.relativePrice_eq_rate_gap:relative_price_definition",
+      "review_kind": "source_model_or_definition",
+      "source_input": "De\ufb01nici\u00f3n principal del precio relativo\n\nSea j un banco, s una celda de tipo de cr\u00e9dito, modalidad o tramo de plazo y moneda, y t la\nfecha del reporte. Denote por ijst su tasa anual en decimales y por bst una base com\u00fan en la misma\nmoneda. Sea P\u2212j,st el conjunto de otros bancos con observaci\u00f3n v\u00e1lida y n\u2212j,st su tama\u00f1o. De\ufb01no\nDjst = (ijst \u2212 bst ) \u2212\n\n1\nn\u2212j,st\n\n\u2211\n\n(ikst \u2212 bst ) = ijst \u2212\n\nk\u2208P\u2212j,st\n\n1\n\n\u2211\n\nn\u2212j,st\n\nk\n\nikst .\n\n(1)\n\nEl banco evaluado no entra en su referencia. D = 0.02 signi\ufb01ca dos puntos porcentuales por encima\ndel promedio de pares. Se usa el promedio simple, coherente con el plan y transparente cuando no\nse observan desembolsos por tramo. No es la tasa promedio del sistema ponderada por operaciones.\nSe exigir\u00edan al menos tres pares para la aplicaci\u00f3n emp\u00edrica.",
+      "source_input_sha256": "ea0ef61bef84baa301e936d74411943890b00bb6cd73d822e444c2c7252ecfff",
+      "source_item": "relative_price_definition",
+      "source_statement": "Definici\u00f3n principal del precio relativo como tasa propia menos promedio simple de al menos tres bancos pares, con la base com\u00fan cancelada."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.screenedRisk",
+      "lean_exact_declaration_source": "/-- Post-screening credit-event fraction; paper S2. -/\ndef screenedRisk (qbar a g D e : \u211d) : \u211d := priorRisk qbar a D - g * e",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 69,
+        "column_start": 0,
+        "line_end": 49,
+        "line_start": 48
+      },
+      "lean_exact_declaration_source_sha256": "b24ec123e6ecb9f8d27de0591f359bd1b819d35362787ae141bf88a397620bfe",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (qbar a g D e : \u211d) => Galarza26RelativeCredit.priorRisk qbar a D - g * e",
+      "lean_expanded_target_sha256": "7db497f7f379333df4aa67b78025cb101a69fda31a18c8c3d0a5738626b76bd1",
+      "review_id": "source-declaration:Galarza26RelativeCredit.screenedRisk:assumption_2_technology_capacity_cost",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.",
+      "source_input_sha256": "194aae5101319cbb5e84c341fec9d630dd365a5647ff8e04e507907f4b266389",
+      "source_item": "assumption_2_technology_capacity_cost",
+      "source_statement": "Supuesto 2: productividad y costo positivos, capacidad no negativa, tecnolog\u00eda lineal, costo cuadr\u00e1tico y esfuerzo factible truncado por capacidad y riesgo cero."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.screeningAdvantage",
+      "lean_exact_declaration_source": "/-- Local definitions `H` and `\u03b2` preceding Assumption 4. -/\ndef screeningAdvantage (a g c : \u211d) : \u211d := a - screeningStrength g c",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 67,
+        "column_start": 0,
+        "line_end": 135,
+        "line_start": 134
+      },
+      "lean_exact_declaration_source_sha256": "244a4563331516cef670388ad385448d42093f3c154aee1dff902f8ea2b6d5a0",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (a g c : \u211d) => a - Galarza26RelativeCredit.screeningStrength g c",
+      "lean_expanded_target_sha256": "95d50a069ac8d462ec73c0fdeb5e48d0ac6d7ec15315fd105473885b75da39df",
+      "review_id": "source-declaration:Galarza26RelativeCredit.screeningAdvantage:screening_strength_and_slope_definitions",
+      "review_kind": "source_model_or_definition",
+      "source_input": "De\ufb01na H(\u03ba) = g(\u03ba)2 /c(\u03ba) y \u03b2(\u03ba) = a(\u03ba) \u2212 H(\u03ba).",
+      "source_input_sha256": "b7efdf34f0f1fa0ed617d68cb78a3be2524ca51464f3c8ca299b1c96232e0ab4",
+      "source_item": "screening_strength_and_slope_definitions",
+      "source_statement": "Definiciones locales H(kappa)=g(kappa)^2/c(kappa) y beta(kappa)=a(kappa)-H(kappa)."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.screeningCost",
+      "lean_exact_declaration_source": "/-- Quadratic screening cost per unit originated; paper S2. -/\ndef screeningCost (c e : \u211d) : \u211d := c * e ^ 2 / 2",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 48,
+        "column_start": 0,
+        "line_end": 52,
+        "line_start": 51
+      },
+      "lean_exact_declaration_source_sha256": "2f51ca4be9d36b9a53679e8addb93a41e69eaf662b47e87c01b2beedeedc664a",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (c e : \u211d) => c * e ^ 2 / 2",
+      "lean_expanded_target_sha256": "8bec6a067239f6ddcb5bcc2ab90b41fe2f2a6c41f8bc40d71ae69add50a357d9",
+      "review_id": "source-declaration:Galarza26RelativeCredit.screeningCost:assumption_2_technology_capacity_cost",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.",
+      "source_input_sha256": "194aae5101319cbb5e84c341fec9d630dd365a5647ff8e04e507907f4b266389",
+      "source_item": "assumption_2_technology_capacity_cost",
+      "source_statement": "Supuesto 2: productividad y costo positivos, capacidad no negativa, tecnolog\u00eda lineal, costo cuadr\u00e1tico y esfuerzo factible truncado por capacidad y riesgo cero."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.screeningStrength",
+      "lean_exact_declaration_source": "/-- Screening response strength, S4. -/\ndef screeningStrength (g c : \u211d) : \u211d := g ^ 2 / c",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 48,
+        "column_start": 0,
+        "line_end": 87,
+        "line_start": 86
+      },
+      "lean_exact_declaration_source_sha256": "3f529e253bac620d9b5dddae78e939ad3c02faf170bdc5bd248507a7a05b34bd",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (g c : \u211d) => g ^ 2 / c",
+      "lean_expanded_target_sha256": "8e2827d017da37bb8a05d96566407f0e937554d6ac7c1093e3f5d5af68ce54f3",
+      "review_id": "source-declaration:Galarza26RelativeCredit.screeningStrength:screening_strength_and_slope_definitions",
+      "review_kind": "source_model_or_definition",
+      "source_input": "De\ufb01na H(\u03ba) = g(\u03ba)2 /c(\u03ba) y \u03b2(\u03ba) = a(\u03ba) \u2212 H(\u03ba).",
+      "source_input_sha256": "b7efdf34f0f1fa0ed617d68cb78a3be2524ca51464f3c8ca299b1c96232e0ab4",
+      "source_item": "screening_strength_and_slope_definitions",
+      "source_statement": "Definiciones locales H(kappa)=g(kappa)^2/c(kappa) y beta(kappa)=a(kappa)-H(kappa)."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.selectionAndDomain",
+      "lean_exact_declaration_source": "/-- Mathematical content of Assumption 1 on one compact price interval. -/\ndef selectionAndDomain (qbar a lower upper : \u211d) : Prop :=\n  0 < qbar \u2227 qbar < 1 \u2227 0 < a \u2227 lower \u2264 upper \u2227\n    \u2200 D \u2208 Icc lower upper, priorRisk qbar a D \u2208 Icc (0 : \u211d) 1",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 61,
+        "column_start": 0,
+        "line_end": 106,
+        "line_start": 103
+      },
+      "lean_exact_declaration_source_sha256": "acb30b5a7f8c2c571b8d223a89fcfe93434c5de941f8db2cad36691b45a1a4a1",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (qbar a lower upper : \u211d) =>\n  0 < qbar \u2227\n    qbar < 1 \u2227\n      0 < a \u2227 lower \u2264 upper \u2227 \u2200 D \u2208 Set.Icc lower upper, Galarza26RelativeCredit.priorRisk qbar a D \u2208 Set.Icc 0 1",
+      "lean_expanded_target_sha256": "303ed6eb5f154b5accb7fc20c27f695e584d774a88e711d628eb8592d3241cd1",
+      "review_id": "source-declaration:Galarza26RelativeCredit.selectionAndDomain:assumption_1_selection_domain",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 1 (Selecci\u00f3n y dominio). Para cada \u03ba \ufb01jo, a = a(\u03ba) > 0, q\u0304 \u2208 (0, 1) y D pertenece a un\nintervalo compacto D. La probabilidad previa es q 0 (D, \u03ba) = q\u0304 + a(\u03ba)D \u2208 [0, 1] en todo D.",
+      "source_input_sha256": "552406bd00a7871f02e7eeb53638a4bb38ec9e4f8932bc8b368ffb8000ed491b",
+      "source_item": "assumption_1_selection_domain",
+      "source_statement": "Supuesto 1: selecci\u00f3n af\u00edn positiva y riesgo previo en [0,1] sobre un intervalo compacto de precios."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.stockAccountingConditions",
+      "lean_exact_declaration_source": "/-- Quantitative part of Assumption 5.  The ledger declarations above encode\nthe deterministic/continuous-population accounting convention and the absence\nof an additional risk-selection or write-off term. -/\ndef stockAccountingConditions (B0 m0 lower upper : \u211d) (B : \u211d \u2192 \u211d) : Prop :=\n  0 < B0 \u2227 m0 \u2208 Icc (0 : \u211d) 1 \u2227\n    (\u2200 D \u2208 Icc lower upper, 0 < B D \u2227 DifferentiableAt \u211d B D)",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 61,
+        "column_start": 0,
+        "line_end": 154,
+        "line_start": 149
+      },
+      "lean_exact_declaration_source_sha256": "108b5b64efb5b434c9697f837d0e41717d0d787732ac7452ee2e2d24da58dbec",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 Prop\n\nvalue:\nfun (B0 m0 lower upper : \u211d) (B : \u211d \u2192 \u211d) =>\n  0 < B0 \u2227 m0 \u2208 Set.Icc 0 1 \u2227 \u2200 D \u2208 Set.Icc lower upper, 0 < B D \u2227 DifferentiableAt \u211d B D",
+      "lean_expanded_target_sha256": "786228d1c62de11d73b97bf1c564c7c698abb3e607bb910d5594b8fb9271a8b7",
+      "review_id": "source-declaration:Galarza26RelativeCredit.stockAccountingConditions:assumption_5_stock_accounting",
+      "review_kind": "source_model_or_definition",
+      "source_input": "\fSupuesto 5 (Contabilidad y maduraci\u00f3n). Al horizonte, el saldo de cada cohorte es determinista\no se trata como exposici\u00f3n de una poblaci\u00f3n continua. El riesgo q \u2217 (D) coincide con la fracci\u00f3n\nesperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortizaci\u00f3n\ny el tama\u00f1o del cr\u00e9dito no seleccionan riesgo adicional no recogido en q \u2217 . B0 , m0 son constantes\nal variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasi\ufb01caciones que\nalteren esta identidad en el ejercicio.",
+      "source_input_sha256": "5a116e46ba666f225d903f8cb78c6a433b0ba481ddd957feff677b0b3fc84942",
+      "source_item": "assumption_5_stock_accounting",
+      "source_statement": "Supuesto 5: contabilidad determinista o de poblaci\u00f3n continua, riesgo condicional en cartera, ausencia de selecci\u00f3n adicional, B0 y m0 fijos, B positivo diferenciable y sin ajustes extra."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.technologyCapacityCost",
+      "lean_exact_declaration_source": "/-- Mathematical content of Assumption 2.  Real-valued Lean parameters are\nfinite; positivity and the nonnegative capacity are the material restrictions. -/\ndef technologyCapacityCost (g c E : \u211d) : Prop :=\n  0 < g \u2227 0 < c \u2227 0 \u2264 E",
+      "lean_exact_declaration_source_module": "Galarza26RelativeCredit.Model",
+      "lean_exact_declaration_source_path": "papers/Galarza26RelativeCredit/Model.lean",
+      "lean_exact_declaration_source_range": {
+        "column_end": 23,
+        "column_start": 0,
+        "line_end": 111,
+        "line_start": 108
+      },
+      "lean_exact_declaration_source_sha256": "d170db77077e177f5e68c62db52763198d8423940a376938a9ccbaccc3e7d36c",
+      "lean_expanded_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 Prop\n\nvalue:\nfun (g c E : \u211d) => 0 < g \u2227 0 < c \u2227 0 \u2264 E",
+      "lean_expanded_target_sha256": "cd852a1bc92187068e2e198fc2ca7bcc10591de606253350a33feed8aa8424d5",
+      "review_id": "source-declaration:Galarza26RelativeCredit.technologyCapacityCost:assumption_2_technology_capacity_cost",
+      "review_kind": "source_model_or_definition",
+      "source_input": "Supuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.",
+      "source_input_sha256": "194aae5101319cbb5e84c341fec9d630dd365a5647ff8e04e507907f4b266389",
+      "source_item": "assumption_2_technology_capacity_cost",
+      "source_statement": "Supuesto 2: productividad y costo positivos, capacidad no negativa, tecnolog\u00eda lineal, costo cuadr\u00e1tico y esfuerzo factible truncado por capacidad y riesgo cero."
+    }
+  ],
+  "source_result_rows": [
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.proposition1Spec",
+      "lean_expanded_target": "(\u2200 (qbar a g c Rbar F E lower upper : \u211d),\n    Galarza26RelativeCredit.selectionAndDomain qbar a lower upper \u2192\n      Galarza26RelativeCredit.technologyCapacityCost g c E \u2192\n        Galarza26RelativeCredit.conditionedPayoff Rbar lower upper \u2192\n          (\u2200 D \u2208 Set.Icc lower upper,\n              ((\u2203! e : \u211d,\n                    (Galarza26RelativeCredit.conditionedContinuationProblem qbar a g c Rbar F E D).IsMaximizer e) \u2227\n                  (Galarza26RelativeCredit.conditionedContinuationProblem qbar a g c Rbar F E D).IsMaximizer\n                    (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D)) \u2227\n                Galarza26RelativeCredit.screenedRisk qbar a g D\n                      (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D) =\n                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D \u2227\n                  0 \u2264 Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D \u2227\n                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D \u2264 1) \u2227\n            (\u2200 D \u2208 Set.Ioo lower upper,\n                Galarza26RelativeCredit.interiorRegime qbar a g c Rbar E D \u2192\n                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) (a - g ^ 2 / c) D) \u2227\n              (\u2200 D \u2208 Set.Ioo lower upper,\n                  Galarza26RelativeCredit.capacityRegime qbar a g c Rbar E D \u2192\n                    HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) a D) \u2227\n                (\u2200 D \u2208 Set.Ioo lower upper,\n                    Galarza26RelativeCredit.floorRegime qbar a g c Rbar E D \u2192\n                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) 0 D) \u2227\n                  (E = 0 \u2192\n                      (\u2200 D \u2208 Set.Icc lower upper,\n                          Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D = 0 \u2227\n                            Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D =\n                              Galarza26RelativeCredit.priorRisk qbar a D) \u2227\n                        \u2200 D \u2208 Set.Ioo lower upper,\n                          HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) a D) \u2227\n                    ContinuousOn (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E) (Set.Icc lower upper) \u2227\n                      ContinuousOn (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) (Set.Icc lower upper) \u2227\n                        \u2200 D \u2208 Set.Icc lower upper,\n                          \u2203 (left : \u211d) (right : \u211d),\n                            HasDerivWithinAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) left (Set.Iic D)\n                                D \u2227\n                              HasDerivWithinAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) right (Set.Ici D)\n                                D) \u2227\n  \u2203 (qbar' : \u211d) (a' : \u211d) (g' : \u211d) (c' : \u211d) (Rbar' : \u211d) (E' : \u211d) (lower' : \u211d) (upper' : \u211d) (D' : \u211d),\n    Galarza26RelativeCredit.selectionAndDomain qbar' a' lower' upper' \u2227\n      Galarza26RelativeCredit.technologyCapacityCost g' c' E' \u2227\n        Galarza26RelativeCredit.conditionedPayoff Rbar' lower' upper' \u2227\n          D' \u2208 Set.Ioo lower' upper' \u2227\n            g' * Galarza26RelativeCredit.premium Rbar' D' / c' = E' \u2227\n              E' < Galarza26RelativeCredit.priorRisk qbar' a' D' / g' \u2227\n                \u00acDifferentiableAt \u211d (Galarza26RelativeCredit.optimalRisk qbar' a' g' c' Rbar' E') D'",
+      "lean_expanded_target_sha256": "d25a23d066cca5ca19413e7028776bb4e19603443df6d5f928eac408f580e61a",
+      "review_id": "source-result:Galarza26RelativeCredit.proposition1Spec",
+      "review_kind": "source_result_spec",
+      "source_input": "Proposici\u00f3n 1 (Soluci\u00f3n global y pendientes por r\u00e9gimen). Bajo los Supuestos 1\u20133, existe un\n\u00fanico m\u00e1ximo en (2). Es\n}\n{\n{\n}}\n{\nq 0 (D)\ngR(D)\ngR(D)\n\u2217\n0\n\u2217\n, e\u0304,\n,\nq = ma\u0301x 0, q (D) \u2212 g m\u0131\u0301n e\u0304,\n.\n(3)\ne = m\u0131\u0301n\nc\ng\nc\nPara \u03ba \ufb01jo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el r\u00e9gimen,\nlas pendientes son\n\uf8f1\n\uf8f4a \u2212 g 2 /c, gR/c < e\u0304 y gR/c < q 0 /g,\n\u2202q \u2217 \uf8f2\n= a,\n(4)\ne\u0304 < gR/c y e\u0304 < q 0 /g,\n\uf8f4\n\u2202D\n\uf8f3\n0\n0\n0,\nq /g < gR/c y q /g < e\u0304.\nSi e\u0304 = 0, e\u2217 = 0 y q \u2217 = q 0 , con pendiente a en el interior del dominio de D. En empates de\nrestricciones la soluci\u00f3n es continua y se usan derivadas laterales; una derivada ordinaria puede\nno existir.\n\n[Next verbatim source excerpt]\n\nAmbiente y decisi\u00f3n del banco\n\n4.1.\n\nAgentes, informaci\u00f3n, unidades y cronolog\u00eda\n\nEl \u00fanico agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes\ny los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego\nestrat\u00e9gico. El supervisor observa D y m\u00e1s tarde un ratio de cartera, pero no el esfuerzo ni toda la\ncomposici\u00f3n de riesgo. La opacidad \u03ba \u2208 [0, 1] es una caracter\u00edstica ex\u00f3gena del segmento: un valor\nmayor representa menor informaci\u00f3n veri\ufb01cable inicial. No se estima este \u00edndice ni se equipara\nautom\u00e1ticamente microempresa con opacidad alta.\nLa cronolog\u00eda es: primero se \ufb01jan segmento, tecnolog\u00eda y precio observado; despu\u00e9s se forma el\nconjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;\n\ufb01nalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los\npar\u00e1metros al decidir. La incertidumbre de desempe\u00f1o permanece y se integra en su objetivo. El\nprecio es un argumento del problema de continuaci\u00f3n, no una variable resuelta en equilibrio.\nq 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte\nestandarizada. e y \u03ba son \u00edndices. D se mide en unidades de tasa anual decimal. Los pagos y costos\nse normalizan por sol de cr\u00e9dito. La sensibilidad monetaria del premio de desempe\u00f1o a una unidad\nde D se normaliza a uno. Esto es una simpli\ufb01caci\u00f3n de remuneraci\u00f3n, no una conversi\u00f3n exacta de\ntasas efectivas a cualquier plazo contractual.\n\n[Next verbatim source excerpt]\n\nSupuesto 1 (Selecci\u00f3n y dominio). Para cada \u03ba \ufb01jo, a = a(\u03ba) > 0, q\u0304 \u2208 (0, 1) y D pertenece a un\nintervalo compacto D. La probabilidad previa es q 0 (D, \u03ba) = q\u0304 + a(\u03ba)D \u2208 [0, 1] en todo D.\n\n[Next verbatim source excerpt]\n\nSupuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.\n\n[Next verbatim source excerpt]\n\nSupuesto 3 (Remuneraci\u00f3n y problema condicionado). El premio normalizado por desempe\u00f1o es\nR(D) = R\u0304 + D > 0 y F es un costo por unidad independiente de e. El banco resuelve\nma\u0301x\ne\u2208[0,u(D,\u03ba)]\n\n\u03c0(e; D, \u03ba) = [1 \u2212 q 0 (D, \u03ba) + g(\u03ba)e]R(D) \u2212 F \u2212\n\nc(\u03ba) 2\ne .\n2\n\n(2)\n\nEl precio, la referencia de pares y \u03ba se mantienen \ufb01jos al evaluar desviaciones de esfuerzo.",
+      "source_input_sha256": "b0f8ebc2f01ba5e71b3bc36296af837ba83ecf1c8262b9ce27da799e0dccb50d",
+      "source_item": "proposition_1_global_solution_regimes",
+      "source_statement": "Proposici\u00f3n 1: soluci\u00f3n global \u00fanica, f\u00f3rmulas de esfuerzo y riesgo, pendientes de los tres reg\u00edmenes, capacidad nula, continuidad y derivadas laterales en empates."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.proposition2Spec",
+      "lean_expanded_target": "\u2200 (qbar Rbar F E lower upper D0 : \u211d) (a g c : \u211d \u2192 \u211d),\n  D0 \u2208 Set.Icc lower upper \u2192\n    (\u2200 k \u2208 Set.Icc 0 1,\n        Galarza26RelativeCredit.selectionAndDomain qbar (a k) lower upper \u2227\n          Galarza26RelativeCredit.technologyCapacityCost (g k) (c k) E \u2227\n            Galarza26RelativeCredit.conditionedPayoff Rbar lower upper) \u2192\n      Galarza26RelativeCredit.crossingConditions qbar Rbar E D0 a g c \u2192\n        \u2203 k \u2208 Set.Ioo 0 1,\n          HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a k) (g k) (c k) Rbar E) 0 D0 \u2227\n            (\u2200 y \u2208 Set.Ioo 0 1,\n                HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a y) (g y) (c y) Rbar E) 0 D0 \u2192 y = k) \u2227\n              (\u2200 x \u2208 Set.Icc 0 1,\n                  x < k \u2192\n                    0 < Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x) \u2227\n                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a x) (g x) (c x) Rbar E)\n                        (Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x)) D0) \u2227\n                \u2200 x \u2208 Set.Icc 0 1,\n                  k < x \u2192\n                    Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x) < 0 \u2227\n                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a x) (g x) (c x) Rbar E)\n                        (Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x)) D0",
+      "lean_expanded_target_sha256": "56e3eca366a9c52550b7cddd623615700c82a7f437d232a4a772543f8cd9863e",
+      "review_id": "source-result:Galarza26RelativeCredit.proposition2Spec",
+      "review_kind": "source_result_spec",
+      "source_input": "Proposici\u00f3n 2 (Umbral condicional). Bajo los Supuestos 1\u20134, existe un \u00fanico \u03ba\u2217 \u2208 (0, 1) con\n\u2202D q \u2217 (D0 , \u03ba\u2217 ) = 0. La derivada es positiva para \u03ba < \u03ba\u2217 y negativa para \u03ba > \u03ba\u2217 .\n\n[Next verbatim source excerpt]\n\nAmbiente y decisi\u00f3n del banco\n\n4.1.\n\nAgentes, informaci\u00f3n, unidades y cronolog\u00eda\n\nEl \u00fanico agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes\ny los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego\nestrat\u00e9gico. El supervisor observa D y m\u00e1s tarde un ratio de cartera, pero no el esfuerzo ni toda la\ncomposici\u00f3n de riesgo. La opacidad \u03ba \u2208 [0, 1] es una caracter\u00edstica ex\u00f3gena del segmento: un valor\nmayor representa menor informaci\u00f3n veri\ufb01cable inicial. No se estima este \u00edndice ni se equipara\nautom\u00e1ticamente microempresa con opacidad alta.\nLa cronolog\u00eda es: primero se \ufb01jan segmento, tecnolog\u00eda y precio observado; despu\u00e9s se forma el\nconjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;\n\ufb01nalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los\npar\u00e1metros al decidir. La incertidumbre de desempe\u00f1o permanece y se integra en su objetivo. El\nprecio es un argumento del problema de continuaci\u00f3n, no una variable resuelta en equilibrio.\nq 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte\nestandarizada. e y \u03ba son \u00edndices. D se mide en unidades de tasa anual decimal. Los pagos y costos\nse normalizan por sol de cr\u00e9dito. La sensibilidad monetaria del premio de desempe\u00f1o a una unidad\nde D se normaliza a uno. Esto es una simpli\ufb01caci\u00f3n de remuneraci\u00f3n, no una conversi\u00f3n exacta de\ntasas efectivas a cualquier plazo contractual.\n\n[Next verbatim source excerpt]\n\nSupuesto 1 (Selecci\u00f3n y dominio). Para cada \u03ba \ufb01jo, a = a(\u03ba) > 0, q\u0304 \u2208 (0, 1) y D pertenece a un\nintervalo compacto D. La probabilidad previa es q 0 (D, \u03ba) = q\u0304 + a(\u03ba)D \u2208 [0, 1] en todo D.\n\n[Next verbatim source excerpt]\n\nSupuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.\n\n[Next verbatim source excerpt]\n\nSupuesto 3 (Remuneraci\u00f3n y problema condicionado). El premio normalizado por desempe\u00f1o es\nR(D) = R\u0304 + D > 0 y F es un costo por unidad independiente de e. El banco resuelve\nma\u0301x\ne\u2208[0,u(D,\u03ba)]\n\n\u03c0(e; D, \u03ba) = [1 \u2212 q 0 (D, \u03ba) + g(\u03ba)e]R(D) \u2212 F \u2212\n\nc(\u03ba) 2\ne .\n2\n\n(2)\n\nEl precio, la referencia de pares y \u03ba se mantienen \ufb01jos al evaluar desviaciones de esfuerzo.\n\n[Next verbatim source excerpt]\n\nProposici\u00f3n 1 (Soluci\u00f3n global y pendientes por r\u00e9gimen). Bajo los Supuestos 1\u20133, existe un\n\u00fanico m\u00e1ximo en (2). Es\n}\n{\n{\n}}\n{\nq 0 (D)\ngR(D)\ngR(D)\n\u2217\n0\n\u2217\n, e\u0304,\n,\nq = ma\u0301x 0, q (D) \u2212 g m\u0131\u0301n e\u0304,\n.\n(3)\ne = m\u0131\u0301n\nc\ng\nc\nPara \u03ba \ufb01jo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el r\u00e9gimen,\nlas pendientes son\n\uf8f1\n\uf8f4a \u2212 g 2 /c, gR/c < e\u0304 y gR/c < q 0 /g,\n\u2202q \u2217 \uf8f2\n= a,\n(4)\ne\u0304 < gR/c y e\u0304 < q 0 /g,\n\uf8f4\n\u2202D\n\uf8f3\n0\n0\n0,\nq /g < gR/c y q /g < e\u0304.\nSi e\u0304 = 0, e\u2217 = 0 y q \u2217 = q 0 , con pendiente a en el interior del dominio de D. En empates de\nrestricciones la soluci\u00f3n es continua y se usan derivadas laterales; una derivada ordinaria puede\nno existir.\n\n[Next verbatim source excerpt]\n\nDe\ufb01na H(\u03ba) = g(\u03ba)2 /c(\u03ba) y \u03b2(\u03ba) = a(\u03ba) \u2212 H(\u03ba).\n\n[Next verbatim source excerpt]\n\nSupuesto 4 (Condiciones su\ufb01cientes para el cruce). En \u03ba \u2208 [0, 1], a, g, c son continuas y positivas.\nLa funci\u00f3n a \u2212 H es estrictamente decreciente y satisface a(0) > H(0) y a(1) < H(1). Al precio D0\nque se compara se cumplen estrictamente las dos condiciones de interioridad de la primera l\u00ednea de\n(4) para todo \u03ba.",
+      "source_input_sha256": "67439a999f1690b72489f00ab32f135f46017557102d9f0eaa16740e9866f747",
+      "source_item": "proposition_2_conditional_threshold",
+      "source_statement": "Proposici\u00f3n 2: umbral interior \u00fanico donde la derivada de riesgo es cero, con derivada positiva debajo y negativa encima."
+    },
+    {
+      "approved_review_contexts": [],
+      "declaration": "Galarza26RelativeCredit.proposition3Spec",
+      "lean_expanded_target": "\u2200 (qbar a g c Rbar F E lower upper B0 m0 : \u211d) (B : \u211d \u2192 \u211d),\n  Galarza26RelativeCredit.selectionAndDomain qbar a lower upper \u2192\n    Galarza26RelativeCredit.technologyCapacityCost g c E \u2192\n      Galarza26RelativeCredit.conditionedPayoff Rbar lower upper \u2192\n        Galarza26RelativeCredit.stockAccountingConditions B0 m0 lower upper B \u2192\n          (\u2200 D \u2208 Set.Icc lower upper,\n              Galarza26RelativeCredit.portfolioRatio B0 m0 B (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) D =\n                (1 - Galarza26RelativeCredit.cohortWeight B0 B D) * m0 +\n                  Galarza26RelativeCredit.cohortWeight B0 B D *\n                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D) \u2227\n            (\u2200 D \u2208 Set.Icc lower upper,\n                \u2200 (beta Bprime : \u211d),\n                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D \u2192\n                    HasDerivAt B Bprime D \u2192\n                      have w : \u211d := Galarza26RelativeCredit.cohortWeight B0 B D;\n                      have wprime : \u211d := Bprime * B0 / (B0 + B D) ^ 2;\n                      have slope : \u211d :=\n                        w * beta + wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0);\n                      HasDerivAt\n                          (Galarza26RelativeCredit.portfolioRatio B0 m0 B\n                            (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))\n                          slope D \u2227\n                        ((\u2203 (b : \u211d), B = fun (x : \u211d) => b) \u2192\n                            (0 < slope \u2194 0 < beta) \u2227 (slope = 0 \u2194 beta = 0) \u2227 (slope < 0 \u2194 beta < 0)) \u2227\n                          (beta \u2260 0 \u2192\n                            |wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)| < w * |beta| \u2192\n                              0 < slope * beta)) \u2227\n              \u2200 D \u2208 Set.Icc lower upper,\n                \u2200 (beta B1 epsilon : \u211d),\n                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D \u2192\n                    B = Galarza26RelativeCredit.exponentialBalance B1 epsilon \u2192\n                      0 < B1 \u2192\n                        0 \u2264 epsilon \u2192\n                          have exponentialB : \u211d \u2192 \u211d := Galarza26RelativeCredit.exponentialBalance B1 epsilon;\n                          have w : \u211d := Galarza26RelativeCredit.cohortWeight B0 exponentialB D;\n                          have slope : \u211d :=\n                            w *\n                              (beta -\n                                epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0));\n                          HasDerivAt\n                              (Galarza26RelativeCredit.portfolioRatio B0 m0 B\n                                (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))\n                              slope D \u2227\n                            (0 < beta \u2192\n                              m0 < Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D \u2192\n                                (slope < 0 \u2194\n                                  beta <\n                                    epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)))",
+      "lean_expanded_target_sha256": "ad35ac4ce86720eb205cee956e2900c664eb0930cc63b04adf33d2ee612e9627",
+      "review_id": "source-result:Galarza26RelativeCredit.proposition3Spec",
+      "review_kind": "source_result_spec",
+      "source_input": "Proposici\u00f3n 3 (Transmisi\u00f3n y composici\u00f3n). Bajo los Supuestos 1\u20133 y 5, el ratio esperado de\ncartera es M (D) = (1 \u2212 w)m0 + wq \u2217 (D). En cualquier r\u00e9gimen diferenciable, escribiendo \u03b2D =\n\u2202D q \u2217 (D),\nM \u2032 (D) = w\u03b2D + w\u2032 (q \u2217 \u2212 m0 ).\n(6)\nSi B es constante, el signo es el de \u03b2D . Si \u03b2D \u0338= 0 y |w\u2032 (q \u2217 \u2212 m0 )| < w|\u03b2D |, el signo tambi\u00e9n se\nconserva. Con B(D) = B1 e\u2212\u03b5D , B1 > 0, \u03b5 \u2265 0,\nM \u2032 = w{\u03b2D \u2212 \u03b5(1 \u2212 w)(q \u2217 \u2212 m0 )}.\n\n(7)\n\nEn particular, \u03b2D > 0 y q \u2217 > m0 generan M \u2032 < 0 si y solo si \u03b5(1 \u2212 w)(q \u2217 \u2212 m0 ) > \u03b2D .\n\n[Next verbatim source excerpt]\n\nAmbiente y decisi\u00f3n del banco\n\n4.1.\n\nAgentes, informaci\u00f3n, unidades y cronolog\u00eda\n\nEl \u00fanico agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes\ny los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego\nestrat\u00e9gico. El supervisor observa D y m\u00e1s tarde un ratio de cartera, pero no el esfuerzo ni toda la\ncomposici\u00f3n de riesgo. La opacidad \u03ba \u2208 [0, 1] es una caracter\u00edstica ex\u00f3gena del segmento: un valor\nmayor representa menor informaci\u00f3n veri\ufb01cable inicial. No se estima este \u00edndice ni se equipara\nautom\u00e1ticamente microempresa con opacidad alta.\nLa cronolog\u00eda es: primero se \ufb01jan segmento, tecnolog\u00eda y precio observado; despu\u00e9s se forma el\nconjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;\n\ufb01nalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los\npar\u00e1metros al decidir. La incertidumbre de desempe\u00f1o permanece y se integra en su objetivo. El\nprecio es un argumento del problema de continuaci\u00f3n, no una variable resuelta en equilibrio.\nq 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte\nestandarizada. e y \u03ba son \u00edndices. D se mide en unidades de tasa anual decimal. Los pagos y costos\nse normalizan por sol de cr\u00e9dito. La sensibilidad monetaria del premio de desempe\u00f1o a una unidad\nde D se normaliza a uno. Esto es una simpli\ufb01caci\u00f3n de remuneraci\u00f3n, no una conversi\u00f3n exacta de\ntasas efectivas a cualquier plazo contractual.\n\n[Next verbatim source excerpt]\n\nSupuesto 1 (Selecci\u00f3n y dominio). Para cada \u03ba \ufb01jo, a = a(\u03ba) > 0, q\u0304 \u2208 (0, 1) y D pertenece a un\nintervalo compacto D. La probabilidad previa es q 0 (D, \u03ba) = q\u0304 + a(\u03ba)D \u2208 [0, 1] en todo D.\n\n[Next verbatim source excerpt]\n\nSupuesto 2 (Tecnolog\u00eda, capacidad y costo). g = g(\u03ba) > 0, c = c(\u03ba) > 0 y e\u0304 \u2265 0 son \ufb01nitos.\nPara un volumen normalizado de cr\u00e9ditos, q(D, e, \u03ba) = q 0 (D, \u03ba) \u2212 g(\u03ba)e y el costo es c(\u03ba)e2 /2. La\nelecci\u00f3n factible cumple\n0 \u2264 e \u2264 u(D, \u03ba) := m\u0131\u0301n{e\u0304, q 0 (D, \u03ba)/g(\u03ba)}.\n\n[Next verbatim source excerpt]\n\nSupuesto 3 (Remuneraci\u00f3n y problema condicionado). El premio normalizado por desempe\u00f1o es\nR(D) = R\u0304 + D > 0 y F es un costo por unidad independiente de e. El banco resuelve\nma\u0301x\ne\u2208[0,u(D,\u03ba)]\n\n\u03c0(e; D, \u03ba) = [1 \u2212 q 0 (D, \u03ba) + g(\u03ba)e]R(D) \u2212 F \u2212\n\nc(\u03ba) 2\ne .\n2\n\n(2)\n\nEl precio, la referencia de pares y \u03ba se mantienen \ufb01jos al evaluar desviaciones de esfuerzo.\n\n[Next verbatim source excerpt]\n\nProposici\u00f3n 1 (Soluci\u00f3n global y pendientes por r\u00e9gimen). Bajo los Supuestos 1\u20133, existe un\n\u00fanico m\u00e1ximo en (2). Es\n}\n{\n{\n}}\n{\nq 0 (D)\ngR(D)\ngR(D)\n\u2217\n0\n\u2217\n, e\u0304,\n,\nq = ma\u0301x 0, q (D) \u2212 g m\u0131\u0301n e\u0304,\n.\n(3)\ne = m\u0131\u0301n\nc\ng\nc\nPara \u03ba \ufb01jo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el r\u00e9gimen,\nlas pendientes son\n\uf8f1\n\uf8f4a \u2212 g 2 /c, gR/c < e\u0304 y gR/c < q 0 /g,\n\u2202q \u2217 \uf8f2\n= a,\n(4)\ne\u0304 < gR/c y e\u0304 < q 0 /g,\n\uf8f4\n\u2202D\n\uf8f3\n0\n0\n0,\nq /g < gR/c y q /g < e\u0304.\nSi e\u0304 = 0, e\u2217 = 0 y q \u2217 = q 0 , con pendiente a en el interior del dominio de D. En empates de\nrestricciones la soluci\u00f3n es continua y se usan derivadas laterales; una derivada ordinaria puede\nno existir.\n\n[Next verbatim source excerpt]\n\nFijemos un horizonte h. B0 > 0 es el saldo de cr\u00e9ditos antiguos todav\u00eda vigente en esa fecha y\nm0 \u2208 [0, 1] su proporci\u00f3n en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva\nque permanece en cartera a h, despu\u00e9s de amortizaci\u00f3n normal. Denote w(D) = B(D)/(B0 +B(D)).\n\n[Next verbatim source excerpt]\n\n\fSupuesto 5 (Contabilidad y maduraci\u00f3n). Al horizonte, el saldo de cada cohorte es determinista\no se trata como exposici\u00f3n de una poblaci\u00f3n continua. El riesgo q \u2217 (D) coincide con la fracci\u00f3n\nesperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortizaci\u00f3n\ny el tama\u00f1o del cr\u00e9dito no seleccionan riesgo adicional no recogido en q \u2217 . B0 , m0 son constantes\nal variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasi\ufb01caciones que\nalteren esta identidad en el ejercicio.",
+      "source_input_sha256": "c8b15edeead2c3baecf7f95db2028a429591397c2e8313bd1cb58a961fc6683c",
+      "source_item": "proposition_3_transmission_composition",
+      "source_statement": "Proposici\u00f3n 3: identidad de cartera, derivada general, reglas de signo, especializaci\u00f3n exponencial y condici\u00f3n si y solo si de inversi\u00f3n."
+    }
+  ]
+}
