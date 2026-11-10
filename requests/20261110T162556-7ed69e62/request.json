@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "540,570p",
+    ".lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
