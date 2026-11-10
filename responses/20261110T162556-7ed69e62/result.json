@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T162556-7ed69e62",
+  "argv": [
+    "sed",
+    "-n",
+    "540,570p",
+    ".lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean"
+  ],
+  "started_utc": "2026-11-10T16:26:02Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.002,
+  "download_sha256": "c47b44058163e9581337ae9dc3e404fbdda871d7994b35f93d99f1b113e26a19",
+  "finished_utc": "2026-11-10T16:26:02Z"
+}
