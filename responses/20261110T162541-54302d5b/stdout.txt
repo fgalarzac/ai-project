@@ -1,0 +1,9 @@
+.lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean:26:* `IsPreconnected.intermediate_value`, `intermediate_value_univ` : Intermediate Value Theorem for
+.lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean:28:* `intermediate_value_Icc`, `intermediate_value_Icc'`: Intermediate Value Theorem for functions
+.lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean:552:theorem intermediate_value_Icc {a b : α} (hab : a ≤ b) {f : α → δ} (hf : ContinuousOn f (Icc a b)) :
+.lake/packages/mathlib/Mathlib/Topology/Order/IntermediateValue.lean:558:theorem intermediate_value_Icc' {a b : α} (hab : a ≤ b) {f : α → δ}
+.lake/packages/mathlib/Mathlib/Topology/Path.lean:646:    have := intermediate_value_Icc (zero_le_one' ℝ) h₁.continuousOn
+.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean:118:  intermediate_value_Icc' (by simp) continuousOn_cos
+.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean:594:    intermediate_value_Icc (neg_le_self pi_div_two_pos.le) continuous_sin.continuousOn
+.lake/packages/mathlib/Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean:597:  simpa only [cos_zero, cos_pi] using intermediate_value_Icc' pi_pos.le continuous_cos.continuousOn
+.lake/packages/mathlib/Mathlib/Analysis/Polynomial/Order.lean:60:    (intermediate_value_Icc hw.1 P.continuous.continuousOn (show 0 ∈ _ by grind))

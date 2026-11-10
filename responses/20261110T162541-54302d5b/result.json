@@ -1,0 +1,17 @@
+{
+  "request_id": "20261110T162541-54302d5b",
+  "argv": [
+    "grep",
+    "-R",
+    "-n",
+    "-E",
+    "intermediate_value.*(zero|Intermediate)|IntermediateValueIntermediate|exists_eq_zero.*Icc|intermediate_value_Icc",
+    ".lake/packages/mathlib/Mathlib/Topology",
+    ".lake/packages/mathlib/Mathlib/Analysis"
+  ],
+  "started_utc": "2026-11-10T16:25:47Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.064,
+  "download_sha256": "c73869c8abe6338c47de025a8d53ae415f36e7eafbf2f415f88d931743baa4b0",
+  "finished_utc": "2026-11-10T16:25:48Z"
+}
