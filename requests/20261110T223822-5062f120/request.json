@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_v11_raw_source_spec_screening.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--decisions",
+    "papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_reissue_decisions_828e50074022a796a682c88d222e715dcb7352a2e8ef8ba4fcbca8081da1e1f6.json",
+    "--validator",
+    "Independent Codex CLI reviewer, thread 01a1c79a-73e3-76d2-971a-4283f202fc20",
+    "--v11-review-graph",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
