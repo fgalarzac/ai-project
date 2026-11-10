@@ -1,0 +1,188 @@
+{
+  "acceptance_credential": false,
+  "actions": [
+    {
+      "after_semantic_review": true,
+      "id": "complete_terminal_closeout_documents",
+      "preserves_current_lean_graph": true,
+      "preserves_current_semantic_review": true,
+      "reason": "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/DependencyDAG.tex: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/audit/human_review_packet_lean_cache.json: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.pdf: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/REPORT_MEMO_COVERAGE.json: report clarification coverage: [Errno 2] No such file or directory: '/home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md'; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: audit/human_review_packet_lean_cache.json: missing human-review packet artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: docs/HUMAN_REVIEW_PACKET.tex: missing human-review packet artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: docs/HUMAN_REVIEW_PACKET.pdf: missing human-review packet artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: audit/human_review_packet_lean_cache.json: stale or incomplete for the current saved Lean review graph (missing specifications, paper-prerequisites, library)",
+      "required": true,
+      "state": "ready_now"
+    }
+  ],
+  "audit_material_identity": "strict_transaction_content_snapshot",
+  "audit_material_sha256": "61a68981ec22f95ced9746ac8c71214aa13920554068a3d0ba6d00634099775d",
+  "cache_reusable": true,
+  "compiled_artifacts_ready": true,
+  "compiled_invalidation_reasons": [],
+  "compiled_material_sha256": "",
+  "compiled_validation_mode": "lean_live_import_closure",
+  "expensive_planning_deferred": true,
+  "final_focused_build": "run_via_strict_closeout",
+  "full_item_plan_command": "python3 scripts/closeout_reuse_plan.py --paper Galarza26RelativeCredit --all-items",
+  "global_error": "",
+  "intermediate_focused_build": "reuse_current_lean_import_closure",
+  "next_action": {
+    "after_semantic_review": true,
+    "id": "complete_terminal_closeout_documents",
+    "preserves_current_lean_graph": true,
+    "preserves_current_semantic_review": true,
+    "reason": "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/DependencyDAG.tex: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/audit/human_review_packet_lean_cache.json: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.pdf: missing terminal closeout presentation artifact; papers/Galarza26RelativeCredit/docs/REPORT_MEMO_COVERAGE.json: report clarification coverage: [Errno 2] No such file or directory: '/home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md'; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: audit/human_review_packet_lean_cache.json: missing human-review packet artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: docs/HUMAN_REVIEW_PACKET.tex: missing human-review packet artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: docs/HUMAN_REVIEW_PACKET.pdf: missing human-review packet artifact; papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: audit/human_review_packet_lean_cache.json: stale or incomplete for the current saved Lean review graph (missing specifications, paper-prerequisites, library)",
+    "required": true,
+    "state": "ready_now"
+  },
+  "paper": "Galarza26RelativeCredit",
+  "planner_compatibility": {
+    "dashboard_manifest_required": false,
+    "operational_input_lane": "lean_live_import_closure",
+    "semantic_input_lane": "current_v11_direct_ledgers",
+    "semantic_material_identity": "strict_transaction_content_snapshot",
+    "strict_closeout_remains_authoritative": true
+  },
+  "readiness_matrix": {
+    "acceptance_credential": false,
+    "blockers": [],
+    "lanes": {
+      "final_validation_report_status": {
+        "errors": [],
+        "ready": null,
+        "scope": "controlled Closeout Status/status.json agreement only",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "focused_build_target": {
+        "errors": [],
+        "ready": true,
+        "scope": "exact path-independent paper-root Lake target"
+      },
+      "paper_local_proof_surface": {
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-elaborated declaration, proof, and axiom closure",
+        "state": "deferred_to_lean_graph_and_focused_build"
+      },
+      "required_artifacts": {
+        "missing": [],
+        "ready": true,
+        "scope": "source, interface, status, and Lean entrypoint inputs"
+      },
+      "review_surface_projection": {
+        "errors": [],
+        "ready": true,
+        "scope": "generated status navigation projected from typed source routes; not semantic or proof evidence"
+      },
+      "review_surface_structure": {
+        "errors": [],
+        "findings": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "typed source/Spec/proof routes and Lean-elaborated declaration membership",
+        "state": "deferred_to_typed_route_and_lean_graph_preflight"
+      },
+      "semantic_and_recursive_gates": {
+        "proof_placeholder_scope": "exact Lean-loaded import closure",
+        "reason": "the planner does not duplicate semantic receipt producers or turn legacy missing fields into new closeout requirements",
+        "state": "deferred_to_authoritative_closeout"
+      },
+      "source_intake_boundary": {
+        "acceptance_credential": false,
+        "authority": "reviewed_source_inventory_v1",
+        "errors": [],
+        "path": "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+        "ready": true,
+        "state": "current"
+      },
+      "strict_closeout_documents": {
+        "errors": [],
+        "ready": null,
+        "scope": "strict ERROR-class report and source-first audit gates",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "terminal_presentation_artifacts": {
+        "missing": [
+          "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.tex",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf"
+        ],
+        "ready": false,
+        "required_now": false,
+        "scope": "final report and rendered dependency DAG",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "tracked_lean_import_closure": {
+        "errors": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-loaded repository and external module closure",
+        "state": "deferred_to_lean_owned_import_closure"
+      }
+    },
+    "ready": true
+  },
+  "realization_receipt_preflight": {
+    "acceptance_credential": false,
+    "current": true,
+    "errors": [],
+    "graph_native_items": [
+      "proposition_1_global_solution_regimes",
+      "proposition_2_conditional_threshold",
+      "proposition_3_transmission_composition"
+    ],
+    "required": true,
+    "schema": 3,
+    "state": "current_graph_authority"
+  },
+  "requires_fresh_strict_closeout": true,
+  "reusable_items_omitted_from_output": {
+    "coverage": 0,
+    "statement": 0
+  },
+  "schema": 2,
+  "semantic_review_authoritative_lane": {
+    "errors": [],
+    "lane": "current_v11_raw_source_to_expanded_spec",
+    "ready": true,
+    "required": true,
+    "validation_lane": "shared_evidence_run_context"
+  },
+  "source_coverage_mode": "named_theoretical_statements",
+  "source_material_sha256": "",
+  "summary": {
+    "coverage_future_reuse_pin_missing": 0,
+    "coverage_requires_review": 0,
+    "coverage_reusable": 0,
+    "retirement_candidates": 0,
+    "statement_future_reuse_pin_missing": 0,
+    "statement_requires_review": 0,
+    "statement_reusable": 0
+  },
+  "superseded_legacy_review_diagnostics": {
+    "coverage_records": 0,
+    "current_closeout_obligations": 0,
+    "reason": "the current v11 raw-source-to-expanded-Spec lane is authoritative; legacy item records remain historical diagnostics",
+    "retirement_candidates": 0,
+    "statement_records": 0
+  },
+  "terminal_presentation_closeout_preflight": {
+    "acceptance_credential": false,
+    "errors": [
+      "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md: missing terminal closeout presentation artifact",
+      "papers/Galarza26RelativeCredit/docs/DependencyDAG.tex: missing terminal closeout presentation artifact",
+      "papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf: missing terminal closeout presentation artifact",
+      "papers/Galarza26RelativeCredit/audit/human_review_packet_lean_cache.json: missing terminal closeout presentation artifact",
+      "papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: missing terminal closeout presentation artifact",
+      "papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.pdf: missing terminal closeout presentation artifact",
+      "papers/Galarza26RelativeCredit/docs/REPORT_MEMO_COVERAGE.json: report clarification coverage: [Errno 2] No such file or directory: '/home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md'",
+      "papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: audit/human_review_packet_lean_cache.json: missing human-review packet artifact",
+      "papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: docs/HUMAN_REVIEW_PACKET.tex: missing human-review packet artifact",
+      "papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: docs/HUMAN_REVIEW_PACKET.pdf: missing human-review packet artifact",
+      "papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex: human-review packet: audit/human_review_packet_lean_cache.json: stale or incomplete for the current saved Lean review graph (missing specifications, paper-prerequisites, library)"
+    ],
+    "ready": false,
+    "state": "blocked"
+  },
+  "validator_identity_errors": {
+    "coverage": [],
+    "statement": []
+  }
+}
