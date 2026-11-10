@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path('.scratch/galarza/tex_install_result.json'); print(p.read_text() if p.exists() else 'REPORT_TOOLS_INSTALL_STILL_RUNNING')"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".scratch/galarza/tex_install_result.json"
+  ]
+}
