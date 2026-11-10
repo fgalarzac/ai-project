@@ -8,12 +8,21 @@ on:
       - 'code/lean_environment_probe.py'
       - 'lean/supplement/**'
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'probe or persistent worker'
+        required: true
+        default: 'probe'
+      control_branch:
+        description: 'Dedicated execution transport branch'
+        default: 'lean-execution-20261110'
 
 permissions:
   contents: read
 
 jobs:
   environment:
+    if: github.event_name != 'workflow_dispatch' || inputs.mode != 'worker'
     name: Linux and Lean readiness only
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -54,3 +63,63 @@ jobs:
         with:
           name: lean-environment-evidence
           path: ${{ runner.temp }}/lean-environment-results/
+
+  worker:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'worker'
+    name: Persistent official Lean execution
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.control_branch }}
+          path: lean-control
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install source and report tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils latexmk texlive-xetex texlive-fonts-recommended graphviz
+      - name: Obtain the exact unmodified formalization engine
+        run: |
+          git clone --depth 1 https://github.com/nikhgarg/AppliedModelingLib.git "$RUNNER_TEMP/AppliedModelingLib"
+          git -C "$RUNNER_TEMP/AppliedModelingLib" fetch --depth 1 origin 194edcc95df74806a39b961d10dedddc6e730cce
+          git -C "$RUNNER_TEMP/AppliedModelingLib" checkout --detach 194edcc95df74806a39b961d10dedddc6e730cce
+          git -C "$RUNNER_TEMP/AppliedModelingLib" fetch origin main
+          git -C "$RUNNER_TEMP/AppliedModelingLib" config user.name 'Formalization workspace'
+          git -C "$RUNNER_TEMP/AppliedModelingLib" config user.email 'lean-workspace@users.noreply.github.com'
+      - name: Install exact Lean and compiled dependency cache
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          export PATH="$HOME/.elan/bin:$PATH"
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          elan toolchain install "$(cat lean-toolchain)"
+          elan default "$(cat lean-toolchain)"
+          lake exe cache get
+      - name: Execute sequential requests without changing engine scripts
+        env:
+          LEAN_CONTROL_DIR: ${{ github.workspace }}/lean-control
+          LEAN_CONTROL_BRANCH: ${{ inputs.control_branch }}
+          LEAN_AML_DIR: ${{ runner.temp }}/AppliedModelingLib
+          LEAN_NUM_THREADS: '1'
+        run: python code/lean_remote_worker.py
+      - name: Preserve generated formalization and engine diff
+        if: always()
+        run: |
+          git -C "$RUNNER_TEMP/AppliedModelingLib" diff --stat > "$RUNNER_TEMP/engine-diff.txt"
+          git -C "$RUNNER_TEMP/AppliedModelingLib" diff -- scripts config skills > "$RUNNER_TEMP/engine-code-diff.txt"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: lean-formalization-workspace
+          include-hidden-files: true
+          path: |
+            ${{ runner.temp }}/AppliedModelingLib/papers/Galarza26RelativeCredit/
+            ${{ runner.temp }}/engine-diff.txt
+            ${{ runner.temp }}/engine-code-diff.txt
