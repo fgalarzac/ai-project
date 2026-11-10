@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "bash",
+    "-lc",
+    "sudo apt-get install -y -qq ripgrep && rg -n 'HasDeriv(Within)?At.*(min|max)|congr_of_eventuallyEq|hasDerivWithinAt_Ic|uniqueDiffWithinAt_Ic' .lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv .lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv | head -85"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean"
+  ]
+}
