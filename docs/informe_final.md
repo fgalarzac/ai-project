@@ -2,6 +2,12 @@
 
 Fabián Matías Galarza Chumbe. 10 de noviembre de 2026, hora de Lima.
 
+> **Actualización Lean:** una exploración posterior verificó mediante petición
+> real `gpt-5.6-sol/xhigh` en el CLI y resolvió `fcntl` usando Linux sin parches.
+> La entrada oficial funciona; el chequeo del paper se detiene por ausencia
+> de la carpeta generada y `status.json` (salida2). Las proposiciones generales
+> siguen abiertas. Véase [la comparación y evidencias](lean_alternativas.md).
+
 ## 1. Cambios y contribución central
 
 El trabajo está en [apoyo](https://github.com/fgalarzac/ai-project/tree/apoyo).
@@ -72,7 +78,7 @@ nota mencionada por el usuario.
 | Figuras legibles con unidades y fuente | Solo figura tema | Cumplido | Cinco figuras finales, captions y fuentes, revisión visual | Véase QA |
 | Presentación final español,30min y discusión | Plantilla | Cumplido | 27slides, timing.json:1780seg, guía y preguntas | Ensayo real pendiente |
 | Lean: enunciado, fragmento real y límites en slide | Ejemplo de plantilla | Parcial | Slide22, código auxiliar comprobado; indica especialización y límites | No hay P1–P3 generales formalizadas |
-| Lean oficial con agente y paper fijado | Placeholder | Pendiente | lean/README y error fcntl, modelo no disponible | Seguir flujo exacto desde paper fusionado |
+| Lean oficial con agente y paper fijado | Placeholder | Pendiente | CLI exigido y Linux verificados; faltan carpeta generada y paper fusionado | Seguir flujo exacto desde paper fusionado |
 | Tabla Lean por resultado, hipótesis y chequeo | Ejemplo | Cumplido como reporte de estado | ApéndiceB: tres resultados abiertos; sin hash formalizado inventado | Actualizar después del flujo oficial |
 | Manuscrito auténtico de todas las derivaciones | Placeholder | Pendiente | Guía tipográfica de 12 apartados en hand/, no suplantada como manuscrito | Escribir, revisar, escanear y proyectar hoja real |
 | IA: afirmación revisada, veredicto y registro | Parcial | Cumplido como registro disponible | prompts.md y apéndiceC; no revisión humana fabricada | Ratificación personal y manuscrito de crítica |
@@ -120,9 +126,9 @@ La entrega puede aspirar a alta calidad sin garantizar una calificación.
 | Workflow original | Idéntico SHA256e67f4c1c…3ebf8d0f | No se modificó .github/workflows/build.yml |
 | Git | Rama apoyo, sin sobreescribir la copia antigua; PR revisable | Historial y PR #4 |
 
-La formalización oficial completa **no se ejecutó con éxito**. Además del
-error POSIX, el agente `gpt-5.6-sol` no está disponible en esta sesión y el
-procedimiento exige primero el paper fusionado. No existe un hash formalizado
+La formalización oficial completa **no se ejecutó con éxito**. La exploración posterior comprobó el agente por CLI y resolvió el entorno
+POSIX en Linux. Falta el directorio generado, las pruebas generales y el
+paper fusionado requerido por el procedimiento. No existe un hash formalizado
 por ese flujo. Se registra un candidato público fijado a commit, identificado
 expresamente como **no formalizado**, en docs/source_candidate.json. No se
 copió un directorio generado inexistente ni el de otro estudiante.

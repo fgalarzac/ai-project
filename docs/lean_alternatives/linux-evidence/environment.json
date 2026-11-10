@@ -1,0 +1,14 @@
+{
+  "platform": "Linux-7.0.0-1014-aws-x86_64-with-glibc2.39",
+  "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
+  "purpose": "environment readiness only, not formalization",
+  "aml_commit": "194edcc95df74806a39b961d10dedddc6e730cce",
+  "paper_formalized": false,
+  "real_cross_process_flock": "passed",
+  "official_help_exit": 0,
+  "official_check_exit": 2,
+  "official_check_passed": false,
+  "generated_paper_folder_exists": false,
+  "fcntl_error_present": false,
+  "next_gate": "Official source intake and generated paper folder; paper merge prerequisite remains external"
+}

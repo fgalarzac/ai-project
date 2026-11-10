@@ -41,9 +41,19 @@ No module named 'fcntl'`. Salida íntegra en `check_fast_windows.txt`.
 El módulo es POSIX y no está disponible en el Python Windows utilizado.
 No se alteraron scripts de AppliedModelingLib para aparentar un chequeo.
 
-El modelo `gpt-5.6-sol` solicitado por la consigna no está disponible entre
-los agentes de esta sesión. Además, el paso inicial exige un paper ya
-fusionado en main: esta entrega permanece en apoyo para revisión mediante PR.
+**Actualización de la exploración:** el catálogo del CLI sí incluye
+`gpt-5.6-sol` y `xhigh`, y una petición real terminó correctamente. El
+diagnóstico anterior confundía los agentes expuestos en este chat con la
+disponibilidad mediante CLI. No se necesita sustituir el modelo.
+
+También se probó Linux en GitHub Actions: bloqueo POSIX real, entrada oficial
+sin parches y Lean auxiliar. El chequeo oficial ahora llega a un error distinto,
+salida2: falta la carpeta generada y su `status.json`. Es evidencia de entorno
+resuelto, **no** de paper verificado. Véanse [alternativas](../docs/lean_alternativas.md)
+y [corrida](https://github.com/fgalarzac/ai-project/actions/runs/42813631433).
+
+El paso inicial todavía exige un paper ya fusionado en main: esta entrega
+permanece en apoyo para revisión mediante PR.
 **No hay commit formalizado, scaffold oficial generado ni copia de
 `papers/Galarza26RelativeCredit/` que se pueda certificar.** No se copió una
 corrida ajena ni se presenta esta carpeta auxiliar como directorio generado.

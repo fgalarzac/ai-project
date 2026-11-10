@@ -126,7 +126,7 @@ Precisar que se dibuja la pendiente del régimen efectivo. Error de esfuerzo men
 
 ## 22. Lean: comparación y cobertura parcial
 
-Mostrar correspondencia q9/40, m1/10, beta13/100, w1/5, epsilon3. Lean decide aritmética racional exacta. No decir que verificó la derivada ni el artículo completo. El flujo oficial falla por fcntl en Windows y falta gpt-5.6-sol, y exige paper fusionado y fijado a commit.
+Mostrar correspondencia q9/40, m1/10, beta13/100, w1/5, epsilon3. Lean decide aritmética racional exacta. No decir que verificó la derivada ni el artículo completo. El CLI gpt-5.6-sol/xhigh ya respondió y Linux resuelve fcntl. Falta el paper fusionado y la corrida general; el chequeo actual se detiene por la carpeta generada ausente.
 
 ## 23. Una afirmación de IA revisada críticamente
 

@@ -19,13 +19,13 @@
     },
     "slides/final.pdf": {
       "pages": 27,
-      "sha256": "a0673735675cb7d319bd1bf6feb6c37ecdd0b28b892060c70c63e6faed256177",
+      "sha256": "94fce2e0e19bc04f8d32dc451f26edddb69e9659f31ed203dff8aa92e5871de1",
       "external_links": 5,
       "text_outside_page": 0
     },
     "paper/paper.pdf": {
       "pages": 14,
-      "sha256": "4cfc53bc27fb3f7cbdbe11e5f790e0ea9b9c84043ebcb5dd1d75973a933417d2",
+      "sha256": "a618a5d9dc04dfb16e3b982fd1864968b90f1d115d0ed00a60fc8fe2e49dbe43",
       "external_links": 17,
       "text_outside_page": 0
     },
@@ -111,6 +111,6 @@
     "supplement": "Three exact rational arithmetic declarations checked with decide +kernel",
     "official_p1_p2_p3": "open",
     "official_check_exit": 1,
-    "blocker": "POSIX fcntl missing on Windows; required agent unavailable; merged paper prerequisite not completed"
+    "blocker": "CLI gpt-5.6-sol/xhigh verified; Linux resolves fcntl; generated paper folder, general proofs and merged-source prerequisite pending"
   }
 }

@@ -618,10 +618,11 @@ y universo en \texttt{code/data/README.md}.
 El flujo oficial parte de un paper fusionado y fijado a commit. Usa la
 biblioteca Applied\-Modeling\-Lib y exige el agente \path{gpt-5.6-sol} con
 esfuerzo \path{xhigh}, chequeo por paper y copia íntegra de su carpeta.
-Ese modelo no está disponible en esta sesión. En Windows, el comando oficial
-falla por ausencia del módulo POSIX \path{fcntl}. La rama de trabajo tampoco
-equivale a un paper fusionado en \path{main}. No se da por realizado ninguno
-de esos pasos ni se reemplaza silenciosamente por una prueba local.
+El CLI aceptó ese modelo y esfuerzo en una petición real. En Ubuntu, la
+entrada oficial y los bloqueos POSIX funcionan sin parches. El chequeo termina
+con salida 2: falta la carpeta generada y su \path{status.json}. Siguen
+pendientes el paper fusionado y la formalización general. La evidencia está
+en \path{docs/lean_alternativas.md}. El chequeo de entorno no verifica P1--P3.
 
 \begin{center}\small
 \begin{tabular}{p{.12\linewidth}p{.27\linewidth}p{.16\linewidth}p{.34\linewidth}}

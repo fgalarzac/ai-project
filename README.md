@@ -27,7 +27,7 @@ equilibrio de precios ni se demuestra mejora predictiva peruana.
 | [Artículo](paper/paper.pdf) y bibliografía | Tres proposiciones, pruebas completas, cinco figuras. Formato 11pt, márgenes de una pulgada. Conteo en [QA](docs/qa_report.json). |
 | [Presentación final](slides/final.pdf) | 27 diapositivas en español; [guía](slides/final_speaker_guide.md) de 29:40 min estimados, sin ensayo observado. |
 | [Simulaciones](code/verify.py) | P1–P3, optimizador independiente, esquinas, sensibilidad y contraejemplos. Parámetros ilustrativos. |
-| [Lean](lean/README.md) | Aritmética auxiliar comprobada. Formalización general oficial pendiente: agente exigido no disponible y `fcntl` ausente en Windows. |
+| [Lean](lean/README.md) | Aritmética auxiliar comprobada. CLI `gpt-5.6-sol/xhigh` y entorno Linux verificados; [alternativas](docs/lean_alternativas.md). Formalización general pendiente. |
 | [Manuscritos](hand/README.md) | Pendientes de escritura y digitalización personales. Guía tipográfica completa disponible. |
 | Tema de octubre | Propuesta y slides conservadas y recompiladas como versión histórica. Usan mediana y la calibración anterior. |
 | Evidencia y colaboración IA | [Fuentes](docs/fuentes.md), [matriz](docs/cumplimiento.md), [prompts](prompts.md). Las cifras 2026 del plan no se reproducen sin su base. |

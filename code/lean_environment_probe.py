@@ -49,6 +49,15 @@ if help_run.returncode:
     (out/'environment.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     raise SystemExit(help_run.returncode)
 
+doctor=subprocess.run([sys.executable,'scripts/paper_contribution.py','doctor'],
+                      cwd=aml,env=env,capture_output=True,text=True,timeout=600)
+(out/'official_doctor.txt').write_text(doctor.stdout+doctor.stderr+
+                                     f'\nEXIT_CODE={doctor.returncode}\n',encoding='utf-8')
+result['official_doctor_exit']=doctor.returncode
+if doctor.returncode:
+    (out/'environment.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+    raise SystemExit(doctor.returncode)
+
 cmd=[sys.executable,'scripts/paper_contribution.py','check','Galarza26RelativeCredit','--fast']
 check=subprocess.run(cmd,cwd=aml,env=env,capture_output=True,text=True)
 (out/'official_check_without_scaffold.txt').write_text(check.stdout+check.stderr+f'\nEXIT_CODE={check.returncode}\n',encoding='utf-8')

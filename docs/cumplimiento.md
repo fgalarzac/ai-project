@@ -27,7 +27,7 @@ Las pruebas analíticas, la comprobación numérica y Lean son capas distintas.
 | Figuras legibles con unidades y fuente | Solo figura tema | Cumplido | Cinco figuras finales, captions y fuentes, revisión visual | Véase QA |
 | Presentación final español,30min y discusión | Plantilla | Cumplido | 27slides, timing.json:1780seg, guía y preguntas | Ensayo real pendiente |
 | Lean: enunciado, fragmento real y límites en slide | Ejemplo de plantilla | Parcial | Slide22, código auxiliar comprobado; indica especialización y límites | No hay P1–P3 generales formalizadas |
-| Lean oficial con agente y paper fijado | Placeholder | Pendiente | lean/README y error fcntl, modelo no disponible | Seguir flujo exacto desde paper fusionado |
+| Lean oficial con agente y paper fijado | Placeholder | Pendiente | CLI exigido y Linux verificados; falta carpeta generada y paper fusionado | Seguir flujo exacto desde paper fusionado |
 | Tabla Lean por resultado, hipótesis y chequeo | Ejemplo | Cumplido como reporte de estado | ApéndiceB: tres resultados abiertos; sin hash formalizado inventado | Actualizar después del flujo oficial |
 | Manuscrito auténtico de todas las derivaciones | Placeholder | Pendiente | Guía tipográfica de 12 apartados en hand/, no suplantada como manuscrito | Escribir, revisar, escanear y proyectar hoja real |
 | IA: afirmación revisada, veredicto y registro | Parcial | Cumplido como registro disponible | prompts.md y apéndiceC; no revisión humana fabricada | Ratificación personal y manuscrito de crítica |

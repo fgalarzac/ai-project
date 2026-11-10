@@ -526,3 +526,31 @@ GitHub Actions terminó correctamente: Python y los cuatro PDF pasan también en
 La respuesta reproduce el contenido sin su formato de énfasis Markdown.
 La corrida de fuentes92fb042 y sus resultados están en docs/ci_results.json.
 La revisión manuscrita y el ensayo oral no se atribuyen al estudiante.
+
+
+## 6. 10 de noviembre de 2026 — alternativas para Lean
+
+**Solicitud literal**
+
+```text
+ahora, trabaja en cómo solucionar lo de lean. Explora alternativas
+```
+
+**Respuesta relevante literal**
+
+```text
+La prueba real funcionó: el CLI aceptó gpt-5.6-sol con xhigh y respondió correctamente. Ese bloqueo ya está resuelto.
+```
+
+Se omite únicamente el formato de énfasis Markdown de la respuesta.
+
+**Adjudicación y evidencia de esta exploración**
+
+La afirmación previa de indisponibilidad del modelo era demasiado amplia.
+El CLI lo lista y aceptó una petición real con esa configuración. Una acción
+separada sobre Ubuntu comprobó fcntl real, la entrada oficial sin parches y
+el suplemento Lean. El chequeo por paper sigue fallando (salida2) porque aún
+no existe la carpeta generada y su status.json. No se atribuye al éxito de
+entorno el significado de formalización de P1–P3. No se habilitó WSL, se
+contrataron equipos ni se exportaron credenciales. Evidencia en
+docs/lean_alternatives/ y decisiones en docs/lean_alternativas.md.

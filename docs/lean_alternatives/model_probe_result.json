@@ -1,0 +1,8 @@
+{
+  "requested_model": "gpt-5.6-sol",
+  "requested_reasoning_effort": "xhigh",
+  "exit_code": 0,
+  "response_seen": true,
+  "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a1c55c-fa6c-7410-94a3-a3e24e8ae465\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"agent_message\",\"text\":\"LEAN_MODEL_PROBE_OK\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":13912,\"cached_input_tokens\":11520,\"cache_write_input_tokens\":0,\"output_tokens\":9,\"reasoning_output_tokens\":0}}\n",
+  "stderr_tail": "Reading additional input from stdin...\n2026-11-10T12:09:27.416096Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell\n"
+}
