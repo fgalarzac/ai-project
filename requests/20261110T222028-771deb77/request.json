@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    ".scratch/galarza/install_report_tools.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".scratch/galarza/install_report_tools.py"
+  ],
+  "upload_sha256": "09f12e8a997f67bb72f671f8cfdd1fb3b5d119bb2faea181c7dbbb523b09897a"
+}
