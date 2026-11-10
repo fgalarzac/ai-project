@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T222912-8f4d1889",
+  "argv": [
+    "git",
+    "checkout",
+    "--detach",
+    "4d30604f45ddd6848fd87691c8e3ca63881b073b"
+  ],
+  "started_utc": "2026-11-10T22:29:16Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.016,
+  "download_sha256": "69da5f5256333c3d0a2fe5b9b4c94f602dee3a77c54455513e64a86b178b6af7",
+  "finished_utc": "2026-11-10T22:29:16Z"
+}
