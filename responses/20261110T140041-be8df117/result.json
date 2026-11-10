@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T140041-be8df117",
+  "argv": [
+    "python3",
+    "scripts/paper_contribution.py",
+    "new",
+    "--help"
+  ],
+  "started_utc": "2026-11-10T14:00:47Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.165,
+  "download_sha256": "a8c7d9de53fe592c9261922638c9a3dd56f865facefbde0b7b4176a8ad4e6dec",
+  "finished_utc": "2026-11-10T14:00:47Z"
+}
