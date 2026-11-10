@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "papers/Galarza26RelativeCredit.lean",
+    "papers/Galarza26RelativeCredit",
+    "lakefile.toml"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit.lean"
+  ]
+}
