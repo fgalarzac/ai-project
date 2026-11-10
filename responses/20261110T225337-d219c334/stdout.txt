@@ -1,0 +1,8 @@
+Running ['python3', '.scratch/galarza/finish_source1_document_assessment.py']
+Document assessment complete for three visually numbered exact results: f8a9bc893355f73d7c05c23e07cac6c3c7650dfeae9b630d3b8f50c888c992c1
+Running ['python3', '-m', 'scripts.report_memo_coverage', '--paper', 'Galarza26RelativeCredit']
+report document/source coverage is structurally current; this standalone command did not verify the recorded semantic basis: Galarza26RelativeCredit
+Running ['git', 'add', '--', 'papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md', 'papers/Galarza26RelativeCredit/docs/DependencyDAG.tex', 'papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf', 'papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex', 'papers/Galarza26RelativeCredit/docs/REPORT_MEMO_COVERAGE.json', 'papers/Galarza26RelativeCredit/audit/human_review_packet_lean_cache.json']
+Running ['python3', 'scripts/sync_paper_status.py', '--paper', 'Galarza26RelativeCredit']
+wrote papers/Galarza26RelativeCredit/README.md from paper-local status
+paper-local status sync complete: 1 changed; aggregate status/docs/site deferred to integration or release
