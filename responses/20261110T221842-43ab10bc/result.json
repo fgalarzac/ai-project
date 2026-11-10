@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T221842-43ab10bc",
+  "argv": [
+    "pdftotext",
+    "papers/Galarza26RelativeCredit/source.pdf",
+    "papers/Galarza26RelativeCredit/source.txt"
+  ],
+  "started_utc": "2026-11-10T22:18:47Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.064,
+  "download_sha256": "5a88259926c28e0c155012a61ea9ab0b949f742ef39a017a7d26d19c578eeaad",
+  "finished_utc": "2026-11-10T22:18:47Z"
+}
