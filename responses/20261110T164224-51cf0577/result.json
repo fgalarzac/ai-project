@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T164224-51cf0577",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path('.scratch/galarza/tex_install_result.json'); print(p.read_text() if p.exists() else 'REPORT_TOOLS_INSTALL_STILL_RUNNING')"
+  ],
+  "started_utc": "2026-11-10T16:42:28Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.032,
+  "download_sha256": "5b5ab79e2d2ed43a0d7c6e02933efa3080f3293bf58f61acf6020f91114d62b9",
+  "finished_utc": "2026-11-10T16:42:28Z"
+}
