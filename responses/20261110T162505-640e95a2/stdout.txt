@@ -1,0 +1,23 @@
+usage: paper_contribution.py new [-h] --folder FOLDER --title TITLE --authors
+                                 AUTHORS --version VERSION
+                                 [--official-url OFFICIAL_URL]
+                                 [--pdf-url PDF_URL] [--namespace NAMESPACE]
+                                 [--statement-spec STATEMENT_SPEC]
+                                 [--no-download] [--with-notes]
+                                 url
+
+positional arguments:
+  url                   paper URL
+
+options:
+  -h, --help            show this help message and exit
+  --folder FOLDER       citation-style paper id
+  --title TITLE
+  --authors AUTHORS
+  --version VERSION
+  --official-url OFFICIAL_URL
+  --pdf-url PDF_URL
+  --namespace NAMESPACE
+  --statement-spec STATEMENT_SPEC
+  --no-download
+  --with-notes
