@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "grep",
+    "-R",
+    "-n",
+    "-E",
+    "HasRightDerivAt|HasLeftDerivAt",
+    ".lake/packages/mathlib/Mathlib"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
