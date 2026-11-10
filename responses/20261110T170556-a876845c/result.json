@@ -1,0 +1,12 @@
+{
+  "request_id": "20261110T170556-a876845c",
+  "argv": [
+    "python3",
+    ".scratch/galarza/recover_checkpoint.py"
+  ],
+  "started_utc": "2026-11-10T17:06:01Z",
+  "exit_code": 0,
+  "elapsed_seconds": 29.033,
+  "download_sha256": "2fb92077146a9892fd6d6b3127b80f83ce0c1c300e170f7c700aceac7c7c9398",
+  "finished_utc": "2026-11-10T17:06:30Z"
+}
