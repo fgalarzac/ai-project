@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    ".scratch/galarza/TieExample.lean"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".scratch/galarza/TieExample.lean"
+  ],
+  "upload_sha256": "ca68cfb79882efbf8d94d4110e50856c5efee45c244ce334a00c173a7b1ffbd9"
+}
