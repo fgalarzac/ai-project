@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import pathlib,subprocess\nd=pathlib.Path(\"papers/Galarza26RelativeCredit/docs\")\nr=subprocess.run([\"latexmk\",\"-pdf\",\"-interaction=nonstopmode\",\"-halt-on-error\",\"DependencyDAG.tex\"],cwd=d,text=True,capture_output=True)\nprint(r.stdout[-3000:]); print(r.stderr)\nraise SystemExit(r.returncode)"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf"
+  ],
+  "upload_sha256": "746789f6c2cd1643ba4654515983b4409742ffa325fab98731c4260eb7df5088"
+}
