@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T163209-3f24938a",
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.Stock"
+  ],
+  "started_utc": "2026-11-10T16:32:14Z",
+  "exit_code": 1,
+  "elapsed_seconds": 4.78,
+  "download_sha256": "bdf605c26c15537e126d5059d931c87f5f6510aed91507dd9aee1c3073e25949",
+  "finished_utc": "2026-11-10T16:32:19Z"
+}
