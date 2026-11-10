@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/activate_v11_review_surface.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/status.json",
+    "papers/Galarza26RelativeCredit.lean"
+  ],
+  "upload_sha256": "ce37bfe6a0633fcaca7b4a111fc1882b28da66f891bc3012cf44434e7479c4b8"
+}
