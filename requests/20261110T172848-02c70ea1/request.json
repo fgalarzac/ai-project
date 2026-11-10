@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "lakefile.toml"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "lakefile.toml"
+  ],
+  "upload_sha256": "5a6a155cfa9387eb9e49d33003635f178be7e941fd6780209459ab04dc5dab55"
+}
