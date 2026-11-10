@@ -1,4 +1,7 @@
-# Lean: alternativas probadas y ruta recomendada
+# Lean: exploración histórica de alternativas
+
+> Esta nota conserva el diagnóstico inicial. El estado posterior está en
+> [lean_progreso.md](lean_progreso.md): P1–P3 ya compilan y el cierre sigue en curso.
 
 Actualización del 10 de noviembre de 2026. Esta nota reemplaza el diagnóstico
 anterior sobre la disponibilidad del agente. Las proposiciones generales

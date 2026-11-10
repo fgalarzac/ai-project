@@ -7,31 +7,31 @@
   "pdfs": {
     "proposal/proposal.pdf": {
       "pages": 4,
-      "sha256": "ead44056c842bff297b4ce0d380bcdb27ce2df0153cbca1f66df3bdeac607bb9",
+      "sha256": "ed9ef80e23212dfaa1826897c7f873c03f251a7d6c20a9febb244838fda440de",
       "external_links": 4,
       "text_outside_page": 0
     },
     "slides/topic.pdf": {
       "pages": 19,
-      "sha256": "6a92a1b55e9a6910aba099dd630611cf4350b640c807dd3727c56a9784a26014",
+      "sha256": "52f838837e082bbd06df122669a822337b2118749da8557b177ce31f1e436d4f",
       "external_links": 1,
       "text_outside_page": 0
     },
     "slides/final.pdf": {
       "pages": 27,
-      "sha256": "94fce2e0e19bc04f8d32dc451f26edddb69e9659f31ed203dff8aa92e5871de1",
+      "sha256": "4bee6b44b315c6ffaa4ae424196d6e6f13f930f75edd28c0f474baa6906a6e51",
       "external_links": 5,
       "text_outside_page": 0
     },
     "paper/paper.pdf": {
       "pages": 14,
-      "sha256": "a618a5d9dc04dfb16e3b982fd1864968b90f1d115d0ed00a60fc8fe2e49dbe43",
-      "external_links": 17,
+      "sha256": "3918275f8a89f4e3eee13c3f4d018b90555fa15e796dcf70df466dbd104f31d3",
+      "external_links": 19,
       "text_outside_page": 0
     },
     "hand/guia_derivaciones.pdf": {
       "pages": 6,
-      "sha256": "1c72e00f139f9a7724656f32ab4510c407780bbaa76b21a367cad1c76a593a47",
+      "sha256": "5b07dd891d2cec0bfb596087691e6e959bed701c41b9dbd454669079fd7ef715",
       "external_links": 0,
       "text_outside_page": 0
     }
@@ -108,11 +108,15 @@
     ]
   },
   "lean": {
-    "supplement": "Three exact rational arithmetic declarations checked with decide +kernel",
-    "official_p1_p2_p3": "open",
-    "official_check_exit": 1,
-    "blocker": "CLI gpt-5.6-sol/xhigh verified; Linux resolves fcntl; generated paper folder, general proofs and merged-source prerequisite pending",
-    "linux_doctor_exit": 0,
-    "linux_environment_run": "https://github.com/fgalarzac/ai-project/actions/runs/42814537900"
+    "supplement": "Historical rational arithmetic supplement checked with decide +kernel",
+    "general_p1_p2_p3": "All three proof endpoints compile; only standard axioms",
+    "preliminary_independent_semantic_review": {
+      "matches": 21,
+      "mismatches": 0,
+      "uncertain": 0
+    },
+    "official_closeout": "pending",
+    "official_check_exit": null,
+    "current_status_file": "docs/lean_progreso.md"
   }
 }

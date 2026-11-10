@@ -33,8 +33,8 @@ adicionales de cruce y monotonía. Al agregar cohortes, la pendiente del ratio
 de cartera incorpora un término de composición que puede invertir el signo
 del riesgo de originación. Pruebas completas y comprobaciones independientes
 delimitan estos resultados. Las simulaciones son ilustrativas; no estimo una
-mejora predictiva peruana. La formalización completa mediante el flujo oficial
-de Lean y las derivaciones manuscritas personales permanecen pendientes.
+mejora predictiva peruana. Las tres proposiciones compilan en Lean; su cierre oficial se documenta
+por separado. Las derivaciones manuscritas personales permanecen pendientes.
 \end{abstract}
 
 \section{Problema económico y contribución}
@@ -588,8 +588,8 @@ el ratio de una cartera pueden tener pendientes opuestas por composición.
 Para supervisión, la implicación es condicional: una brecha de tasas merece
 investigarse junto con evaluación y rotación. El modelo precisa qué medir;
 la mejora predictiva peruana sigue abierta. Las pruebas matemáticas y
-comprobaciones computacionales se declaran por separado de la formalización
-general y revisión manuscrita pendientes.\label{body:end}
+comprobaciones computacionales, pruebas Lean y validación semántica son
+capas distintas. La revisión manuscrita personal permanece pendiente.\label{body:end}
 \clearpage
 \bibliographystyle{plainnat}\bibliography{references}
 \clearpage\appendix
@@ -615,43 +615,47 @@ ni red para las simulaciones. La transcripción externa tiene fuente, unidades
 y universo en \texttt{code/data/README.md}.
 
 \section{Formalización Lean: alcance real}\label{app:lean}
-El flujo oficial parte de un paper fusionado y fijado a commit. Usa la
-biblioteca Applied\-Modeling\-Lib y exige el agente \path{gpt-5.6-sol} con
-esfuerzo \path{xhigh}, chequeo por paper y copia íntegra de su carpeta.
-El CLI aceptó ese modelo y esfuerzo en una petición real. En Ubuntu, la
-entrada oficial y los bloqueos POSIX funcionan sin parches. El chequeo termina
-con salida 2: falta la carpeta generada y su \path{status.json}. Siguen
-pendientes el paper fusionado y la formalización general. La evidencia está
-en \path{docs/lean_alternativas.md}. El chequeo de entorno no verifica P1--P3.
+Las tres proposiciones cuentan con especificaciones transparentes y pruebas
+generales que compilan con Lean 4.30.0-rc2. La elaboración utiliza
+\path{gpt-5.6-sol}, esfuerzo \path{xhigh}, y el motor oficial de
+Applied\-Modeling\-Lib, commit
+\href{https://github.com/nikhgarg/AppliedModelingLib/commit/194edcc95df74806a39b961d10dedddc6e730cce}{\texttt{194edcc95df7}}, sin parches. Los bloqueos de
+Python en Windows se resolvieron ejecutando las comprobaciones en Linux real.
 
 \begin{center}\small
-\begin{tabular}{p{.12\linewidth}p{.27\linewidth}p{.16\linewidth}p{.34\linewidth}}
-\toprule Resultado & Declaración / archivo & Estado & Cobertura y límite\\\midrule
-P1 & Sin endpoint oficial & Abierto & Falta solución óptima restringida y pendientes en el flujo oficial.\\
-P2 & Sin endpoint oficial & Abierto & Falta existencia y unicidad del cero continuo, con hipótesis del paper.\\
-P3 & Sin endpoint oficial & Abierto & Falta derivada, signo y puente contable. Una identidad algebraica aislada no cubre la proposición.\\
+\begin{tabular}{p{.08\linewidth}p{.22\linewidth}p{.16\linewidth}p{.43\linewidth}}
+\toprule P. & Declaración & Estado de prueba & Hipótesis y cobertura\\\midrule
+P1 & \path{proposition1} & Compila & S1--S3: máximo único factible, fórmulas, cotas, regímenes, capacidad cero, continuidad y derivadas laterales.\\
+P2 & \path{proposition2} & Compila & S1--S4: umbral interior único y signos de la derivada a cada lado.\\
+P3 & \path{proposition3} & Compila & S1--S3 y S5: identidad, derivada, dominancia, saldo exponencial e inversión de signo.\\
 \bottomrule\end{tabular}
 \end{center}
-El registro \path{lean/README.md} informa el commit de AppliedModelingLib,
-comandos intentados, errores y material auxiliar realmente comprobado.
-No hay commit \emph{formalizado por el flujo oficial} ni chequeo oficial
-aprobado que reportar. Se debe repetir el flujo sobre la versión que se
-entregue si cambian enunciados. Un lema algebraico o un ejemplo racional no
-certifican el modelo económico, las cifras ni la utilidad predictiva.
+Las declaraciones pertenecen al espacio \path{Galarza26RelativeCredit}, en
+\path{ProofInterface.lean}. Los enunciados transparentes se definen en
+\path{PaperInterface.lean}; sus nombres añaden el sufijo \texttt{Spec} a
+esas declaraciones. No se añaden hipótesis
+matemáticas a las del artículo ni se usa \texttt{sorry}. S5 conserva la
+convención contable condicional de evento, horizonte y saldo compatibles.
 
-Como verificación auxiliar separada, Lean 4.30.0-rc2 comprobó tres declaraciones
-en \path{lean/supplement/Counterexample.lean}:
-\begin{itemize}
-\item \path{opposite_signs}: signos opuestos;
-\item \path{composition_value}: valor exacto del término;
-\item \path{probability_bounds}: dominio de las constantes.
-\end{itemize}
-Son aritmética racional del ejemplo, con $q=9/40$, $m_0=1/10$, $w=1/5$,
-$\beta_D=13/100$ y $\varepsilon=3$. No incluyen derivadas ni el óptimo.
-La táctica \texttt{decide +kernel} cierra las pruebas sin admisiones;
-\texttt{\#print axioms} reporta solo \texttt{propext},
-\texttt{Classical.choice} y \texttt{Quot.sound}. Esta especialización no
-reduce el estado abierto de las tres proposiciones generales.
+La fuente inicial de las pruebas es el PDF fusionado en el commit
+\href{https://github.com/fgalarzac/ai-project/commit/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad}{\texttt{dc52cd19c3a5}}. La compilación de los tres
+endpoints terminó con salida 0; la inspección de axiomas reportó únicamente
+\texttt{propext}, \texttt{Classical.choice} y \texttt{Quot.sound}.
+Una revisión independiente de borrador comparó 21 resultados y definiciones
+con el texto fuente sin encontrar discrepancias. Es una revisión preliminar,
+no una credencial de aceptación del protocolo.
+
+La compilación por sí sola no sustituye el cierre oficial. El registro
+\path{docs/lean_progreso.md} informa el estado vigente, el commit del PDF
+actualizado, los chequeos oficiales rápido y completo y la ubicación de la
+carpeta generada. Si cambia este PDF se repite el flujo sobre la nueva fuente;
+la evidencia posterior se registra fuera del PDF para evitar un hash
+autorreferente. Las primeras pruebas aritméticas se conservan como material
+auxiliar, separadas de los tres resultados generales.
+
+Lean no demuestra equilibrio de precios, identificación causal, mejora
+predictiva peruana ni que los datos reales satisfagan S5. Tampoco sustituye
+la revisión y las derivaciones manuscritas personales del estudiante.
 
 \section{Colaboración con IA y adjudicación}
 El registro histórico de octubre se conserva en \path{prompts.md}. La

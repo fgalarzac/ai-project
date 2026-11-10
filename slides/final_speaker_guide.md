@@ -22,18 +22,18 @@ una línea, volver a hand/guia_derivaciones.pdf antes de memorizarla.
 | 8 | Solicitantes y opacidad | 65 | 7.83 |
 | 9 | Tecnología y restricciones | 75 | 9.08 |
 | 10 | Objetivo condicionado del banco | 75 | 10.33 |
-| 11 | La FOC y por qué no basta | 70 | 11.50 |
+| 11 | Primer orden: por qué no basta | 70 | 11.50 |
 | 12 | Proposición 1: solución global | 65 | 12.58 |
 | 13 | Tres regímenes y tres pendientes | 70 | 13.75 |
 | 14 | Proposición 2: umbral con condiciones | 80 | 15.08 |
 | 15 | El supuesto económico que hace el trabajo | 65 | 16.17 |
 | 16 | Simulación del cruce y sus alternativas | 70 | 17.33 |
-| 17 | Esquinas: una FOC interior puede fallar | 60 | 18.33 |
+| 17 | Esquinas: el candidato interior puede fallar | 60 | 18.33 |
 | 18 | De una cohorte al saldo total | 75 | 19.58 |
 | 19 | Proposición 3: calidad y composición | 80 | 20.92 |
 | 20 | Contraejemplo: signos opuestos válidos | 80 | 22.25 |
 | 21 | Sensibilidad y alcance de las comprobaciones | 65 | 23.33 |
-| 22 | Lean: comparación y cobertura parcial | 95 | 24.92 |
+| 22 | Lean: pruebas generales y cierre en curso | 95 | 24.92 |
 | 23 | Una afirmación de IA revisada críticamente | 80 | 26.25 |
 | 24 | Próximo contraste predictivo | 50 | 27.08 |
 | 25 | Qué está demostrado y qué queda abierto | 65 | 28.17 |
@@ -42,7 +42,7 @@ una línea, volver a hand/guia_derivaciones.pdf antes de memorizarla.
 
 ## 1. Precio relativo y morosidad
 
-Presentar la pregunta de tesis y decir que el avance es teórico. No prometer evidencia predictiva ni formalización completa.
+Presentar la pregunta de tesis y decir que el avance es teórico. No prometer evidencia predictiva ni confundir pruebas compiladas con aceptación oficial.
 
 ## 2. El problema del supervisor
 
@@ -58,7 +58,7 @@ Dar la respuesta en lenguaje cotidiano. Resultado central no es un signo univers
 
 ## 5. Construcción del precio relativo
 
-Explicar cada subíndice antes de la suma. La mediana de octubre es histórica. Ejemplo opcional: pares 8,9,10,25 y propia12 dan -1pp frente al promedio y +2.5pp frente a mediana. No es dato real.
+Explicar cada subíndice y n (número de pares) antes de la suma. La mediana de octubre es histórica. Ejemplo opcional: pares 8,9,10,25 y propia12 dan -1pp frente al promedio y +2.5pp frente a mediana. No es dato real.
 
 ## 6. Mecanismos rivales
 
@@ -80,7 +80,7 @@ Justificar cada restricción y que el piso cero es una frontera artificial de la
 
 Mostrar el objetivo sumando piezas. Si hay recuperación fija puede incorporarse en la normalización del premio. Si recuperaciones dependen de D o e, la solución cambia. No ocultar que la decisión de prestar versus no prestar está fuera.
 
-## 11. La FOC y por qué no basta
+## 11. Primer orden: por qué no basta
 
 Derivar paso a paso. El cuadrado completo usa c>0. El intervalo compacto garantiza existencia, la concavidad estricta unicidad cuando hay más de un punto. Un intervalo singleton también tiene único máximo.
 
@@ -104,7 +104,7 @@ Logaritmo de g²/c, derivar 2log g - log c. Explicar que incluso H decreciente p
 
 Explicar primero panel izquierdo, luego derecho. Mencionar a=.18exp(-.8k), g=sqrt(.05)exp(.8k), c=exp(.4k), Rbar1.10, qbar .28. Los parámetros completos están en el artículo. Las probabilidades son válidas en la malla.
 
-## 17. Esquinas: una FOC interior puede fallar
+## 17. Esquinas: el candidato interior puede fallar
 
 Mostrar la curva de capacidad y el quiebre en D=0. La otra curva ilustra el piso. No confundir los dos casos como una misma tecnología.
 
@@ -122,11 +122,11 @@ Explicar la aritmética .13-.30=-.17 y .2 por -.17=-.034. Un cambio local de 1pp
 
 ## 21. Sensibilidad y alcance de las comprobaciones
 
-Precisar que se dibuja la pendiente del régimen efectivo. Error de esfuerzo menor que4e-8. La prueba matemática está en el texto, el chequeo formal general sigue pendiente.
+Precisar que se dibuja la pendiente del régimen efectivo. Error de esfuerzo menor que4e-8. La prueba matemática está en el texto. Los tres endpoints generales compilan; queda el cierre oficial con la fuente actualizada.
 
-## 22. Lean: comparación y cobertura parcial
+## 22. Lean: pruebas generales y cierre en curso
 
-Mostrar correspondencia q9/40, m1/10, beta13/100, w1/5, epsilon3. Lean decide aritmética racional exacta. No decir que verificó la derivada ni el artículo completo. El CLI gpt-5.6-sol/xhigh ya respondió y Linux resuelve fcntl. Falta el paper fusionado y la corrida general; el chequeo actual se detiene por la carpeta generada ausente.
+Comparar primero la identidad del artículo con el tipo Lean: portfolioRatio es M, cohortWeight es w e impairedBalance es el numerador de atrasos. unfold expande las definiciones, field_simp elimina denominadores y ring comprueba la identidad. S5 garantiza un denominador positivo. El fragmento es real y cubre una cláusula de P3; los tres resultados generales compilan. La revisión preliminar independiente comparó 21 elementos sin discrepancias. No decir que el cierre oficial ya pasó: consultar docs/lean_progreso.md para la evidencia vigente. Lean no valida datos ni causalidad.
 
 ## 23. Una afirmación de IA revisada críticamente
 
@@ -165,9 +165,10 @@ Abrir discusión. Reservar aproximadamente 15 minutos del bloque de 45 minutos. 
   disminuye el peso de una cohorte nueva más riesgosa que la antigua.
 - **¿Es causal?** No. La derivada condicionada, el coeficiente predictivo y
   el efecto de imponer tasas son objetos distintos.
-- **¿Qué comprobó Lean?** Tres hechos de aritmética racional del contraejemplo,
-  sin sorry. No probó las tres proposiciones ni derivadas reales. El flujo
-  oficial sigue pendiente y sus errores están registrados.
+- **¿Qué comprobó Lean?** Compilan las tres proposiciones generales,
+  incluidas optimización, derivadas y umbral. No hay admisiones y los
+  axiomas son estándar. La revisión preliminar pasó; el cierre oficial
+  sobre la fuente actualizada sigue en curso y se informa por separado.
 - **¿Dónde están los manuscritos?** No se recibieron páginas auténticas. Hay
   una guía tipográfica detallada que debo escribir, revisar y digitalizar.
 - **¿Por qué no usas las cifras de la tesis?** No se entregaron base y scripts
@@ -177,3 +178,7 @@ Abrir discusión. Reservar aproximadamente 15 minutos del bloque de 45 minutos. 
   de una aplicación del curso con IA declarada. No reclamo prioridad universal.
 - **¿El índice mejora 5% el pronóstico?** No se sabe. Es un criterio del plan
   pendiente de ejecución fuera de muestra, no un resultado de esta teoría.
+
+## Orden para explicar símbolos
+
+Antes de cada ecuación: nombrar su objeto, definir los símbolos nuevos y explicar qué permanece fijo. En P2 las primas se refieren a opacidad; en P3, al precio. B1 es el saldo nuevo en D=0 y epsilon su sensibilidad proporcional. No pasar de una fórmula al gráfico sin explicar ejes y unidades.
