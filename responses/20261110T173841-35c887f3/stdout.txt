@@ -1,0 +1,7 @@
+{
+  "acceptance_credential": false,
+  "error": "current paper-local source-semantic declaration(s) lack an explicit paper_semantic_prerequisite_sources route: Galarza26RelativeCredit.bankProfit, Galarza26RelativeCredit.cohortWeight, Galarza26RelativeCredit.conditionedContinuationProblem, Galarza26RelativeCredit.conditionedPayoff, Galarza26RelativeCredit.crossingConditions, Galarza26RelativeCredit.feasibleEfforts, Galarza26RelativeCredit.impairedBalance, Galarza26RelativeCredit.premium, Galarza26RelativeCredit.priorRisk, Galarza26RelativeCredit.relativePrice, Galarza26RelativeCredit.relativePrice_eq_rate_gap, Galarza26RelativeCredit.screenedRisk, Galarza26RelativeCredit.screeningAdvantage, Galarza26RelativeCredit.screeningCost, Galarza26RelativeCredit.screeningStrength, Galarza26RelativeCredit.selectionAndDomain, Galarza26RelativeCredit.stockAccountingConditions, Galarza26RelativeCredit.technologyCapacityCost",
+  "paper": "Galarza26RelativeCredit",
+  "prepared": false,
+  "schema": 1
+}
