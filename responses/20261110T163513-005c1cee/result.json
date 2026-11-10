@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T163513-005c1cee",
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    ".scratch/galarza/TieExample.lean"
+  ],
+  "started_utc": "2026-11-10T16:35:17Z",
+  "exit_code": 0,
+  "elapsed_seconds": 3.275,
+  "download_sha256": "c12afd07481398e8e5d26eb1686c057ae118e539a425b64f18f9cc9ac1954f16",
+  "finished_utc": "2026-11-10T16:35:20Z"
+}
