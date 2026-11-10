@@ -1,0 +1,99 @@
+{
+  "acceptance_credential": false,
+  "actions": [],
+  "expensive_planning_deferred": true,
+  "next_action": {
+    "id": "resolve_static_closeout_blockers",
+    "reason": "finish the listed deterministic paper-local obligations before hashing manifests or running semantic reuse",
+    "state": "ready_now"
+  },
+  "paper": "Galarza26RelativeCredit",
+  "readiness_matrix": {
+    "acceptance_credential": false,
+    "blockers": [
+      "missing required closeout artifact: papers/Galarza26RelativeCredit.lean",
+      "review-surface projection: status.json review_surface.include_names is stale relative to the typed source-map routes; run activate_v11_review_surface.py --write",
+      "review-surface projection: status.json review_surface.proposition_spec_proofs is stale relative to the typed source-map routes; run activate_v11_review_surface.py --write"
+    ],
+    "lanes": {
+      "final_validation_report_status": {
+        "errors": [],
+        "ready": null,
+        "scope": "controlled Closeout Status/status.json agreement only",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "focused_build_target": {
+        "errors": [],
+        "ready": true,
+        "scope": "exact path-independent paper-root Lake target"
+      },
+      "paper_local_proof_surface": {
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-elaborated declaration, proof, and axiom closure",
+        "state": "deferred_to_lean_graph_and_focused_build"
+      },
+      "required_artifacts": {
+        "missing": [
+          "papers/Galarza26RelativeCredit.lean"
+        ],
+        "ready": false,
+        "scope": "source, interface, status, and Lean entrypoint inputs"
+      },
+      "review_surface_projection": {
+        "errors": [
+          "status.json review_surface.include_names is stale relative to the typed source-map routes; run activate_v11_review_surface.py --write",
+          "status.json review_surface.proposition_spec_proofs is stale relative to the typed source-map routes; run activate_v11_review_surface.py --write"
+        ],
+        "ready": false,
+        "scope": "generated status navigation projected from typed source routes; not semantic or proof evidence"
+      },
+      "review_surface_structure": {
+        "errors": [],
+        "findings": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "typed source/Spec/proof routes and Lean-elaborated declaration membership",
+        "state": "deferred_to_typed_route_and_lean_graph_preflight"
+      },
+      "semantic_and_recursive_gates": {
+        "proof_placeholder_scope": "exact Lean-loaded import closure",
+        "reason": "the planner does not duplicate semantic receipt producers or turn legacy missing fields into new closeout requirements",
+        "state": "deferred_to_authoritative_closeout"
+      },
+      "source_intake_boundary": {
+        "errors": [],
+        "ready": null,
+        "reason": "exact source-artifact and atom validation is deferred until the listed cheap closeout blockers are resolved",
+        "state": "deferred_due_to_static_blocker"
+      },
+      "strict_closeout_documents": {
+        "errors": [],
+        "ready": null,
+        "scope": "strict ERROR-class report and source-first audit gates",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "terminal_presentation_artifacts": {
+        "missing": [
+          "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.tex",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf"
+        ],
+        "ready": false,
+        "required_now": false,
+        "scope": "final report and rendered dependency DAG",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "tracked_lean_import_closure": {
+        "errors": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-loaded repository and external module closure",
+        "state": "deferred_to_lean_owned_import_closure"
+      }
+    },
+    "ready": false
+  },
+  "schema": 2,
+  "strict_closeout_required_for_acceptance": true
+}
