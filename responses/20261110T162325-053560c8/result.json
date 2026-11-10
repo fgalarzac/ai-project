@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T162325-053560c8",
+  "argv": [
+    "bash",
+    "-lc",
+    "rg -n 'HasDeriv(Within)?At.*(min|max)|congr_of_eventuallyEq|hasDerivWithinAt_Ic|uniqueDiffWithinAt_Ic' .lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv .lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv .lake/packages/mathlib/Mathlib/Analysis/Calculus/ContDiff | head -75"
+  ],
+  "started_utc": "2026-11-10T16:23:27Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.215,
+  "download_sha256": "53902d4778f7d5fb8720f87468bd78478be4e48afe7832221c5beb0a3be76bd8",
+  "finished_utc": "2026-11-10T16:23:27Z"
+}
