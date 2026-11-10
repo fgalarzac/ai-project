@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T221516-804ab0db",
+  "argv": [
+    "python3",
+    "-c",
+    "print('Preserved actual paper state; ending idle worker before its six-hour limit')"
+  ],
+  "started_utc": "2026-11-10T22:15:18Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.016,
+  "download_sha256": "d94fbdba75dcff17d61f0686665fff5e7328a225a9dba11d36d6d09a82b6c00b",
+  "finished_utc": "2026-11-10T22:15:18Z"
+}
