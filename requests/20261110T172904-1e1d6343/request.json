@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "user.name=Codex-Formalizer",
+    "-c",
+    "user.email=codex@local",
+    "commit",
+    "-m",
+    "Register-Galarza26RelativeCredit-paper-target",
+    "--",
+    "lakefile.toml"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "lakefile.toml"
+  ]
+}
