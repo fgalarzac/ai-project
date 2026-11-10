@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/prepare_v11_source_map.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--config",
+    "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/audit/paper_statement_map.json"
+  ],
+  "upload_sha256": "1033937493e2d0c036de08ef3f51bf9c594a21ec0d067e9c90aba934a8bba554"
+}
