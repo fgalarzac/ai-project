@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_paper_semantic_prerequisites.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--decisions",
+    "papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_45a683c44d73e6f6ae86db09a913c9d1fde562e52f815137fb954208837cabe0.json",
+    "--validator",
+    "Independent Codex CLI reviewer, thread 01a1c79d-967f-7b00-b62e-6fadc8845320",
+    "--v11-review-graph",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
