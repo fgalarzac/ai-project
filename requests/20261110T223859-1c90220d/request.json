@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_paper_semantic_prerequisites.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--emit-template",
+    "papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_45a683c44d73e6f6ae86db09a913c9d1fde562e52f815137fb954208837cabe0.json",
+    "--v11-review-graph",
+    "--changed-only"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
