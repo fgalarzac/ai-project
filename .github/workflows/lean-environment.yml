@@ -81,9 +81,10 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install source and report tools
+        timeout-minutes: 5
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq poppler-utils latexmk texlive-xetex texlive-fonts-recommended graphviz
+          sudo apt-get -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o Acquire::Retries=1 update
+          sudo apt-get -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o Acquire::Retries=1 install -y poppler-utils graphviz
       - name: Obtain the exact unmodified formalization engine
         run: |
           git clone --depth 1 https://github.com/nikhgarg/AppliedModelingLib.git "$RUNNER_TEMP/AppliedModelingLib"
