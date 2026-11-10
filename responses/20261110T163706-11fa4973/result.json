@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T163706-11fa4973",
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.TieExample"
+  ],
+  "started_utc": "2026-11-10T16:37:11Z",
+  "exit_code": 0,
+  "elapsed_seconds": 8.791,
+  "download_sha256": "00c9a4e6a3327b237d5c9ded4a7628f5c685449e5fbbfb6cd2a0efd1825071eb",
+  "finished_utc": "2026-11-10T16:37:20Z"
+}
