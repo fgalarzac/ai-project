@@ -1,0 +1,26 @@
+{
+  "paper/paper.pdf": {
+    "pages": 14,
+    "conclusion_pages": [
+      11
+    ],
+    "references_pages": [
+      12
+    ]
+  },
+  "proposal/proposal.pdf": {
+    "pages": 4,
+    "conclusion_pages": [],
+    "references_pages": []
+  },
+  "slides/final.pdf": {
+    "pages": 27,
+    "conclusion_pages": [],
+    "references_pages": []
+  },
+  "slides/topic.pdf": {
+    "pages": 19,
+    "conclusion_pages": [],
+    "references_pages": []
+  }
+}

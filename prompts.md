@@ -515,3 +515,14 @@ También encontré un contraejemplo válido: el riesgo de los créditos nuevos a
 Las pruebas, decisiones y resultados finales están en los archivos del
 repositorio y en docs/informe_final.md. No se fabrica un historial de
 interacciones que no consta en los materiales disponibles.
+
+
+**Respuesta literal de cierre de la verificación remota**
+
+```text
+GitHub Actions terminó correctamente: Python y los cuatro PDF pasan también en Ubuntu. Descargué los PDF de esa corrida y confirmé los conteos: el paper tiene 14 páginas totales, con conclusión en la 11 y referencias desde la 12; la presentación final tiene 27 diapositivas.
+```
+
+La respuesta reproduce el contenido sin su formato de énfasis Markdown.
+La corrida de fuentes92fb042 y sus resultados están en docs/ci_results.json.
+La revisión manuscrita y el ensayo oral no se atribuyen al estudiante.

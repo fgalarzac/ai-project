@@ -2,11 +2,11 @@
 
 Duración de contenido estimada: **29.67 minutos** (27 diapositivas).
 Reservar hasta 30 minutos contando transiciones y pausas breves, y cerca de
-15 minutos para discusión del bloque de45. Esta es una estimación de guion,
+15 minutos para discusión del bloque de 45. Esta es una estimación de guion,
 no un ensayo oral observado. No se deduce duración del número de páginas.
 
 Ensayo personal: ejecutar un cronómetro, decir las ecuaciones con palabras y
-anotar tiempo real por diapositiva. Si supera30, resumir sensibilidades, sin
+anotar tiempo real por diapositiva. Si supera 30, resumir sensibilidades, sin
 omitir condiciones ni la distinción flujo-stock. Si se vuelve difícil explicar
 una línea, volver a hand/guia_derivaciones.pdf antes de memorizarla.
 
@@ -146,7 +146,7 @@ Cerrar con una consecuencia concreta: priorizar investigación, no clasificar ba
 
 ## 27. Preguntas para la clase
 
-Abrir discusión. Reservar aproximadamente15 minutos del bloque45. No responder todas las preguntas tú mismo. Recoger críticas para la versión del26noviembre.
+Abrir discusión. Reservar aproximadamente 15 minutos del bloque de 45 minutos. No responder todas las preguntas tú mismo. Recoger críticas para la versión del 26 de noviembre.
 
 ## Preguntas difíciles y respuestas breves
 

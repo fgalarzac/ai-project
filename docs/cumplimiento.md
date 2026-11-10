@@ -1,6 +1,6 @@
 # Matriz de cumplimiento de la consigna vigente
 
-Estado auditado el10nov2026. Autoridad: issue7, no inferencias de la nota de
+Estado auditado el10 de noviembre de 2026. Autoridad: issue7, no inferencias de la nota de
 otro proyecto. `Cumplido` describe la evidencia disponible, no una nota.
 Las pruebas analíticas, la comprobación numérica y Lean son capas distintas.
 
@@ -23,15 +23,15 @@ Las pruebas analíticas, la comprobación numérica y Lean son capas distintas.
 | Promedio versus mediana | Inconsistencia | Cumplido | Promedio principal, mediana sensibilidad, ejemplo verificado | Celdas y pesos empíricos pendientes |
 | Hechos, fuentes y editorial de preprints | Cifras del plan sin base | Parcial | docs/fuentes.md; tabla BCRP reproducible; WP identificado | Base del plan necesaria para verificar sus cifras2026 |
 | Verificación de cada resultado | Solo interior | Cumplido | code/verify.py, checks.py; SymPy, optimización independiente, esquinas y diferencias finitas | No se prueba teorema por simulación |
-| Dependencias y semilla | Parcial | Cumplido | requirements.txt; semilla20261110; fallas explícitas | Instalar versiones compatibles |
+| Dependencias y semilla | Parcial | Cumplido | requirements.txt; semilla 20261110; fallas explícitas | Instalar versiones compatibles |
 | Figuras legibles con unidades y fuente | Solo figura tema | Cumplido | Cinco figuras finales, captions y fuentes, revisión visual | Véase QA |
 | Presentación final español,30min y discusión | Plantilla | Cumplido | 27slides, timing.json:1780seg, guía y preguntas | Ensayo real pendiente |
 | Lean: enunciado, fragmento real y límites en slide | Ejemplo de plantilla | Parcial | Slide22, código auxiliar comprobado; indica especialización y límites | No hay P1–P3 generales formalizadas |
 | Lean oficial con agente y paper fijado | Placeholder | Pendiente | lean/README y error fcntl, modelo no disponible | Seguir flujo exacto desde paper fusionado |
 | Tabla Lean por resultado, hipótesis y chequeo | Ejemplo | Cumplido como reporte de estado | ApéndiceB: tres resultados abiertos; sin hash formalizado inventado | Actualizar después del flujo oficial |
-| Manuscrito auténtico de todas las derivaciones | Placeholder | Pendiente | Guía tipográfica de12apartados en hand/, no suplantada como manuscrito | Escribir, revisar, escanear y proyectar hoja real |
+| Manuscrito auténtico de todas las derivaciones | Placeholder | Pendiente | Guía tipográfica de 12 apartados en hand/, no suplantada como manuscrito | Escribir, revisar, escanear y proyectar hoja real |
 | IA: afirmación revisada, veredicto y registro | Parcial | Cumplido como registro disponible | prompts.md y apéndiceC; no revisión humana fabricada | Ratificación personal y manuscrito de crítica |
-| CuatroPDF junto a fuentes | Dos finales de plantilla | Cumplido | Compilación de propuesta, tema, final y paper | Resultado CI remoto en informe final |
+| CuatroPDF junto a fuentes | Dos finales de plantilla | Cumplido | Compilación de propuesta, tema, final y paper | CI remota superada; enlace en informe final |
 | build.yml conservado | Original | Cumplido | SHA256e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ningún cambio permitido |
 | Entrega en main a tiempo | No hay merge final | Pendiente | PR revisable desde apoyo | Slides10nov22:00; paper26nov22:00, Lima |
 
