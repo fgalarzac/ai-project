@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T172848-02c70ea1",
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "lakefile.toml"
+  ],
+  "started_utc": "2026-11-10T17:28:52Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.008,
+  "download_sha256": "6595373c1e11735b6d969546caf960607b6d9fdc34323405521837163b34681a",
+  "finished_utc": "2026-11-10T17:28:52Z"
+}
