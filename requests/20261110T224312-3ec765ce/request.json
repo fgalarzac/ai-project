@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/closeout_reuse_plan.py",
+    "--paper",
+    "Galarza26RelativeCredit"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/status.json"
+  ],
+  "upload_sha256": "5470dfee090515cd3a45a037fe30b42c691fba1f01d71fc1036acc6d04eb0534"
+}
