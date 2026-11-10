@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.Stock"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "upload_sha256": "90ee2dab00f45ffa7e397fe90673f22f87e791acfbe9228c7d2f4bcca4488c68"
+}
