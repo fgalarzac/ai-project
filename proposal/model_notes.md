@@ -1,3 +1,5 @@
+> Versión histórica del tema de octubre de 2026. Conserva la mediana, la calibración y el alcance de ese avance. Para el modelo revisado, sus restricciones y el vínculo flujo-stock, usar `paper/paper.pdf` y `slides/final.pdf`.
+
 # Detailed model notes for the topic defense
 
 These notes record the full logic behind the shorter proposal and slides. They

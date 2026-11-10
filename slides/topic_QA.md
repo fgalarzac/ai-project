@@ -1,3 +1,5 @@
+> Versión histórica del tema de octubre de 2026. Conserva la mediana, la calibración y el alcance de ese avance. Para el modelo revisado, sus restricciones y el vínculo flujo-stock, usar `paper/paper.pdf` y `slides/final.pdf`.
+
 # Preguntas probables y respuestas defendibles
 
 Las respuestas cortas son para exposición oral. Los detalles sirven si el

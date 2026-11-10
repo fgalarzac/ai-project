@@ -1,107 +1,414 @@
-% Final presentation -- work in progress, presented for critique.
-% No animations and no screenshots of papers: equations are typeset in LaTeX.
 \documentclass[aspectratio=169,11pt]{beamer}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{amsmath,amssymb}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{newunicodechar}
-% Lean code is full of Unicode that typewriter fonts do not have. Each line
-% maps one symbol to math mode, so Lean can be pasted into a verbatim block
-% as it is (inside a [fragile] frame). Add a line for any symbol you need.
-\newunicodechar{∀}{\ensuremath{\forall}}  \newunicodechar{∃}{\ensuremath{\exists}}
-\newunicodechar{→}{\ensuremath{\to}}      \newunicodechar{↔}{\ensuremath{\leftrightarrow}}
-\newunicodechar{∧}{\ensuremath{\land}}    \newunicodechar{∨}{\ensuremath{\lor}}
-\newunicodechar{¬}{\ensuremath{\lnot}}    \newunicodechar{×}{\ensuremath{\times}}
-\newunicodechar{∈}{\ensuremath{\in}}      \newunicodechar{∉}{\ensuremath{\notin}}
-\newunicodechar{≤}{\ensuremath{\le}}      \newunicodechar{≥}{\ensuremath{\ge}}
-\newunicodechar{≠}{\ensuremath{\ne}}      \newunicodechar{↦}{\ensuremath{\mapsto}}
-\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}} \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
-\newunicodechar{⟨}{\ensuremath{\langle}}  \newunicodechar{⟩}{\ensuremath{\rangle}}
-\newunicodechar{λ}{\ensuremath{\lambda}}  \newunicodechar{α}{\ensuremath{\alpha}}
-\newunicodechar{β}{\ensuremath{\beta}}    \newunicodechar{ε}{\ensuremath{\varepsilon}}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot,es-noshorthands]{babel}
+\usepackage{amsmath,amssymb,booktabs,graphicx,listings}
+\definecolor{navy}{HTML}{183754}
+\definecolor{accent}{HTML}{B65F29}
 \usetheme{default}
-\usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
-\setbeamerfont{frametitle}{size=\large}
-
-\title{Your Title}
-\subtitle{Final presentation}
-\author{Your Name}
-\date{October--November 2026}
-
+\setbeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\hspace{1em}\vskip4pt}
+\setbeamercolor{frametitle}{fg=navy}
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\newcommand{\source}[1]{\par\vfill{\tiny\color{gray}#1\par}}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,
+ literate={∧}{{$\land$}}1 {≤}{{$\le$}}1 {≥}{{$\ge$}}1}
+\input{../code/output/numbers.tex}
 \begin{document}
 
-% The title slide carries the repository link.
+% Exposición estimada: 30 segundos.
 \begin{frame}[plain]
-  \titlepage
-  \begin{center}\small
-    \texttt{github.com/your-user/ai-project}
-  \end{center}
+
+\begin{center}
+{\LARGE\color{navy} Precio relativo del crédito\\[.3em]y morosidad futura}\par\bigskip
+{\large Evaluación óptima y composición de la cartera}\par\bigskip
+Fabián Matías Galarza Chumbe\\
+Track B. AI and Economic Modeling\\
+11 de noviembre de 2026\par\par\medskip
+\href{https://github.com/fgalarzac/ai-project}{github.com/fgalarzac/ai-project}
+\end{center}
 \end{frame}
 
-\begin{frame}{1 \textperiodcentered{} The question and the answer}
-  \textbf{Replace.} The question, and your result in one sentence --- with its
-  condition.
+% Exposición estimada: 60 segundos.
+\begin{frame}{El problema del supervisor}
+
+Un banco publica el precio de sus operaciones nuevas antes de observar su desempeño.
+\par\medskip
+\begin{itemize}
+\item Una señal útil permitiría priorizar la revisión de carteras.
+\item La tasa también contiene fondeo, costos y margen.
+\item El atraso de toda la cartera mezcla préstamos de distintas edades.
+\end{itemize}
+\par\medskip
+\textbf{Objeto de interés:} el contenido informativo de una brecha de precios frente a bancos comparables.
+\source{\href{https://www.sbs.gob.pe/app/stats/Metodologia/Metodologia_TI_promedio.pdf}{SBS, metodología, sección 3}. \href{https://doi.org/10.1023/B:FINA.0000003322.43105.33}{Morgan y Ashcraft (2003)}.}
 \end{frame}
 
-\begin{frame}{2 \textperiodcentered{} The model}
-  \textbf{Replace.} Primitives, timing, and the agent's problem.
-  \[
-    \max_{e \ge 0}\; a e - \frac{c}{2}\, e^{2}, \qquad a > 0,\; c > 0
-  \]
+% Exposición estimada: 70 segundos.
+\begin{frame}{Heterogeneidad que exige comparar bien}
+
+\includegraphics[width=.87\linewidth,height=.64\textheight,keepaspectratio]{../code/figures/public_context.pdf}
+\par\small CAR ajustada por castigos: distinta de la mora contable y del atraso mayor de 90 días.
+\source{\href{https://www.bcrp.gob.pe/docs/Publicaciones/Reporte-Estabilidad-Financiera/2024/noviembre/ref-noviembre-2024.pdf}{BCRP, Reporte de Estabilidad Financiera, noviembre de 2024, cuadro 2.2, p. 21}. Sistema financiero, no solo banca múltiple.}
 \end{frame}
 
-\begin{frame}{3 \textperiodcentered{} The result, with all its conditions}
-  \textbf{Replace.} The proposition as it is stated in the paper.
+% Exposición estimada: 50 segundos.
+\begin{frame}{Pregunta y resultado condicionado}
 
-  \medskip
-  \textbf{Proposition 1.} If $a > 0$ and $c > 0$, the unique solution is
-  $e^{*} = a/c$, and $\partial e^{*}/\partial a = 1/c > 0$.
+\textbf{Pregunta:} ¿cuándo una tasa por encima de los pares anticipa mayor morosidad?
+\par\medskip
+\begin{itemize}
+\item En el interior, el riesgo nuevo aumenta si selección supera a evaluación.
+\item Las restricciones cambian esa regla.
+\item En el saldo total, la composición puede invertir el signo.
+\end{itemize}
+\par\medskip
+\textbf{Alcance:} modelo condicionado en precio. La mejora predictiva en Perú sigue abierta.
 \end{frame}
 
-\begin{frame}{4 \textperiodcentered{} The proof: what is done and what is open}
-  \textbf{Replace.} The idea of the proof, the step that was hard, and what is
-  still open today. This is a progress report: say where you are.
+% Exposición estimada: 75 segundos.
+\begin{frame}{Construcción del precio relativo}
+
+Banco $j$, celda $s$, fecha $t$. Una celda fija tipo, producto o tramo y moneda.
+\[
+D_{jst}=i_{jst}-\frac1{n_{-j,st}}\sum_{k\ne j}i_{kst}.
+\]
+\begin{itemize}
+\item $i$: tasa efectiva anual en decimales. $D=0.02$: dos pp sobre pares.
+\item Promedio simple excluyendo al propio banco, coherente con el plan.
+\item Mediana como sensibilidad. Tres pares como mínimo propuesto.
+\end{itemize}
+\small Restar una base común cancela esa base. Subsisten diferencias de fondeo, producto y exposición al ciclo.
+\source{SBS, tasas por empresa: operaciones de últimos 30 días útiles, con ventanas potencialmente superpuestas.}
 \end{frame}
 
-\begin{frame}{5 \textperiodcentered{} Simulations}
-  \begin{columns}
-    \column{.56\linewidth}
-    \includegraphics[width=\linewidth]{../code/figures/effort_check.pdf}
-    \column{.40\linewidth}
-    \textbf{Replace.} What the script checks, on which parameter range, and
-    what a simulation cannot show.
-  \end{columns}
+% Exposición estimada: 60 segundos.
+\begin{frame}{Mecanismos rivales}
+
+\textbf{Selección adversa.} Un precio alto puede dejar solicitantes más riesgosos.
+\par\medskip
+\textbf{Evaluación.} Evitar el atraso vale más cuando el crédito al día remunera más.
+\par\medskip
+\textbf{Composición.} Un precio alto puede reducir cuánto pesan los créditos nuevos en el saldo.
+\par\medskip
+\small Para distinguirlos harían falta calidad por cosecha, esfuerzo efectivo y pesos de cartera.
+\source{Stiglitz y Weiss (1981), p. 393. Ruckes (2004). La descomposición concreta es del modelo del curso.}
 \end{frame}
 
-% Required: paper statement -> Lean statement -> what Lean verifies.
-\begin{frame}[fragile]{6 \textperiodcentered{} Lean: what is verified}
-  \textbf{In the paper.} $a > 0,\ c > 0 \;\Longrightarrow\; e^{*} = a/c$.
+% Exposición estimada: 60 segundos.
+\begin{frame}{Cronología y agentes}
 
-  \medskip
-  \textbf{In Lean} (replace with your own statement and proof fragment):
-\begin{verbatim}
-theorem prop_effort (a c : ℝ) (ha : 0 < a) (hc : 0 < c) :
-    a / c ∈ Set.Ici (0 : ℝ) ∧
-    IsMaxOn (fun e => a * e - c / 2 * e ^ 2) (Set.Ici 0) (a / c)
-\end{verbatim}
-  \textbf{Replace.} How the objects and assumptions are represented, whether
-  Lean verifies the paper's claim exactly or under an added hypothesis, and the
-  result of the check.
+\begin{enumerate}
+\item Segmento, tecnología y precio observado quedan dados.
+\item Se forma el conjunto de solicitantes.
+\item El banco conoce su riesgo medio y elige evaluación.
+\item Los créditos maduran y se observa el atraso a horizonte $h$.
+\item El supervisor observa un ratio que agrega cohortes.
+\end{enumerate}
+\par\medskip
+El banco optimiza. Solicitantes y pares están resumidos por primitivas. No resuelvo un juego de precios.
 \end{frame}
 
-\begin{frame}{7 \textperiodcentered{} Where I did not believe the AI}
-  \textbf{Replace.} One claim of the model, your verdict with its reason, and
-  the hand derivation on screen.
+% Exposición estimada: 65 segundos.
+\begin{frame}{Solicitantes y opacidad}
+
+\[
+q^0(D,\kappa)=\bar q+a(\kappa)D.
+\]
+\begin{itemize}
+\item $q^0$: probabilidad previa del evento de atraso de la cohorte.
+\item $\bar q\in(0,1)$: riesgo cuando $D=0$.
+\item $a>0$: sensibilidad de selección al precio.
+\item $\kappa\in[0,1]$: menor información inicial cuando aumenta.
+\end{itemize}
+\par\medskip
+Supuesto 1: restringir precios para que $q^0\in[0,1]$. La selección es una aproximación reducida local.
 \end{frame}
 
-\begin{frame}{8 \textperiodcentered{} What I want from you}
-  \textbf{Replace.} The two or three questions on which you want the class's
-  critique before writing the final version.
+% Exposición estimada: 75 segundos.
+\begin{frame}{Tecnología y restricciones}
+
+\[
+q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e,
+\qquad C(e)=\frac{c(\kappa)}2e^2.
+\]
+$e$: esfuerzo de verificación y condiciones crediticias. $g>0$: productividad. $c>0$: costo creciente.
+\[
+0\le e\le u(D,\kappa)=\min\{\bar e,q^0/g\}.
+\]
+\begin{itemize}
+\item $\bar e\ge0$: capacidad de evaluación.
+\item $e\le q^0/g$: impide probabilidades negativas.
+\end{itemize}
+\small Supuesto 2: el esfuerzo cambia calidad manteniendo volumen. Rechazos sin reemplazo exigirían otro modelo.
 \end{frame}
 
+% Exposición estimada: 75 segundos.
+\begin{frame}{Objetivo condicionado del banco}
+
+\[
+\max_{e\in[0,u]}\underbrace{[1-q^0+ge]R(D)}_{\text{pago esperado}}
+-\underbrace{F}_{\text{costo fijo por unidad}}
+-\underbrace{\frac c2e^2}_{\text{costo de evaluar}}.
+\]
+\begin{itemize}
+\item Supuesto 3: $R(D)=\bar R+D>0$, premio normalizado por desempeño.
+\item El banco mantiene precio y segmento fijos al elegir $e$.
+\item $F$ no depende del esfuerzo.
+\end{itemize}
+\par\medskip
+La normalización no convierte exactamente una tasa anual a cualquier plazo. No se resuelve el precio de equilibrio.
+\end{frame}
+
+% Exposición estimada: 70 segundos.
+\begin{frame}{La FOC y por qué no basta}
+
+\[
+\pi_e=gR-ce=0\quad\Longrightarrow\quad z=\frac{gR}{c}.
+\qquad\pi_{ee}=-c<0.
+\]
+Pero $z$ puede exceder la capacidad o producir riesgo negativo.
+\par\medskip
+Completar el cuadrado resuelve el problema global:
+\[
+\pi(e)=\underbrace{(1-q^0)R-F+\frac{(gR)^2}{2c}}_{\text{constante en }e}
+-\frac c2(e-z)^2.
+\]
+El máximo factible es el punto del intervalo $[0,u]$ más cercano a $z$.
+\end{frame}
+
+% Exposición estimada: 65 segundos.
+\begin{frame}{Proposición 1: solución global}
+
+Bajo S1--S3: $a,g,c>0$, capacidad no negativa, $q^0\in[0,1]$ y $R>0$.
+\[
+\boxed{e^*=\min\{gR/c,\bar e,q^0/g\}.}
+\]
+\[
+\boxed{q^*=\max\{0,q^0-g\min(\bar e,gR/c)\}.}
+\]
+Existe un máximo único. Siempre $0\le q^*\le q^0\le1$.
+\par\medskip
+\small Si $\bar e=0$, solo se elige $e=0$. En empates, la solución es continua y las derivadas pueden ser laterales.
+\end{frame}
+
+% Exposición estimada: 70 segundos.
+\begin{frame}{Tres regímenes y tres pendientes}
+
+\begin{tabular}{p{.28\linewidth}p{.37\linewidth}p{.22\linewidth}}
+\toprule Régimen & Condiciones estrictas & $\partial_Dq^*$\\\midrule
+Interior & $gR/c<\bar e$ y $gR/c<q^0/g$ & $a-g^2/c$\\[.7em]
+Capacidad & $\bar e<gR/c$ y $\bar e<q^0/g$ & $a$\\[.7em]
+Piso de riesgo & $q^0/g<gR/c$ y $q^0/g<\bar e$ & $0$\\\bottomrule
+\end{tabular}
+\par\medskip
+En el interior, $\partial_De^*=g/c$: la mejora total es $g(g/c)$.
+\par\medskip
+Con capacidad agotada, esa respuesta desaparece. No se usa una pendiente interior en una esquina.
+\end{frame}
+
+% Exposición estimada: 80 segundos.
+\begin{frame}{Proposición 2: umbral con condiciones}
+
+Sea $H(\kappa)=g(\kappa)^2/c(\kappa)$ y $\beta=a-H$.
+\begin{itemize}
+\item S1--S3 y funciones positivas, continuas en $[0,1]$.
+\item S4: $a-H$ estrictamente decreciente, $a(0)>H(0)$ y $a(1)<H(1)$.
+\item A precio $D_0$, solución interior para toda opacidad.
+\end{itemize}
+\[
+\exists!\,\kappa^*\in(0,1):\quad
+\beta>0\text{ debajo},\quad\beta=0\text{ en }\kappa^*,\quad\beta<0\text{ encima}.
+\]
+\small Prueba: continuidad y signos dan existencia; monotonía estricta da unicidad y orden de signos.
+\end{frame}
+
+% Exposición estimada: 65 segundos.
+\begin{frame}{El supuesto económico que hace el trabajo}
+
+Si las funciones son diferenciables y positivas:
+\[
+\frac{H'}H=2\frac{g'}g-\frac{c'}c.
+\]
+\begin{itemize}
+\item Más opacidad puede hacer más difícil obtener información: $g'\le0$, $c'\ge0$.
+\item Entonces $H$ puede caer y no habrá necesariamente cruce.
+\item Basta que $a-H$ caiga y cruce. $H'>0$ es una condición suficiente más fuerte junto con $a'<0$.
+\end{itemize}
+\par\medskip
+La opacidad no demuestra que la evaluación sea relativamente más eficaz.
+\end{frame}
+
+% Exposición estimada: 70 segundos.
+\begin{frame}{Simulación del cruce y sus alternativas}
+
+\includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{../code/figures/mechanisms.pdf}
+\par\small Caso favorable: $\kappa^*=\threshold$. Caso de tecnología que empeora y caso de capacidad limitada: sin pendiente negativa.
+\source{Simulaciones hipotéticas de code/verify.py. Sin estimación con datos peruanos.}
+\end{frame}
+
+% Exposición estimada: 60 segundos.
+\begin{frame}{Esquinas: una FOC interior puede fallar}
+
+\includegraphics[width=\linewidth,height=.66\textheight,keepaspectratio]{../code/figures/corners.pdf}
+\par\small En la restricción de capacidad, la pendiente pasa de $-0.12$ a $0.04$. El piso de riesgo detiene reducciones adicionales.
+\source{Parámetros ilustrativos. code/verify.py contrasta solución analítica y optimización acotada independiente.}
+\end{frame}
+
+% Exposición estimada: 75 segundos.
+\begin{frame}{De una cohorte al saldo total}
+
+Fijemos el mismo evento de atraso y horizonte $h$.
+\begin{itemize}
+\item $B_0>0$: saldo antiguo. $m_0\in[0,1]$: su fracción en atraso.
+\item $B(D)>0$, diferenciable: saldo de la cohorte nueva todavía vigente.
+\item $w(D)=B(D)/(B_0+B(D))$: peso nuevo.
+\end{itemize}
+\[
+M(D)=\frac{B_0m_0+B(D)q^*(D)}{B_0+B(D)}=(1-w)m_0+wq^*.
+\]
+\small S5: saldos deterministas o población continua, maduración compatible, sin castigos ni selección adicional por amortización. $B_0,m_0$ fijos al variar precio.
+\end{frame}
+
+% Exposición estimada: 80 segundos.
+\begin{frame}{Proposición 3: calidad y composición}
+
+Bajo S1--S3 y S5, en un régimen diferenciable, sea $\beta_D=\partial_Dq^*$.
+\[
+\boxed{M'=\underbrace{w\beta_D}_{\text{calidad de lo nuevo}}
++\underbrace{w'(q^*-m_0)}_{\text{composición}}.}
+\]
+\begin{itemize}
+\item Si $w'=0$, el signo se conserva.
+\item Si $\beta_D\ne0$ y $|w'(q^*-m_0)|<w|\beta_D|$, también se conserva.
+\end{itemize}
+Con $B=B_1e^{-\varepsilon D}$: $w'=-\varepsilon w(1-w)$.
+\[
+M'=w[\beta_D-\varepsilon(1-w)(q^*-m_0)].
+\]
+\end{frame}
+
+% Exposición estimada: 80 segundos.
+\begin{frame}{Contraejemplo: signos opuestos válidos}
+
+En $D=0$, $q^*=0.225$, $m_0=0.10$, $\beta_D=0.13$, $w=0.20$ y $\varepsilon=3$.
+\[
+M'=0.2[0.13-3(0.8)(0.225-0.10)]=\stockSlope<0.
+\]
+\includegraphics[width=\linewidth,height=.43\textheight,keepaspectratio]{../code/figures/stock_composition.pdf}
+\source{Ejemplo hipotético. El riesgo nuevo empeora, pero disminuye su peso en una cartera antigua más segura.}
+\end{frame}
+
+% Exposición estimada: 65 segundos.
+\begin{frame}{Sensibilidad y alcance de las comprobaciones}
+
+\begin{columns}[T,onlytextwidth]
+\column{.55\textwidth}
+\includegraphics[width=\linewidth,height=.62\textheight,keepaspectratio]{../code/figures/sensitivity.pdf}
+\column{.42\textwidth}
+\small
+\begin{itemize}
+\item 1495 sorteos válidos: interior, capacidad y piso.
+\item Optimizador independiente, diferencias finitas y SymPy.
+\item Dominios y contraejemplos provocan fallas si no se cumplen.
+\end{itemize}
+\par\medskip
+Una malla encuentra errores. No prueba un teorema ni utilidad predictiva empírica.
+\end{columns}
+\source{code/verify.py, semilla 20261110. Parámetros ilustrativos.}
+\end{frame}
+
+% Exposición estimada: 95 segundos.
+\begin{frame}[fragile]{Lean: comparación y cobertura parcial}
+
+\small
+\textbf{Artículo, P3:} $M'=w[\beta_D-\varepsilon(1-w)(q^*-m_0)]$ y condición general de signo.
+\par\medskip
+\textbf{Lean real, especialización aritmética:} constantes racionales del ejemplo, sin derivadas ni demostración general.
+\par\medskip
+\texttt{cohortSlope} es $13/100$. \texttt{compositionExpression} evalúa la
+fórmula anterior con $w=1/5$, $q^*=9/40$, $m_0=1/10$ y $\varepsilon=3$.
+\begin{lstlisting}
+theorem opposite_signs :
+    And (0 < cohortSlope) (compositionExpression < 0) := by
+  unfold compositionExpression weight cohortSlope
+    cohortRisk legacyRisk
+  decide +kernel
+\end{lstlisting}
+\textbf{Límite:} no prueba P1--P3. CLI exigido y Linux verificados; falta la corrida general de AppliedModelingLib sobre el paper fusionado. Las constantes especializan el enunciado; no se asume el signo como hipótesis.
+\source{lean/supplement/Counterexample.lean. Comprobación local y axiomas en su registro.}
+\end{frame}
+
+% Exposición estimada: 80 segundos.
+\begin{frame}{Una afirmación de IA revisada críticamente}
+
+\small
+Respuesta heredada de octubre, traducida: ``El modelo está cerrado como un problema bancario de dos etapas.''
+\par\medskip
+\textbf{Veredicto: incompleta.} La FOC interior no resuelve restricciones ni la etapa de precios.
+\[
+\pi_e=0\Rightarrow z=gR/c,\qquad
+e^*=\min\{z,\bar e,q^0/g\}.
+\]
+La derivación por cuadrado completo permite revisar el paso sin confiar en la IA.
+\par\medskip
+\textbf{Manuscrito real pendiente.} No se recibieron páginas escritas por el autor.
+La guía en \texttt{hand/} desglosa cada manipulación para escribirla y digitalizarla.
+\source{Registro histórico preservado en prompts.md. Guía tipográfica no presentada como manuscrito.}
+\end{frame}
+
+% Exposición estimada: 50 segundos.
+\begin{frame}{Próximo contraste predictivo}
+
+\begin{itemize}
+\item Base: morosidad pasada y ciclo. Ampliación: precio relativo.
+\item Entrenar solo con resultados ya publicados en cada origen.
+\item Pesos y escalas con pasado, mismas fechas para ambos modelos.
+\item Comparar pérdidas fuera de muestra y estabilidad por periodo.
+\end{itemize}
+\par\medskip
+No se recibió el panel reproducible del plan. No reporto RMSE, valores $p$ ni mejoras estimadas.
+\source{Plan de Grados y Galarza. Clark y West (2007), para modelos anidados bajo sus condiciones.}
+\end{frame}
+
+% Exposición estimada: 65 segundos.
+\begin{frame}{Qué está demostrado y qué queda abierto}
+
+\begin{itemize}
+\item \textbf{Demostrado en el texto:} solución global, umbral condicionado y transmisión con composición.
+\item \textbf{Paso difícil:} conectar una probabilidad de cohorte con un ratio de saldo y resolver esquinas.
+\item \textbf{Abierto:} precios de equilibrio, utilidad predictiva peruana y formalización general oficial.
+\item \textbf{Trabajo personal:} derivaciones manuscritas, comprensión y ensayo oral.
+\end{itemize}
+\par\medskip
+Costos, garantías, castigos y exposición cambiaria pueden alterar la señal.
+\end{frame}
+
+% Exposición estimada: 45 segundos.
+\begin{frame}{Conclusión para supervisión}
+
+\Large
+Una tasa relativa se interpreta junto con la evaluación y la renovación de la cartera.
+\normalsize\bigskip
+\begin{itemize}
+\item La condición $a-g^2/c$ rige dentro del régimen interior.
+\item El saldo agrega calidad y composición.
+\item La utilidad del indicador requiere prueba fuera de muestra.
+\end{itemize}
+\end{frame}
+
+% Exposición estimada: 45 segundos.
+\begin{frame}{Preguntas para la clase}
+
+\begin{enumerate}
+\item ¿Qué medida observable permitiría distinguir mayor evaluación de cambios en la calidad de solicitantes?
+\item ¿Conviene comenzar con cosechas o con ratios de saldo, dadas las fuentes públicas peruanas?
+\item ¿Qué contraste separaría una respuesta de evaluación de una caída en el peso de créditos nuevos?
+\end{enumerate}
+\bigskip
+\href{https://github.com/fgalarzac/ai-project/tree/apoyo}{Código, artículo y estado de los componentes}
+
+\end{frame}
 \end{document}

@@ -1,0 +1,8 @@
+{
+  "status": "candidate_only_not_officially_formalized",
+  "commit": "8f22f5ff5196d56c28f43bfd689f81bbcfc9108c",
+  "pdf_url": "https://github.com/fgalarzac/ai-project/blob/8f22f5ff5196d56c28f43bfd689f81bbcfc9108c/paper/paper.pdf",
+  "pdf_sha256": "a618a5d9dc04dfb16e3b982fd1864968b90f1d115d0ed00a60fc8fe2e49dbe43",
+  "note": "Public candidate on apoyo, not a paper merged in main and not an official AppliedModelingLib run.",
+  "previous_candidate_commit": "92fb04298eb57c9dc8790d4a4704fbda11453bbb"
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "source": "proposal/proposal.tex",
+    "exit_code": 0
+  },
+  {
+    "source": "slides/topic.tex",
+    "exit_code": 0
+  },
+  {
+    "source": "slides/final.tex",
+    "exit_code": 0
+  },
+  {
+    "source": "paper/paper.tex",
+    "exit_code": 0
+  },
+  {
+    "source": "hand/guia_derivaciones.tex",
+    "exit_code": 0
+  }
+]

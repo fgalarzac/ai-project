@@ -1,8 +1,15 @@
-# `hand/` — placeholder
+# Apéndice manuscrito: pendiente de trabajo personal
 
-Delete this file when you add your derivations. This folder holds the
-**handwritten appendix**: every derivation of the paper, step by step and with
-no skipped steps — each algebraic manipulation written out, each rule named,
-each condition checked where it is used. Photographed or scanned, as long as it
-is legible. Name the files so the order is obvious (`01-foc.pdf`,
-`02-proposition-1.pdf`, …).
+`guia_derivaciones.tex` y su PDF son una guía tipográfica completa, **no**
+derivaciones escritas por el estudiante. No se recibieron escaneos auténticos.
+
+Escribir personalmente los doce apartados, indicando reglas, condiciones y
+casos de esquina; revisarlos y digitalizarlos en orden. La guía desarrolla
+dominios, precio relativo, FOC, cuadrado completo, solución restringida,
+pendientes, umbral, logaritmos, contabilidad de cohortes, cociente, conservación
+de signo, contraejemplo, unidades y controles de comprensión.
+
+El requisito oficial sigue pendiente hasta incorporar esas páginas legibles.
+No sustituirlo por tipografía manuscrita ni atribuir al autor revisión humana
+no efectuada. Tras agregarlas, actualizar paper, slide de revisión IA, README
+y matriz. La foto de una hoja revisada debe proyectarse en la exposición.

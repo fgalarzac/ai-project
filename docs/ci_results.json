@@ -1,0 +1,26 @@
+{
+  "source_commit": "92fb04298eb57c9dc8790d4a4704fbda11453bbb",
+  "repository": "fgalarzac/ai-project",
+  "pull_request": "https://github.com/fgalarzac/ai-project/pull/4",
+  "runs": [
+    {
+      "id": 42773045432,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/fgalarzac/ai-project/actions/runs/42773045432",
+      "python_job": "success",
+      "four_pdf_compilation_job": "success",
+      "checks_passed": 4018,
+      "max_optimizer_gap": 3.78406055379088e-8
+    },
+    {
+      "id": 42773006748,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/fgalarzac/ai-project/actions/runs/42773006748"
+    }
+  ],
+  "note": "These checks apply to the exact source commit stated above. Later reporting-only commits do not change the model or PDF sources."
+}

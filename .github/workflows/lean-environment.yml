@@ -1,0 +1,56 @@
+name: Lean environment preflight (not paper formalization)
+
+on:
+  push:
+    branches: [apoyo]
+    paths:
+      - '.github/workflows/lean-environment.yml'
+      - 'code/lean_environment_probe.py'
+      - 'lean/supplement/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  environment:
+    name: Linux and Lean readiness only
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Obtain exact unmodified AppliedModelingLib
+        run: |
+          git clone --depth 1 https://github.com/nikhgarg/AppliedModelingLib.git "$RUNNER_TEMP/AppliedModelingLib"
+          git -C "$RUNNER_TEMP/AppliedModelingLib" fetch --depth 1 origin 194edcc95df74806a39b961d10dedddc6e730cce
+          git -C "$RUNNER_TEMP/AppliedModelingLib" checkout --detach 194edcc95df74806a39b961d10dedddc6e730cce
+          git -C "$RUNNER_TEMP/AppliedModelingLib" status --porcelain
+      - name: Install the exact Lean toolchain required by the library
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "$(cat "$RUNNER_TEMP/AppliedModelingLib/lean-toolchain")"
+          "$HOME/.elan/bin/elan" default "$(cat "$RUNNER_TEMP/AppliedModelingLib/lean-toolchain")"
+      - name: Probe real POSIX locking and the official Python entrypoint
+        run: |
+          python code/lean_environment_probe.py "$RUNNER_TEMP/AppliedModelingLib" "$RUNNER_TEMP/lean-environment-results"
+      - name: Check the existing exact-arithmetic supplement on Linux
+        run: |
+          set -o pipefail
+          lean --version | tee "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"
+          lean lean/supplement/Counterexample.lean | tee -a "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"
+          if grep -E 'sorryAx|_native' "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"; then exit 1; fi
+      - name: Confirm no AppliedModelingLib checker was patched
+        run: |
+          test -z "$(git -C "$RUNNER_TEMP/AppliedModelingLib" status --porcelain)"
+          printf 'Environment preflight only. This is not the official paper check and does not prove P1-P3.\n' >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/lean-environment-results/environment.json" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: lean-environment-evidence
+          path: ${{ runner.temp }}/lean-environment-results/

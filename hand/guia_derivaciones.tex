@@ -1,0 +1,277 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot,es-noshorthands]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\newcommand{\E}{\mathbb E}
+\usepackage[colorlinks=true,allcolors=blue!50!black]{hyperref}
+\title{Guía completa para escribir las derivaciones a mano}
+\author{Material de apoyo para Fabián Matías Galarza Chumbe}
+\date{10 de noviembre de 2026}
+\begin{document}\maketitle
+\noindent\textbf{Estado: guía tipográfica, no manuscrito del autor.}
+Cada paso siguiente debe escribirse y revisarse personalmente. Al digitalizar,
+incluir nombre, fecha y número de página. Usar tinta legible, sin sustituir
+una fuente tipográfica por supuesta escritura humana. La revisión de
+comprensión todavía no ha ocurrido en esta sesión.
+
+\section{01: objetos, unidades y dominio}
+Escribir primero qué se mantiene fijo: $\kappa$, parámetros de tecnología,
+precio de pares y horizonte del evento. Definir $D$ como tasa anual decimal,
+$q^0,q^*$ como probabilidades, $e,\kappa$ como índices y pagos por sol de crédito.
+\begin{enumerate}
+\item $q^0=\bar q+aD$, $a>0$, $0<\bar q<1$.
+\item $0\le q^0\le1$ equivale a $-\bar q\le aD\le1-\bar q$ por restar $\bar q$.
+\item Dividir por $a>0$ conserva desigualdades:
+$-\bar q/a\le D\le(1-\bar q)/a$.
+\item $R=\bar R+D>0$ equivale a $D>-\bar R$.
+\item Elegir el dominio $\mathcal D$ dentro de la intersección anterior.
+No extrapolar la tecnología afín fuera de ese dominio.
+\item $q=q^0-ge$, con $g>0$. Como $e\ge0$, $q\le q^0\le1$.
+\item Para $q\ge0$, despejar $q^0-ge\ge0$, luego $ge\le q^0$ y
+$e\le q^0/g$ dividiendo por $g>0$.
+\item Combinar con capacidad $e\le\bar e\ge0$:
+$0\le e\le u=\min\{\bar e,q^0/g\}$.
+\end{enumerate}
+Anotar al margen que una probabilidad de default de por vida y un saldo con
+atraso a fecha $h$ no son intercambiables sin el Supuesto 5.
+
+\section{02: señal de precios y cancelación exacta}
+Escribir $n$ pares distintos de $j$, $n\ge3$ para el diseño propuesto:
+\begin{align*}
+D&=(i_j-b)-\frac1n\sum_{k\ne j}(i_k-b)\\
+ &=i_j-b-\left(\frac1n\sum_k i_k-\frac1n\sum_k b\right)\\
+ &=i_j-b-\frac1n\sum_k i_k+b\\
+ &=i_j-\frac1n\sum_k i_k.
+\end{align*}
+Reglas: distributividad, linealidad de la suma, $\sum_k b=nb$ porque la base
+es idéntica para todos. Para mediana, escribir que trasladar cada observación
+por la misma constante traslada su mediana en esa constante. No es una
+igualdad entre promedio y mediana.
+
+Para cargas heterogéneas, sustituir $i_j=b+\lambda_j z+v_j$ y el promedio
+$b+\bar\lambda z+\bar v$. Restar término a término:
+$D=(\lambda_j-\bar\lambda)z+(v_j-\bar v)$. Esto demuestra por qué el ciclo
+no se cancela si las cargas difieren.
+
+Ejemplo hipotético, porcentajes: $(8+9+10+25)/4=52/4=13$; mediana
+$(9+10)/2=9.5$; $12-13=-1$ pp y $12-9.5=2.5$ pp.
+
+\section{03: derivación de la FOC y la concavidad}
+Suprimir $\kappa$ únicamente después de definirlo. El objetivo es
+\[
+\pi(e)=(1-q^0+ge)R-F-\frac c2e^2.
+\]
+Mantener $D$, y por tanto $q^0$ y $R$, fijos al derivar respecto de $e$.
+\begin{enumerate}
+\item Distribuir el pago: $\pi=(1-q^0)R+gRe-F-(c/2)e^2$.
+\item La derivada de $(1-q^0)R$ es cero porque no depende de $e$.
+\item La derivada de $gRe$ es $gR$ por regla de potencia y coeficiente constante.
+\item La derivada de $-F$ es cero.
+\item La derivada de $-(c/2)e^2$ es $-(c/2)2e=-ce$.
+\item Sumar: $\pi_e=gR-ce$.
+\item Derivar otra vez: $\pi_{ee}=-c<0$ porque $c>0$.
+\item Una solución interior satisface $gR-ce=0$.
+\item Sumar $ce$ a ambos lados: $gR=ce$.
+\item Dividir por $c>0$: $z=e=gR/c>0$ porque $g,R>0$.
+\end{enumerate}
+La FOC identifica un candidato no restringido. Todavía no se ha comprobado
+que $z\le u$, por lo que no es aún la solución global.
+
+\section{04: cuadrado completo, existencia y unicidad (P1)}
+Desarrollar explícitamente el cuadrado:
+\begin{align*}
+-\frac c2(e-z)^2
+ &=-\frac c2(e^2-2ez+z^2)\\
+ &=-\frac c2e^2+cez-\frac c2z^2\\
+ &=-\frac c2e^2+gRe-\frac{g^2R^2}{2c},
+\end{align*}
+porque $z=gR/c$, $cz=gR$ y $cz^2/2=g^2R^2/(2c)$. Sumar
+$(1-q^0)R-F+g^2R^2/(2c)$ a la expresión anterior recupera exactamente $\pi$.
+
+Condiciones de existencia: $u\ge0$, intervalo $[0,u]$ compacto no vacío y
+objetivo continuo. Por el teorema del valor extremo hay máximo. Si $u=0$,
+solo es factible $e=0$. Si $u>0$, $-c<0$ da concavidad estricta, por tanto
+a lo sumo un máximo en el intervalo convexo.
+
+Ahora minimizar $(e-z)^2$, con $z>0$. Si $0<z<u$, su valor cero ocurre solo
+en $e=z$. Si $z\ge u$, para cualquier $e<u$ se cumple
+$z-e>z-u\ge0$; elevar al cuadrado conserva el orden estricto, así que
+$(e-z)^2>(u-z)^2$. El único máximo es $u$. Si $z=u$, sigue siendo único.
+En consecuencia
+\[
+e^*=\min\{z,u\}=\min\{gR/c,\bar e,q^0/g\}.
+\]
+No hay esquina inferior con capacidad positiva y $q^0>0$, porque $\pi_e(0)=gR>0$.
+Si $q^0=0$ o $\bar e=0$, el intervalo es singleton y sí se elige cero.
+
+\section{05: sustitución, pisos y pendientes (P1)}
+Escribir $v=\min\{\bar e,gR/c\}\ge0$.
+\begin{enumerate}
+\item $e^*=\min\{v,q^0/g\}$.
+\item Si $v\le q^0/g$, entonces $e^*=v$ y $q^*=q^0-gv\ge0$.
+\item Si $v>q^0/g$, entonces $e^*=q^0/g$ y $q^*=q^0-g(q^0/g)=0$.
+\item Ambos casos equivalen a $q^*=\max\{0,q^0-gv\}$.
+\end{enumerate}
+Derivar cada régimen únicamente en un intervalo donde las desigualdades son
+estrictas y se mantienen $\kappa,a,g,c,\bar e$ fijos:
+\begin{align*}
+\text{Interior: }q^*&=\bar q+aD-(g^2/c)(\bar R+D),\\
+\frac{dq^*}{dD}&=0+a-(g^2/c)(0+1)=a-g^2/c,\\
+\frac{de^*}{dD}&=\frac{g}{c}\frac{d(\bar R+D)}{dD}=g/c>0;\\
+\text{Capacidad: }q^*&=\bar q+aD-g\bar e,\quad \frac{dq^*}{dD}=a;\\
+\text{Piso: }q^*&=0,\quad \frac{dq^*}{dD}=0.
+\end{align*}
+En un empate escribir las fórmulas a izquierda y derecha. La solución
+continúa porque mínimo y máximo conservan continuidad; la derivada existe
+solo si las pendientes laterales coinciden. No confundir continuidad con
+diferenciabilidad.
+
+Ejemplo de capacidad: $\bar q=.35,a=.04,g=.4,c=1,\bar e=.44,\bar R=1.10$.
+Igualar $g(\bar R+D)/c=\bar e$ da $D=c\bar e/g-\bar R=1.10-1.10=0$.
+A la izquierda $a-g^2/c=.04-.16=-.12$; a la derecha $a=.04$.
+Comprobar en $D=0$: $q^0/g=.35/.4=.875>.44$, por lo que la cota de
+probabilidad no causa ese quiebre. Riesgo en el punto: $.35-.4(.44)=.174$.
+
+\section{06: umbral y condiciones de su existencia (P2)}
+\begin{enumerate}
+\item Definir $H(\kappa)=g(\kappa)^2/c(\kappa)>0$ y $\beta=a-H$.
+\item Continuidad de $a,g,c$ y $c>0$ implica continuidad de $H$ por producto
+y cociente, y de $\beta$ por resta.
+\item Comprobar $\beta(0)>0$ y $\beta(1)<0$ antes de aplicar valor intermedio.
+\item El teorema da un $\kappa^*\in(0,1)$ con $\beta(\kappa^*)=0$.
+\item Si $x<y$ fueran dos ceros, monotonía estricta da $\beta(x)>\beta(y)$,
+pero ambos son cero: contradicción. Hay un único cero.
+\item Para $\kappa<\kappa^*$, $\beta(\kappa)>\beta(\kappa^*)=0$.
+Para $\kappa>\kappa^*$, $\beta(\kappa)<0$.
+\item La identificación de $\beta$ con $\partial_Dq^*$ requiere verificar
+interioridad en todo $\kappa$ al precio $D_0$ comparado.
+\end{enumerate}
+No se requiere diferenciar en $\kappa$ para probar esta versión. Monotonía
+débil no garantiza unicidad. Continuidad sola tampoco garantiza un cero si
+no hay cruce ni un signo cero en extremos.
+
+\section{07: logaritmos, calibración y alternativa}
+Como $H,g,c>0$, los logaritmos existen. Por reglas de logaritmos,
+$\log H=2\log g-\log c$. Por regla de la cadena:
+$H'/H=2g'/g-c'/c$. Si $g'\le0$ y $c'\ge0$, el lado derecho es no positivo,
+por tanto $H'\le0$ al multiplicar por $H>0$.
+
+Para los parámetros ilustrativos:
+\begin{align*}
+H&=\frac{(\sqrt{.05}e^{.8\kappa})^2}{e^{.4\kappa}}
+=.05e^{1.6\kappa-.4\kappa}=.05e^{1.2\kappa},\\
+a=H&\iff .18e^{-.8\kappa}=.05e^{1.2\kappa}\\
+&\iff 3.6=e^{2\kappa}\iff \log3.6=2\kappa
+\iff \kappa^*=\log(3.6)/2.
+\end{align*}
+Justificar cada división por un número positivo, el producto de
+exponenciales y que $\log$ es inversa de la exponencial en los positivos.
+El valor es aproximadamente $.640467$. Sustituir extremos en $a-H$:
+$.18-.05=.13>0$ y $.18e^{-.8}-.05e^{1.2}\approx-.085127<0$.
+
+En la alternativa $g=\sqrt{.05}e^{-.4\kappa}$,
+$H=.05e^{-1.2\kappa}$ y $a/H=3.6e^{.4\kappa}>1$ para $\kappa\in[0,1]$.
+Como $H>0$, $a-H=H(a/H-1)>0$. No hay umbral. Escribir por qué este
+contraejemplo satisface probabilidades y esfuerzo admisibles en la simulación.
+
+\section{08: contabilidad de cohortes y esperanza (P3)}
+Definir $B_0,m_0,B,q^*$ antes de usar los símbolos. Bajo saldo determinista o
+población continua, atraso esperado antiguo $B_0m_0$, nuevo $Bq^*$, total
+$A=B_0m_0+Bq^*$. Saldo total $T=B_0+B>0$.
+\begin{align*}
+M&=A/T=\frac{B_0}{B_0+B}m_0+\frac{B}{B_0+B}q^*,\\
+w&=B/(B_0+B),\quad
+1-w=(B_0+B-B)/(B_0+B)=B_0/(B_0+B),\\
+M&=(1-w)m_0+wq^*.
+\end{align*}
+Si el denominador fuera aleatorio, $\E[A/T]$ no se reemplaza en general por
+$\E[A]/\E[T]$. Escribir ese límite y el evento de atraso al horizonte. No
+confundir tasa de incidencia de impago con fracción de saldo en atraso.
+
+\section{09: derivada, conservación e inversión del signo (P3)}
+Con $m_0$ fijo y funciones diferenciables en el régimen:
+\begin{align*}
+M'&=(1-w)'m_0+(1-w)m_0'+w'q^*+wq^{*\prime}\\
+&=-w'm_0+0+w'q^*+w\beta_D\\
+&=w\beta_D+w'(q^*-m_0).
+\end{align*}
+Reglas: producto, derivada de constante, agrupación distributiva.
+Si $w'=0$, $M'=w\beta_D$ y $w>0$ preserva signos.
+Si $\beta_D>0$ y $|C|<w\beta_D$ con $C=w'(q^*-m_0)$, entonces
+$M'=w\beta_D+C\ge w\beta_D-|C|>0$.
+Si $\beta_D<0$, $M'\le w\beta_D+|C|<0$.
+La condición estricta no cubre $\beta_D=0$ ni empates de magnitudes.
+
+Derivar el peso sin omitir el cociente:
+\begin{align*}
+w'&=\frac{B'(B_0+B)-B(0+B')}{(B_0+B)^2}
+=\frac{B'B_0+B'B-BB'}{(B_0+B)^2}
+=\frac{B'B_0}{(B_0+B)^2}.
+\end{align*}
+Para $B=B_1e^{-\varepsilon D}$, regla de cadena:
+$B'=B_1e^{-\varepsilon D}(-\varepsilon)=-\varepsilon B$.
+Luego
+\[
+w'=-\varepsilon\frac{B}{B_0+B}\frac{B_0}{B_0+B}
+=-\varepsilon w(1-w).
+\]
+Sustituir en $M'$ y factorizar $w>0$.
+
+Si $\beta_D>0$ y $q^*>m_0$, escribir
+$M'<0\iff\beta_D-\varepsilon(1-w)(q^*-m_0)<0
+\iff\varepsilon(1-w)(q^*-m_0)>\beta_D$.
+No se cambia el signo al dividir por $w$, que es positivo.
+
+\section{10: contraejemplo exacto y unidades}
+En $D=0$ y $\kappa=0$, $q^0=.28$, $H=.05$, $R=1.10$.
+\begin{align*}
+q^*&=.28-.05(1.10)=.28-.055=.225=9/40,\\
+\beta_D&=.18-.05=.13=13/100,\\
+w&=1/(4+1)=.2=1/5,\quad m_0=.10=1/10,\\
+q^*-m_0&=.125=1/8,\\
+\varepsilon(1-w)(q^*-m_0)&=3(4/5)(1/8)=3/10=.30,\\
+M'&=(1/5)(13/100-30/100)=-17/500=-.034.
+\end{align*}
+Comprobar $0<q^*,m_0,w<1$; $B_0=4>0$, $B_1=1>0$ y $\varepsilon=3\ge0$.
+En las primitivas originales $g=\sqrt{.05},c=1$,
+$e^*=\sqrt{.05}(1.10)\approx.245967<.50$ y
+$q^0/g\approx1.2522>e^*$: interioridad real, no supuesta por la conclusión.
+
+Una unidad de $D$ es cien puntos porcentuales. Para $\Delta D=.01$,
+el cambio local aproximado de $q$ es $.13(.01)=.0013$, es decir $.13$ pp;
+el de $M$ es $-.034(.01)=-.00034$, es decir $-.034$ pp. Usar el símbolo
+de aproximación para cambios finitos. Lean comprueba la aritmética racional
+de estas expresiones, no sus derivadas ni los supuestos económicos.
+
+\section{11: comprobaciones y qué escribir junto a cada prueba}
+Al final de cada hoja anotar: resultado que se probó, supuestos usados, regla
+matemática aplicada, caso de esquina y ejemplo que falsaría una versión más
+fuerte. Para simulaciones, describir sin presentarlas como demostraciones:
+\begin{enumerate}
+\item Optimización independiente: evaluar el objetivo y ambos extremos.
+\item Diferencias centrales: $[q(D+\delta)-q(D-\delta)]/(2\delta)$,
+con $\delta=10^{-6}$, verificando mismo régimen en los tres puntos.
+\item Error de esfuerzo máximo comparado con tolerancia $2\times10^{-6}$.
+\item No extrapolar una malla de parámetros al espacio continuo completo.
+\end{enumerate}
+La fórmula de error numérico es $|e_{\text{analítico}}-e_{\text{optimizador}}|$.
+La prueba de existencia, unicidad y signo usa argumentos analíticos del
+artículo, no la ausencia de fallos en una malla.
+
+\section{12: control personal y entrega}
+Digitalizar las hojas en un PDF con páginas numeradas o en archivos por tema.
+Por ejemplo: \path{01-dominio.pdf}, \path{02-precio.pdf} y
+\path{10-contraejemplo.pdf}.
+
+Incluir los casos $u=0$, empate de cotas, derivadas laterales, conservación
+de signo y alternativa sin umbral. Si cambia la numeración, actualizar las
+referencias del artículo y las diapositivas.
+
+Antes de afirmar comprensión, responder sin leer: ¿qué se mantiene fijo?,
+¿por qué el máximo es único?, ¿por qué evaluar reduce riesgo sin cambiar
+volumen en este modelo?, ¿cuándo falla el umbral?, ¿por qué un ratio de saldo
+puede dar el signo contrario?, ¿qué no ha comprobado Lean?, ¿qué tendría que
+cambiar para una interpretación causal? Si una respuesta no sale con claridad,
+volver a la hoja correspondiente y corregirla.
+\end{document}
