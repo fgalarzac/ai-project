@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "papers/Galarza26RelativeCredit.lean",
+    "papers/Galarza26RelativeCredit"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "upload_sha256": "a5c959a5a074210d0e9c326335fff18dfbe9f1d5812ced83613f424fe772ef97"
+}
