@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T162920-1833b656",
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    ".scratch/galarza/Calculus.lean"
+  ],
+  "started_utc": "2026-11-10T16:29:26Z",
+  "exit_code": 0,
+  "elapsed_seconds": 3.977,
+  "download_sha256": "815ddba58a8b5773e3adcb5e1bfe91eb97afc2e1502e13ba2cf3307dae69e9ad",
+  "finished_utc": "2026-11-10T16:29:30Z"
+}
