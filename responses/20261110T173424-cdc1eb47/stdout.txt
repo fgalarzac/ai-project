@@ -1,0 +1,224 @@
+{
+  "acceptance_credential": false,
+  "actions": [
+    {
+      "id": "repair_typed_obligation_surface",
+      "reason": "proposition_3_transmission_composition: source_claim_atoms contain duplicate exact source components",
+      "state": "ready_now"
+    }
+  ],
+  "expensive_planning_deferred": true,
+  "next_action": {
+    "id": "repair_typed_obligation_surface",
+    "reason": "proposition_3_transmission_composition: source_claim_atoms contain duplicate exact source components",
+    "state": "ready_now"
+  },
+  "obligation_preflight": {
+    "acceptance_credential": false,
+    "counts": {
+      "pending_source_route": 0,
+      "proof_support": 0,
+      "result_semantic": 3,
+      "semantic_prerequisite": 0,
+      "source_assumption": 0,
+      "source_context": 0,
+      "source_convention": 0,
+      "source_presentation_alias": 0,
+      "source_scope_disposition": 0,
+      "source_semantic_declaration": 9,
+      "total": 12
+    },
+    "current": false,
+    "errors": [
+      "proposition_3_transmission_composition: source_claim_atoms contain duplicate exact source components"
+    ],
+    "paper": "Galarza26RelativeCredit",
+    "prerequisite_source_item_by_declaration": {},
+    "route_obligation_counts": {
+      "assumption_1_selection_domain": {
+        "source_atom": 1
+      },
+      "assumption_2_technology_capacity_cost": {
+        "source_atom": 1
+      },
+      "assumption_3_conditioned_payoff": {
+        "source_atom": 1
+      },
+      "assumption_4_crossing_conditions": {
+        "source_atom": 1
+      },
+      "assumption_5_stock_accounting": {
+        "source_atom": 1
+      },
+      "governing_continuation_model": {
+        "source_atom": 1
+      },
+      "proposition_1_global_solution_regimes": {
+        "proof_endpoint": 1,
+        "proof_realization": 1,
+        "semantic_review": 1,
+        "source_atom": 4,
+        "source_lean_judgment": 1,
+        "spec": 1
+      },
+      "proposition_2_conditional_threshold": {
+        "proof_endpoint": 1,
+        "proof_realization": 1,
+        "semantic_review": 1,
+        "source_atom": 1,
+        "source_lean_judgment": 1,
+        "spec": 1
+      },
+      "proposition_3_transmission_composition": {
+        "proof_endpoint": 1,
+        "proof_realization": 1,
+        "semantic_review": 1,
+        "source_atom": 5,
+        "source_lean_judgment": 1,
+        "spec": 1
+      },
+      "relative_price_definition": {
+        "source_atom": 1
+      },
+      "screening_strength_and_slope_definitions": {
+        "source_atom": 1
+      },
+      "stock_model_construction": {
+        "source_atom": 1
+      }
+    },
+    "route_schema_sha256": "90a3a016d3293524ff7363d0e8309b032f393fb0c8d3637859dde87fbbf8bb1c",
+    "route_source_quote_sha256s": {
+      "assumption_1_selection_domain": [
+        "8a0b7b1c6fc59ae6d76bb2b02fdb17c5909b6118c1464bd423c6938c2ab643d9"
+      ],
+      "assumption_2_technology_capacity_cost": [
+        "16658f7cea8ab2f3dd7b16930654a9fd54b9ed1365faa4032b95912d0f893bd9"
+      ],
+      "assumption_3_conditioned_payoff": [
+        "8f62a046966d121dd61c3c819047b846f80c946ac958d91e7f9351840134e311"
+      ],
+      "assumption_4_crossing_conditions": [
+        "8a81192d795e8a0dd7e456f0c9d1217486124829d9d547039dde84ce8de077e5"
+      ],
+      "assumption_5_stock_accounting": [
+        "180cb06f861552ce7481c6a8e8040b3a94fea755c65817dd2397b7d9f3bbfda5"
+      ],
+      "governing_continuation_model": [
+        "88a9bd610d76c1e2d13ca0e1ca299b10da73b059c779245ed0f13701e07907ab"
+      ],
+      "proposition_1_global_solution_regimes": [
+        "049eb7f79fb0cec19aa5025c23e27ade91d4ec9d1fd3f727e556953022dc760d",
+        "0e6359d2c8e537dae2ae0ae2f2f7a0d28fe58b205815f884fe34e40a02aac92f",
+        "8518d09b7e839aa49d2bbb5dddbcae1699d0d5e70a7a2be6589059833aab662e",
+        "b80a75204b0759f1271b598d766dda0f4ca268bbb27757ea50f1898a8a8e90e8"
+      ],
+      "proposition_2_conditional_threshold": [
+        "8a3c410b806f52dc4978f377f48a0afbeaeab7ff26ecec6c31ecb2ee5b87ec44"
+      ],
+      "proposition_3_transmission_composition": [
+        "b6c3a18bff91060688103af096a6652622cac84ba9fdf3c5a7a6d61e0dca0092",
+        "d395ee9d370c314a48bc583d90f2e2811f168f18a6148688adf0fbc120262b8e",
+        "e0fac87b44133265db5c79276294f6c892b6bd0eef6c5ec609e27dd2da5d5a23",
+        "f9a584003babcd2cefa6fdf5c73039f7bbc07e7e082c4a157e2e700494424e12",
+        "f9a584003babcd2cefa6fdf5c73039f7bbc07e7e082c4a157e2e700494424e12"
+      ],
+      "relative_price_definition": [
+        "f5ad037991b87dcb438a3ee2ea67f77c104cc82f85ad415e14080a9160c7da7e"
+      ],
+      "screening_strength_and_slope_definitions": [
+        "f4e1974010c5dac18bd1b008a99715b9316d20b2959f0e9c797e3fbbdc48afd0"
+      ],
+      "stock_model_construction": [
+        "c979910ae0ca3e3c8f3817af4687a80d7ecbb2a6bae911461b9a9fad76492776"
+      ]
+    },
+    "schema": 1,
+    "source_artifact_sha256": "f61b19a298a363992fedcda049fd6f2350f1598bdebb85d13939374e62d7d693",
+    "source_inventory_sha256": "9b5f808e9aa82de6a8bc74dea203e5d6310d2b85192a4805145bbf6ec777a9f4",
+    "source_spec_correspondence_required": false,
+    "structural_preflight_sha256": "aa35efb2d1b1c6c5373a16d79068a25fdc9a7b2e9637a029b378b8f580f1c8ef"
+  },
+  "paper": "Galarza26RelativeCredit",
+  "readiness_matrix": {
+    "acceptance_credential": false,
+    "blockers": [],
+    "lanes": {
+      "final_validation_report_status": {
+        "errors": [],
+        "ready": null,
+        "scope": "controlled Closeout Status/status.json agreement only",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "focused_build_target": {
+        "errors": [],
+        "ready": true,
+        "scope": "exact path-independent paper-root Lake target"
+      },
+      "paper_local_proof_surface": {
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-elaborated declaration, proof, and axiom closure",
+        "state": "deferred_to_lean_graph_and_focused_build"
+      },
+      "required_artifacts": {
+        "missing": [],
+        "ready": true,
+        "scope": "source, interface, status, and Lean entrypoint inputs"
+      },
+      "review_surface_projection": {
+        "errors": [],
+        "ready": true,
+        "scope": "generated status navigation projected from typed source routes; not semantic or proof evidence"
+      },
+      "review_surface_structure": {
+        "errors": [],
+        "findings": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "typed source/Spec/proof routes and Lean-elaborated declaration membership",
+        "state": "deferred_to_typed_route_and_lean_graph_preflight"
+      },
+      "semantic_and_recursive_gates": {
+        "proof_placeholder_scope": "exact Lean-loaded import closure",
+        "reason": "the planner does not duplicate semantic receipt producers or turn legacy missing fields into new closeout requirements",
+        "state": "deferred_to_authoritative_closeout"
+      },
+      "source_intake_boundary": {
+        "acceptance_credential": false,
+        "authority": "reviewed_source_inventory_v1",
+        "errors": [],
+        "path": "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+        "ready": true,
+        "state": "current"
+      },
+      "strict_closeout_documents": {
+        "errors": [],
+        "ready": null,
+        "scope": "strict ERROR-class report and source-first audit gates",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "terminal_presentation_artifacts": {
+        "missing": [
+          "papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.tex",
+          "papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf"
+        ],
+        "ready": false,
+        "required_now": false,
+        "scope": "final report and rendered dependency DAG",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "tracked_lean_import_closure": {
+        "errors": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-loaded repository and external module closure",
+        "state": "deferred_to_lean_owned_import_closure"
+      }
+    },
+    "ready": true
+  },
+  "schema": 2,
+  "strict_closeout_required_for_acceptance": true
+}
