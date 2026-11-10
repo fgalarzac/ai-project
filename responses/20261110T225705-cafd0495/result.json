@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T225705-cafd0495",
+  "argv": [
+    "sha256sum",
+    ".lake/closeout-objects/sha256/34/34df5111ece43e6c16fb71fd3d941d744d4591658b5f4b0ba615f2918592bd4d.json",
+    ".lake/closeout-objects/sha256/2d/2da484f9f4772088d7377315336b6c2ba3e0528bd206b82604d3fe2122b0bd3b.json"
+  ],
+  "started_utc": "2026-11-10T22:57:10Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.004,
+  "download_sha256": "4e459ef7c84c31c858039770afcf340f07e09775f0eeef1ef2d0fe7561283cba",
+  "finished_utc": "2026-11-10T22:57:10Z"
+}
