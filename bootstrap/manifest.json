@@ -1,6 +1,6 @@
 {
-  "archive_sha256": "494029c950e9c5cf6f93b6bb735e3934ede904ca823c2c2b2bae4f650c84c752",
+  "archive_sha256": "77ffd926a98070fac2decdf6d314bfb6bcca77f43ddaa2654b0b08ba56986341",
   "upstream_aml_commit": "194edcc95df74806a39b961d10dedddc6e730cce",
   "paper": "Galarza26RelativeCredit",
-  "note": "Restore real paper sources and generated state after transient transport push failure; no acceptance or review is inferred."
+  "note": "Restore actual paper state for renewed six-hour Linux execution; includes the entrypoint. No acceptance or review is inferred."
 }
