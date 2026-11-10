@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "-c",
+    "import pathlib, subprocess\npaper=\"Galarza26RelativeCredit\"\nfolder=pathlib.Path(\"papers\")/paper\ncommands=[\n ([\"latexmk\",\"-pdf\",\"-interaction=nonstopmode\",\"-halt-on-error\",\"DependencyDAG.tex\"],folder/\"docs\"),\n ([\"python3\",\"scripts/review_dashboard_packet.py\",\"--paper\",paper,\"--prepare-lean-cache\"],pathlib.Path(\".\")),\n ([\"python3\",\"scripts/review_dashboard_packet.py\",\"--paper\",paper,\"--write\",\"--compile\"],pathlib.Path(\".\")),\n ([\"python3\",\"-m\",\"scripts.report_memo_coverage\",\"--paper\",paper,\"--write-template\"],pathlib.Path(\".\")),\n]\nfor argv,cwd in commands:\n print(\"Running\",argv,flush=True)\n subprocess.run(argv,cwd=cwd,check=True)"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "upload_sha256": "9a3139ca582924d26df78546dadbfc6687360a1dd92b9ee660dc14199c00df0c"
+}
