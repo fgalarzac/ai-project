@@ -50,7 +50,7 @@ También se probó Linux en GitHub Actions: bloqueo POSIX real, entrada oficial
 sin parches y Lean auxiliar. El chequeo oficial ahora llega a un error distinto,
 salida2: falta la carpeta generada y su `status.json`. Es evidencia de entorno
 resuelto, **no** de paper verificado. Véanse [alternativas](../docs/lean_alternativas.md)
-y [corrida](https://github.com/fgalarzac/ai-project/actions/runs/42813631433).
+y [corrida](https://github.com/fgalarzac/ai-project/actions/runs/42814537900).
 
 El paso inicial todavía exige un paper ya fusionado en main: esta entrega
 permanece en apoyo para revisión mediante PR.

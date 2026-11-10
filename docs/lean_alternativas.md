@@ -24,8 +24,9 @@ configuración global y sin usar una API key adicional.
 | Catálogo local del CLI | Incluye `gpt-5.6-sol` y `xhigh` | `lean_alternatives/catalog_probe.json` |
 | Petición real del CLI | Salida 0 y respuesta `LEAN_MODEL_PROBE_OK` | Prompt de prueba sin herramientas ni cambios de archivos; log JSONL guardado |
 | Autenticación | CLI ya autenticado con ChatGPT | `codex login status`; no se exportaron credenciales |
-| Linux remoto | Ubuntu 24.04, Python 3.12 y Lean 4.30.0-rc2 | [Corrida de entorno](https://github.com/fgalarzac/ai-project/actions/runs/42813631433) |
+| Linux remoto | Ubuntu 24.04, Python 3.12 y Lean 4.30.0-rc2 | [Corrida de entorno](https://github.com/fgalarzac/ai-project/actions/runs/42814537900) |
 | `fcntl.flock` | Exclusión entre dos procesos comprobada | `linux-evidence/environment.json` |
+| Diagnóstico oficial `doctor` | **Salida 0**, Git, Lake y Lean requeridos disponibles | `linux-evidence/official_doctor.txt` |
 | Entrada oficial sin parches | `paper_contribution.py --help`: salida 0 | `linux-evidence/official_help.txt` |
 | Chequeo oficial del paper | Salida 2: falta el directorio generado y su `status.json` | `linux-evidence/official_check_without_scaffold.txt` |
 | Suplemento Lean en Linux | Tres declaraciones comprobadas; solo axiomas estándar | `linux-evidence/lean_supplement.txt` |
@@ -37,9 +38,10 @@ El chequeo del paper **no** pasó, y su código de salida y error se conservan.
 No se cambia ese resultado por una marca verde de formalización.
 
 La prueba inicial instaló el toolchain de Lean y comprobó la entrada oficial,
-no las bibliotecas matemáticas compiladas ni las auditorías semánticas. Se
-añade el diagnóstico oficial `paper_contribution.py doctor` a la acción para
-detectar los prerrequisitos de Python, Git, Lake y el entorno de Lean. La
+no las bibliotecas matemáticas compiladas ni las auditorías semánticas. El diagnóstico oficial `paper_contribution.py doctor` también terminó con
+salida 0: Python, Git, Lake y el arranque de Lean están disponibles. Reportó
+`pdftotext` y `latexmk` como herramientas opcionales ausentes, que habrá que
+instalar para extracción y documentos de revisión. La
 compilación de P1--P3 y la preparación de sus dependencias seguirán siendo
 parte de la corrida completa, no de una prueba de disponibilidad.
 

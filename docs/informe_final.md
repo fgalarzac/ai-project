@@ -4,7 +4,7 @@ Fabián Matías Galarza Chumbe. 10 de noviembre de 2026, hora de Lima.
 
 > **Actualización Lean:** una exploración posterior verificó mediante petición
 > real `gpt-5.6-sol/xhigh` en el CLI y resolvió `fcntl` usando Linux sin parches.
-> La entrada oficial funciona; el chequeo del paper se detiene por ausencia
+> La entrada oficial y el diagnóstico doctor pasan en Ubuntu; el chequeo del paper se detiene por ausencia
 > de la carpeta generada y `status.json` (salida2). Las proposiciones generales
 > siguen abiertas. Véase [la comparación y evidencias](lean_alternativas.md).
 
@@ -149,8 +149,8 @@ La corrida que corresponde al commit de las fuentes es [esta](https://github.com
 
 ## 5. Archivos modificados y entrega revisable
 
-Fuente principal fijada en commit `92fb04298eb57c9dc8790d4a4704fbda11453bbb`. El candidato público es
-[paper/paper.pdf](https://github.com/fgalarzac/ai-project/blob/92fb04298eb57c9dc8790d4a4704fbda11453bbb/paper/paper.pdf).
+Candidato actual fijado en commit `8f22f5ff5196d56c28f43bfd689f81bbcfc9108c`. La versión matemática base fue92fb042; se actualizaron los estados de Lean. El candidato público es
+[paper/paper.pdf](https://github.com/fgalarzac/ai-project/blob/8f22f5ff5196d56c28f43bfd689f81bbcfc9108c/paper/paper.pdf).
 Este enlace no afirma que esté fusionado ni formalizado.
 
 Las rutas siguientes son relativas al repositorio. `A`=nuevo, `M`=modificado,
@@ -159,6 +159,7 @@ entre figuras de PDF no implica reutilización de contenido: se retiró el ejemp
 de esfuerzo de plantilla y se generó el gráfico público desde la transcripción.
 
 ```text
+A	.github/workflows/lean-environment.yml
 M	README.md
 A	code/checks.py
 A	code/data/README.md
@@ -174,6 +175,7 @@ A	code/figures/sensitivity.pdf
 A	code/figures/sensitivity.png
 A	code/figures/stock_composition.pdf
 A	code/figures/stock_composition.png
+A	code/lean_environment_probe.py
 A	code/model.py
 D	code/output/effort_check.csv
 A	code/output/numbers.tex
@@ -191,6 +193,15 @@ A	docs/diagnostico_inicial.md
 A	docs/environment.json
 A	docs/fuentes.md
 A	docs/informe_final.md
+A	docs/lean_alternativas.md
+A	docs/lean_alternatives/catalog_probe.json
+A	docs/lean_alternatives/linux-evidence/environment.json
+A	docs/lean_alternatives/linux-evidence/lean_supplement.txt
+A	docs/lean_alternatives/linux-evidence/official_check_without_scaffold.txt
+A	docs/lean_alternatives/linux-evidence/official_doctor.txt
+A	docs/lean_alternatives/linux-evidence/official_help.txt
+A	docs/lean_alternatives/model_probe.jsonl
+A	docs/lean_alternatives/model_probe_result.json
 A	docs/qa_report.json
 A	docs/source_candidate.json
 A	docs/verification_log.txt
@@ -267,3 +278,10 @@ del paper si eso compromete el plazo de la presentación.
 
 La entrega mejora sustancialmente el trabajo y hace revisables sus límites.
 No garantiza una calificación ni oculta requisitos pendientes.
+
+
+Actualización de verificación: la [corrida de entorno con doctor](https://github.com/fgalarzac/ai-project/actions/runs/42814537900)
+pasó sobre8f22f5f, y la [compilación de esa versión](https://github.com/fgalarzac/ai-project/actions/runs/42814546268)
+también terminó correctamente. El modelo y el entorno ya no son bloqueos
+sin salida; la formalización general, la fuente fusionada y el manuscrito
+personal siguen pendientes. El flujo build.yml permanece intacto.

@@ -111,6 +111,8 @@
     "supplement": "Three exact rational arithmetic declarations checked with decide +kernel",
     "official_p1_p2_p3": "open",
     "official_check_exit": 1,
-    "blocker": "CLI gpt-5.6-sol/xhigh verified; Linux resolves fcntl; generated paper folder, general proofs and merged-source prerequisite pending"
+    "blocker": "CLI gpt-5.6-sol/xhigh verified; Linux resolves fcntl; generated paper folder, general proofs and merged-source prerequisite pending",
+    "linux_doctor_exit": 0,
+    "linux_environment_run": "https://github.com/fgalarzac/ai-project/actions/runs/42814537900"
   }
 }
