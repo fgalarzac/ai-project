@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    ".scratch/galarza/Calculus.lean"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".scratch/galarza/Calculus.lean"
+  ],
+  "upload_sha256": "30ccbba724c4155b78bd32cb47a1a3ed2b64f344c030621d356e0bd57d968b98"
+}
