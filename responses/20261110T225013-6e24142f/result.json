@@ -1,0 +1,15 @@
+{
+  "request_id": "20261110T225013-6e24142f",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "-c",
+    "import pathlib, subprocess\npaper=\"Galarza26RelativeCredit\"\nfolder=pathlib.Path(\"papers\")/paper\ncommands=[\n ([\"latexmk\",\"-pdf\",\"-interaction=nonstopmode\",\"-halt-on-error\",\"DependencyDAG.tex\"],folder/\"docs\"),\n ([\"python3\",\"scripts/review_dashboard_packet.py\",\"--paper\",paper,\"--prepare-lean-cache\"],pathlib.Path(\".\")),\n ([\"python3\",\"scripts/review_dashboard_packet.py\",\"--paper\",paper,\"--write\",\"--compile\"],pathlib.Path(\".\")),\n ([\"python3\",\"-m\",\"scripts.report_memo_coverage\",\"--paper\",paper,\"--write-template\"],pathlib.Path(\".\")),\n]\nfor argv,cwd in commands:\n print(\"Running\",argv,flush=True)\n subprocess.run(argv,cwd=cwd,check=True)"
+  ],
+  "started_utc": "2026-11-10T22:50:17Z",
+  "exit_code": 0,
+  "elapsed_seconds": 5.328,
+  "download_sha256": "4fd0affd224ed218dd0812caeed6acf1f8556e3e350412b8204152d45672a165",
+  "finished_utc": "2026-11-10T22:50:23Z"
+}
