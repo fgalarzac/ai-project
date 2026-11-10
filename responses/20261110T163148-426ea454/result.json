@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T163148-426ea454",
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    ".scratch/galarza/Api.lean"
+  ],
+  "started_utc": "2026-11-10T16:31:51Z",
+  "exit_code": 1,
+  "elapsed_seconds": 2.772,
+  "download_sha256": "8a6f1d34aa360918fb5fe800843479904328bf05b8ae10ba832a27eb6cdb103e",
+  "finished_utc": "2026-11-10T16:31:54Z"
+}

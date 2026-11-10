@@ -1,0 +1,10 @@
+uniqueDiffWithinAt_Ici (x : ℝ) : UniqueDiffWithinAt ℝ (Ici x) x
+uniqueDiffWithinAt_Iic (x : ℝ) : UniqueDiffWithinAt ℝ (Iic x) x
+.scratch/galarza/Api.lean:5:7: error(lean.unknownIdentifier): Unknown constant `HasDerivWithinAt.unique`
+Ioi_mem_nhds.{u} {α : Type u} [TopologicalSpace α] [LinearOrder α] [ClosedIicTopology α] {a b : α} (h : a < b) :
+  Ioi a ∈ 𝓝 b
+Iio_mem_nhds.{u} {α : Type u} [TopologicalSpace α] [LinearOrder α] [ClosedIciTopology α] {a b : α} (h : b < a) :
+  Iio a ∈ 𝓝 b
+Filter.mem_of_superset.{u_1} {α : Type u_1} {f : Filter α} {x y : Set α} (hx : x ∈ f) (hxy : x ⊆ y) : y ∈ f
+HasDerivAt.hasDerivWithinAt.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]
+  [NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} {s : Set 𝕜} (h : HasDerivAt f f' x) : HasDerivWithinAt f f' s x
