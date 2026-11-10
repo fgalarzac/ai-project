@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import json, pathlib, subprocess\np=pathlib.Path(\".scratch/galarza/tex_install_result.json\")\ncommands=[[\"lean\",\"--version\"],[\"pdftotext\",\"-v\"],[\"git\",\"rev-parse\",\"HEAD\"],[\"git\",\"diff\",\"--name-only\",\"194edcc95df74806a39b961d10dedddc6e730cce\",\"--\",\"scripts\",\"config\",\"skills\"]]\nfor c in commands:\n    r=subprocess.run(c,text=True,capture_output=True,check=True)\n    print(json.dumps({\"argv\":c,\"stdout\":r.stdout.strip(),\"stderr\":r.stderr.strip()},ensure_ascii=False))\nprint(json.dumps({\"tex_install_result\":json.loads(p.read_text()) if p.exists() else None}))"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit.lean"
+  ]
+}
