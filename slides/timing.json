@@ -51,7 +51,7 @@
   },
   {
     "slide": 11,
-    "title": "La FOC y por qué no basta",
+    "title": "Primer orden: por qué no basta",
     "seconds": 70
   },
   {
@@ -81,7 +81,7 @@
   },
   {
     "slide": 17,
-    "title": "Esquinas: una FOC interior puede fallar",
+    "title": "Esquinas: el candidato interior puede fallar",
     "seconds": 60
   },
   {
@@ -106,7 +106,7 @@
   },
   {
     "slide": 22,
-    "title": "Lean: comparación y cobertura parcial",
+    "title": "Lean: pruebas generales y cierre en curso",
     "seconds": 95
   },
   {

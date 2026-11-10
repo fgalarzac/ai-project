@@ -14,7 +14,7 @@
 \setbeamersize{text margin left=8mm,text margin right=8mm}
 \newcommand{\source}[1]{\par\vfill{\tiny\color{gray}#1\par}}
 \lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,
- literate={∧}{{$\land$}}1 {≤}{{$\le$}}1 {≥}{{$\ge$}}1}
+ literate={∧}{{$\land$}}1 {≤}{{$\le$}}1 {≥}{{$\ge$}}1 {ℝ}{{$\mathbb R$}}1 {→}{{$\to$}}1 {≠}{{$\ne$}}1}
 \input{../code/output/numbers.tex}
 \begin{document}
 
@@ -25,7 +25,7 @@
 {\LARGE\color{navy} Precio relativo del crédito\\[.3em]y morosidad futura}\par\bigskip
 {\large Evaluación óptima y composición de la cartera}\par\bigskip
 Fabián Matías Galarza Chumbe\\
-Track B. AI and Economic Modeling\\
+Línea B. Curso: IA y modelación económica\\
 11 de noviembre de 2026\par\par\medskip
 \href{https://github.com/fgalarzac/ai-project}{github.com/fgalarzac/ai-project}
 \end{center}
@@ -49,8 +49,10 @@ Un banco publica el precio de sus operaciones nuevas antes de observar su desemp
 % Exposición estimada: 70 segundos.
 \begin{frame}{Heterogeneidad que exige comparar bien}
 
-\includegraphics[width=.87\linewidth,height=.64\textheight,keepaspectratio]{../code/figures/public_context.pdf}
-\par\small CAR ajustada por castigos: distinta de la mora contable y del atraso mayor de 90 días.
+CAR significa cartera de alto riesgo: vencidos, cobranza judicial,
+refinanciados y reestructurados. El ajuste incorpora castigos recientes.
+\includegraphics[width=.87\linewidth,height=.55\textheight,keepaspectratio]{../code/figures/public_context.pdf}
+\par\small MIPE: micro y pequeña empresa. CAR ajustada: distinta de mora contable y de atraso mayor de 90 días.
 \source{\href{https://www.bcrp.gob.pe/docs/Publicaciones/Reporte-Estabilidad-Financiera/2024/noviembre/ref-noviembre-2024.pdf}{BCRP, Reporte de Estabilidad Financiera, noviembre de 2024, cuadro 2.2, p. 21}. Sistema financiero, no solo banca múltiple.}
 \end{frame}
 
@@ -71,12 +73,14 @@ Un banco publica el precio de sus operaciones nuevas antes de observar su desemp
 % Exposición estimada: 75 segundos.
 \begin{frame}{Construcción del precio relativo}
 
-Banco $j$, celda $s$, fecha $t$. Una celda fija tipo, producto o tramo y moneda.
+Banco $j$, celda $s$, fecha $t$. La celda fija tipo, tramo y moneda.
+$i$: tasa efectiva anual en decimales. $n_{-j,st}$: número de pares válidos.
+$D$: diferencia frente a su promedio; $k$ recorre esos otros bancos.
 \[
 D_{jst}=i_{jst}-\frac1{n_{-j,st}}\sum_{k\ne j}i_{kst}.
 \]
 \begin{itemize}
-\item $i$: tasa efectiva anual en decimales. $D=0.02$: dos pp sobre pares.
+\item $D=0.02$: dos puntos porcentuales sobre los pares.
 \item Promedio simple excluyendo al propio banco, coherente con el plan.
 \item Mediana como sensibilidad. Tres pares como mínimo propuesto.
 \end{itemize}
@@ -104,7 +108,7 @@ D_{jst}=i_{jst}-\frac1{n_{-j,st}}\sum_{k\ne j}i_{kst}.
 \item Segmento, tecnología y precio observado quedan dados.
 \item Se forma el conjunto de solicitantes.
 \item El banco conoce su riesgo medio y elige evaluación.
-\item Los créditos maduran y se observa el atraso a horizonte $h$.
+\item Los créditos maduran; $h$ es el plazo hasta observar su atraso.
 \item El supervisor observa un ratio que agrega cohortes.
 \end{enumerate}
 \par\medskip
@@ -114,6 +118,7 @@ El banco optimiza. Solicitantes y pares están resumidos por primitivas. No resu
 % Exposición estimada: 65 segundos.
 \begin{frame}{Solicitantes y opacidad}
 
+$q^0$ es el riesgo antes de evaluar; $D$ es el precio relativo.
 \[
 q^0(D,\kappa)=\bar q+a(\kappa)D.
 \]
@@ -130,11 +135,14 @@ Supuesto 1: restringir precios para que $q^0\in[0,1]$. La selección es una apro
 % Exposición estimada: 75 segundos.
 \begin{frame}{Tecnología y restricciones}
 
+$q$: riesgo posterior. $C$: costo. $e$: esfuerzo de evaluación.
+$g>0$: productividad; $c>0$: intensidad del costo.
 \[
 q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e,
 \qquad C(e)=\frac{c(\kappa)}2e^2.
 \]
-$e$: esfuerzo de verificación y condiciones crediticias. $g>0$: productividad. $c>0$: costo creciente.
+El esfuerzo resume verificación y condiciones que mejoran el crédito.
+$u$ es el esfuerzo máximo permitido:
 \[
 0\le e\le u(D,\kappa)=\min\{\bar e,q^0/g\}.
 \]
@@ -148,23 +156,27 @@ $e$: esfuerzo de verificación y condiciones crediticias. $g>0$: productividad. 
 % Exposición estimada: 75 segundos.
 \begin{frame}{Objetivo condicionado del banco}
 
+$R(D)$: pago adicional si el crédito se mantiene al día.
+$F$: costo por unidad que no cambia con el esfuerzo.
 \[
 \max_{e\in[0,u]}\underbrace{[1-q^0+ge]R(D)}_{\text{pago esperado}}
 -\underbrace{F}_{\text{costo fijo por unidad}}
 -\underbrace{\frac c2e^2}_{\text{costo de evaluar}}.
 \]
 \begin{itemize}
-\item Supuesto 3: $R(D)=\bar R+D>0$, premio normalizado por desempeño.
+\item Supuesto 3: $R(D)=\bar R+D>0$; $\bar R$ es el pago cuando $D=0$.
 \item El banco mantiene precio y segmento fijos al elegir $e$.
-\item $F$ no depende del esfuerzo.
+\item Se maximiza el beneficio esperado por sol de crédito.
 \end{itemize}
 \par\medskip
 La normalización no convierte exactamente una tasa anual a cualquier plazo. No se resuelve el precio de equilibrio.
 \end{frame}
 
 % Exposición estimada: 70 segundos.
-\begin{frame}{La FOC y por qué no basta}
+\begin{frame}{Primer orden: por qué no basta}
 
+$\pi$: beneficio esperado. $\pi_e$ y $\pi_{ee}$: primera y segunda
+derivadas respecto del esfuerzo. $z$: candidato sin restricciones.
 \[
 \pi_e=gR-ce=0\quad\Longrightarrow\quad z=\frac{gR}{c}.
 \qquad\pi_{ee}=-c<0.
@@ -183,6 +195,7 @@ El máximo factible es el punto del intervalo $[0,u]$ más cercano a $z$.
 \begin{frame}{Proposición 1: solución global}
 
 Bajo S1--S3: $a,g,c>0$, capacidad no negativa, $q^0\in[0,1]$ y $R>0$.
+$e^*$ es el esfuerzo óptimo; $q^*$, el riesgo que resulta de elegirlo.
 \[
 \boxed{e^*=\min\{gR/c,\bar e,q^0/g\}.}
 \]
@@ -197,6 +210,7 @@ Existe un máximo único. Siempre $0\le q^*\le q^0\le1$.
 % Exposición estimada: 70 segundos.
 \begin{frame}{Tres regímenes y tres pendientes}
 
+$\partial_Dq^*$ mide el cambio local del riesgo al variar $D$, con $\kappa$ fijo.
 \begin{tabular}{p{.28\linewidth}p{.37\linewidth}p{.22\linewidth}}
 \toprule Régimen & Condiciones estrictas & $\partial_Dq^*$\\\midrule
 Interior & $gR/c<\bar e$ y $gR/c<q^0/g$ & $a-g^2/c$\\[.7em]
@@ -212,11 +226,12 @@ Con capacidad agotada, esa respuesta desaparece. No se usa una pendiente interio
 % Exposición estimada: 80 segundos.
 \begin{frame}{Proposición 2: umbral con condiciones}
 
-Sea $H(\kappa)=g(\kappa)^2/c(\kappa)$ y $\beta=a-H$.
+$H(\kappa)=g(\kappa)^2/c(\kappa)$ mide la fuerza de evaluación.
+$\beta=a-H$ es la pendiente neta del riesgo en el régimen interior.
 \begin{itemize}
 \item S1--S3 y funciones positivas, continuas en $[0,1]$.
 \item S4: $a-H$ estrictamente decreciente, $a(0)>H(0)$ y $a(1)<H(1)$.
-\item A precio $D_0$, solución interior para toda opacidad.
+\item A un precio fijo $D_0$, solución interior para toda opacidad.
 \end{itemize}
 \[
 \exists!\,\kappa^*\in(0,1):\quad
@@ -228,7 +243,8 @@ Sea $H(\kappa)=g(\kappa)^2/c(\kappa)$ y $\beta=a-H$.
 % Exposición estimada: 65 segundos.
 \begin{frame}{El supuesto económico que hace el trabajo}
 
-Si las funciones son diferenciables y positivas:
+Aquí la prima indica derivada respecto de $\kappa$.
+Si productividad $g$ y costo $c$ son diferenciables y positivos:
 \[
 \frac{H'}H=2\frac{g'}g-\frac{c'}c.
 \]
@@ -250,7 +266,7 @@ La opacidad no demuestra que la evaluación sea relativamente más eficaz.
 \end{frame}
 
 % Exposición estimada: 60 segundos.
-\begin{frame}{Esquinas: una FOC interior puede fallar}
+\begin{frame}{Esquinas: el candidato interior puede fallar}
 
 \includegraphics[width=\linewidth,height=.66\textheight,keepaspectratio]{../code/figures/corners.pdf}
 \par\small En la restricción de capacidad, la pendiente pasa de $-0.12$ a $0.04$. El piso de riesgo detiene reducciones adicionales.
@@ -261,6 +277,7 @@ La opacidad no demuestra que la evaluación sea relativamente más eficaz.
 \begin{frame}{De una cohorte al saldo total}
 
 Fijemos el mismo evento de atraso y horizonte $h$.
+$M(D)$: fracción total de cartera en atraso. Una cohorte agrupa créditos nuevos.
 \begin{itemize}
 \item $B_0>0$: saldo antiguo. $m_0\in[0,1]$: su fracción en atraso.
 \item $B(D)>0$, diferenciable: saldo de la cohorte nueva todavía vigente.
@@ -275,7 +292,8 @@ M(D)=\frac{B_0m_0+B(D)q^*(D)}{B_0+B(D)}=(1-w)m_0+wq^*.
 % Exposición estimada: 80 segundos.
 \begin{frame}{Proposición 3: calidad y composición}
 
-Bajo S1--S3 y S5, en un régimen diferenciable, sea $\beta_D=\partial_Dq^*$.
+Bajo S1--S3 y S5, donde $q^*$ es diferenciable, sea $\beta_D=\partial_Dq^*$.
+Desde aquí, la prima indica derivada respecto del precio $D$.
 \[
 \boxed{M'=\underbrace{w\beta_D}_{\text{calidad de lo nuevo}}
 +\underbrace{w'(q^*-m_0)}_{\text{composición}}.}
@@ -284,7 +302,7 @@ Bajo S1--S3 y S5, en un régimen diferenciable, sea $\beta_D=\partial_Dq^*$.
 \item Si $w'=0$, el signo se conserva.
 \item Si $\beta_D\ne0$ y $|w'(q^*-m_0)|<w|\beta_D|$, también se conserva.
 \end{itemize}
-Con $B=B_1e^{-\varepsilon D}$: $w'=-\varepsilon w(1-w)$.
+Si $B=B_1\exp(-\varepsilon D)$: $B_1>0$ es el saldo en $D=0$ y $\varepsilon\ge0$ su sensibilidad proporcional. Entonces $w'=-\varepsilon w(1-w)$.
 \[
 M'=w[\beta_D-\varepsilon(1-w)(q^*-m_0)].
 \]
@@ -321,24 +339,27 @@ Una malla encuentra errores. No prueba un teorema ni utilidad predictiva empíri
 \end{frame}
 
 % Exposición estimada: 95 segundos.
-\begin{frame}[fragile]{Lean: comparación y cobertura parcial}
-
+\begin{frame}[fragile]{Lean: pruebas generales y cierre en curso}
 \small
-\textbf{Artículo, P3:} $M'=w[\beta_D-\varepsilon(1-w)(q^*-m_0)]$ y condición general de signo.
-\par\medskip
-\textbf{Lean real, especialización aritmética:} constantes racionales del ejemplo, sin derivadas ni demostración general.
-\par\medskip
-\texttt{cohortSlope} es $13/100$. \texttt{compositionExpression} evalúa la
-fórmula anterior con $w=1/5$, $q^*=9/40$, $m_0=1/10$ y $\varepsilon=3$.
-\begin{lstlisting}
-theorem opposite_signs :
-    And (0 < cohortSlope) (compositionExpression < 0) := by
-  unfold compositionExpression weight cohortSlope
-    cohortRisk legacyRisk
-  decide +kernel
+\textbf{Artículo, identidad de P3:} $M=(1-w)m_0+wq^*$.
+\par\smallskip
+\textbf{Enunciado y prueba reales} de esa cláusula en Lean:
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,escapeinside={(*@}{@*)}]
+theorem portfolioRatio_eq_weighted (B0 m0 : (*@$\mathbb R$@*))
+    (B q : (*@$\mathbb R \to \mathbb R$@*)) (D : (*@$\mathbb R$@*)) (hden : B0 + B D (*@$\ne$@*) 0) :
+    portfolioRatio B0 m0 B q D =
+      (1 - cohortWeight B0 B D) * m0 +
+        cohortWeight B0 B D * q D := by
+  unfold portfolioRatio impairedBalance cohortWeight
+  field_simp
+  ring
 \end{lstlisting}
-\textbf{Límite:} no prueba P1--P3. CLI exigido y Linux verificados; falta la corrida general de AppliedModelingLib sobre el paper fusionado. Las constantes especializan el enunciado; no se asume el signo como hipótesis.
-\source{lean/supplement/Counterexample.lean. Comprobación local y axiomas en su registro.}
+\texttt{portfolioRatio} es $M$; \texttt{cohortWeight} es $w$.
+El denominador no nulo se deriva de los saldos positivos de S5.
+\par\smallskip
+\textbf{Estado:} P1--P3 compilan sin admisiones. Falta el cierre oficial.
+Sin hipótesis matemáticas añadidas; no verifica datos ni causalidad.
+\source{Prueba en Galarza26RelativeCredit/Stock.lean; fuente, hashes y estado vigente: docs/lean\_progreso.md.}
 \end{frame}
 
 % Exposición estimada: 80 segundos.
@@ -379,7 +400,7 @@ No se recibió el panel reproducible del plan. No reporto RMSE, valores $p$ ni m
 \begin{itemize}
 \item \textbf{Demostrado en el texto:} solución global, umbral condicionado y transmisión con composición.
 \item \textbf{Paso difícil:} conectar una probabilidad de cohorte con un ratio de saldo y resolver esquinas.
-\item \textbf{Abierto:} precios de equilibrio, utilidad predictiva peruana y formalización general oficial.
+\item \textbf{Abierto:} precios de equilibrio y utilidad predictiva peruana. El cierre oficial de Lean sigue en curso.
 \item \textbf{Trabajo personal:} derivaciones manuscritas, comprensión y ensayo oral.
 \end{itemize}
 \par\medskip

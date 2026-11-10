@@ -21,8 +21,8 @@
    El conflicto modify/delete de speaker_notes se resolvió respetando la
    eliminación en main y conservando una copia en docs/archive.
 8. **Lean honesto.** Se comprueba aritmética auxiliar con el kernel. El flujo
-   completo permanece abierto. Una exploración posterior verificó el CLI
-   exigido y resolvió el entorno usando Linux; faltan merge y pruebas generales. No se
+   oficial está en cierre. El CLI exigido y Linux real permitieron compilar
+   P1–P3 generales y revisar su correspondencia preliminar. No se
    copian la carpeta ni las pruebas del proyecto de referencia.
 9. **Manuscrito auténtico.** La guía tipográfica desglosa todas las derivaciones
    sin fingir que el estudiante ya las escribió o revisó.

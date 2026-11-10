@@ -554,3 +554,24 @@ no existe la carpeta generada y su status.json. No se atribuye al éxito de
 entorno el significado de formalización de P1–P3. No se habilitó WSL, se
 contrataron equipos ni se exportaron credenciales. Evidencia en
 docs/lean_alternatives/ y decisiones en docs/lean_alternativas.md.
+
+
+## 7. Continuación autónoma y prioridad de publicación — 10 de noviembre de 2026
+
+Solicitudes literales disponibles:
+
+```text
+Puedes realizar todo el proceso de lean por tu cuenta?
+Sigue y finaliza
+Finaliza el lean. Sin embargo, prioriza primero actualizar todos los campos del github haciendo el Pull. Que en caso se acaben los créditos, lo único faltante sea el lean. La presentación debe ser clara y en español, ordenada y sin poner cosas o variables sin explicarlas. Que esté paso a paso cada parte del paper, respetando la extensión que está pactada
+```
+
+Resumen de acciones, no transcripción inventada de respuestas: PR4 se fusionó
+y su PDF se fijó a commit. El agente requerido elaboró P1–P3 generales en el
+motor oficial sin parches. Los tres endpoints compilaron y la inspección de
+axiomas solo mostró los estándar. Una revisión independiente de borrador
+comparó 21 elementos sin discrepancias. La aceptación integral sigue pendiente;
+se distingue de la revisión preliminar. Se priorizó publicar los materiales
+académicos, definir símbolos y aclarar derivadas y unidades en la presentación.
+Se conserva el historial anterior como estados de cada momento. No se atribuye
+al estudiante revisión humana ni escritura manuscrita no observada.

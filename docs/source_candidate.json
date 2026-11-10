@@ -1,8 +1,8 @@
 {
-  "status": "candidate_only_not_officially_formalized",
-  "commit": "8f22f5ff5196d56c28f43bfd689f81bbcfc9108c",
-  "pdf_url": "https://github.com/fgalarzac/ai-project/blob/8f22f5ff5196d56c28f43bfd689f81bbcfc9108c/paper/paper.pdf",
+  "status": "merged_source_frozen_formalization_in_progress",
+  "commit": "dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad",
+  "pdf_url": "https://github.com/fgalarzac/ai-project/blob/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad/paper/paper.pdf",
   "pdf_sha256": "a618a5d9dc04dfb16e3b982fd1864968b90f1d115d0ed00a60fc8fe2e49dbe43",
-  "note": "Public candidate on apoyo, not a paper merged in main and not an official AppliedModelingLib run.",
-  "previous_candidate_commit": "92fb04298eb57c9dc8790d4a4704fbda11453bbb"
+  "note": "PR4 merged; canonical source is immutable. Formalization started with gpt-5.6-sol/xhigh. This record does not certify P1-P3 or an accepted closeout.",
+  "previous_candidate_commit": "8f22f5ff5196d56c28f43bfd689f81bbcfc9108c"
 }
