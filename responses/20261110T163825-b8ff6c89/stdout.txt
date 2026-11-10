@@ -1,0 +1,139 @@
+✔ [3300/3304] Built Galarza26RelativeCredit.Optimization (2.8s)
+✔ [3301/3304] Built Galarza26RelativeCredit.Threshold (2.3s)
+⚠ [3302/3304] Replayed Galarza26RelativeCredit.Stock
+warning: papers/Galarza26RelativeCredit/Stock.lean:88:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:103:71: This simp argument is unused:
+  id
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵i̵d̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:103:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: papers/Galarza26RelativeCredit/Stock.lean:105:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3303/3304] Built Galarza26RelativeCredit.MainTheorems (1.9s)
+✖ [3304/3304] Building Galarza26RelativeCredit.ProofInterface (2.2s)
+trace: .> LEAN_PATH=/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/cslib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Vlasov/Vlasov/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/ProofInterface.lean -o /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/ProofInterface.olean -i /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/ProofInterface.ilean -c /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/ProofInterface.c --setup /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/ProofInterface.setup.json --json
+error: papers/Galarza26RelativeCredit/ProofInterface.lean:50:28: Invalid field `le`: The environment does not contain `And.le`, so it is not possible to project the field `le` from an expression
+  hD
+of type `lower < D ∧ D < upper`
+error: papers/Galarza26RelativeCredit/ProofInterface.lean:69:4: Type mismatch: After simplification, term
+  hkzero
+ has type
+  a k - g k ^ 2 / c k = 0
+but is expected to have type
+  0 = a k - g k ^ 2 / c k
+error: papers/Galarza26RelativeCredit/ProofInterface.lean:82:10: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  screeningAdvantage (a y) (g y) (c y)
+in the target expression
+  (fun k ↦ screeningAdvantage (a k) (g k) (c k)) k < (fun k ↦ screeningAdvantage (a k) (g k) (c k)) y
+
+case refine_1.inl
+qbar Rbar F E lower upper D0 : ℝ
+a g c : ℝ → ℝ
+hD0 : D0 ∈ Ioo lower upper
+hmodels :
+  ∀ k ∈ Icc 0 1,
+    selectionAndDomain qbar (a k) lower upper ∧
+      technologyCapacityCost (g k) (c k) E ∧ conditionedPayoff Rbar lower upper
+k : ℝ
+hunique :
+  ∀ (y : ℝ),
+    (fun k ↦
+          k ∈ Ioo 0 1 ∧
+            screeningAdvantage (a k) (g k) (c k) = 0 ∧
+              (∀ x ∈ Icc 0 1, x < k → 0 < screeningAdvantage (a x) (g x) (c x)) ∧
+                ∀ x ∈ Icc 0 1, k < x → screeningAdvantage (a x) (g x) (c x) < 0)
+        y →
+      y = k
+haC : ContinuousOn a (Icc 0 1)
+hgC : ContinuousOn g (Icc 0 1)
+hcC : ContinuousOn c (Icc 0 1)
+hpositive : ∀ k ∈ Icc 0 1, 0 < a k ∧ 0 < g k ∧ 0 < c k
+hanti : StrictAntiOn (fun k ↦ screeningAdvantage (a k) (g k) (c k)) (Icc 0 1)
+hzero : 0 < screeningAdvantage (a 0) (g 0) (c 0)
+hone : screeningAdvantage (a 1) (g 1) (c 1) < 0
+hinterior : ∀ k ∈ Icc 0 1, interiorRegime qbar (a k) (g k) (c k) Rbar E D0
+hkIoo : k ∈ Ioo 0 1
+hkzero : screeningAdvantage (a k) (g k) (c k) = 0
+hkbelow : ∀ x ∈ Icc 0 1, x < k → 0 < screeningAdvantage (a x) (g x) (c x)
+hkabove : ∀ x ∈ Icc 0 1, k < x → screeningAdvantage (a x) (g x) (c x) < 0
+hkIcc : k ∈ Icc 0 1
+hkmodel :
+  selectionAndDomain qbar (a k) lower upper ∧ technologyCapacityCost (g k) (c k) E ∧ conditionedPayoff Rbar lower upper
+hkderivRaw : HasDerivAt (optimalRisk qbar (a k) (g k) (c k) Rbar E) (a k - g k ^ 2 / c k) D0
+hkderiv : HasDerivAt (optimalRisk qbar (a k) (g k) (c k) Rbar E) 0 D0
+y : ℝ
+hyIoo : y ∈ Ioo 0 1
+hyderiv : HasDerivAt (optimalRisk qbar (a y) (g y) (c y) Rbar E) 0 D0
+hyIcc : y ∈ Icc 0 1
+hymodel :
+  selectionAndDomain qbar (a y) lower upper ∧ technologyCapacityCost (g y) (c y) E ∧ conditionedPayoff Rbar lower upper
+hyraw : HasDerivAt (optimalRisk qbar (a y) (g y) (c y) Rbar E) (a y - g y ^ 2 / c y) D0
+hyzero : screeningAdvantage (a y) (g y) (c y) = 0
+hyk : y < k
+hlt : (fun k ↦ screeningAdvantage (a k) (g k) (c k)) k < (fun k ↦ screeningAdvantage (a k) (g k) (c k)) y
+⊢ y = k
+error: papers/Galarza26RelativeCredit/ProofInterface.lean:86:10: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  screeningAdvantage (a y) (g y) (c y)
+in the target expression
+  (fun k ↦ screeningAdvantage (a k) (g k) (c k)) y < (fun k ↦ screeningAdvantage (a k) (g k) (c k)) k
+
+case refine_1.inr.inr
+qbar Rbar F E lower upper D0 : ℝ
+a g c : ℝ → ℝ
+hD0 : D0 ∈ Ioo lower upper
+hmodels :
+  ∀ k ∈ Icc 0 1,
+    selectionAndDomain qbar (a k) lower upper ∧
+      technologyCapacityCost (g k) (c k) E ∧ conditionedPayoff Rbar lower upper
+k : ℝ
+hunique :
+  ∀ (y : ℝ),
+    (fun k ↦
+          k ∈ Ioo 0 1 ∧
+            screeningAdvantage (a k) (g k) (c k) = 0 ∧
+              (∀ x ∈ Icc 0 1, x < k → 0 < screeningAdvantage (a x) (g x) (c x)) ∧
+                ∀ x ∈ Icc 0 1, k < x → screeningAdvantage (a x) (g x) (c x) < 0)
+        y →
+      y = k
+haC : ContinuousOn a (Icc 0 1)
+hgC : ContinuousOn g (Icc 0 1)
+hcC : ContinuousOn c (Icc 0 1)
+hpositive : ∀ k ∈ Icc 0 1, 0 < a k ∧ 0 < g k ∧ 0 < c k
+hanti : StrictAntiOn (fun k ↦ screeningAdvantage (a k) (g k) (c k)) (Icc 0 1)
+hzero : 0 < screeningAdvantage (a 0) (g 0) (c 0)
+hone : screeningAdvantage (a 1) (g 1) (c 1) < 0
+hinterior : ∀ k ∈ Icc 0 1, interiorRegime qbar (a k) (g k) (c k) Rbar E D0
+hkIoo : k ∈ Ioo 0 1
+hkzero : screeningAdvantage (a k) (g k) (c k) = 0
+hkbelow : ∀ x ∈ Icc 0 1, x < k → 0 < screeningAdvantage (a x) (g x) (c x)
+hkabove : ∀ x ∈ Icc 0 1, k < x → screeningAdvantage (a x) (g x) (c x) < 0
+hkIcc : k ∈ Icc 0 1
+hkmodel :
+  selectionAndDomain qbar (a k) lower upper ∧ technologyCapacityCost (g k) (c k) E ∧ conditionedPayoff Rbar lower upper
+hkderivRaw : HasDerivAt (optimalRisk qbar (a k) (g k) (c k) Rbar E) (a k - g k ^ 2 / c k) D0
+hkderiv : HasDerivAt (optimalRisk qbar (a k) (g k) (c k) Rbar E) 0 D0
+y : ℝ
+hyIoo : y ∈ Ioo 0 1
+hyderiv : HasDerivAt (optimalRisk qbar (a y) (g y) (c y) Rbar E) 0 D0
+hyIcc : y ∈ Icc 0 1
+hymodel :
+  selectionAndDomain qbar (a y) lower upper ∧ technologyCapacityCost (g y) (c y) E ∧ conditionedPayoff Rbar lower upper
+hyraw : HasDerivAt (optimalRisk qbar (a y) (g y) (c y) Rbar E) (a y - g y ^ 2 / c y) D0
+hyzero : screeningAdvantage (a y) (g y) (c y) = 0
+hyk : k < y
+hlt : (fun k ↦ screeningAdvantage (a k) (g k) (c k)) y < (fun k ↦ screeningAdvantage (a k) (g k) (c k)) k
+⊢ y = k
+error: papers/Galarza26RelativeCredit/ProofInterface.lean:116:31: Invalid field `le`: The environment does not contain `And.le`, so it is not possible to project the field `le` from an expression
+  hD
+of type `lower < D ∧ D < upper`
+error: Lean exited with code 1
+Some required targets logged failures:
+- Galarza26RelativeCredit.ProofInterface
