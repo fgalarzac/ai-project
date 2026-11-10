@@ -1,0 +1,11 @@
+✖ [3297/3297] Building Galarza26RelativeCredit.Model (2.2s)
+trace: .> LEAN_PATH=/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/cslib/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/packages/Vlasov/Vlasov/.lake/build/lib/lean:/home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.30.0-rc2/bin/lean /home/runner/work/_temp/AppliedModelingLib/papers/Galarza26RelativeCredit/Model.lean -o /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/Model.olean -i /home/runner/work/_temp/AppliedModelingLib/.lake/build/lib/lean/Galarza26RelativeCredit/Model.ilean -c /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/Model.c --setup /home/runner/work/_temp/AppliedModelingLib/.lake/build/ir/Galarza26RelativeCredit/Model.setup.json --json
+error: papers/Galarza26RelativeCredit/Model.lean:34:55: unsolved goals
+n : ℕ
+ownRate baseRate : ℝ
+peerRates : Fin (n + 3) → ℝ
+⊢ ¬↑n + 3 = 0
+error: papers/Galarza26RelativeCredit/Model.lean:127:21: unexpected token '⇒'; expected '↦', '=>'
+error: Lean exited with code 1
+Some required targets logged failures:
+- Galarza26RelativeCredit.Model
