@@ -1,0 +1,47 @@
+Selecting previously unselected package ripgrep.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 216722 files and directories currently installed.)
+Preparing to unpack .../ripgrep_14.1.0-1_amd64.deb ...
+Unpacking ripgrep (14.1.0-1) ...
+Setting up ripgrep (14.1.0-1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Support.lean:40:  exact (hasStrictDerivAt_const x 0).congr_of_eventuallyEq h.symm
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:125:theorem HasStrictFDerivAt.congr_of_eventuallyEq (h : HasStrictFDerivAt f f' x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:129:theorem HasFDerivAtFilter.congr_of_eventuallyEq (h : HasFDerivAtFilter f f' L)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:158:theorem HasFDerivWithinAt.congr_of_eventuallyEq (h : HasFDerivWithinAt f f' s x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:164:  h.congr_of_eventuallyEq hs.eventuallyEq_nhdsWithin hx
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:174:theorem HasFDerivAt.congr_of_eventuallyEq (h : HasFDerivAt f f' x) (h₁ : f₁ =ᶠ[𝓝 x] f) :
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:186:theorem DifferentiableWithinAt.congr_of_eventuallyEq (h : DifferentiableWithinAt 𝕜 f s x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:188:  (h.hasFDerivWithinAt.congr_of_eventuallyEq h₁ hx).differentiableWithinAt
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:190:theorem DifferentiableWithinAt.congr_of_eventuallyEq_of_mem (h : DifferentiableWithinAt 𝕜 f s x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:192:  h.congr_of_eventuallyEq h₁ (mem_of_mem_nhdsWithin hx h₁ :)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:194:theorem DifferentiableWithinAt.congr_of_eventuallyEq_insert (h : DifferentiableWithinAt 𝕜 f s x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:196:  (h.insert.congr_of_eventuallyEq_of_mem h₁ (mem_insert _ _)).of_insert
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Congr.lean:209:theorem DifferentiableAt.congr_of_eventuallyEq (h : DifferentiableAt 𝕜 f x) (hL : f₁ =ᶠ[𝓝 x] f) :
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Inverse.lean:158:  have := (hf.comp a hg.hasDerivWithinAt hst).congr_of_eventuallyEq_of_mem hfg.symm ha
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Inverse.lean:164:  have := (hf.comp a hg.hasDerivAt).congr_of_eventuallyEq hfg.symm
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Extend.lean:18:the right endpoint of an interval, are given in `hasDerivWithinAt_Ici_of_tendsto_deriv` and
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Extend.lean:108:theorem hasDerivWithinAt_Ici_of_tendsto_deriv {s : Set ℝ} {e : E} {a : ℝ} {f : ℝ → E}
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Extend.lean:186:      hasDerivWithinAt_Ici_of_tendsto_deriv diff hf.continuousWithinAt
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:556:theorem HasDerivAtFilter.congr_of_eventuallyEq (h : HasDerivAtFilter f f' L)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:573:theorem HasDerivWithinAt.congr_of_eventuallyEq (h : HasDerivWithinAt f f' s x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:575:  HasDerivAtFilter.congr_of_eventuallyEq h <| h₁.prodMap hx
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:579:  ⟨fun h' ↦ h'.congr_of_eventuallyEq h₁.symm hx.symm, fun h' ↦ h'.congr_of_eventuallyEq h₁ hx⟩
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:581:theorem HasDerivWithinAt.congr_of_eventuallyEq_of_mem (h : HasDerivWithinAt f f' s x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:583:  h.congr_of_eventuallyEq h₁ (h₁.eq_of_nhdsWithin hx)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:587:  ⟨fun h' ↦ h'.congr_of_eventuallyEq_of_mem h₁.symm hx,
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:588:  fun h' ↦ h'.congr_of_eventuallyEq_of_mem h₁ hx⟩
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:597:theorem HasStrictDerivAt.congr_of_eventuallyEq (h : HasStrictDerivAt f f' x) (h₁ : f =ᶠ[𝓝 x] f₁) :
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:599:  HasDerivAtFilter.congr_of_eventuallyEq h (h₁.symm.prodMap_nhds h₁.symm)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:612:theorem HasDerivAt.congr_of_eventuallyEq (h : HasDerivAt f f' x) (h₁ : f₁ =ᶠ[𝓝 x] f) :
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:614:  HasDerivAtFilter.congr_of_eventuallyEq h <| h₁.prodMap <| h₁.filter_mono <| pure_le_nhds _
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Basic.lean:618:  ⟨fun h' ↦ h'.congr_of_eventuallyEq h.symm, fun h' ↦ h'.congr_of_eventuallyEq h⟩
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Const.lean:329:  (hasFDerivAt_const _ _).congr_of_eventuallyEq hf
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Const.lean:364:  exact (hasStrictFDerivAt_const (0 : F) x).congr_of_eventuallyEq h.symm
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Abs.lean:53:  (hasStrictDerivAt_neg x).congr_of_eventuallyEq <|
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Abs.lean:61:  (hasStrictDerivAt_id x).congr_of_eventuallyEq <|
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv/Add.lean:103:  apply (h.const_smul ⅟c).congr_of_eventuallyEq ?_ (by simp)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:236:theorem HasDerivWithinAt.liminf_right_slope_le (hf : HasDerivWithinAt f f' (Ici x) x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:284:theorem HasDerivWithinAt.liminf_right_norm_slope_le (hf : HasDerivWithinAt f f' (Ici x) x)
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:297:* `HasDerivWithinAt.liminf_right_norm_slope_le` for a stronger version using
+.lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv/Slope.lean:299:theorem HasDerivWithinAt.liminf_right_slope_norm_le (hf : HasDerivWithinAt f f' (Ici x) x)

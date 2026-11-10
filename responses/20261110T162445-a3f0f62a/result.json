@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T162445-a3f0f62a",
+  "argv": [
+    "bash",
+    "-lc",
+    "sudo apt-get install -y -qq ripgrep && rg -n 'HasDeriv(Within)?At.*(min|max)|congr_of_eventuallyEq|hasDerivWithinAt_Ic|uniqueDiffWithinAt_Ic' .lake/packages/mathlib/Mathlib/Analysis/Calculus/Deriv .lake/packages/mathlib/Mathlib/Analysis/Calculus/FDeriv | head -85"
+  ],
+  "started_utc": "2026-11-10T16:24:48Z",
+  "exit_code": 0,
+  "elapsed_seconds": 2.771,
+  "download_sha256": "85f3837844e42f51c3c73abf11af273ba348304a0e9317b84ed0201d2b7af50f",
+  "finished_utc": "2026-11-10T16:24:51Z"
+}
