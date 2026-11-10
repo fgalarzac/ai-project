@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "print('Preserved actual paper state; ending idle worker before its six-hour limit')"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": true
+}
