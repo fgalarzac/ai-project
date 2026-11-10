@@ -1,0 +1,14 @@
+{
+  "request_id": "20261110T173828-cf48eb71",
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "papers/Galarza26RelativeCredit/audit/LEAN_IMPORT_CLOSURE_RECEIPT.json"
+  ],
+  "started_utc": "2026-11-10T17:38:29Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.008,
+  "download_sha256": "10453e0b4ff02d0a812ae1c000f8782eec09a3d2df2c7c25dca46e7e3299ea5e",
+  "finished_utc": "2026-11-10T17:38:29Z"
+}
