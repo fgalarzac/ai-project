@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "scripts/paper_contribution.py",
+    "new",
+    "--help"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
