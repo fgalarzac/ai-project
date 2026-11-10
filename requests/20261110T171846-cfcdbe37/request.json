@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    ".scratch/galarza/check_axioms.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/ProofInterface.lean"
+  ],
+  "upload_sha256": "205f171c738bf2330a9fff4c25e7bda00588abda3dcbbcbf9802e2212798ce26"
+}
