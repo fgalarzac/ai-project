@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "-c",
+    "import subprocess\np=\"papers/Galarza26RelativeCredit\"\nfor c in [[\"python3\",\".scratch/galarza/finish_source1_document_assessment.py\"],[\"python3\",\"-m\",\"scripts.report_memo_coverage\",\"--paper\",\"Galarza26RelativeCredit\"],[\"git\",\"add\",\"--\",p+\"/FINAL_VALIDATION_REPORT.md\",p+\"/docs/REPORT_MEMO_COVERAGE.json\",p+\"/README.md\"]]:\n subprocess.run(c,check=True)"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "upload_sha256": "43ecddc903d56bc4e18cf8f0076fb052cb4c799137cdff99d038ccb9aecdaf7b"
+}
