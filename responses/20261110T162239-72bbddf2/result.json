@@ -1,0 +1,13 @@
+{
+  "request_id": "20261110T162239-72bbddf2",
+  "argv": [
+    "rg",
+    "-n",
+    "HasRightDerivAt|HasLeftDerivAt",
+    ".lake/packages/mathlib/Mathlib"
+  ],
+  "started_utc": "2026-11-10T16:22:43Z",
+  "exit_code": -1,
+  "transport_error": "FileNotFoundError: [Errno 2] No such file or directory: 'rg'",
+  "finished_utc": "2026-11-10T16:22:43Z"
+}
