@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/paper_contribution.py",
+    "init-spec",
+    "--help"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
