@@ -1,0 +1,17 @@
+{
+  "request_id": "20261110T173036-e1a2b4b1",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/activate_v11_review_surface.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--write"
+  ],
+  "started_utc": "2026-11-10T17:30:41Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.032,
+  "download_sha256": "e3e815f5873f83106e8ba402cf2ae6951c080448f548c904e35e14f7c2aac300",
+  "finished_utc": "2026-11-10T17:30:41Z"
+}
