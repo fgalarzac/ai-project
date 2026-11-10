@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "lake",
+    "build",
+    "+Galarza26RelativeCredit.Stock"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit/Stock.lean"
+  ],
+  "upload_sha256": "cb30ed5d7011da2caddb91ed2245de714c6fbd0ac8fcdf98f714e7fc0dca8cac"
+}
