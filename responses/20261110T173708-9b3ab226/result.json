@@ -1,0 +1,16 @@
+{
+  "request_id": "20261110T173708-9b3ab226",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/draft_semantic_preflight.py",
+    "--paper",
+    "Galarza26RelativeCredit"
+  ],
+  "started_utc": "2026-11-10T17:37:12Z",
+  "exit_code": 0,
+  "elapsed_seconds": 36.648,
+  "download_sha256": "5795072c4f858e054e88f40e7f2b727a8ce0f4f0184cd24740e078a94b9733e3",
+  "finished_utc": "2026-11-10T17:37:49Z"
+}
