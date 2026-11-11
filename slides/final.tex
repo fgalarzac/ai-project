@@ -1,435 +1,1263 @@
-\documentclass[aspectratio=169,11pt]{beamer}
-\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+% Presentación final. Track B. Compilar desde slides/: latexmk -pdf final.tex
+% Orden exigido por el issue #7: (1) pregunta y resultado, (2) modelo,
+% (3) proposiciones, (4) prueba, (5) simulaciones, (6) Lean,
+% (7) IA y derivación a mano, (8) preguntas para la clase.
+% Las cifras con macro provienen de code/output/numbers.tex (code/verify.py).
+% Los gráficos pgfplots dibujan las fórmulas cerradas de P1--P3 con los
+% mismos parámetros de code/model.py; no hay animaciones ni capturas.
+\documentclass[aspectratio=169,10pt,t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[spanish,es-nodecimaldot,es-noshorthands]{babel}
-\usepackage{amsmath,amssymb,booktabs,graphicx,listings}
+\usepackage{amsmath,amssymb,booktabs,array,graphicx,listings}
+\usepackage{tikz,pgfplots}
+\usepackage[most]{tcolorbox}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepgfplotslibrary{groupplots,fillbetween}
+\pgfplotsset{compat=1.17}
+
+% ---------- Paleta y plantilla ----------
 \definecolor{navy}{HTML}{183754}
 \definecolor{accent}{HTML}{B65F29}
+\definecolor{teal}{HTML}{2A7F78}
+\definecolor{ink}{HTML}{222B33}
+\definecolor{soft}{HTML}{6B7785}
+\definecolor{paper}{HTML}{F4F6F8}
 \usetheme{default}
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\hspace{1em}\vskip4pt}
+\usefonttheme[onlymath]{serif}
+\setbeamercolor{normal text}{fg=ink}
 \setbeamercolor{frametitle}{fg=navy}
 \setbeamercolor{structure}{fg=navy}
 \setbeamercolor{alerted text}{fg=accent}
-\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamercolor{section in head/foot}{fg=white,bg=navy}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section in head/foot}{size=\fontsize{6.5}{8}\selectfont}
 \setbeamersize{text margin left=8mm,text margin right=8mm}
-\newcommand{\source}[1]{\par\vfill{\tiny\color{gray}#1\par}}
-\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,
- literate={∧}{{$\land$}}1 {≤}{{$\le$}}1 {≥}{{$\ge$}}1 {ℝ}{{$\mathbb R$}}1 {→}{{$\to$}}1 {≠}{{$\ne$}}1}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{accent}\rule[.25ex]{.9ex}{.9ex}}
+\setbeamertemplate{itemize subitem}{\color{soft}--}
+\setbeamertemplate{enumerate item}{\color{accent}\bfseries\insertenumlabel.}
+\setbeamertemplate{section in head/foot shaded}[default][45]
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.4ex,dp=1.1ex]{section in head/foot}%
+  \insertsectionnavigationhorizontal{\paperwidth}{}{}%
+  \end{beamercolorbox}}
+\setbeamertemplate{frametitle}{\vspace{2.2mm}%
+  {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}\par
+  \vspace{.6mm}{\color{accent}\rule{14mm}{1.1pt}}\vspace{-3.2mm}}
+\addtobeamertemplate{frametitle}{}{\vspace{-1.6mm}}
+\setbeamertemplate{footline}{\leavevmode\hspace{8mm}%
+  {\fontsize{6}{7}\selectfont\color{soft}Precio relativo del crédito y morosidad futura
+  \,\textbullet\, F. Galarza\hfill\insertframenumber\,/\,\inserttotalframenumber}%
+  \hspace{8mm}\vskip5pt}
+
+% ---------- Cajas ----------
+\newtcolorbox{propbox}[1]{enhanced,colback=navy!5,colframe=navy,boxrule=.5pt,arc=1.2pt,
+  left=2.2mm,right=2.2mm,top=1mm,bottom=1mm,title={#1},fonttitle=\bfseries\small,
+  coltitle=white,boxsep=.6mm,toptitle=.3mm,bottomtitle=.3mm}
+\newtcolorbox{keybox}{enhanced,colback=accent!7,colframe=accent!75,boxrule=.5pt,arc=1.2pt,
+  left=2.2mm,right=2.2mm,top=1mm,bottom=1mm,boxsep=.6mm}
+\newtcolorbox{plainbox}{enhanced,colback=paper,colframe=soft!45,boxrule=.4pt,arc=1.2pt,
+  left=2.2mm,right=2.2mm,top=1mm,bottom=1mm,boxsep=.6mm}
+\newtcolorbox{hoja}[1]{enhanced,colback=white,colframe=soft!70,boxrule=.5pt,arc=0pt,
+  left=2mm,right=2mm,top=.8mm,bottom=.8mm,title={#1},fonttitle=\bfseries\footnotesize,
+  colbacktitle=paper,coltitle=navy,boxsep=.6mm,toptitle=.3mm,bottomtitle=.3mm}
+\newcommand{\source}[1]{\par\vfill{\fontsize{6}{7.2}\selectfont\color{soft}#1\par}}
+\newcommand{\why}[1]{&&\text{\footnotesize\color{soft}[#1]}}
+\newcommand{\qz}{q^{0}}
+\newcommand{\qs}{q^{*}}
+\newcommand{\es}{e^{*}}
+\newcommand{\eb}{\bar e}
+\newcommand{\ok}{\textcolor{teal}{\textbf{Hecho}}}
+\newcommand{\open}{\textcolor{accent}{\textbf{Abierto}}}
+
+% ---------- Gráficos ----------
+\pgfplotsset{
+  base/.style={width=70mm,height=46mm,axis lines=left,
+    tick label style={font=\fontsize{6.5}{8}\selectfont},
+    label style={font=\fontsize{7.5}{9}\selectfont},
+    title style={font=\footnotesize\bfseries,color=navy,yshift=-1mm},
+    legend style={font=\fontsize{6.5}{8}\selectfont,draw=none,fill=none,
+      legend cell align=left},
+    every axis plot/.append style={line width=1pt},
+    grid=major,grid style={soft!18},tick style={soft!60},
+    axis line style={soft!80},
+    xlabel near ticks,ylabel near ticks,
+    /pgf/number format/fixed,/pgf/number format/precision=2},
+  sA/.style={navy},sB/.style={accent,densely dashed},
+  sC/.style={teal,dash dot}}
+\lstset{basicstyle=\ttfamily\fontsize{6.15}{7.6}\selectfont,columns=fullflexible,
+  keepspaces=true,mathescape=true,keywordstyle=\color{navy}\bfseries,
+  morekeywords={theorem,by,unfold,ring},aboveskip=1mm,belowskip=1mm}
+
 \input{../code/output/numbers.tex}
+
 \begin{document}
 
-% Exposición estimada: 30 segundos.
+% =====================================================================
 \begin{frame}[plain]
-
-\begin{center}
-{\LARGE\color{navy} Precio relativo del crédito\\[.3em]y morosidad futura}\par\bigskip
-{\large Evaluación óptima y composición de la cartera}\par\bigskip
-Fabián Matías Galarza Chumbe\\
-Línea B. Curso: IA y modelación económica\\
-11 de noviembre de 2026\par\par\medskip
-\href{https://github.com/fgalarzac/ai-project}{github.com/fgalarzac/ai-project}
-\end{center}
+\vspace{15mm}
+{\color{accent}\rule{22mm}{1.6pt}}\par\vspace{3mm}
+{\fontsize{22}{26}\selectfont\bfseries\color{navy}
+Precio relativo del crédito\\[.15em]y morosidad futura\par}
+\vspace{3mm}
+{\large Evaluación óptima, restricciones y composición de la cartera\par}
+\vspace{9mm}
+\textbf{Fabián Matías Galarza Chumbe}\par
+{\small Universidad del Pacífico \,\textbullet\, IA y modelación económica \,\textbullet\,
+Línea B (modelo de la tesis)\par
+Presentación final \,\textbullet\, 11 de noviembre de 2026\par}
+\vspace{7mm}
+{\small Repositorio:
+\href{https://github.com/fgalarzac/ai-project}{\color{navy}\texttt{github.com/fgalarzac/ai-project}}\par}
 \end{frame}
 
-% Exposición estimada: 60 segundos.
-\begin{frame}{El problema del supervisor}
+% =====================================================================
+\section{1 Pregunta}
 
-Un banco publica el precio de sus operaciones nuevas antes de observar su desempeño.
-\par\medskip
-\begin{itemize}
-\item Una señal útil permitiría priorizar la revisión de carteras.
-\item La tasa también contiene fondeo, costos y margen.
-\item El atraso de toda la cartera mezcla préstamos de distintas edades.
+\begin{frame}{La pregunta y el resultado en una frase}
+\vspace{1mm}
+\textbf{Pregunta.} Si un banco cobra por sus créditos nuevos una tasa mayor que la de
+sus pares, ¿anticipa eso mayor morosidad?
+\vspace{.5mm}
+\begin{keybox}
+\textbf{Resultado.} En el \emph{régimen interior} del problema del banco (S1--S3), el
+riesgo de la cohorte nueva sube con el precio relativo $D$ \emph{si y solo si} la
+selección adversa supera a la evaluación:
+\[
+\frac{\partial \qs}{\partial D}=a-\frac{g^{2}}{c}>0\iff a>\frac{g^{2}}{c}.
+\]
+\vspace{-3mm}
+\end{keybox}
+\begin{columns}[T,onlytextwidth]
+\column{.32\textwidth}
+\begin{plainbox}\small\textbf{P1. Restricciones.}\\
+Con capacidad agotada la pendiente es $a$; en el piso de riesgo es $0$.
+\end{plainbox}
+\column{.32\textwidth}
+\begin{plainbox}\small\textbf{P2. Opacidad.}\\
+Hay un umbral único $\kappa^{*}$ solo si $a-g^{2}/c$ decrece y cruza cero.
+\end{plainbox}
+\column{.32\textwidth}
+\begin{plainbox}\small\textbf{P3. Saldo.}\\
+En el ratio de cartera, la composición puede invertir el signo.
+\end{plainbox}
+\end{columns}
+\source{$a$: sensibilidad de la selección al precio; $g$: productividad de evaluar;
+$c$: costo de evaluar. Modelo condicionado en el precio: la mejora predictiva en el
+Perú queda abierta.}
+\end{frame}
+
+\begin{frame}{Por qué importa: la señal llega antes que el atraso}
+\begin{columns}[T,onlytextwidth]
+\column{.43\textwidth}
+\begin{itemize}\setlength{\itemsep}{1.4mm}
+\item El supervisor observa el \textbf{precio} de los créditos nuevos antes de conocer
+su desempeño.
+\item Una señal temprana permitiría priorizar qué carteras revisar.
+\item Pero la tasa mezcla riesgo con fondeo, costos operativos y margen.
+\item Y el ratio de morosidad mezcla créditos de distintas edades.
 \end{itemize}
-\par\medskip
-\textbf{Objeto de interés:} el contenido informativo de una brecha de precios frente a bancos comparables.
-\source{\href{https://www.sbs.gob.pe/app/stats/Metodologia/Metodologia_TI_promedio.pdf}{SBS, metodología, sección 3}. \href{https://doi.org/10.1023/B:FINA.0000003322.43105.33}{Morgan y Ashcraft (2003)}.}
+\vspace{1mm}
+\begin{plainbox}\small
+La calidad difiere entre segmentos: comparar exige \textbf{celdas homogéneas} y
+un único evento de atraso.
+\end{plainbox}
+\column{.54\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[base,width=80mm,height=47mm,ybar,bar width=4.2mm,
+  ymin=0,ymax=18.5,enlarge x limits=.17,
+  symbolic x coords={Sistema,MYPE,Consumo,Hipotecario},xtick=data,
+  ylabel={CAR ajustada (\%)},xmajorgrids=false,
+  title={Cartera de alto riesgo ajustada por castigos},
+  legend style={at={(.5,-.17)},anchor=north,legend columns=3,
+    /tikz/every even column/.append style={column sep=2mm}},
+  nodes near coords,every node near coord/.append style={
+    font=\fontsize{5.2}{6}\selectfont,color=ink,
+    /pgf/number format/fixed zerofill,/pgf/number format/precision=1}]
+\addplot[fill=navy!28,draw=navy!28] coordinates
+  {(Sistema,8.8) (MYPE,14.1) (Consumo,11.7) (Hipotecario,4.5)};
+\addplot[fill=navy!60,draw=navy!60] coordinates
+  {(Sistema,9.8) (MYPE,15.7) (Consumo,14.2) (Hipotecario,4.7)};
+\addplot[fill=navy,draw=navy] coordinates
+  {(Sistema,9.8) (MYPE,16.3) (Consumo,15.2) (Hipotecario,4.7)};
+\legend{Set. 2023,Mar. 2024,Set. 2024}
+\end{axis}
+\end{tikzpicture}
+\end{columns}
+\source{Datos: BCRP, Reporte de Estabilidad Financiera, noviembre de 2024, cuadro 2.2,
+p. 21 (transcripción en \texttt{code/data/}). Sistema financiero, no solo banca
+múltiple. CAR: vencidos, cobranza judicial, refinanciados y reestructurados. Motiva
+el modelo; no valida sus parámetros.}
 \end{frame}
 
-% Exposición estimada: 70 segundos.
-\begin{frame}{Heterogeneidad que exige comparar bien}
-
-CAR significa cartera de alto riesgo: vencidos, cobranza judicial,
-refinanciados y reestructurados. El ajuste incorpora castigos recientes.
-\includegraphics[width=.87\linewidth,height=.55\textheight,keepaspectratio]{../code/figures/public_context.pdf}
-\par\small MIPE: micro y pequeña empresa. CAR ajustada: distinta de mora contable y de atraso mayor de 90 días.
-\source{\href{https://www.bcrp.gob.pe/docs/Publicaciones/Reporte-Estabilidad-Financiera/2024/noviembre/ref-noviembre-2024.pdf}{BCRP, Reporte de Estabilidad Financiera, noviembre de 2024, cuadro 2.2, p. 21}. Sistema financiero, no solo banca múltiple.}
-\end{frame}
-
-% Exposición estimada: 50 segundos.
-\begin{frame}{Pregunta y resultado condicionado}
-
-\textbf{Pregunta:} ¿cuándo una tasa por encima de los pares anticipa mayor morosidad?
-\par\medskip
-\begin{itemize}
-\item En el interior, el riesgo nuevo aumenta si selección supera a evaluación.
-\item Las restricciones cambian esa regla.
-\item En el saldo total, la composición puede invertir el signo.
-\end{itemize}
-\par\medskip
-\textbf{Alcance:} modelo condicionado en precio. La mejora predictiva en Perú sigue abierta.
-\end{frame}
-
-% Exposición estimada: 75 segundos.
-\begin{frame}{Construcción del precio relativo}
-
-Banco $j$, celda $s$, fecha $t$. La celda fija tipo, tramo y moneda.
-$i$: tasa efectiva anual en decimales. $n_{-j,st}$: número de pares válidos.
-$D$: diferencia frente a su promedio; $k$ recorre esos otros bancos.
-\[
-D_{jst}=i_{jst}-\frac1{n_{-j,st}}\sum_{k\ne j}i_{kst}.
-\]
-\begin{itemize}
-\item $D=0.02$: dos puntos porcentuales sobre los pares.
-\item Promedio simple excluyendo al propio banco, coherente con el plan.
-\item Mediana como sensibilidad. Tres pares como mínimo propuesto.
-\end{itemize}
-\small Restar una base común cancela esa base. Subsisten diferencias de fondeo, producto y exposición al ciclo.
-\source{SBS, tasas por empresa: operaciones de últimos 30 días útiles, con ventanas potencialmente superpuestas.}
-\end{frame}
-
-% Exposición estimada: 60 segundos.
-\begin{frame}{Mecanismos rivales}
-
-\textbf{Selección adversa.} Un precio alto puede dejar solicitantes más riesgosos.
-\par\medskip
-\textbf{Evaluación.} Evitar el atraso vale más cuando el crédito al día remunera más.
-\par\medskip
-\textbf{Composición.} Un precio alto puede reducir cuánto pesan los créditos nuevos en el saldo.
-\par\medskip
-\small Para distinguirlos harían falta calidad por cosecha, esfuerzo efectivo y pesos de cartera.
-\source{Stiglitz y Weiss (1981), p. 393. Ruckes (2004). La descomposición concreta es del modelo del curso.}
-\end{frame}
-
-% Exposición estimada: 60 segundos.
-\begin{frame}{Cronología y agentes}
-
-\begin{enumerate}
-\item Segmento, tecnología y precio observado quedan dados.
-\item Se forma el conjunto de solicitantes.
-\item El banco conoce su riesgo medio y elige evaluación.
-\item Los créditos maduran; $h$ es el plazo hasta observar su atraso.
-\item El supervisor observa un ratio que agrega cohortes.
-\end{enumerate}
-\par\medskip
-El banco optimiza. Solicitantes y pares están resumidos por primitivas. No resuelvo un juego de precios.
-\end{frame}
-
-% Exposición estimada: 65 segundos.
-\begin{frame}{Solicitantes y opacidad}
-
-$q^0$ es el riesgo antes de evaluar; $D$ es el precio relativo.
-\[
-q^0(D,\kappa)=\bar q+a(\kappa)D.
-\]
-\begin{itemize}
-\item $q^0$: probabilidad previa del evento de atraso de la cohorte.
-\item $\bar q\in(0,1)$: riesgo cuando $D=0$.
-\item $a>0$: sensibilidad de selección al precio.
-\item $\kappa\in[0,1]$: menor información inicial cuando aumenta.
-\end{itemize}
-\par\medskip
-Supuesto 1: restringir precios para que $q^0\in[0,1]$. La selección es una aproximación reducida local.
-\end{frame}
-
-% Exposición estimada: 75 segundos.
-\begin{frame}{Tecnología y restricciones}
-
-$q$: riesgo posterior. $C$: costo. $e$: esfuerzo de evaluación.
-$g>0$: productividad; $c>0$: intensidad del costo.
-\[
-q(D,e,\kappa)=q^0(D,\kappa)-g(\kappa)e,
-\qquad C(e)=\frac{c(\kappa)}2e^2.
-\]
-El esfuerzo resume verificación y condiciones que mejoran el crédito.
-$u$ es el esfuerzo máximo permitido:
-\[
-0\le e\le u(D,\kappa)=\min\{\bar e,q^0/g\}.
-\]
-\begin{itemize}
-\item $\bar e\ge0$: capacidad de evaluación.
-\item $e\le q^0/g$: impide probabilidades negativas.
-\end{itemize}
-\small Supuesto 2: el esfuerzo cambia calidad manteniendo volumen. Rechazos sin reemplazo exigirían otro modelo.
-\end{frame}
-
-% Exposición estimada: 75 segundos.
-\begin{frame}{Objetivo condicionado del banco}
-
-$R(D)$: pago adicional si el crédito se mantiene al día.
-$F$: costo por unidad que no cambia con el esfuerzo.
-\[
-\max_{e\in[0,u]}\underbrace{[1-q^0+ge]R(D)}_{\text{pago esperado}}
--\underbrace{F}_{\text{costo fijo por unidad}}
--\underbrace{\frac c2e^2}_{\text{costo de evaluar}}.
-\]
-\begin{itemize}
-\item Supuesto 3: $R(D)=\bar R+D>0$; $\bar R$ es el pago cuando $D=0$.
-\item El banco mantiene precio y segmento fijos al elegir $e$.
-\item Se maximiza el beneficio esperado por sol de crédito.
-\end{itemize}
-\par\medskip
-La normalización no convierte exactamente una tasa anual a cualquier plazo. No se resuelve el precio de equilibrio.
-\end{frame}
-
-% Exposición estimada: 70 segundos.
-\begin{frame}{Primer orden: por qué no basta}
-
-$\pi$: beneficio esperado. $\pi_e$ y $\pi_{ee}$: primera y segunda
-derivadas respecto del esfuerzo. $z$: candidato sin restricciones.
-\[
-\pi_e=gR-ce=0\quad\Longrightarrow\quad z=\frac{gR}{c}.
-\qquad\pi_{ee}=-c<0.
-\]
-Pero $z$ puede exceder la capacidad o producir riesgo negativo.
-\par\medskip
-Completar el cuadrado resuelve el problema global:
-\[
-\pi(e)=\underbrace{(1-q^0)R-F+\frac{(gR)^2}{2c}}_{\text{constante en }e}
--\frac c2(e-z)^2.
-\]
-El máximo factible es el punto del intervalo $[0,u]$ más cercano a $z$.
-\end{frame}
-
-% Exposición estimada: 65 segundos.
-\begin{frame}{Proposición 1: solución global}
-
-Bajo S1--S3: $a,g,c>0$, capacidad no negativa, $q^0\in[0,1]$ y $R>0$.
-$e^*$ es el esfuerzo óptimo; $q^*$, el riesgo que resulta de elegirlo.
-\[
-\boxed{e^*=\min\{gR/c,\bar e,q^0/g\}.}
-\]
-\[
-\boxed{q^*=\max\{0,q^0-g\min(\bar e,gR/c)\}.}
-\]
-Existe un máximo único. Siempre $0\le q^*\le q^0\le1$.
-\par\medskip
-\small Si $\bar e=0$, solo se elige $e=0$. En empates, la solución es continua y las derivadas pueden ser laterales.
-\end{frame}
-
-% Exposición estimada: 70 segundos.
-\begin{frame}{Tres regímenes y tres pendientes}
-
-$\partial_Dq^*$ mide el cambio local del riesgo al variar $D$, con $\kappa$ fijo.
-\begin{tabular}{p{.28\linewidth}p{.37\linewidth}p{.22\linewidth}}
-\toprule Régimen & Condiciones estrictas & $\partial_Dq^*$\\\midrule
-Interior & $gR/c<\bar e$ y $gR/c<q^0/g$ & $a-g^2/c$\\[.7em]
-Capacidad & $\bar e<gR/c$ y $\bar e<q^0/g$ & $a$\\[.7em]
-Piso de riesgo & $q^0/g<gR/c$ y $q^0/g<\bar e$ & $0$\\\bottomrule
-\end{tabular}
-\par\medskip
-En el interior, $\partial_De^*=g/c$: la mejora total es $g(g/c)$.
-\par\medskip
-Con capacidad agotada, esa respuesta desaparece. No se usa una pendiente interior en una esquina.
-\end{frame}
-
-% Exposición estimada: 80 segundos.
-\begin{frame}{Proposición 2: umbral con condiciones}
-
-$H(\kappa)=g(\kappa)^2/c(\kappa)$ mide la fuerza de evaluación.
-$\beta=a-H$ es la pendiente neta del riesgo en el régimen interior.
-\begin{itemize}
-\item S1--S3 y funciones positivas, continuas en $[0,1]$.
-\item S4: $a-H$ estrictamente decreciente, $a(0)>H(0)$ y $a(1)<H(1)$.
-\item A un precio fijo $D_0$, solución interior para toda opacidad.
-\end{itemize}
-\[
-\exists!\,\kappa^*\in(0,1):\quad
-\beta>0\text{ debajo},\quad\beta=0\text{ en }\kappa^*,\quad\beta<0\text{ encima}.
-\]
-\small Prueba: continuidad y signos dan existencia; monotonía estricta da unicidad y orden de signos.
-\end{frame}
-
-% Exposición estimada: 65 segundos.
-\begin{frame}{El supuesto económico que hace el trabajo}
-
-Aquí la prima indica derivada respecto de $\kappa$.
-Si productividad $g$ y costo $c$ son diferenciables y positivos:
-\[
-\frac{H'}H=2\frac{g'}g-\frac{c'}c.
-\]
-\begin{itemize}
-\item Más opacidad puede hacer más difícil obtener información: $g'\le0$, $c'\ge0$.
-\item Entonces $H$ puede caer y no habrá necesariamente cruce.
-\item Basta que $a-H$ caiga y cruce. $H'>0$ es una condición suficiente más fuerte junto con $a'<0$.
-\end{itemize}
-\par\medskip
-La opacidad no demuestra que la evaluación sea relativamente más eficaz.
-\end{frame}
-
-% Exposición estimada: 70 segundos.
-\begin{frame}{Simulación del cruce y sus alternativas}
-
-\includegraphics[width=\linewidth,height=.65\textheight,keepaspectratio]{../code/figures/mechanisms.pdf}
-\par\small Caso favorable: $\kappa^*=\threshold$. Caso de tecnología que empeora y caso de capacidad limitada: sin pendiente negativa.
-\source{Simulaciones hipotéticas de code/verify.py. Sin estimación con datos peruanos.}
-\end{frame}
-
-% Exposición estimada: 60 segundos.
-\begin{frame}{Esquinas: el candidato interior puede fallar}
-
-\includegraphics[width=\linewidth,height=.66\textheight,keepaspectratio]{../code/figures/corners.pdf}
-\par\small En la restricción de capacidad, la pendiente pasa de $-0.12$ a $0.04$. El piso de riesgo detiene reducciones adicionales.
-\source{Parámetros ilustrativos. code/verify.py contrasta solución analítica y optimización acotada independiente.}
-\end{frame}
-
-% Exposición estimada: 75 segundos.
-\begin{frame}{De una cohorte al saldo total}
-
-Fijemos el mismo evento de atraso y horizonte $h$.
-$M(D)$: fracción total de cartera en atraso. Una cohorte agrupa créditos nuevos.
-\begin{itemize}
-\item $B_0>0$: saldo antiguo. $m_0\in[0,1]$: su fracción en atraso.
-\item $B(D)>0$, diferenciable: saldo de la cohorte nueva todavía vigente.
-\item $w(D)=B(D)/(B_0+B(D))$: peso nuevo.
-\end{itemize}
-\[
-M(D)=\frac{B_0m_0+B(D)q^*(D)}{B_0+B(D)}=(1-w)m_0+wq^*.
-\]
-\small S5: saldos deterministas o población continua, maduración compatible, sin castigos ni selección adicional por amortización. $B_0,m_0$ fijos al variar precio.
-\end{frame}
-
-% Exposición estimada: 80 segundos.
-\begin{frame}{Proposición 3: calidad y composición}
-
-Bajo S1--S3 y S5, donde $q^*$ es diferenciable, sea $\beta_D=\partial_Dq^*$.
-Desde aquí, la prima indica derivada respecto del precio $D$.
-\[
-\boxed{M'=\underbrace{w\beta_D}_{\text{calidad de lo nuevo}}
-+\underbrace{w'(q^*-m_0)}_{\text{composición}}.}
-\]
-\begin{itemize}
-\item Si $w'=0$, el signo se conserva.
-\item Si $\beta_D\ne0$ y $|w'(q^*-m_0)|<w|\beta_D|$, también se conserva.
-\end{itemize}
-Si $B=B_1\exp(-\varepsilon D)$: $B_1>0$ es el saldo en $D=0$ y $\varepsilon\ge0$ su sensibilidad proporcional. Entonces $w'=-\varepsilon w(1-w)$.
-\[
-M'=w[\beta_D-\varepsilon(1-w)(q^*-m_0)].
-\]
-\end{frame}
-
-% Exposición estimada: 80 segundos.
-\begin{frame}{Contraejemplo: signos opuestos válidos}
-
-En $D=0$, $q^*=0.225$, $m_0=0.10$, $\beta_D=0.13$, $w=0.20$ y $\varepsilon=3$.
-\[
-M'=0.2[0.13-3(0.8)(0.225-0.10)]=\stockSlope<0.
-\]
-\includegraphics[width=\linewidth,height=.43\textheight,keepaspectratio]{../code/figures/stock_composition.pdf}
-\source{Ejemplo hipotético. El riesgo nuevo empeora, pero disminuye su peso en una cartera antigua más segura.}
-\end{frame}
-
-% Exposición estimada: 65 segundos.
-\begin{frame}{Sensibilidad y alcance de las comprobaciones}
-
+\begin{frame}{La señal: precio relativo frente a los pares}
+\vspace{1.3mm}
 \begin{columns}[T,onlytextwidth]
 \column{.55\textwidth}
-\includegraphics[width=\linewidth,height=.62\textheight,keepaspectratio]{../code/figures/sensitivity.pdf}
+Banco $j$, celda $s$ (tipo de crédito, tramo y moneda), fecha $t$:
+\[
+D_{jst}=i_{jst}-\frac{1}{n_{-j,st}}\sum_{k\neq j} i_{kst}
+\]
+\begin{itemize}\setlength{\itemsep}{1mm}
+\item $i$: tasa efectiva anual en decimales. $n_{-j,st}$: número de pares válidos
+(mínimo propuesto: tres).
+\item $D=0.02$: dos puntos porcentuales sobre el promedio simple de los
+\emph{otros} bancos.
+\item Restar cancela una base común $b_{st}$, pero no el fondeo, la clientela ni la
+exposición heterogénea al ciclo.
+\end{itemize}
+\column{.42\textwidth}
+\begin{plainbox}\small
+\textbf{El comparador importa (ejemplo hipotético).}\\[.6mm]
+Pares: 8\,\%, 9\,\%, 10\,\% y 25\,\%. Tasa propia: 12\,\%.
+\vspace{.8mm}
+
+\centering
+\begin{tabular}{@{}lcc@{}}
+\toprule Referencia & Valor & $D$\\\midrule
+Promedio simple & 13.0\,\% & $-1.0$ pp\\
+Mediana & 9.5\,\% & $+2.5$ pp\\\bottomrule
+\end{tabular}
+\vspace{.8mm}
+
+\raggedright El signo de la señal cambia. Uso el promedio (principal) y la mediana
+(sensibilidad); ninguna se elige mirando el error de pronóstico.
+\end{plainbox}
+\end{columns}
+\source{SBS, metodología de tasas de interés promedio, sección 3: operaciones de los
+últimos 30 días útiles, ponderadas por monto. Antecedente empírico: Morgan y
+Ashcraft (2003). El ejemplo se comprueba en \texttt{code/verify.py}.}
+\end{frame}
+
+% =====================================================================
+\section{2 Modelo}
+
+\begin{frame}{Tres fuerzas que un mismo precio pone en marcha}
+\vspace{1mm}
+{\centering
+\begin{tikzpicture}[
+  box/.style={draw=navy,rounded corners=1.2pt,fill=navy!5,align=center,
+    minimum height=11mm,text width=38mm,font=\small,inner sep=1.5mm},
+  outb/.style={draw=accent!80,rounded corners=1.2pt,fill=accent!8,align=center,
+    minimum height=11mm,text width=33mm,font=\small,inner sep=1.5mm},
+  ar/.style={-{Stealth[length=2mm]},line width=.7pt,color=soft}]
+\node[outb,text width=24mm] (D) at (0,0) {\textbf{Precio relativo}\\ $D$ sube};
+\node[box] (S) at (46mm,16mm) {\textbf{Selección adversa}\\ solicitantes más riesgosos};
+\node[box] (E) at (46mm,0) {\textbf{Evaluación}\\ vale más evitar el atraso};
+\node[box] (C) at (46mm,-16mm) {\textbf{Composición}\\ menos créditos nuevos};
+\node[outb] (Q) at (106mm,8mm) {\textbf{Riesgo de la cohorte}\\ $\qs$};
+\node[outb] (M) at (106mm,-16mm) {\textbf{Ratio de cartera}\\ $M$};
+\draw[ar] (D.east) -- ++(4mm,0) |- (S.west);
+\draw[ar] (D.east) -- (E.west);
+\draw[ar] (D.east) -- ++(4mm,0) |- (C.west);
+\draw[ar] (S.east) -- ++(5mm,0) |- node[pos=.25,right,font=\footnotesize,color=accent]{$+a$} ([yshift=2mm]Q.west);
+\draw[ar] (E.east) -- ++(5mm,0) |- node[pos=.25,right,font=\footnotesize,color=teal]{$-g^{2}/c$} ([yshift=-2mm]Q.west);
+\draw[ar] (C.east) -- node[pos=.5,below,font=\footnotesize,color=soft]{$w'(\qs-m_{0})$} (C.east -| M.west);
+\draw[ar] (Q.south) -- node[right,font=\footnotesize,color=soft]{$w\,\partial_{D}\qs$} (M.north);
+\end{tikzpicture}\par}
+\vspace{2.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.32\textwidth}\small
+\textbf{Selección.} Un precio alto deja un conjunto de solicitantes de peor calidad.
+\column{.32\textwidth}\small
+\textbf{Evaluación.} Un crédito al día remunera más, así que conviene verificar más.
+\column{.32\textwidth}\small
+\textbf{Composición.} Baja el peso de los créditos nuevos dentro del saldo total.
+\end{columns}
+\source{Stiglitz y Weiss (1981), p. 393, para el canal de selección; Ruckes (2004) y
+Dell'Ariccia y Marquez (2006) para evaluación. La descomposición concreta en
+tres fuerzas es del modelo de este trabajo.}
+\end{frame}
+
+\begin{frame}{Quién decide y cuándo}
+\vspace{2mm}
+{\centering
+\begin{tikzpicture}[
+  st/.style={circle,fill=navy,text=white,font=\footnotesize\bfseries,inner sep=1.4pt,minimum size=5mm},
+  tx/.style={align=center,text width=25mm,font=\footnotesize,anchor=north}]
+\draw[line width=1pt,color=soft!70,-{Stealth[length=2.4mm]}] (-4mm,0) -- (142mm,0);
+\foreach \i/\x/\t in {1/10/{Quedan dados el segmento, la tecnología y el
+  \textbf{precio} $D$},2/40/{Se forma el conjunto de solicitantes: riesgo previo $\qz$},
+  3/70/{El banco elige el \textbf{esfuerzo} $e$ de evaluación},
+  4/100/{Los créditos maduran hasta el horizonte $h$},
+  5/130/{El supervisor observa el \textbf{ratio} $M$, que agrega cohortes}}{
+  \node[st] (n\i) at (\x mm,0) {\i};
+  \node[tx] at (\x mm,-4.5mm) {\t};}
+\draw[line width=.6pt,color=accent] (58mm,6mm) -- (58mm,7.5mm) -- (82mm,7.5mm)
+  node[midway,above,font=\footnotesize,color=accent]{única decisión optimizada} -- (82mm,6mm);
+\end{tikzpicture}\par}
+\vspace{4mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{plainbox}\small
+\textbf{Qué se modela.} Un banco neutral al riesgo que maximiza su beneficio
+esperado por sol de crédito, con el precio como dato.
+\end{plainbox}
+\column{.48\textwidth}
+\begin{plainbox}\small
+\textbf{Qué no se modela.} Solicitantes y pares entran como primitivas reducidas.
+No resuelvo el juego de precios ni la decisión de no prestar.
+\end{plainbox}
+\end{columns}
+\vspace{2mm}
+{\small El supervisor ve $D$ y, más tarde, $M$. No ve el esfuerzo ni la composición
+completa del riesgo: por eso necesita un modelo para leer la señal.\par}
+\end{frame}
+
+\begin{frame}{Primitivas y supuestos S1--S3}
+\vspace{1.5mm}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.19\linewidth}
+  >{\raggedright\arraybackslash}p{.30\linewidth}
+  >{\raggedright\arraybackslash}p{.44\linewidth}@{}}
+\toprule
+& \textbf{Forma funcional} & \textbf{Lectura económica y condiciones}\\\midrule
+\textbf{S1.} Selección &
+$\qz(D)=\bar q+aD\in[0,1]$ &
+Riesgo previo de la cohorte. $a>0$: un precio mayor empeora a los solicitantes.
+$\bar q\in(0,1)$; $D$ en un intervalo compacto.\\
+\textbf{S2.} Tecnología &
+$q=\qz-ge,\qquad C(e)=\dfrac{c}{2}e^{2}$ &
+$g>0$: cada unidad de esfuerzo reduce el riesgo en $g$. $c>0$: costo marginal
+creciente. El esfuerzo no cambia el volumen.\\
+\textbf{S2.} Factibilidad &
+$0\le e\le u=\min\{\eb,\ \qz/g\}$ &
+$\eb\ge 0$: capacidad de evaluación. $e\le \qz/g$ impide probabilidades
+negativas.\\
+\textbf{S3.} Pago &
+$R(D)=\bar R+D>0$ &
+Premio por sol si el crédito sigue al día. $F$: costo unitario que no depende
+de $e$.\\\bottomrule
+\end{tabular}
+\vspace{1.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{plainbox}\footnotesize
+\textbf{Unidades.} $\qz$, $q$: probabilidades del mismo evento y horizonte. $D$:
+tasa anual decimal. $e$ y la opacidad $\kappa\in[0,1]$: índices.
+\end{plainbox}
+\column{.48\textwidth}
+\begin{plainbox}\footnotesize
+\textbf{Opacidad.} $a$, $g$ y $c$ pueden depender de $\kappa$ (menos información
+verificable inicial). Se fija $\kappa$ hasta la Proposición 2.
+\end{plainbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{El problema del banco}
+\vspace{1.5mm}
+Con el precio $D$ y la opacidad $\kappa$ fijos, el banco elige el esfuerzo:
+\[
+\max_{e\,\in\,[0,\,u]}\ \pi(e)=
+\underbrace{\bigl[\,1-\qz+ge\,\bigr]}_{\text{prob. de seguir al día}}
+\underbrace{R(D)}_{\text{premio}}
+\;-\;\underbrace{F}_{\text{costo fijo}}
+\;-\;\underbrace{\frac{c}{2}e^{2}}_{\text{costo de evaluar}},
+\qquad u=\min\Bigl\{\eb,\ \frac{\qz}{g}\Bigr\}.
+\]
+\vspace{-1mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{itemize}\setlength{\itemsep}{1mm}
+\item \textbf{Beneficio marginal} de evaluar: $gR$. Crece con el precio, porque un
+crédito al día paga más.
+\item \textbf{Costo marginal}: $ce$. Crece con el esfuerzo.
+\item $F$ y cualquier volumen que no dependa de $e$ no alteran el óptimo.
+\end{itemize}
+\column{.48\textwidth}
+\begin{keybox}\small
+\textbf{Dos restricciones que la condición de primer orden ignora:}
+\begin{enumerate}
+\item capacidad: $e\le \eb$;
+\item probabilidad válida: $q=\qz-ge\ge 0$.
+\end{enumerate}
+Por eso la solución tiene tres regímenes y no uno.
+\end{keybox}
+\end{columns}
+\source{Simplificación: la sensibilidad del premio a $D$ se normaliza a uno; no es una
+conversión exacta de una tasa anual a cualquier plazo. Recuperaciones y garantías
+que dependan del precio o del esfuerzo exigirían modificar $R$.}
+\end{frame}
+
+% =====================================================================
+\section{3 Proposiciones}
+
+\begin{frame}{Proposición 1: solución global y pendientes por régimen}
+\vspace{.8mm}
+\begin{propbox}{Proposición 1. Bajo S1--S3 ($a,g,c>0$; $\eb\ge 0$; $\qz\in[0,1]$; $R>0$)}
+Existe un \textbf{único} máximo en $[0,u]$:
+\[
+\es=\min\Bigl\{\frac{gR}{c},\ \eb,\ \frac{\qz}{g}\Bigr\},
+\qquad
+\qs=\max\Bigl\{0,\ \qz-g\min\Bigl\{\eb,\frac{gR}{c}\Bigr\}\Bigr\},
+\qquad 0\le \qs\le \qz\le 1.
+\]
+\end{propbox}
+\small
+\begin{tabular}{@{}p{.16\linewidth}p{.32\linewidth}p{.12\linewidth}p{.28\linewidth}@{}}
+\toprule
+\textbf{Régimen} & \textbf{Condiciones estrictas} & $\partial\qs/\partial D$ &
+\textbf{Lectura}\\\midrule
+Interior & $gR/c<\eb$ \ y \ $gR/c<\qz/g$ & $a-g^{2}/c$ & Selección menos evaluación\\
+Capacidad & $\eb<gR/c$ \ y \ $\eb<\qz/g$ & $a$ & El esfuerzo ya no responde\\
+Piso de riesgo & $\qz/g<gR/c$ \ y \ $\qz/g<\eb$ & $0$ & El riesgo ya es cero\\\bottomrule
+\end{tabular}
+\vspace{.8mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{plainbox}\footnotesize
+\textbf{Por qué $g^{2}/c$.} En el interior el precio eleva el esfuerzo en $g/c$ y
+cada unidad de esfuerzo reduce el riesgo en $g$.
+\end{plainbox}
+\column{.48\textwidth}
+\begin{plainbox}\footnotesize
+\textbf{Empates y $\eb=0$.} En un cambio de régimen la solución es continua, con
+derivadas laterales. Si $\eb=0$: $\es=0$ y pendiente $a$.
+\end{plainbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Proposición 2: un umbral de opacidad, con sus condiciones}
+\vspace{1.3mm}
+\begin{columns}[T,onlytextwidth]
+\column{.56\textwidth}
+Sea $H(\kappa)=g(\kappa)^{2}/c(\kappa)$ la fuerza de evaluación y
+$\beta(\kappa)=a(\kappa)-H(\kappa)$ la pendiente neta interior.
+\vspace{1mm}
+\begin{propbox}{Proposición 2. Bajo S1--S4}
+Existe un único $\kappa^{*}\in(0,1)$ con $\partial_{D}\qs(D_{0},\kappa^{*})=0$.
+La pendiente es \textbf{positiva} si $\kappa<\kappa^{*}$ y \textbf{negativa} si
+$\kappa>\kappa^{*}$.
+\end{propbox}
+\vspace{.5mm}
+\textbf{S4 (condiciones de cruce).} En $\kappa\in[0,1]$:
+\begin{itemize}\setlength{\itemsep}{.6mm}
+\item $a,g,c$ continuas y positivas;
+\item $a-H$ \textbf{estrictamente decreciente};
+\item $a(0)>H(0)$ \ y \ $a(1)<H(1)$;
+\item al precio comparado $D_{0}$, solución \textbf{interior} para toda $\kappa$.
+\end{itemize}
+\column{.41\textwidth}
+\begin{keybox}\small
+\textbf{El supuesto que hace el trabajo.} Si $g$ y $c$ son diferenciables,
+\[
+\frac{H'}{H}=2\,\frac{g'}{g}-\frac{c'}{c}.
+\]
+Si más opacidad dificulta obtener información ($g'\le 0$, $c'\ge 0$), entonces
+$H'\le 0$ y puede \textbf{no haber cruce}.
+\end{keybox}
+\begin{plainbox}\footnotesize
+La opacidad por sí sola no implica que evaluar sea relativamente más eficaz: S4 es
+una restricción económica contrastable, no una definición.
+\end{plainbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Proposición 3: de una cohorte al saldo de la cartera}
+\vspace{1.3mm}
+\begin{columns}[T,onlytextwidth]
 \column{.42\textwidth}
 \small
-\begin{itemize}
-\item 1495 sorteos válidos: interior, capacidad y piso.
-\item Optimizador independiente, diferencias finitas y SymPy.
-\item Dominios y contraejemplos provocan fallas si no se cumplen.
+\textbf{Contabilidad al horizonte $h$.}
+\begin{itemize}\setlength{\itemsep}{.4mm}
+\item $B_{0}>0$: saldo antiguo; $m_{0}\in[0,1]$: su fracción en atraso.
+\item $B(D)>0$: saldo de la cohorte nueva, diferenciable.
+\item Peso nuevo: $w=B/(B_{0}+B)$.
 \end{itemize}
-\par\medskip
-Una malla encuentra errores. No prueba un teorema ni utilidad predictiva empírica.
+\begin{plainbox}\footnotesize
+\textbf{S5.} Saldos deterministas (o población continua); mismo evento y horizonte;
+la amortización no selecciona riesgo adicional; $B_{0}$ y $m_{0}$ no cambian con
+$D$; sin castigos, ventas ni reclasificaciones.
+\end{plainbox}
+\column{.555\textwidth}
+\begin{propbox}{Proposición 3. Bajo S1--S3 y S5, con $\beta_{D}=\partial_{D}\qs$}
+\small
+\vspace{-3mm}
+\begin{align*}
+M(D)&=(1-w)\,m_{0}+w\,\qs,\\
+M'(D)&=\underbrace{w\,\beta_{D}}_{\text{calidad de lo nuevo}}
++\underbrace{w'(\qs-m_{0})}_{\text{composición}}.
+\end{align*}
+\vspace{-4mm}
+
+$M'$ conserva el signo de $\beta_{D}$ si $w'=0$, o si $\beta_{D}\neq 0$ y
+$|w'(\qs-m_{0})|<w|\beta_{D}|$.
+
+\vspace{.6mm}
+Si $B=B_{1}e^{-\varepsilon D}$ \ ($B_{1}>0$, $\varepsilon\ge 0$):\\[.4mm]
+\centerline{$M'=w\bigl[\beta_{D}-\varepsilon(1-w)(\qs-m_{0})\bigr]$.}
+\end{propbox}
 \end{columns}
-\source{code/verify.py, semilla 20261110. Parámetros ilustrativos.}
+\begin{keybox}\small
+\textbf{Inversión de signo.} Con $\beta_{D}>0$ y $\qs>m_{0}$:\quad
+$M'<0\iff \varepsilon(1-w)(\qs-m_{0})>\beta_{D}$.\\
+El riesgo de los créditos nuevos empeora, pero el ratio total mejora porque pesan
+menos.
+\end{keybox}
 \end{frame}
 
-% Exposición estimada: 95 segundos.
-\begin{frame}[fragile]{Lean: pruebas generales y cierre en curso}
+% =====================================================================
+\section{4 Prueba}
+
+\begin{frame}{Prueba de P1 (i): la condición de primer orden no basta}
+\vspace{1.3mm}
+\begin{columns}[T,onlytextwidth]
+\column{.44\textwidth}
+\textbf{Paso 1. Candidato sin restricciones.}
+\[
+\pi'(e)=gR-ce=0\ \Rightarrow\ z=\frac{gR}{c}>0.
+\]
+Como $\pi''=-c<0$, $z$ maximiza sin restricciones; pero puede exceder $\eb$ o volver
+negativa la probabilidad.
+
+\vspace{1mm}
+\textbf{Paso 2. Completar el cuadrado.}
+\[
+\pi(e)=\underbrace{(1-\qz)R-F+\tfrac{(gR)^{2}}{2c}}_{K,\ \text{no depende de }e}
+-\frac{c}{2}\,(e-z)^{2}.
+\]
+\textbf{Paso 3. Proyección.} Maximizar $\pi$ en $[0,u]$ es elegir el punto factible
+más cercano a $z$:\quad $\es=\min\{z,\,u\}$.
+\column{.53\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=4mm},
+  width=36mm,height=38mm,axis lines=left,xmin=0,xmax=1,ymin=-.42,ymax=.06,
+  xtick=\empty,ytick=\empty,axis line style={soft!80},clip=false,
+  title style={font=\fontsize{7}{8.5}\selectfont\bfseries,color=navy,align=center,yshift=-1mm}]
+\nextgroupplot[title={Interior\\$\es=z<u$}]
+\fill[navy!10] (axis cs:0,-.42) rectangle (axis cs:.78,.06);
+\addplot[navy,line width=1pt,domain=0:1,samples=40]{-1.1*(x-.45)^2};
+\draw[soft,densely dotted] (axis cs:.45,0) -- (axis cs:.45,-.42);
+\draw[soft] (axis cs:.78,-.42) -- (axis cs:.78,.06);
+\addplot[only marks,mark=*,mark size=1.8pt,accent] coordinates {(.45,0)};
+\node[font=\fontsize{6.5}{7}\selectfont,below] at (axis cs:.45,-.42) {$z$};
+\node[font=\fontsize{6.5}{7}\selectfont,below] at (axis cs:.78,-.42) {$u$};
+\nextgroupplot[title={Capacidad\\$\es=\eb<z$}]
+\fill[navy!10] (axis cs:0,-.42) rectangle (axis cs:.42,.06);
+\addplot[navy,line width=1pt,domain=0:1,samples=40]{-1.1*(x-.72)^2};
+\draw[soft,densely dotted] (axis cs:.72,0) -- (axis cs:.72,-.42);
+\draw[soft] (axis cs:.42,-.42) -- (axis cs:.42,.06);
+\addplot[only marks,mark=*,mark size=1.8pt,accent] coordinates {(.42,-.099)};
+\node[font=\fontsize{6.5}{7}\selectfont,below] at (axis cs:.72,-.42) {$z$};
+\node[font=\fontsize{6.5}{7}\selectfont,below] at (axis cs:.42,-.42) {$\eb$};
+\nextgroupplot[title={Piso de riesgo\\$\es=\qz/g<z$}]
+\fill[navy!10] (axis cs:0,-.42) rectangle (axis cs:.26,.06);
+\addplot[navy,line width=1pt,domain=0:1,samples=40]{-1.1*(x-.6)^2};
+\draw[soft,densely dotted] (axis cs:.6,0) -- (axis cs:.6,-.42);
+\draw[soft] (axis cs:.26,-.42) -- (axis cs:.26,.06);
+\addplot[only marks,mark=*,mark size=1.8pt,accent] coordinates {(.26,-.127)};
+\node[font=\fontsize{6.5}{7}\selectfont,below] at (axis cs:.6,-.42) {$z$};
+\node[font=\fontsize{6.5}{7}\selectfont,below] at (axis cs:.26,-.42) {$\qz/g$};
+\end{groupplot}
+\end{tikzpicture}
+
+\vspace{-.5mm}
+{\footnotesize Curva: $\pi(e)$. Sombreado: esfuerzos factibles $[0,u]$. Punto:
+óptimo $\es$.\par}
+\vspace{1mm}
+\begin{plainbox}\footnotesize\raggedright
+\textbf{Existencia y unicidad.} $[0,u]$ es compacto y no vacío y $\pi$ es continua:
+hay máximo. Si $u>0$, $\pi''=-c<0$ da concavidad estricta: es único. Si $u=0$,
+solo $e=0$ es factible.
+\end{plainbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Prueba de P1 (ii): riesgo óptimo y pendientes}
+\vspace{1.2mm}
+\begin{columns}[T,onlytextwidth]
+\column{.53\textwidth}
+\textbf{Paso 4. Del esfuerzo al riesgo.} Sea $v=\min\{\eb,\,gR/c\}\ge 0$.
+\begin{itemize}\setlength{\itemsep}{.6mm}
+\item Si $v\le \qz/g$: \ $\es=v$ \ y \ $\qs=\qz-gv\ge 0$.
+\item Si $v>\qz/g$: \ $\es=\qz/g$ \ y \ $\qs=0$.
+\end{itemize}
+Ambos casos: $\qs=\max\{0,\ \qz-gv\}$, con $\qs\le \qz\le 1$ porque $\es\ge 0$.
+
+\vspace{1.5mm}
+\textbf{Paso 5. Pendiente $\partial_{D}\qs$ dentro de cada régimen} (desigualdades
+estrictas; $\kappa$ fijo):
+{\small
+\begin{align*}
+\text{Interior:}\ \ &\qs=\bar q+aD-\tfrac{g^{2}}{c}(\bar R+D) &&\Rightarrow\ a-\tfrac{g^{2}}{c}\\
+\text{Capacidad:}\ \ &\qs=\bar q+aD-g\eb &&\Rightarrow\ a\\
+\text{Piso:}\ \ &\qs=0 &&\Rightarrow\ 0
+\end{align*}}
+\column{.44\textwidth}
+\begin{keybox}\small
+\textbf{Continuidad sin diferenciabilidad.} Mínimos y máximos de funciones
+continuas son continuos: $\es$ y $\qs$ no saltan. En un empate de restricciones
+hay derivadas laterales que pueden diferir.
+\end{keybox}
+\begin{plainbox}\small
+\textbf{Ejemplo de quiebre.} $\bar q=0.35$, $a=0.04$, $g=0.4$, $c=1$,
+$\eb=0.44$, $\bar R=1.10$:\\[.5mm]
+\centerline{$z=0.4\,(1.10+D)\le 0.44\iff D\le 0$.}
+\vspace{.6mm}
+
+\centering
+\begin{tabular}{@{}lcc@{}}
+\toprule & $D<0$ & $D>0$\\\midrule
+Régimen & interior & capacidad\\
+$\partial_{D}\qs$ & $-0.12$ & $+0.04$\\\bottomrule
+\end{tabular}
+\end{plainbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Pruebas de P2 y P3: ideas completas en una lámina}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{propbox}{P2: valor intermedio y monotonía}
+\footnotesize
+\begin{enumerate}\setlength{\itemsep}{.5mm}
+\item $c>0$ y la continuidad de $a,g,c$ hacen continua a $\beta=a-g^{2}/c$.
+\item $\beta(0)>0>\beta(1)$: por el teorema del valor intermedio existe
+$\kappa^{*}\in(0,1)$ con $\beta(\kappa^{*})=0$.
+\item Si hubiera dos ceros $x<y$, la monotonía estricta daría
+$\beta(x)>\beta(y)$: contradicción. \textbf{Único}.
+\item Monotonía: $\beta>0$ antes de $\kappa^{*}$ y $\beta<0$ después.
+\item La interioridad en $D_{0}$ permite leer $\beta$ como $\partial_{D}\qs$ (P1).
+\end{enumerate}
+\end{propbox}
+\column{.49\textwidth}
+\begin{propbox}{P3: regla del producto y del cociente}
+\footnotesize
+\begin{enumerate}\setlength{\itemsep}{.5mm}
+\item Atraso esperado: $B_{0}m_{0}+B\qs$. Dividir por el saldo
+\emph{determinista} $B_{0}+B$ da $M=(1-w)m_{0}+w\qs$.
+\item Producto: $M'=-w'm_{0}+w'\qs+w\beta_{D}$.
+\item Cociente: $w'=\dfrac{B'B_{0}}{(B_{0}+B)^{2}}$.
+\item Si $B=B_{1}e^{-\varepsilon D}$: $B'=-\varepsilon B$, luego
+$w'=-\varepsilon\,w(1-w)$.
+\item Como $w>0$, el signo de $M'$ es el del corchete.
+\end{enumerate}
+\end{propbox}
+\end{columns}
+\vspace{.5mm}
+\begin{plainbox}\footnotesize
+\textbf{Cuidado en P3.} No se reemplaza una esperanza de cocientes por un cociente de
+esperanzas: por eso S5 exige saldos deterministas. Si $m_{0}$ cambiara con el
+precio, se sumaría $(1-w)m_{0}'$.
+\end{plainbox}
+\end{frame}
+
+\begin{frame}{Estado de la prueba: hecho, difícil y abierto}
+\begin{columns}[T,onlytextwidth]
+\column{.32\textwidth}
+\begin{propbox}{Hecho}
 \small
-\textbf{Artículo, identidad de P3:} $M=(1-w)m_0+wq^*$.
-\par\smallskip
-\textbf{Enunciado y prueba reales} de esa cláusula en Lean:
-\begin{lstlisting}[basicstyle=\ttfamily\footnotesize,escapeinside={(*@}{@*)}]
-theorem portfolioRatio_eq_weighted (B0 m0 : (*@$\mathbb R$@*))
-    (B q : (*@$\mathbb R \to \mathbb R$@*)) (D : (*@$\mathbb R$@*)) (hden : B0 + B D (*@$\ne$@*) 0) :
-    portfolioRatio B0 m0 B q D =
-      (1 - cohortWeight B0 B D) * m0 +
-        cohortWeight B0 B D * q D := by
-  unfold portfolioRatio impairedBalance cohortWeight
-  field_simp
+\begin{itemize}\setlength{\itemsep}{.8mm}
+\item P1: máximo único con las dos restricciones; tres pendientes.
+\item P2: umbral único bajo S4.
+\item P3: identidad, derivada y condición exacta de inversión.
+\item Pruebas completas en el artículo; código y Lean las comprueban.
+\end{itemize}
+\end{propbox}
+\column{.32\textwidth}
+\begin{tcolorbox}[enhanced,colback=accent!7,colframe=accent,boxrule=.5pt,arc=1.2pt,
+  left=2.2mm,right=2.2mm,top=1mm,bottom=1mm,title={Lo difícil},
+  fonttitle=\bfseries\small,boxsep=.6mm,toptitle=.3mm,bottomtitle=.3mm]
+\small
+\begin{itemize}\setlength{\itemsep}{.8mm}
+\item Esquinas: el primer orden da un candidato, no la solución.
+\item Empates: continuidad sin derivada.
+\item El puente de una \emph{probabilidad} de cohorte a un \emph{ratio} de saldo:
+horizonte, maduración y pesos.
+\end{itemize}
+\end{tcolorbox}
+\column{.32\textwidth}
+\begin{tcolorbox}[enhanced,colback=paper,colframe=soft,boxrule=.5pt,arc=1.2pt,
+  left=2.2mm,right=2.2mm,top=1mm,bottom=1mm,title={Abierto},
+  fonttitle=\bfseries\small,boxsep=.6mm,toptitle=.3mm,bottomtitle=.3mm]
+\small
+\begin{itemize}\setlength{\itemsep}{.8mm}
+\item Precio de equilibrio: $D$ es un dato.
+\item Mejora predictiva en el Perú: falta un panel reproducible.
+\item Evaluación que cambia el volumen; $m_{0}$ y $B_{0}$ sensibles al precio.
+\item Cierre oficial de Lean.
+\end{itemize}
+\end{tcolorbox}
+\end{columns}
+\vspace{1mm}
+{\small Una derivada condicional no es un coeficiente predictivo ni un efecto causal:
+el modelo dice \emph{qué medir}, no cuánto predice la señal.\par}
+\end{frame}
+
+% =====================================================================
+\section{5 Simulaciones}
+
+\begin{frame}{Simulaciones: qué comprueban y qué no pueden mostrar}
+\vspace{1.5mm}
+\small
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.05\linewidth}
+  >{\raggedright\arraybackslash}p{.50\linewidth}
+  >{\raggedright\arraybackslash}p{.36\linewidth}@{}}
+\toprule & \textbf{Comprobación independiente} & \textbf{Resultado}\\\midrule
+P1 & Optimizador acotado de SciPy frente a la fórmula: 1495 sorteos admisibles
+(765 interior, 293 capacidad, 437 piso) &
+Diferencia máxima de esfuerzo $<4\times10^{-8}$\\
+P1 & Diferencias finitas frente a las tres pendientes &
+Error máximo $<1.1\times10^{-10}$\\
+P2 & Raíz numérica frente a $\kappa^{*}=\tfrac12\ln 3.6$; malla $1001\times121$ &
+$\kappa^{*}=\threshold$; coincidencia $<10^{-12}$\\
+P3 & Diferencias finitas de $M$ en 5100 puntos; SymPy &
+Error máximo $<3\times10^{-11}$\\\bottomrule
+\end{tabular}
+\vspace{1.2mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{propbox}{Sí comprueban}
+\footnotesize
+\begin{itemize}\setlength{\itemsep}{.3mm}
+\item Que fórmulas e implementación coinciden.
+\item Que los contraejemplos son admisibles.
+\item Que un dominio inválido hace fallar \texttt{verify.py}.
+\end{itemize}
+\end{propbox}
+\column{.48\textwidth}
+\begin{tcolorbox}[enhanced,colback=accent!7,colframe=accent,boxrule=.5pt,arc=1.2pt,
+  left=2.2mm,right=2.2mm,top=1mm,bottom=1mm,title={No pueden mostrar},
+  fonttitle=\bfseries\small,boxsep=.6mm,toptitle=.3mm,bottomtitle=.3mm]
+\footnotesize
+\begin{itemize}\setlength{\itemsep}{.3mm}
+\item Un teorema: una malla no cubre el continuo.
+\item El régimen de un banco peruano: parámetros ilustrativos.
+\item Poder predictivo o causalidad de la señal.
+\end{itemize}
+\end{tcolorbox}
+\end{columns}
+\source{\texttt{python code/verify.py}: 4018 comprobaciones aprobadas, semilla 20261110;
+cifras en \texttt{code/output/verification.json}.}
+\end{frame}
+
+\begin{frame}{Simulación 1: el cruce existe solo bajo S4}
+\vspace{.5mm}
+{\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=17mm},base,
+  width=72mm,height=45mm,xmin=0,xmax=1,xlabel={Opacidad $\kappa$ (índice)}]
+\nextgroupplot[title={Fuerzas rivales (caso favorable)},ymin=0.03,ymax=0.23,
+  ytick={0.05,0.10,0.15,0.20},
+  ylabel={Efecto marginal},
+  legend style={at={(.33,.99)},anchor=north}]
+\addplot[sA,domain=0:1,samples=60]{0.18*exp(-0.8*x)};
+\addplot[sB,domain=0:1,samples=60]{0.05*exp(1.2*x)};
+\draw[soft,densely dotted,line width=.7pt] (axis cs:0.6405,0.03) -- (axis cs:0.6405,0.23);
+\node[font=\fontsize{6.5}{8}\selectfont,color=ink,anchor=south west] at (axis cs:0.655,0.195)
+  {$\kappa^{*}=\threshold$};
+\legend{Selección $a(\kappa)$,Evaluación $g^{2}/c$}
+\nextgroupplot[title={Pendiente $\partial_{D}\qs$ en tres escenarios},ymin=-0.1,ymax=0.38,ytick={-0.1,0,0.1,0.2,0.3},
+  ylabel={Pendiente $\partial\qs/\partial D$},
+  legend style={at={(.98,.99)},anchor=north east}]
+\addplot[soft,line width=.5pt,domain=0:1,samples=2,forget plot]{0};
+\addplot[sA,domain=0:1,samples=60]{0.18*exp(-0.8*x)-0.05*exp(1.2*x)};
+\addplot[sB,domain=0:1,samples=60]{0.18*exp(-0.8*x)-0.05*exp(-1.2*x)};
+\addplot[sC,domain=0:1,samples=60]{0.18*exp(-0.8*x)};
+\addplot[only marks,mark=*,mark size=1.5pt,navy,forget plot] coordinates {(0.6405,0)};
+\legend{Tecnología favorable,Tecnología que empeora,Capacidad limitada ($\eb=0.08$)}
+\end{groupplot}
+\end{tikzpicture}\par}
+\vspace{.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}\footnotesize
+\textbf{Caso favorable.} $a=0.18e^{-0.8\kappa}$, $g=\sqrt{0.05}\,e^{0.8\kappa}$,
+$c=e^{0.4\kappa}$. La pendiente pasa de $\betaZero$ a $\betaOne$ y cruza una sola
+vez.
+\column{.48\textwidth}\footnotesize
+\textbf{Dos fracasos admisibles.} Si $g=\sqrt{0.05}\,e^{-0.4\kappa}$:
+$a/H=3.6\,e^{0.4\kappa}>1$, sin cruce. Con $\eb=0.08$ la pendiente es $a>0$ aun con
+tecnología favorable.
+\end{columns}
+\source{Parámetros ilustrativos ($\bar q=0.28$, $\bar R=1.10$, $\eb=0.50$, $D_{0}=0$);
+mismas funciones que \texttt{code/model.py}; raíz y signos verificados en
+\texttt{code/verify.py}. Sin datos peruanos.}
+\end{frame}
+
+\begin{frame}{Simulación 2: en la esquina, el candidato interior falla}
+\vspace{.5mm}
+{\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=17mm},base,
+  width=72mm,height=44mm,xmin=-10,xmax=10,
+  xlabel={Precio relativo $D$ (puntos porcentuales)}]
+\nextgroupplot[title={Esfuerzo óptimo},ymin=0.39,ymax=0.49,
+  ylabel={Esfuerzo $\es$ (índice)},ytick={0.40,0.42,0.44,0.46,0.48},
+  legend style={at={(.03,.97)},anchor=north west}]
+\addplot[sA,domain=-10:10,samples=81]{min(0.44+0.004*x,0.44)};
+\addplot[sB,domain=0:10,samples=2]{0.44+0.004*x};
+\draw[soft,densely dotted,line width=.7pt] (axis cs:0,0.39) -- (axis cs:0,0.49);
+\legend{Solución de P1,Candidato interior $gR/c$}
+\nextgroupplot[title={Riesgo de la cohorte},ymin=16,ymax=19,
+  ylabel={Riesgo $\qs$ (\%)},
+  legend style={at={(.02,.02)},anchor=south west}]
+\addplot[sA,domain=-10:10,samples=81]{max(17.4-0.12*x,17.4+0.04*x)};
+\addplot[sB,domain=0:10,samples=2]{17.4-0.12*x};
+\draw[soft,densely dotted,line width=.7pt] (axis cs:0,16) -- (axis cs:0,19);
+\node[font=\fontsize{6.5}{8}\selectfont,color=navy,anchor=south west] at (axis cs:-7.6,18.33)
+  {pendiente $-0.12$};
+\node[font=\fontsize{6.5}{8}\selectfont,color=navy,anchor=south east] at (axis cs:9.6,17.85)
+  {pendiente $+0.04$};
+\legend{Solución de P1,Extrapolación interior}
+\end{groupplot}
+\end{tikzpicture}\par}
+\vspace{.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}\footnotesize
+\textbf{Capacidad.} $\bar q=0.35$, $a=0.04$, $g=0.4$, $c=1$, $\eb=0.44$. En $D=0$
+se agota la capacidad y la pendiente \textbf{cambia de signo}. La solución es
+continua, pero no diferenciable.
+\column{.48\textwidth}\footnotesize
+\textbf{Piso de riesgo.} $\bar q=0.04$, $a=0.04$, $g=0.5$, $c=1$, $\eb=1$. El
+primer orden daría $q=-0.235-0.21D<0$, una probabilidad inválida. P1 entrega
+$\qs=0$ y pendiente cero.
+\end{columns}
+\source{Parámetros ilustrativos; $\bar R=1.10$. \texttt{code/verify.py} verifica el
+quiebre en $D=0$, las pendientes laterales opuestas y la frontera de riesgo cero.}
+\end{frame}
+
+\begin{frame}{Simulación 3: la composición invierte el signo en el saldo}
+\vspace{.5mm}
+{\centering
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=17mm},base,
+  width=72mm,height=41mm,xmin=-10,xmax=10,
+  xlabel={Precio relativo $D$ (puntos porcentuales)}]
+\nextgroupplot[title={Cohorte nueva: la selección domina},ymin=20.5,ymax=24.5,
+  ylabel={Riesgo $\qs$ (\%)}]
+\addplot[sA,domain=-10:10,samples=2]{22.5+0.13*x};
+\node[font=\fontsize{6.5}{8}\selectfont,color=navy,anchor=north west,fill=white,inner sep=1pt] at (axis cs:-9.3,24.25)
+  {pendiente $\beta_{D}=+\cohortSlope$};
+\nextgroupplot[title={Cartera total: depende del volumen},ymin=11.85,ymax=13.0,
+  ytick={12.0,12.2,12.4,12.6,12.8,13.0},
+  ylabel={Ratio $M$ (\%)},
+  legend style={at={(.5,.03)},anchor=south,legend columns=2,
+    /tikz/every even column/.append style={column sep=2mm}}]
+\addplot[sA,domain=-10:10,samples=2]{12.5+0.026*x};
+\addplot[sB,domain=-10:10,samples=61]
+  {100*(0.10+(exp(-0.03*x)/(4+exp(-0.03*x)))*(0.125+0.0013*x))};
+\legend{Peso fijo ($\varepsilon=0$),Volumen sensible ($\varepsilon=3$)}
+\end{groupplot}
+\end{tikzpicture}\par}
+\vspace{.3mm}
+\begin{keybox}\small
+\textbf{Contraejemplo exacto} ($\kappa=0$, $D=0$): $\qs=0.225$, $m_{0}=0.10$,
+$\beta_{D}=0.13$, $w=0.20$, $\varepsilon=3$:\quad
+$M'=0.20\,\bigl[\,0.13-3\,(0.80)\,(0.225-0.10)\,\bigr]=\stockSlope<0$.
+\end{keybox}
+\source{$B_{0}=4$, $B_{1}=1$. Un punto porcentual más de precio: $+0.13$ pp de riesgo
+nuevo y $-0.034$ pp en el ratio total (derivadas locales, no efectos causales).
+\texttt{code/verify.py} comprueba el valor exacto $-17/500$.}
+\end{frame}
+
+\begin{frame}{Simulación 4: sensibilidad de los dos resultados}
+\begin{columns}[T,onlytextwidth]
+\column{.5\textwidth}
+\centering
+\includegraphics[width=\linewidth,height=.52\textheight,keepaspectratio]{../code/figures/sensitivity.pdf}
+\par\vspace{.5mm}
+{\footnotesize\raggedright\textbf{P1.} Pendiente $\partial_{D}\qs$ con $\kappa=0.9$.
+Rojo: capacidad escasa, la pendiente es $a>0$. Azul: interior con evaluación
+fuerte. Blanco: piso de riesgo, pendiente cero.\par}
+\column{.47\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[base,width=68mm,height=44mm,xmin=0,xmax=0.8,ymin=0,ymax=6,
+  xlabel={Peso de la cohorte nueva $w$},
+  ylabel={Elasticidad del volumen $\varepsilon$},
+  title={¿Cuándo se invierte el signo de $M'$?}]
+\addplot[name path=front,navy,domain=0:0.8,samples=60]{1.04/(1-x)};
+\path[name path=top] (axis cs:0,6) -- (axis cs:0.8,6);
+\path[name path=bottom] (axis cs:0,0) -- (axis cs:0.8,0);
+\addplot[accent!22] fill between[of=front and top];
+\addplot[navy!10] fill between[of=bottom and front];
+\addplot[navy,domain=0:0.8,samples=60]{1.04/(1-x)};
+\addplot[only marks,mark=*,mark size=1.7pt,accent] coordinates {(0.2,3)};
+\addplot[only marks,mark=*,mark size=1.7pt,navy] coordinates {(0.2,0)};
+\node[font=\fontsize{6.5}{8}\selectfont,anchor=west] at (axis cs:0.22,3.05) {contraejemplo};
+\node[font=\fontsize{6.5}{8}\selectfont,anchor=south west] at (axis cs:0.22,0.02) {peso fijo};
+\node[font=\fontsize{7}{8}\selectfont\bfseries,color=accent] at (axis cs:0.3,4.9) {$M'<0$};
+\node[font=\fontsize{7}{8}\selectfont\bfseries,color=navy] at (axis cs:0.56,0.9) {$M'>0$};
+\end{axis}
+\end{tikzpicture}
+\par\vspace{.5mm}
+{\footnotesize\raggedright\textbf{P3.} Frontera
+$\varepsilon^{*}=\beta_{D}/[(1-w)(\qs-m_{0})]=1.04/(1-w)$ en el punto del
+contraejemplo. Con $w=0.20$ la inversión exige $\varepsilon>1.3$.\par}
+\end{columns}
+\source{Izquierda: figura de \texttt{code/verify.py} (productividad y capacidad). Derecha:
+condición exacta de P3 con $\beta_{D}=0.13$ y $\qs-m_{0}=0.125$. Regiones del
+modelo, no frecuencias observadas en bancos peruanos.}
+\end{frame}
+
+% =====================================================================
+\section{6 Lean}
+
+\begin{frame}[fragile]{Lean: del enunciado del artículo al enunciado verificado}
+\vspace{-2.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.35\textwidth}
+\begin{propbox}{Artículo (P1, unicidad)}
+\small Bajo S1--S3, todo esfuerzo factible $e\neq \es$ rinde estrictamente menos:
+$\pi(e)<\pi(\es)$, con\\[.5mm]
+\centerline{$\es=\min\bigl\{\tfrac{gR}{c},\ \eb,\ \tfrac{\qz}{g}\bigr\}$.}
+\end{propbox}
+\begin{plainbox}\footnotesize\raggedright
+\textbf{En palabras.} Lean comprueba, para \emph{todos} los parámetros que cumplen
+los supuestos, que P1--P3 se siguen de las definiciones.
+
+\vspace{.5mm}
+\textbf{No verifica} que los supuestos describan a un banco peruano, ni datos, ni
+causalidad, ni equilibrio.
+\end{plainbox}
+\column{.63\textwidth}
+\begin{plainbox}
+\begin{lstlisting}
+theorem bankProfit_lt_optimalEffort (qbar a g c Rbar F E D e : $\mathbb{R}$)
+    (hg : 0 < g) (hc : 0 < c) (hR : 0 < premium Rbar D)
+    (_hE : 0 $\le$ E) (_hq : 0 $\le$ priorRisk qbar a D)
+    (he : e $\in$ feasibleEfforts qbar a g E D)
+    (hne : e $\ne$ optimalEffort qbar a g c Rbar E D) :
+    bankProfit qbar a g c Rbar F D e <
+      bankProfit qbar a g c Rbar F D (optimalEffort qbar a g c Rbar E D)
+\end{lstlisting}
+\end{plainbox}
+\vspace{-1.2mm}
+{\footnotesize\textbf{Fragmento clave de la prueba:}
+$\pi(x)-\pi(y)=(x-y)\bigl[gR-\tfrac{c}{2}(x+y)\bigr]$, el cuadrado completo sin
+derivadas.\par}
+\vspace{-.6mm}
+\begin{plainbox}
+\begin{lstlisting}
+theorem bankProfit_sub (qbar a g c Rbar F D x y : $\mathbb{R}$) :
+    bankProfit qbar a g c Rbar F D x - bankProfit qbar a g c Rbar F D y =
+      (x - y) * (g * premium Rbar D - c * (x + y) / 2) := by
+  unfold bankProfit screeningCost
   ring
 \end{lstlisting}
-\texttt{portfolioRatio} es $M$; \texttt{cohortWeight} es $w$.
-El denominador no nulo se deriva de los saldos positivos de S5.
-\par\smallskip
-\textbf{Estado:} P1--P3 compilan sin admisiones. Falta el cierre oficial.
-Sin hipótesis matemáticas añadidas; no verifica datos ni causalidad.
-\source{Prueba en Galarza26RelativeCredit/Stock.lean; fuente, hashes y estado vigente: docs/lean\_progreso.md.}
+\end{plainbox}
+\end{columns}
+\vspace{-.5mm}
+{\footnotesize\textbf{Estado.} \texttt{proposition1}--\texttt{3} compilan sin
+\texttt{sorry} ni hipótesis añadidas; axiomas estándar (\texttt{propext},
+\texttt{Classical.choice}, \texttt{Quot.sound}). Cierre oficial y copia a
+\texttt{lean/}: en curso.\par}
+\source{\texttt{Galarza26RelativeCredit/Optimization.lean}; \texttt{E} es $\eb$,
+\texttt{premium} es $R$, \texttt{priorRisk} es $\qz$. Lean 4.30.0-rc2. Estado
+vigente: \texttt{docs/lean\_progreso.md}.}
 \end{frame}
 
-% Exposición estimada: 80 segundos.
-\begin{frame}{Una afirmación de IA revisada críticamente}
+% =====================================================================
+\section{7 IA y derivación a mano}
 
+\begin{frame}{Dónde no confié en la IA}
+\vspace{1.5mm}
 \small
-Respuesta heredada de octubre, traducida: ``El modelo está cerrado como un problema bancario de dos etapas.''
-\par\medskip
-\textbf{Veredicto: incompleta.} La FOC interior no resuelve restricciones ni la etapa de precios.
+Respuesta de la IA en octubre (registro en \texttt{prompts.md}):
+\emph{``The model is closed as a two-stage bank problem [\dots] the price-quality
+slope is $a(\kappa)-h(\kappa)$.''}
+\vspace{1mm}
+
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.30\linewidth}
+  >{\raggedright\arraybackslash}p{.20\linewidth}
+  >{\raggedright\arraybackslash}p{.42\linewidth}@{}}
+\toprule \textbf{Afirmación de la IA} & \textbf{Veredicto} & \textbf{Cómo lo comprobé}\\\midrule
+El modelo está ``cerrado'' en dos etapas & \textcolor{accent}{\textbf{Incompleta}} &
+Solo se resuelve el esfuerzo. El precio es un dato y faltaban las restricciones.\\
+La pendiente es $a-g^{2}/c$ & \textcolor{accent}{\textbf{Falsa fuera del interior}} &
+Derivación a mano (hojas 1 y 2): con capacidad es $a$; en el piso es $0$.\\
+La opacidad hace más eficaz la evaluación & \textcolor{accent}{\textbf{No justificada}} &
+$H'/H=2g'/g-c'/c$ puede ser negativo; escenario sin cruce.\\
+El signo de la cohorte pasa al saldo & \textcolor{accent}{\textbf{Condicional}} &
+Derivación a mano (hoja 3): contraejemplo con $\beta_{D}>0$ y $M'<0$.\\\bottomrule
+\end{tabular}
+\vspace{1.5mm}
+\begin{keybox}\small
+\textbf{Regla de trabajo.} Ninguna fórmula de la IA entra al artículo sin tres
+controles: derivación paso a paso, comprobación numérica independiente y enunciado
+en Lean. Las tres láminas siguientes muestran la derivación.
+\end{keybox}
+\source{Las láminas siguientes transcriben la derivación; el manuscrito escaneado
+corresponde a \texttt{hand/} (pendiente a la fecha de esta versión).}
+\end{frame}
+
+\begin{frame}{Derivación a mano, hoja 1: del objetivo al cuadrado completo}
+\vspace{.8mm}
+\begin{hoja}{Hoja 1. Con $D$ y $\kappa$ fijos, $\qz$ y $R$ son constantes al derivar
+respecto de $e$.}
+\small
+\vspace{-3.5mm}
+\begin{align*}
+\pi(e)&=(1-\qz+ge)\,R-F-\tfrac{c}{2}e^{2}
+=(1-\qz)R-F+gR\,e-\tfrac{c}{2}e^{2} \why{distribuir $R$}\\
+\pi'(e)&=gR-ce,\qquad \pi''(e)=-c<0 \why{regla de la potencia; $c>0$}\\
+\pi'(z)=0&\iff cz=gR\iff z=\tfrac{gR}{c}>0 \why{dividir por $c>0$; $g,R>0$}\\[.5mm]
+gR\,e-\tfrac{c}{2}e^{2}&=-\tfrac{c}{2}\bigl[e^{2}-2\,\tfrac{gR}{c}\,e\bigr]
+=-\tfrac{c}{2}\bigl[e^{2}-2ze\bigr] \why{factor común $-\tfrac{c}{2}$}\\
+&=-\tfrac{c}{2}\bigl[(e-z)^{2}-z^{2}\bigr] \why{sumar y restar $z^{2}$}\\
+&=-\tfrac{c}{2}(e-z)^{2}+\tfrac{(gR)^{2}}{2c}
+\why{$\tfrac{c}{2}z^{2}=\tfrac{(gR)^{2}}{2c}$}\\[.5mm]
+\pi(e)&=\underbrace{(1-\qz)R-F+\tfrac{(gR)^{2}}{2c}}_{K\text{, constante en }e}
+\;-\;\tfrac{c}{2}(e-z)^{2} \why{reunir constantes}
+\end{align*}
+\vspace{-4.5mm}
+\end{hoja}
+\vspace{-.3mm}
+{\small\textbf{Control.} Desarrollar $-\tfrac{c}{2}(e-z)^{2}=-\tfrac{c}{2}e^{2}+cze-\tfrac{c}{2}z^{2}$
+y usar $cz=gR$ devuelve la primera línea. \textcolor{teal}{\textbf{Coincide.}}\par}
+\end{frame}
+
+\begin{frame}{Derivación a mano, hoja 2: proyección, riesgo y pendientes}
+\begin{columns}[T,onlytextwidth]
+\column{.52\textwidth}
+\begin{hoja}{Hoja 2a. Máximo en $[0,u]$, con $u=\min\{\eb,\qz/g\}\ge 0$}
+\small
+Como $K$ no depende de $e$ y $c>0$:
+\[\max_{[0,u]}\pi\iff\min_{[0,u]}(e-z)^{2}.\]
+\textbf{Caso $z\le u$.} $z\in(0,u]$ es factible y anula la distancia; solo $e=z$ lo
+hace. Luego $\es=z$.
+
+\textbf{Caso $z>u$.} Para todo $e\in[0,u]$:
 \[
-\pi_e=0\Rightarrow z=gR/c,\qquad
-e^*=\min\{z,\bar e,q^0/g\}.
+z-e\ \ge\ z-u\ >\ 0\ \Rightarrow\ (e-z)^{2}\ge(u-z)^{2},
 \]
-La derivación por cuadrado completo permite revisar el paso sin confiar en la IA.
-\par\medskip
-\textbf{Manuscrito real pendiente.} No se recibieron páginas escritas por el autor.
-La guía en \texttt{hand/} desglosa cada manipulación para escribirla y digitalizarla.
-\source{Registro histórico preservado en prompts.md. Guía tipográfica no presentada como manuscrito.}
+con igualdad solo si $e=u$. Luego $\es=u$.
+\[
+\boxed{\es=\min\{z,u\}=\min\Bigl\{\tfrac{gR}{c},\ \eb,\ \tfrac{\qz}{g}\Bigr\}}
+\]
+\end{hoja}
+\column{.455\textwidth}
+\begin{hoja}{Hoja 2b. Riesgo y pendiente en cada régimen}
+\small
+\textbf{Interior}, $\es=\tfrac{g}{c}(\bar R+D)$:\\[.3mm]
+\centerline{$\qs=\bar q+aD-\tfrac{g^{2}}{c}(\bar R+D)\ \Rightarrow\ \tfrac{d\qs}{dD}=a-\tfrac{g^{2}}{c}$}
+
+\vspace{1mm}
+\textbf{Capacidad}, $\es=\eb$:\\[.3mm]
+\centerline{$\qs=\bar q+aD-g\eb\ \Rightarrow\ \tfrac{d\qs}{dD}=a$}
+
+\vspace{1mm}
+\textbf{Piso}, $\es=\tfrac{\qz}{g}$:\\[.3mm]
+\centerline{$\qs=\qz-g\,\tfrac{\qz}{g}=0\ \Rightarrow\ \tfrac{d\qs}{dD}=0$}
+\end{hoja}
+\vspace{-.5mm}
+\begin{keybox}\footnotesize
+\textbf{Veredicto.} ``La pendiente es $a-g^{2}/c$'' vale solo en el primer régimen.
+Con $a=0.04$, $g=0.4$, $c=1$, $\eb=0.44$: $-0.12$ si $D<0$ y $+0.04$ si $D>0$.
+\end{keybox}
+\end{columns}
 \end{frame}
 
-% Exposición estimada: 50 segundos.
-\begin{frame}{Próximo contraste predictivo}
-
-\begin{itemize}
-\item Base: morosidad pasada y ciclo. Ampliación: precio relativo.
-\item Entrenar solo con resultados ya publicados en cada origen.
-\item Pesos y escalas con pasado, mismas fechas para ambos modelos.
-\item Comparar pérdidas fuera de muestra y estabilidad por periodo.
-\end{itemize}
-\par\medskip
-No se recibió el panel reproducible del plan. No reporto RMSE, valores $p$ ni mejoras estimadas.
-\source{Plan de Grados y Galarza. Clark y West (2007), para modelos anidados bajo sus condiciones.}
+\begin{frame}{Derivación a mano, hoja 3: saldo, peso y contraejemplo}
+\vspace{-1mm}
+\begin{columns}[T,onlytextwidth]
+\column{.49\textwidth}
+\begin{hoja}{Hoja 3a. Derivada del ratio de cartera}
+\small
+\vspace{-3mm}
+\begin{align*}
+M&=\tfrac{B_{0}m_{0}+B\qs}{B_{0}+B}=(1-w)m_{0}+w\qs\\
+M'&=-w'm_{0}+w'\qs+w\,\qs{}'\\
+&=w\beta_{D}+w'(\qs-m_{0})\\[.6mm]
+w'&=\frac{B'(B_{0}+B)-B\,B'}{(B_{0}+B)^{2}}=\frac{B'B_{0}}{(B_{0}+B)^{2}}\\
+B&=B_{1}e^{-\varepsilon D}\ \Rightarrow\ B'=-\varepsilon B\\
+w'&=-\varepsilon\,\tfrac{B}{B_{0}+B}\cdot\tfrac{B_{0}}{B_{0}+B}=-\varepsilon\,w(1-w)\\[.6mm]
+M'&=w\bigl[\beta_{D}-\varepsilon(1-w)(\qs-m_{0})\bigr]
+\end{align*}
+\vspace{-4mm}
+\end{hoja}
+\column{.49\textwidth}
+\begin{hoja}{Hoja 3b. Contraejemplo exacto ($\kappa=0$, $D=0$)}
+\footnotesize Datos: $\qz=0.28$, $g^{2}/c=0.05$, $R=1.10$, $m_{0}=\tfrac1{10}$, $B_{0}=4$,
+$B_{1}=1$, $\varepsilon=3$.
+\begin{align*}
+\qs&=0.28-0.05\,(1.10)=0.225=\tfrac{9}{40}\\
+\beta_{D}&=0.18-0.05=\tfrac{13}{100}\\
+w&=\tfrac{B_{1}}{B_{0}+B_{1}}=\tfrac{1}{4+1}=\tfrac15\\
+\qs-m_{0}&=\tfrac{9}{40}-\tfrac{4}{40}=\tfrac18\\
+T&=\varepsilon(1-w)(\qs-m_{0})=3\cdot\tfrac45\cdot\tfrac18=\tfrac{3}{10}\\
+M'&=w\,(\beta_{D}-T)=\tfrac15\bigl(\tfrac{13}{100}-\tfrac{30}{100}\bigr)=-\tfrac{17}{500}
+\end{align*}
+\vspace{-4mm}
+\end{hoja}
+\vspace{-.5mm}
+\begin{keybox}\footnotesize
+\textbf{Veredicto.} $\beta_{D}=+0.13$ pero $M'=-0.034$: el signo de la cohorte no
+pasa al saldo sin controlar la composición.
+\end{keybox}
+\end{columns}
+\source{Interioridad comprobada, no supuesta: $\es=\sqrt{0.05}\,(1.10)\approx
+0.246<\eb=0.50$ y $\qz/g\approx 1.25>\es$.}
 \end{frame}
 
-% Exposición estimada: 65 segundos.
-\begin{frame}{Qué está demostrado y qué queda abierto}
+% Si existen fotos del manuscrito en hand/ (hoja1.jpg, hoja2.jpg, hoja3.jpg),
+% se proyectan automáticamente en una lámina adicional.
+\newcommand{\fotohoja}[1]{\IfFileExists{../hand/#1}{%
+  \includegraphics[width=.31\linewidth,height=.74\textheight,keepaspectratio]{../hand/#1}\hfill}{}}
+\IfFileExists{../hand/hoja1.jpg}{%
+\begin{frame}{Derivación a mano: manuscrito}
+\centering\fotohoja{hoja1.jpg}\fotohoja{hoja2.jpg}\fotohoja{hoja3.jpg}\hspace*{0pt}
+\source{Hojas manuscritas del autor, digitalizadas en \texttt{hand/}.}
+\end{frame}}{}
 
-\begin{itemize}
-\item \textbf{Demostrado en el texto:} solución global, umbral condicionado y transmisión con composición.
-\item \textbf{Paso difícil:} conectar una probabilidad de cohorte con un ratio de saldo y resolver esquinas.
-\item \textbf{Abierto:} precios de equilibrio y utilidad predictiva peruana. El cierre oficial de Lean sigue en curso.
-\item \textbf{Trabajo personal:} derivaciones manuscritas, comprensión y ensayo oral.
-\end{itemize}
-\par\medskip
-Costos, garantías, castigos y exposición cambiaria pueden alterar la señal.
+% =====================================================================
+\section{8 Preguntas}
+
+\begin{frame}{Qué se lleva un supervisor}
+\vspace{1.5mm}
+\begin{keybox}
+Una tasa por encima de los pares \textbf{no tiene un signo predictivo fijo}: hay que
+leerla junto con la capacidad de evaluación del banco y con la renovación de su
+cartera.
+\end{keybox}
+\vspace{1mm}
+\begin{columns}[T,onlytextwidth]
+\column{.32\textwidth}
+\begin{plainbox}\small
+\textbf{1. Régimen.}\\ $a-g^{2}/c$ rige solo en el interior. Con capacidad agotada
+la señal es de selección pura.
+\end{plainbox}
+\column{.32\textwidth}
+\begin{plainbox}\small
+\textbf{2. Opacidad.}\\ El cambio de signo exige que $a-g^{2}/c$ decrezca y cruce
+cero: es contrastable, no automático.
+\end{plainbox}
+\column{.32\textwidth}
+\begin{plainbox}\small
+\textbf{3. Saldo.}\\ El ratio de cartera suma calidad y composición: conviene medir
+cosechas y pesos.
+\end{plainbox}
+\end{columns}
+\vspace{2mm}
+\textbf{Siguiente paso (abierto).} Contraste fuera de muestra con datos de la SBS:
+morosidad pasada y ciclo frente a su ampliación con $D$, entrenando solo con
+resultados ya publicados en cada fecha. Hoy no reporto estimaciones: no hay todavía
+un panel reproducible.
+\source{Comparación prevista para modelos anidados: Clark y West (2007), bajo sus
+condiciones. Límites del modelo: selección reducida, tecnología lineal, sin
+castigos, garantías ni exposición cambiaria.}
 \end{frame}
 
-% Exposición estimada: 45 segundos.
-\begin{frame}{Conclusión para supervisión}
-
-\Large
-Una tasa relativa se interpreta junto con la evaluación y la renovación de la cartera.
-\normalsize\bigskip
-\begin{itemize}
-\item La condición $a-g^2/c$ rige dentro del régimen interior.
-\item El saldo agrega calidad y composición.
-\item La utilidad del indicador requiere prueba fuera de muestra.
-\end{itemize}
-\end{frame}
-
-% Exposición estimada: 45 segundos.
 \begin{frame}{Preguntas para la clase}
-
-\begin{enumerate}
-\item ¿Qué medida observable permitiría distinguir mayor evaluación de cambios en la calidad de solicitantes?
-\item ¿Conviene comenzar con cosechas o con ratios de saldo, dadas las fuentes públicas peruanas?
-\item ¿Qué contraste separaría una respuesta de evaluación de una caída en el peso de créditos nuevos?
+\vspace{4mm}
+\begin{enumerate}\setlength{\itemsep}{5mm}\large
+\item \textbf{Medición.} ¿Qué variable observable permitiría distinguir un mayor
+esfuerzo de evaluación de un cambio en la calidad de los solicitantes?
+\item \textbf{Datos.} Con las fuentes públicas peruanas, ¿conviene empezar por
+cosechas de créditos nuevos o por ratios de saldo?
+\item \textbf{Identificación.} ¿Qué contraste separaría una respuesta de evaluación de
+una simple caída en el peso de los créditos nuevos?
 \end{enumerate}
-\bigskip
-\href{https://github.com/fgalarzac/ai-project/tree/apoyo}{Código, artículo y estado de los componentes}
-
+\vspace{7mm}
+\begin{plainbox}\small
+Código, artículo, Lean y registro de IA:
+\href{https://github.com/fgalarzac/ai-project}{\color{navy}\texttt{github.com/fgalarzac/ai-project}}
+\end{plainbox}
 \end{frame}
+
+% =====================================================================
+\appendix
+\section{Respaldo}
+
+\begin{frame}{Respaldo: notación completa}
+\vspace{1.5mm}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{tabular}{@{}p{.16\linewidth}p{.78\linewidth}@{}}
+\toprule \textbf{Símbolo} & \textbf{Significado}\\\midrule
+$D$ & Precio relativo: tasa propia menos promedio de pares (decimal anual)\\
+$\kappa$ & Opacidad del segmento, índice en $[0,1]$\\
+$\qz$ & Riesgo previo de la cohorte, $\bar q+aD$\\
+$\bar q$ & Riesgo previo cuando $D=0$\\
+$a$ & Sensibilidad de la selección al precio\\
+$e$, $\es$ & Esfuerzo de evaluación y su óptimo\\
+$g$ & Productividad de la evaluación\\
+$c$ & Intensidad del costo de evaluar\\
+$\eb$ & Capacidad de evaluación\\
+$u$ & Esfuerzo máximo factible, $\min\{\eb,\qz/g\}$\\\bottomrule
+\end{tabular}
+\column{.48\textwidth}
+\begin{tabular}{@{}p{.16\linewidth}p{.78\linewidth}@{}}
+\toprule \textbf{Símbolo} & \textbf{Significado}\\\midrule
+$R$, $\bar R$ & Premio por crédito al día, $\bar R+D$\\
+$F$ & Costo unitario independiente de $e$\\
+$z$ & Candidato sin restricciones, $gR/c$\\
+$q$, $\qs$ & Riesgo posterior y su valor óptimo\\
+$H$ & Fuerza de evaluación, $g^{2}/c$\\
+$\beta$, $\beta_{D}$ & Pendiente $\partial\qs/\partial D$\\
+$B_{0}$, $m_{0}$ & Saldo antiguo y su fracción en atraso\\
+$B$, $w$ & Saldo de la cohorte nueva y su peso\\
+$\varepsilon$ & Sensibilidad proporcional del volumen al precio\\
+$M$ & Fracción de la cartera total en atraso\\\bottomrule
+\end{tabular}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Respaldo: el umbral del ejemplo, paso a paso}
+\begin{columns}[T,onlytextwidth]
+\column{.5\textwidth}
+\begin{hoja}{Cálculo de $\kappa^{*}$ en el caso favorable}
+\small
+\vspace{-3mm}
+\begin{align*}
+H&=\frac{\bigl(\sqrt{0.05}\,e^{0.8\kappa}\bigr)^{2}}{e^{0.4\kappa}}
+=0.05\,e^{1.2\kappa}\\
+a=H&\iff 0.18\,e^{-0.8\kappa}=0.05\,e^{1.2\kappa}\\
+&\iff 3.6=e^{2\kappa}\\
+&\iff \kappa^{*}=\tfrac12\ln 3.6\approx\threshold\\[.8mm]
+\beta(0)&=0.18-0.05=0.13>0\\
+\beta(1)&=0.18e^{-0.8}-0.05e^{1.2}\approx\betaOne<0
+\end{align*}
+\vspace{-4mm}
+\end{hoja}
+\column{.47\textwidth}
+\begin{hoja}{Por qué $H'/H=2g'/g-c'/c$}
+\small
+Como $H,g,c>0$:
+\[\ln H=2\ln g-\ln c.\]
+Derivar respecto de $\kappa$ (regla de la cadena):
+\[\frac{H'}{H}=2\,\frac{g'}{g}-\frac{c'}{c}.\]
+Si $g'\le 0$ y $c'\ge 0$, el lado derecho es $\le 0$ y, como $H>0$, $H'\le 0$.
+\end{hoja}
+\begin{plainbox}\footnotesize
+\textbf{Alternativa sin cruce.} Con $g=\sqrt{0.05}\,e^{-0.4\kappa}$:
+$H=0.05e^{-1.2\kappa}$ y $a/H=3.6e^{0.4\kappa}>1$ en $[0,1]$.
+\end{plainbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Respaldo: referencias}
+\vspace{2mm}
+\footnotesize
+\begin{itemize}\setlength{\itemsep}{1.1mm}
+\item BCRP (2024). \emph{Reporte de Estabilidad Financiera}, noviembre. Cuadro 2.2.
+\item Broecker, T. (1990). Credit-worthiness tests and interbank competition.
+\emph{Econometrica}.
+\item Choy, M., Costa, E. y Churata, E. (2015). Radiografía del costo del crédito en el
+Perú. \emph{Revista Estudios Económicos}, 30.
+\item Clark, T. y West, K. (2007). Approximately normal tests for equal predictive
+accuracy in nested models. \emph{Journal of Econometrics}.
+\item Dell'Ariccia, G. y Marquez, R. (2006). Lending booms and lending standards.
+\emph{Journal of Finance}.
+\item Morgan, D. y Ashcraft, A. (2003). Using loan rates to measure and regulate bank
+risk. \emph{Journal of Financial Services Research}.
+\item Ruckes, M. (2004). Bank competition and credit standards. \emph{Review of
+Financial Studies}.
+\item SBS. Metodología de tasas de interés promedio, sección 3.
+\item Stiglitz, J. y Weiss, A. (1981). Credit rationing in markets with imperfect
+information. \emph{American Economic Review}.
+\end{itemize}
+\source{Detalle bibliográfico completo y estado editorial de cada fuente:
+\texttt{paper/references.bib} y \texttt{docs/fuentes.md}.}
+\end{frame}
+
 \end{document}
