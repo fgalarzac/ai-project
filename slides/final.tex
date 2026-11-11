@@ -116,54 +116,21 @@ Presentación final \,\textbullet\, 11 de noviembre de 2026\par}
 % =====================================================================
 \section{1 Pregunta}
 
-\begin{frame}{La pregunta y el resultado en una frase}
-\vspace{1mm}
-\textbf{Pregunta.} Si un banco cobra por sus créditos nuevos una tasa mayor que la de
-sus pares, ¿anticipa eso mayor morosidad?
-\vspace{.5mm}
-\begin{keybox}
-\textbf{Resultado.} En el \emph{régimen interior} del problema del banco (S1--S3), el
-riesgo de la cohorte nueva sube con el precio relativo $D$ \emph{si y solo si} la
-selección adversa supera a la evaluación:
-\[
-\frac{\partial \qs}{\partial D}=a-\frac{g^{2}}{c}>0\iff a>\frac{g^{2}}{c}.
-\]
-\vspace{-3mm}
-\end{keybox}
-\begin{columns}[T,onlytextwidth]
-\column{.32\textwidth}
-\begin{plainbox}\small\textbf{P1. Restricciones.}\\
-Con capacidad agotada la pendiente es $a$; en el piso de riesgo es $0$.
-\end{plainbox}
-\column{.32\textwidth}
-\begin{plainbox}\small\textbf{P2. Opacidad.}\\
-Hay un umbral único $\kappa^{*}$ solo si $a-g^{2}/c$ decrece y cruza cero.
-\end{plainbox}
-\column{.32\textwidth}
-\begin{plainbox}\small\textbf{P3. Saldo.}\\
-En el ratio de cartera, la composición puede invertir el signo.
-\end{plainbox}
-\end{columns}
-\source{$a$: sensibilidad de la selección al precio; $g$: productividad de evaluar;
-$c$: costo de evaluar. Modelo condicionado en el precio: la mejora predictiva en el
-Perú queda abierta.}
-\end{frame}
-
-\begin{frame}{Por qué importa: la señal llega antes que el atraso}
+\begin{frame}{El tema: ¿avisa el precio del crédito antes que la mora?}
 \begin{columns}[T,onlytextwidth]
 \column{.43\textwidth}
-\begin{itemize}\setlength{\itemsep}{1.4mm}
-\item El supervisor observa el \textbf{precio} de los créditos nuevos antes de conocer
-su desempeño.
-\item Una señal temprana permitiría priorizar qué carteras revisar.
-\item Pero la tasa mezcla riesgo con fondeo, costos operativos y margen.
-\item Y el ratio de morosidad mezcla créditos de distintas edades.
+\vspace{1.5mm}
+{\small Un banco fija \textbf{hoy} la tasa de sus créditos nuevos. Cómo se comportan
+se sabe \textbf{meses después}, cuando el atraso ya está en el balance.\par}
+\vspace{.8mm}
+\begin{itemize}\setlength{\itemsep}{.8mm}\small
+\item Si la tasa ya informa sobre el riesgo, el supervisor tendría una \textbf{señal
+temprana} para decidir qué carteras revisar primero.
+\item Dificultad 1: la tasa mezcla riesgo con fondeo, costos y margen.
+\item Dificultad 2: el ratio de morosidad mezcla créditos de distintas edades.
+\item La calidad difiere mucho entre segmentos (gráfico): hay que comparar dentro de
+\textbf{celdas homogéneas}.
 \end{itemize}
-\vspace{1mm}
-\begin{plainbox}\small
-La calidad difiere entre segmentos: comparar exige \textbf{celdas homogéneas} y
-un único evento de atraso.
-\end{plainbox}
 \column{.54\textwidth}
 \centering
 \begin{tikzpicture}
@@ -193,22 +160,95 @@ múltiple. CAR: vencidos, cobranza judicial, refinanciados y reestructurados. Mo
 el modelo; no valida sus parámetros.}
 \end{frame}
 
-\begin{frame}{La señal: precio relativo frente a los pares}
+\begin{frame}{Qué se quiere investigar}
+\vspace{1mm}
+\textbf{Pregunta de la tesis.} ¿La brecha de tasas frente a bancos pares mejora el
+pronóstico de la morosidad de la banca múltiple peruana?
+
+\vspace{1mm}
+\textbf{Pregunta de este trabajo (Línea B).} Antes de estimar hace falta un modelo
+que diga \emph{qué signo esperar y bajo qué condiciones}: ¿cuándo una tasa por encima
+de los pares anticipa más morosidad y cuándo menos?
+\vspace{1mm}
+
+{\small\textbf{El signo no es obvio, porque un precio más alto hace tres cosas a la vez:}\par}
+\vspace{-.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.32\textwidth}
+\begin{plainbox}\small
+\textbf{Atrae peores clientes.}\\ Los buenos se van a otro banco: \emph{sube} el riesgo.
+\end{plainbox}
+\column{.32\textwidth}
+\begin{plainbox}\small
+\textbf{Hace rentable evaluar.}\\ Un crédito al día paga más: \emph{baja} el riesgo.
+\end{plainbox}
+\column{.32\textwidth}
+\begin{plainbox}\small
+\textbf{Reduce lo nuevo.}\\ Pesan menos los créditos recientes: cambia el ratio total.
+\end{plainbox}
+\end{columns}
+\begin{keybox}\small
+\textbf{Qué entrega el trabajo.} Un modelo de la decisión del banco con tres
+resultados demostrados (P1--P3), simulaciones que los comprueban y su verificación
+en Lean. \textbf{Qué no entrega:} una estimación con datos peruanos ni un equilibrio
+de precios.
+\end{keybox}
+\end{frame}
+
+\begin{frame}{La pregunta y el resultado en una frase}
+\vspace{1mm}
+\textbf{Pregunta.} Si un banco cobra por sus créditos nuevos una tasa mayor que la de
+sus pares, ¿anticipa eso mayor morosidad?
+\begin{keybox}
+\textbf{Resultado en una frase.} Solo cuando el efecto de \emph{atraer peores
+solicitantes} supera al de \emph{evaluar mejor}, y solo si el banco no está limitado
+por su capacidad de evaluación ni ha llevado ya el riesgo a cero.
+\end{keybox}
+\begin{columns}[T,onlytextwidth]
+\column{.56\textwidth}
+\small\textbf{Las mismas palabras, en símbolos:}
+\begin{itemize}\setlength{\itemsep}{.4mm}
+\item $D$: precio relativo (tasa propia menos promedio de pares).
+\item $\qs$: riesgo de los créditos nuevos, ya decidida la evaluación.
+\item $a$: cuánto empeoran los solicitantes al subir el precio.
+\item $g^{2}/c$: cuánto riesgo quita la evaluación que ese precio induce ($g$:
+productividad de evaluar; $c$: su costo).
+\end{itemize}
+\column{.41\textwidth}
+\begin{propbox}{Condición (régimen interior, S1--S3)}
+\[
+\frac{\partial \qs}{\partial D}=a-\frac{g^{2}}{c}>0\iff a>\frac{g^{2}}{c}
+\]
+\end{propbox}
+{\footnotesize Después se demuestran dos matices: con capacidad agotada o riesgo cero
+la regla cambia (P1), y en el ratio de toda la cartera la composición puede invertir
+el signo (P3).\par}
+\end{columns}
+\end{frame}
+
+\begin{frame}{La señal: cómo se construye el precio relativo}
 \vspace{1.3mm}
 \begin{columns}[T,onlytextwidth]
 \column{.55\textwidth}
-Banco $j$, celda $s$ (tipo de crédito, tramo y moneda), fecha $t$:
+\small
+\textbf{Paso 1. La tasa del banco.} $i_{jst}$: tasa efectiva anual del banco $j$
+en la celda $s$ (tipo de crédito, tramo y moneda) y la fecha $t$.
+
+\vspace{.8mm}
+\textbf{Paso 2. La referencia.} Promedio simple de los \emph{otros} bancos en la
+misma celda y fecha; $n_{-j,st}$: número de pares válidos (mínimo tres).
+
+\vspace{.8mm}
+\textbf{Paso 3. La diferencia.}
+\vspace{-1.5mm}
 \[
-D_{jst}=i_{jst}-\frac{1}{n_{-j,st}}\sum_{k\neq j} i_{kst}
+D_{jst}=\underbrace{i_{jst}}_{\text{tasa propia}}-
+\underbrace{\frac{1}{n_{-j,st}}\sum_{k\neq j} i_{kst}}_{\text{promedio de pares}}
 \]
-\begin{itemize}\setlength{\itemsep}{1mm}
-\item $i$: tasa efectiva anual en decimales. $n_{-j,st}$: número de pares válidos
-(mínimo propuesto: tres).
-\item $D=0.02$: dos puntos porcentuales sobre el promedio simple de los
-\emph{otros} bancos.
-\item Restar cancela una base común $b_{st}$, pero no el fondeo, la clientela ni la
-exposición heterogénea al ciclo.
-\end{itemize}
+\vspace{-3mm}
+
+\textbf{Lectura.} $D=0.02$: dos puntos porcentuales sobre los pares. Restar cancela
+lo común a todos los bancos de la celda; no cancela el fondeo ni la clientela.
 \column{.42\textwidth}
 \begin{plainbox}\small
 \textbf{El comparador importa (ejemplo hipotético).}\\[.6mm]
@@ -227,9 +267,9 @@ Mediana & 9.5\,\% & $+2.5$ pp\\\bottomrule
 (sensibilidad); ninguna se elige mirando el error de pronóstico.
 \end{plainbox}
 \end{columns}
-\source{SBS, metodología de tasas de interés promedio, sección 3: operaciones de los
-últimos 30 días útiles, ponderadas por monto. Antecedente empírico: Morgan y
-Ashcraft (2003). El ejemplo se comprueba en \texttt{code/verify.py}.}
+\source{SBS, metodología de tasas promedio, sección 3 (operaciones de los últimos 30
+días útiles). Antecedente: Morgan y Ashcraft (2003). Ejemplo comprobado en
+\texttt{code/verify.py}.}
 \end{frame}
 
 % =====================================================================
@@ -307,95 +347,137 @@ No resuelvo el juego de precios ni la decisión de no prestar.
 completa del riesgo: por eso necesita un modelo para leer la señal.\par}
 \end{frame}
 
-\begin{frame}{Primitivas y supuestos S1--S3}
-\vspace{1.5mm}
-\small
-\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.19\linewidth}
-  >{\raggedright\arraybackslash}p{.30\linewidth}
-  >{\raggedright\arraybackslash}p{.44\linewidth}@{}}
-\toprule
-& \textbf{Forma funcional} & \textbf{Lectura económica y condiciones}\\\midrule
-\textbf{S1.} Selección &
-$\qz(D)=\bar q+aD\in[0,1]$ &
-Riesgo previo de la cohorte. $a>0$: un precio mayor empeora a los solicitantes.
-$\bar q\in(0,1)$; $D$ en un intervalo compacto.\\
-\textbf{S2.} Tecnología &
-$q=\qz-ge,\qquad C(e)=\dfrac{c}{2}e^{2}$ &
-$g>0$: cada unidad de esfuerzo reduce el riesgo en $g$. $c>0$: costo marginal
-creciente. El esfuerzo no cambia el volumen.\\
-\textbf{S2.} Factibilidad &
-$0\le e\le u=\min\{\eb,\ \qz/g\}$ &
-$\eb\ge 0$: capacidad de evaluación. $e\le \qz/g$ impide probabilidades
-negativas.\\
-\textbf{S3.} Pago &
-$R(D)=\bar R+D>0$ &
-Premio por sol si el crédito sigue al día. $F$: costo unitario que no depende
-de $e$.\\\bottomrule
-\end{tabular}
-\vspace{1.5mm}
+\begin{frame}{El modelo, pieza por pieza (1): solicitantes y evaluación}
+\vspace{-1mm}
 \begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}
-\begin{plainbox}\footnotesize
-\textbf{Unidades.} $\qz$, $q$: probabilidades del mismo evento y horizonte. $D$:
-tasa anual decimal. $e$ y la opacidad $\kappa\in[0,1]$: índices.
-\end{plainbox}
-\column{.48\textwidth}
-\begin{plainbox}\footnotesize
-\textbf{Opacidad.} $a$, $g$ y $c$ pueden depender de $\kappa$ (menos información
-verificable inicial). Se fija $\kappa$ hasta la Proposición 2.
-\end{plainbox}
+\column{.485\textwidth}
+\begin{propbox}{Pieza 1. Quién pide el crédito (S1)}
+\small
+\textbf{Idea.} Un precio más alto aleja a los buenos clientes: quedan solicitantes
+más riesgosos.
+\[\qz(D)=\bar q+aD\]
+\vspace{-4.5mm}
+\begin{itemize}\setlength{\itemsep}{.4mm}
+\item $\qz$: probabilidad de atraso de la cohorte \emph{antes} de que el banco evalúe.
+\item $\bar q\in(0,1)$: ese riesgo cuando el banco cobra igual que sus pares ($D=0$).
+\item $a>0$: cuánto sube el riesgo por unidad de precio. Mide la selección adversa.
+\end{itemize}
+\textbf{Por qué lineal.} Es la aproximación local más simple; se limita $D$ para que
+$\qz\in[0,1]$.
+\end{propbox}
+\column{.485\textwidth}
+\begin{propbox}{Pieza 2. Qué logra el banco al evaluar (S2)}
+\small
+\textbf{Idea.} Verificar mejor reduce el riesgo, pero cada vez cuesta más.
+\[q=\qz-ge,\qquad C(e)=\frac{c}{2}e^{2}\]
+\vspace{-4.5mm}
+\begin{itemize}\setlength{\itemsep}{.4mm}
+\item $e\ge 0$: esfuerzo de evaluación (verificación y condiciones del crédito).
+\item $g>0$: riesgo que quita cada unidad de esfuerzo.
+\item $c>0$: escala del costo. Es cuadrático para que el costo marginal, $ce$, crezca.
+\end{itemize}
+\textbf{Dos límites.} $e\le\eb$: capacidad (personal y tiempo). $e\le \qz/g$: el
+riesgo no puede bajar de cero.
+\end{propbox}
 \end{columns}
+\source{$\qz$, $q$: probabilidades del mismo evento y horizonte. El esfuerzo cambia la
+calidad, no el volumen. $a$, $g$, $c$ pueden depender de la opacidad $\kappa$, fija hasta P2.}
 \end{frame}
 
-\begin{frame}{El problema del banco}
-\vspace{1.5mm}
-Con el precio $D$ y la opacidad $\kappa$ fijos, el banco elige el esfuerzo:
+\begin{frame}{El modelo, pieza por pieza (2): el pago y el problema del banco}
+\vspace{1.3mm}
+{\small\textbf{Pieza 3. Cuánto gana el banco (S3).} Un crédito que sigue al día paga un
+premio $R(D)=\bar R+D>0$: $\bar R$ es el premio cuando cobra igual que sus pares y
+cada punto de precio lo eleva uno a uno. $F$ es un costo por crédito que no depende
+del esfuerzo.
+
+\vspace{.8mm}
+\textbf{El problema.} Con el precio $D$ y la opacidad $\kappa$ dados, el banco elige
+$e$ para maximizar su beneficio esperado por sol prestado:\par}
+\vspace{-1.5mm}
 \[
 \max_{e\,\in\,[0,\,u]}\ \pi(e)=
-\underbrace{\bigl[\,1-\qz+ge\,\bigr]}_{\text{prob. de seguir al día}}
+\underbrace{\bigl[\,1-\qz+ge\,\bigr]}_{\text{prob. de seguir al día, }1-q}
 \underbrace{R(D)}_{\text{premio}}
 \;-\;\underbrace{F}_{\text{costo fijo}}
 \;-\;\underbrace{\frac{c}{2}e^{2}}_{\text{costo de evaluar}},
 \qquad u=\min\Bigl\{\eb,\ \frac{\qz}{g}\Bigr\}.
 \]
-\vspace{-1mm}
+\vspace{-2.5mm}
 \begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}
-\begin{itemize}\setlength{\itemsep}{1mm}
+\column{.5\textwidth}
+\begin{itemize}\setlength{\itemsep}{.6mm}\small
 \item \textbf{Beneficio marginal} de evaluar: $gR$. Crece con el precio, porque un
 crédito al día paga más.
 \item \textbf{Costo marginal}: $ce$. Crece con el esfuerzo.
-\item $F$ y cualquier volumen que no dependa de $e$ no alteran el óptimo.
+\item $u$: el mayor esfuerzo permitido por los dos límites.
 \end{itemize}
-\column{.48\textwidth}
+\column{.46\textwidth}
 \begin{keybox}\small
-\textbf{Dos restricciones que la condición de primer orden ignora:}
-\begin{enumerate}
-\item capacidad: $e\le \eb$;
-\item probabilidad válida: $q=\qz-ge\ge 0$.
-\end{enumerate}
-Por eso la solución tiene tres regímenes y no uno.
+\textbf{Dos límites que la condición de primer orden ignora:} la capacidad
+($e\le\eb$) y la probabilidad válida ($q\ge 0$). Por eso la solución tiene tres
+regímenes y no uno.
 \end{keybox}
 \end{columns}
-\source{Simplificación: la sensibilidad del premio a $D$ se normaliza a uno; no es una
-conversión exacta de una tasa anual a cualquier plazo. Recuperaciones y garantías
-que dependan del precio o del esfuerzo exigirían modificar $R$.}
+\source{La sensibilidad del premio a $D$ se normaliza a uno; no es una conversión exacta
+de una tasa anual a cualquier plazo. $F$ no altera el óptimo.}
 \end{frame}
 
 % =====================================================================
 \section{3 Proposiciones}
 
+\begin{frame}{Tres preguntas, tres proposiciones}
+\vspace{2mm}
+Cada proposición responde una pregunta del supervisor. Primero la idea; después, la
+fórmula con todas sus condiciones.
+\vspace{2mm}
+\begin{columns}[T,onlytextwidth]
+\column{.32\textwidth}
+\begin{propbox}{Proposición 1}
+\small\textbf{¿Cuánto evalúa el banco y qué riesgo queda en los créditos nuevos?}
+
+\vspace{1mm}
+Resuelve la decisión del banco con sus dos límites y dice cómo cambia el riesgo
+cuando sube el precio.
+\end{propbox}
+\column{.32\textwidth}
+\begin{propbox}{Proposición 2}
+\small\textbf{¿Cambia ese signo según cuán opaco es el segmento?}
+
+\vspace{1mm}
+Dice cuándo existe un umbral de opacidad que separa los dos signos, y qué supuestos
+exige.
+\end{propbox}
+\column{.32\textwidth}
+\begin{propbox}{Proposición 3}
+\small\textbf{¿Llega ese signo al ratio de morosidad que el supervisor observa?}
+
+\vspace{1mm}
+Separa la calidad de los créditos nuevos de su peso dentro de toda la cartera.
+\end{propbox}
+\end{columns}
+\vspace{2mm}
+\begin{plainbox}\small
+\textbf{Hilo conductor.} P1 da el signo en la cohorte nueva; P2 pregunta si ese signo
+cambia entre segmentos; P3 pregunta si sobrevive al agregar el saldo antiguo.
+\end{plainbox}
+\end{frame}
+
 \begin{frame}{Proposición 1: solución global y pendientes por régimen}
-\vspace{.8mm}
-\begin{propbox}{Proposición 1. Bajo S1--S3 ($a,g,c>0$; $\eb\ge 0$; $\qz\in[0,1]$; $R>0$)}
-Existe un \textbf{único} máximo en $[0,u]$:
+\vspace{1.8mm}
+{\small\textbf{Idea.} El banco quiere evaluar hasta que el beneficio marginal iguale al
+costo marginal ($gR=ce$), salvo que antes tope con su capacidad o con riesgo cero.\par}
+\vspace{.3mm}
+\begin{propbox}{Proposición 1. Bajo S1--S3 ($a,g,c>0$; $\eb\ge 0$; $\qz\in[0,1]$; $R>0$) hay un único máximo en $[0,u]$:}
+\vspace{-.3mm}
 \[
-\es=\min\Bigl\{\frac{gR}{c},\ \eb,\ \frac{\qz}{g}\Bigr\},
+\es=\min\Bigl\{\underbrace{\frac{gR}{c}}_{\text{deseado}},\
+\underbrace{\eb\vphantom{\frac{g}{c}}}_{\text{capacidad}},\
+\underbrace{\frac{\qz}{g}}_{\text{riesgo cero}}\Bigr\},
 \qquad
-\qs=\max\Bigl\{0,\ \qz-g\min\Bigl\{\eb,\frac{gR}{c}\Bigr\}\Bigr\},
-\qquad 0\le \qs\le \qz\le 1.
+\qs=\max\Bigl\{0,\ \qz-g\min\Bigl\{\eb,\frac{gR}{c}\Bigr\}\Bigr\}.
 \]
+\vspace{-3mm}
 \end{propbox}
 \small
 \begin{tabular}{@{}p{.16\linewidth}p{.32\linewidth}p{.12\linewidth}p{.28\linewidth}@{}}
@@ -407,27 +489,22 @@ Capacidad & $\eb<gR/c$ \ y \ $\eb<\qz/g$ & $a$ & El esfuerzo ya no responde\\
 Piso de riesgo & $\qz/g<gR/c$ \ y \ $\qz/g<\eb$ & $0$ & El riesgo ya es cero\\\bottomrule
 \end{tabular}
 \vspace{.8mm}
-\begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}
-\begin{plainbox}\footnotesize
-\textbf{Por qué $g^{2}/c$.} En el interior el precio eleva el esfuerzo en $g/c$ y
-cada unidad de esfuerzo reduce el riesgo en $g$.
-\end{plainbox}
-\column{.48\textwidth}
-\begin{plainbox}\footnotesize
-\textbf{Empates y $\eb=0$.} En un cambio de régimen la solución es continua, con
-derivadas laterales. Si $\eb=0$: $\es=0$ y pendiente $a$.
-\end{plainbox}
-\end{columns}
+{\footnotesize $\es$: esfuerzo óptimo. $\qs$: riesgo que queda tras evaluar; siempre
+$0\le\qs\le\qz\le 1$.
+\textbf{Por qué $g^{2}/c$:} el precio eleva el esfuerzo en $g/c$ y cada unidad de
+esfuerzo quita $g$ de riesgo. \textbf{Empates:} la solución es continua, con
+derivadas laterales; si $\eb=0$, $\es=0$ y la pendiente es $a$.\par}
 \end{frame}
 
 \begin{frame}{Proposición 2: un umbral de opacidad, con sus condiciones}
 \vspace{1.3mm}
 \begin{columns}[T,onlytextwidth]
 \column{.56\textwidth}
-Sea $H(\kappa)=g(\kappa)^{2}/c(\kappa)$ la fuerza de evaluación y
-$\beta(\kappa)=a(\kappa)-H(\kappa)$ la pendiente neta interior.
-\vspace{1mm}
+{\small\textbf{Pregunta.} ¿El signo de P1 cambia con la opacidad $\kappa$ del
+segmento (menos información verificable)? Dos objetos que vienen de P1:
+$H(\kappa)=g^{2}/c$, la \emph{fuerza de evaluación}, y $\beta(\kappa)=a-H$, la
+\emph{pendiente neta} en el interior.\par}
+\vspace{.3mm}
 \begin{propbox}{Proposición 2. Bajo S1--S4}
 Existe un único $\kappa^{*}\in(0,1)$ con $\partial_{D}\qs(D_{0},\kappa^{*})=0$.
 La pendiente es \textbf{positiva} si $\kappa<\kappa^{*}$ y \textbf{negativa} si
@@ -462,16 +539,16 @@ una restricción económica contrastable, no una definición.
 \begin{columns}[T,onlytextwidth]
 \column{.42\textwidth}
 \small
-\textbf{Contabilidad al horizonte $h$.}
-\begin{itemize}\setlength{\itemsep}{.4mm}
+\textbf{Qué ve el supervisor.} No la cohorte nueva, sino el ratio de atraso $M$ de
+\emph{toda} la cartera al horizonte $h$:
+\begin{itemize}\setlength{\itemsep}{.3mm}
 \item $B_{0}>0$: saldo antiguo; $m_{0}\in[0,1]$: su fracción en atraso.
-\item $B(D)>0$: saldo de la cohorte nueva, diferenciable.
-\item Peso nuevo: $w=B/(B_{0}+B)$.
+\item $B(D)>0$: saldo de la cohorte nueva; puede caer si sube el precio.
+\item $w=B/(B_{0}+B)$: peso de lo nuevo.
 \end{itemize}
 \begin{plainbox}\footnotesize
-\textbf{S5.} Saldos deterministas (o población continua); mismo evento y horizonte;
-la amortización no selecciona riesgo adicional; $B_{0}$ y $m_{0}$ no cambian con
-$D$; sin castigos, ventas ni reclasificaciones.
+\textbf{S5.} Saldos deterministas; mismo evento y horizonte; amortización sin
+selección de riesgo; $B_{0}$ y $m_{0}$ fijos ante $D$; sin castigos ni ventas.
 \end{plainbox}
 \column{.555\textwidth}
 \begin{propbox}{Proposición 3. Bajo S1--S3 y S5, con $\beta_{D}=\partial_{D}\qs$}
@@ -693,15 +770,18 @@ el modelo dice \emph{qué medir}, no cuánto predice la señal.\par}
 \section{5 Simulaciones}
 
 \begin{frame}{Simulaciones: qué comprueban y qué no pueden mostrar}
-\vspace{1.5mm}
+\vspace{1mm}
+{\small Las proposiciones ya están demostradas. Simular sirve para detectar errores entre
+la fórmula y el código, y para \emph{ver} los mecanismos.\par}
+\vspace{.3mm}
 \small
 \renewcommand{\arraystretch}{1.05}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.05\linewidth}
   >{\raggedright\arraybackslash}p{.50\linewidth}
   >{\raggedright\arraybackslash}p{.36\linewidth}@{}}
 \toprule & \textbf{Comprobación independiente} & \textbf{Resultado}\\\midrule
-P1 & Optimizador acotado de SciPy frente a la fórmula: 1495 sorteos admisibles
-(765 interior, 293 capacidad, 437 piso) &
+P1 & Optimizador de SciPy frente a la fórmula: 1495 sorteos (765 interior, 293
+capacidad, 437 piso) &
 Diferencia máxima de esfuerzo $<4\times10^{-8}$\\
 P1 & Diferencias finitas frente a las tres pendientes &
 Error máximo $<1.1\times10^{-10}$\\
@@ -718,7 +798,7 @@ Error máximo $<3\times10^{-11}$\\\bottomrule
 \begin{itemize}\setlength{\itemsep}{.3mm}
 \item Que fórmulas e implementación coinciden.
 \item Que los contraejemplos son admisibles.
-\item Que un dominio inválido hace fallar \texttt{verify.py}.
+\item Que un dominio inválido hace fallar el código.
 \end{itemize}
 \end{propbox}
 \column{.48\textwidth}
@@ -728,7 +808,7 @@ Error máximo $<3\times10^{-11}$\\\bottomrule
 \footnotesize
 \begin{itemize}\setlength{\itemsep}{.3mm}
 \item Un teorema: una malla no cubre el continuo.
-\item El régimen de un banco peruano: parámetros ilustrativos.
+\item El régimen en que está un banco peruano.
 \item Poder predictivo o causalidad de la señal.
 \end{itemize}
 \end{tcolorbox}
@@ -738,11 +818,13 @@ cifras en \texttt{code/output/verification.json}.}
 \end{frame}
 
 \begin{frame}{Simulación 1: el cruce existe solo bajo S4}
-\vspace{.5mm}
+\vspace{1mm}
+{\small\textbf{Pregunta.} ¿Aparece siempre un umbral cuando aumenta la opacidad?\par}
+\vspace{2mm}
 {\centering
 \begin{tikzpicture}
 \begin{groupplot}[group style={group size=2 by 1,horizontal sep=17mm},base,
-  width=72mm,height=45mm,xmin=0,xmax=1,xlabel={Opacidad $\kappa$ (índice)}]
+  width=72mm,height=40mm,xmin=0,xmax=1,xlabel={Opacidad $\kappa$ (índice)}]
 \nextgroupplot[title={Fuerzas rivales (caso favorable)},ymin=0.03,ymax=0.23,
   ytick={0.05,0.10,0.15,0.20},
   ylabel={Efecto marginal},
@@ -781,11 +863,13 @@ mismas funciones que \texttt{code/model.py}; raíz y signos verificados en
 \end{frame}
 
 \begin{frame}{Simulación 2: en la esquina, el candidato interior falla}
-\vspace{.5mm}
+\vspace{1mm}
+{\small\textbf{Pregunta.} ¿Qué pasa con la regla $a-g^{2}/c$ cuando el banco agota su capacidad?\par}
+\vspace{2mm}
 {\centering
 \begin{tikzpicture}
 \begin{groupplot}[group style={group size=2 by 1,horizontal sep=17mm},base,
-  width=72mm,height=44mm,xmin=-10,xmax=10,
+  width=72mm,height=39mm,xmin=-10,xmax=10,
   xlabel={Precio relativo $D$ (puntos porcentuales)}]
 \nextgroupplot[title={Esfuerzo óptimo},ymin=0.39,ymax=0.49,
   ylabel={Esfuerzo $\es$ (índice)},ytick={0.40,0.42,0.44,0.46,0.48},
@@ -823,11 +907,13 @@ quiebre en $D=0$, las pendientes laterales opuestas y la frontera de riesgo cero
 \end{frame}
 
 \begin{frame}{Simulación 3: la composición invierte el signo en el saldo}
-\vspace{.5mm}
+\vspace{1mm}
+{\small\textbf{Pregunta.} ¿El signo de la cohorte nueva se ve igual en el ratio de toda la cartera?\par}
+\vspace{2mm}
 {\centering
 \begin{tikzpicture}
 \begin{groupplot}[group style={group size=2 by 1,horizontal sep=17mm},base,
-  width=72mm,height=41mm,xmin=-10,xmax=10,
+  width=72mm,height=36mm,xmin=-10,xmax=10,
   xlabel={Precio relativo $D$ (puntos porcentuales)}]
 \nextgroupplot[title={Cohorte nueva: la selección domina},ymin=20.5,ymax=24.5,
   ylabel={Riesgo $\qs$ (\%)}]
@@ -857,10 +943,13 @@ nuevo y $-0.034$ pp en el ratio total (derivadas locales, no efectos causales).
 \end{frame}
 
 \begin{frame}{Simulación 4: sensibilidad de los dos resultados}
+\vspace{1mm}
+{\small\textbf{Pregunta.} ¿En qué regiones de parámetros vale cada resultado?\par}
+\vspace{.5mm}
 \begin{columns}[T,onlytextwidth]
 \column{.5\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=.52\textheight,keepaspectratio]{../code/figures/sensitivity.pdf}
+\includegraphics[width=\linewidth,height=.47\textheight,keepaspectratio]{../code/figures/sensitivity.pdf}
 \par\vspace{.5mm}
 {\footnotesize\raggedright\textbf{P1.} Pendiente $\partial_{D}\qs$ con $\kappa=0.9$.
 Rojo: capacidad escasa, la pendiente es $a>0$. Azul: interior con evaluación
@@ -868,7 +957,7 @@ fuerte. Blanco: piso de riesgo, pendiente cero.\par}
 \column{.47\textwidth}
 \centering
 \begin{tikzpicture}
-\begin{axis}[base,width=68mm,height=44mm,xmin=0,xmax=0.8,ymin=0,ymax=6,
+\begin{axis}[base,width=68mm,height=41mm,xmin=0,xmax=0.8,ymin=0,ymax=6,
   xlabel={Peso de la cohorte nueva $w$},
   ylabel={Elasticidad del volumen $\varepsilon$},
   title={¿Cuándo se invierte el signo de $M'$?}]
@@ -905,16 +994,15 @@ modelo, no frecuencias observadas en bancos peruanos.}
 \column{.35\textwidth}
 \begin{propbox}{Artículo (P1, unicidad)}
 \small Bajo S1--S3, todo esfuerzo factible $e\neq \es$ rinde estrictamente menos:
-$\pi(e)<\pi(\es)$, con\\[.5mm]
-\centerline{$\es=\min\bigl\{\tfrac{gR}{c},\ \eb,\ \tfrac{\qz}{g}\bigr\}$.}
+$\pi(e)<\pi(\es)$.
 \end{propbox}
 \begin{plainbox}\footnotesize\raggedright
-\textbf{En palabras.} Lean comprueba, para \emph{todos} los parámetros que cumplen
-los supuestos, que P1--P3 se siguen de las definiciones.
+\textbf{Qué es Lean.} Un asistente de pruebas: acepta un teorema solo si cada paso
+lógico se verifica mecánicamente.
 
 \vspace{.5mm}
-\textbf{No verifica} que los supuestos describan a un banco peruano, ni datos, ni
-causalidad, ni equilibrio.
+\textbf{Aquí comprueba} que P1--P3 se siguen de las definiciones para \emph{todos}
+los parámetros admisibles. \textbf{No verifica} datos, causalidad ni equilibrio.
 \end{plainbox}
 \column{.63\textwidth}
 \begin{plainbox}
@@ -1165,6 +1253,47 @@ Código, artículo, Lean y registro de IA:
 % =====================================================================
 \appendix
 \section{Respaldo}
+
+\begin{frame}{Respaldo: supuestos S1--S3 en una tabla}
+\vspace{1.5mm}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.19\linewidth}
+  >{\raggedright\arraybackslash}p{.30\linewidth}
+  >{\raggedright\arraybackslash}p{.44\linewidth}@{}}
+\toprule
+& \textbf{Forma funcional} & \textbf{Lectura económica y condiciones}\\\midrule
+\textbf{S1.} Selección &
+$\qz(D)=\bar q+aD\in[0,1]$ &
+Riesgo previo de la cohorte. $a>0$: un precio mayor empeora a los solicitantes.
+$\bar q\in(0,1)$; $D$ en un intervalo compacto.\\
+\textbf{S2.} Tecnología &
+$q=\qz-ge,\qquad C(e)=\dfrac{c}{2}e^{2}$ &
+$g>0$: cada unidad de esfuerzo reduce el riesgo en $g$. $c>0$: costo marginal
+creciente. El esfuerzo no cambia el volumen.\\
+\textbf{S2.} Factibilidad &
+$0\le e\le u=\min\{\eb,\ \qz/g\}$ &
+$\eb\ge 0$: capacidad de evaluación. $e\le \qz/g$ impide probabilidades
+negativas.\\
+\textbf{S3.} Pago &
+$R(D)=\bar R+D>0$ &
+Premio por sol si el crédito sigue al día. $F$: costo unitario que no depende
+de $e$.\\\bottomrule
+\end{tabular}
+\vspace{1.5mm}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}
+\begin{plainbox}\footnotesize
+\textbf{Unidades.} $\qz$, $q$: probabilidades del mismo evento y horizonte. $D$:
+tasa anual decimal. $e$ y la opacidad $\kappa\in[0,1]$: índices.
+\end{plainbox}
+\column{.48\textwidth}
+\begin{plainbox}\footnotesize
+\textbf{Opacidad.} $a$, $g$ y $c$ pueden depender de $\kappa$ (menos información
+verificable inicial). Se fija $\kappa$ hasta la Proposición 2.
+\end{plainbox}
+\end{columns}
+\end{frame}
 
 \begin{frame}{Respaldo: notación completa}
 \vspace{1.5mm}
