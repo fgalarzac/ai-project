@@ -1,0 +1,22 @@
+{
+  "request_id": "20261123T041142-e99f6296",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_v11_raw_source_spec_screening.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--decisions",
+    "papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_reissue_decisions_d987866c147ca444f7faf45cf25b005fd02c0e2f88c26d992f524e7580e33481.json",
+    "--validator",
+    "codex-cli:01a20696-64a4-7e30-b2e2-2d19059a27ca",
+    "--v11-review-graph",
+    "--write"
+  ],
+  "started_utc": "2026-11-23T04:11:45Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.365,
+  "download_sha256": "6132ce212d59498d57a58a35c8eadb10d21e5ed32bea8ca7af65048ba0a518aa",
+  "finished_utc": "2026-11-23T04:11:45Z"
+}
