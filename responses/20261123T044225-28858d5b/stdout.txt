@@ -1,0 +1,38 @@
+{
+  "acceptance_credential": false,
+  "actions": [],
+  "canonical_receipt": {
+    "accepted_graph": {
+      "graph_sha256": "1e2850e85cf4eb3994a9bc350e5ccc823bf7ab537a9b263575be98761c73b61c",
+      "pointer": "papers/Galarza26RelativeCredit/audit/obligation_evidence/current_accepted_graph.json"
+    },
+    "closed_at": "2026-11-23",
+    "evidence_lane": "obligation-graph",
+    "obligation_bundle": {},
+    "path": "papers/Galarza26RelativeCredit/FINAL_CLOSURE_RECEIPT.md",
+    "sha256": "f740280424181258d1d2c175dceb80ff60566ff036d9ac57ff9a7c72c2f86a09"
+  },
+  "canonical_receipt_current": true,
+  "closeout_complete": true,
+  "next_action": null,
+  "paper": "Galarza26RelativeCredit",
+  "readiness_matrix": {
+    "ready": true,
+    "scope": "all acceptance inputs bound and revalidated by the canonical final closure receipt",
+    "state": "current_accepted_graph"
+  },
+  "requires_fresh_strict_closeout": false,
+  "schema": 2,
+  "terminal_presentation_preflight": {
+    "acceptance_credential": false,
+    "errors": [],
+    "ready": true,
+    "state": "current"
+  },
+  "terminal_receipt_fast_path": {
+    "operational_stage_receipts_reissued": false,
+    "reason": "the canonical receipt and every acceptance input it binds are current; semantic replanning would add no validation",
+    "semantic_planner_reconstructed": false,
+    "used": true
+  }
+}
