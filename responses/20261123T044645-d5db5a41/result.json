@@ -1,0 +1,24 @@
+{
+  "request_id": "20261123T044645-d5db5a41",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/audit_repository.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--paper-closeout",
+    "--include-active",
+    "--info-limit",
+    "0",
+    "--no-closeout-state",
+    "--operational-plan-identity",
+    "62f16cbe42d1de16d57b652f5fb60a21e81b6d30e1454d4820371f5bd2d0e725"
+  ],
+  "started_utc": "2026-11-23T04:46:50Z",
+  "exit_code": 1,
+  "elapsed_seconds": 0.415,
+  "download_sha256": "4a84596a78afc07cbab74489c6a00297d70aca7d50b18e5e27ca3cc736ea6120",
+  "finished_utc": "2026-11-23T04:46:50Z"
+}
