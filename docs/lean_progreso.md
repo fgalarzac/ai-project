@@ -1,7 +1,16 @@
 # Lean: estado y evidencia vigente
 
-Actualizado el 10 de noviembre de 2026. **P1–P3 compilan; el cierre oficial
+Actualizado el 22 de noviembre de 2026. **P1–P3 compilan; el cierre oficial
 está en curso.** Una compilación no se presenta como aceptación del protocolo.
+
+La revisión final independiente iniciada el 10 de noviembre terminó con salida
+1 al alcanzar el límite de uso del CLI. No produjo un dictamen PASS ni un
+grafo aceptado. El 22 de noviembre se comprobó de nuevo el repositorio del
+motor: su rama principal conserva el mismo commit de base indicado abajo.
+El paper se ha explicado con mayor detalle, conservando literalmente los
+cinco supuestos y los tres enunciados. Su nuevo PDF debe fijarse en un commit
+fusionado antes de renovar el cierre oficial. La presentación del usuario
+se conserva sin modificaciones.
 
 | Componente | Resultado real |
 |---|---|
@@ -17,13 +26,13 @@ está en curso.** Una compilación no se presenta como aceptación del protocolo
 | Copia íntegra a lean/ | Se realizará después del cierre; el contenido actual es auxiliar histórico |
 
 La fuente final se volverá a fijar después de fusionar la actualización de
-paper y presentación. Los enunciados matemáticos no han cambiado. La evidencia
+paper. Los enunciados matemáticos no han cambiado. La evidencia
 posterior se registrará aquí, fuera del PDF, para evitar una referencia circular.
 
 La revisión preliminar usa el bundle SHA256
 `df4f92538b1b4a4054d4fe7f0734434c322975d6ebe58af387483f593a7108da`.
 No es una credencial de aceptación. El fragmento de Stock.lean proyectado
-en la diapositiva 22 pertenece a esas pruebas generales, no al suplemento
+en la diapositiva 23 pertenece a esas pruebas generales, no al suplemento
 racional inicial. No se atribuye revisión humana al estudiante.
 
 Se conservan las [alternativas e intentos anteriores](lean_alternativas.md)

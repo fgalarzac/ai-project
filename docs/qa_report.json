@@ -1,57 +1,73 @@
 {
-  "date": "2026-11-10",
-  "body_pages": 11,
+  "date": "2026-11-22",
+  "body_pages": 15,
   "paper_format": "11pt, 1-inch margins, single column",
-  "body_count_method": "body:end label in compiled .aux, checked against conclusion/reference transition in PDF",
-  "visual_review": "All final paper pages, all final slides, derivation guide contact sheets; enlarged equations, tables and Lean slide inspected. No visual clipping observed.",
+  "body_count_method": "body:end in compiled aux; visual conclusion/reference transition",
   "pdfs": {
     "proposal/proposal.pdf": {
       "pages": 4,
       "sha256": "ed9ef80e23212dfaa1826897c7f873c03f251a7d6c20a9febb244838fda440de",
-      "external_links": 4,
-      "text_outside_page": 0
+      "text_outside_page": 0,
+      "external_links": 4
     },
     "slides/topic.pdf": {
       "pages": 19,
       "sha256": "52f838837e082bbd06df122669a822337b2118749da8557b177ce31f1e436d4f",
-      "external_links": 1,
-      "text_outside_page": 0
+      "text_outside_page": 0,
+      "external_links": 1
     },
     "slides/final.pdf": {
-      "pages": 27,
-      "sha256": "4bee6b44b315c6ffaa4ae424196d6e6f13f930f75edd28c0f474baa6906a6e51",
-      "external_links": 5,
-      "text_outside_page": 0
+      "pages": 33,
+      "sha256": "64ff9a3fbe3ea1f429a2a7c11d2e5bd185fba4577663f989d783a5a0baf94bbd",
+      "text_outside_page": 0,
+      "external_links": 2
     },
     "paper/paper.pdf": {
-      "pages": 14,
-      "sha256": "3918275f8a89f4e3eee13c3f4d018b90555fa15e796dcf70df466dbd104f31d3",
-      "external_links": 19,
-      "text_outside_page": 0
+      "pages": 18,
+      "sha256": "b5d16c05576751b50087e7c8dbc203ce12fc732e073247b9d44518d9a51a25f1",
+      "text_outside_page": 0,
+      "external_links": 19
     },
     "hand/guia_derivaciones.pdf": {
-      "pages": 6,
-      "sha256": "5b07dd891d2cec0bfb596087691e6e959bed701c41b9dbd454669079fd7ef715",
-      "external_links": 0,
-      "text_outside_page": 0
+      "pages": 7,
+      "sha256": "744e7eb5ef107f765ea3a3b91020293a081d7a2161dc508d6cd0e245d2e38c3b",
+      "text_outside_page": 0,
+      "external_links": 0
     }
   },
-  "tex_warnings": {
-    "proposal/proposal.pdf": [],
-    "slides/topic.pdf": [],
-    "slides/final.pdf": [],
-    "paper/paper.pdf": [],
-    "hand/guia_derivaciones.pdf": []
+  "scratch_compilation": {
+    "proposal/proposal.tex": {
+      "exit_code": 0,
+      "evidence": "prior successful scratch compilation this revision; slide inputs unchanged"
+    },
+    "slides/topic.tex": {
+      "exit_code": 0,
+      "evidence": "prior successful scratch compilation this revision; slide inputs unchanged"
+    },
+    "slides/final.tex": {
+      "exit_code": 0,
+      "evidence": "prior successful scratch compilation this revision; slide inputs unchanged"
+    },
+    "paper/paper.tex": {
+      "exit_code": 0
+    }
   },
-  "rendered_with": "PyMuPDF; contact sheets inspected by assistant",
-  "presentation": {
-    "slides": 27,
-    "estimated_seconds": 1780,
-    "talk_time": "29 minutes 40 seconds",
-    "discussion_budget": "about 15 minutes",
-    "method": "Sum of per-slide explanation budgets in timing.json; no observed oral rehearsal"
+  "slides_unchanged": true,
+  "slides_frozen_sha256": {
+    "slides/final.pdf": "64ff9a3fbe3ea1f429a2a7c11d2e5bd185fba4577663f989d783a5a0baf94bbd",
+    "slides/final.tex": "a0f43a05419c4ae4035f5dd5dedf0efd3448e127e3484529bc2c2db5513c2a7c",
+    "slides/final_speaker_guide.md": "cc8cb3dc82c048c41606c3b5548eb53d5a1ed8e5f1b29995f6b857c41ca6e787",
+    "slides/timing.json": "4314fc52efdc71725bf033a545896b74893c6e20092405b7c9576db046eee5fb",
+    "slides/topic.pdf": "52f838837e082bbd06df122669a822337b2118749da8557b177ce31f1e436d4f",
+    "slides/topic.tex": "36645440921a68a953d0c0e1b0f954490c2111e4e2c43889019b56e6b7a4122a",
+    "slides/topic_cheatsheet.md": "1790e167d01e4e3c8d519319679833434bb76d7649fa7ba941eb2ab46673ac39",
+    "slides/topic_QA.md": "eb8a5f79ccf69e4a2ea261a46b295baa9883da86733e14b1389977734d1a77b6"
   },
-  "workflow_sha256": "e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f",
+  "original_model_preserved": {
+    "assumptions": 5,
+    "propositions": 3,
+    "literal_statement_comparison": "identical"
+  },
   "numerical_verification": {
     "threshold": 0.6404669227310321,
     "beta0": 0.13,
@@ -107,16 +123,121 @@
       "Public context frozen transcription"
     ]
   },
-  "lean": {
-    "supplement": "Historical rational arithmetic supplement checked with decide +kernel",
-    "general_p1_p2_p3": "All three proof endpoints compile; only standard axioms",
-    "preliminary_independent_semantic_review": {
-      "matches": 21,
-      "mismatches": 0,
-      "uncertain": 0
+  "additional_verification": {
+    "additional_checks_passed": 73,
+    "checks": [
+      "S1 rejects inadmissible reference probability 0.0",
+      "S1 rejects inadmissible reference probability -0.1",
+      "S1 rejects inadmissible reference probability 1.0",
+      "S1 rejects inadmissible reference probability 1.1",
+      "Finite primitive c",
+      "Finite primitive g",
+      "Finite primitive capacity",
+      "Finite nonempty price nan",
+      "Finite nonempty price inf",
+      "Finite nonempty price []",
+      "S5 domain stock {'legacy': 0}",
+      "S5 domain stock {'new': 0}",
+      "S5 domain stock {'old_risk': 1.1}",
+      "S5 domain stock {'elasticity': -1}",
+      "S5 domain stock {'new': inf}",
+      "S5 domain stock_slope {'legacy': 0}",
+      "S5 domain stock_slope {'new': 0}",
+      "S5 domain stock_slope {'old_risk': 1.1}",
+      "S5 domain stock_slope {'elasticity': -1}",
+      "S5 domain stock_slope {'new': inf}",
+      "Exact P3 counterexample",
+      "Exact epsilon cutoff at weight one fifth",
+      "P3 frontier w=0.05, epsilon/cutoff=0.75",
+      "P3 frontier w=0.05, epsilon/cutoff=1.00",
+      "P3 frontier w=0.05, epsilon/cutoff=1.25",
+      "P3 frontier w=0.10, epsilon/cutoff=0.75",
+      "P3 frontier w=0.10, epsilon/cutoff=1.00",
+      "P3 frontier w=0.10, epsilon/cutoff=1.25",
+      "P3 frontier w=0.15, epsilon/cutoff=0.75",
+      "P3 frontier w=0.15, epsilon/cutoff=1.00",
+      "P3 frontier w=0.15, epsilon/cutoff=1.25",
+      "P3 frontier w=0.20, epsilon/cutoff=0.75",
+      "P3 frontier w=0.20, epsilon/cutoff=1.00",
+      "P3 frontier w=0.20, epsilon/cutoff=1.25",
+      "P3 frontier w=0.25, epsilon/cutoff=0.75",
+      "P3 frontier w=0.25, epsilon/cutoff=1.00",
+      "P3 frontier w=0.25, epsilon/cutoff=1.25",
+      "P3 frontier w=0.30, epsilon/cutoff=0.75",
+      "P3 frontier w=0.30, epsilon/cutoff=1.00",
+      "P3 frontier w=0.30, epsilon/cutoff=1.25",
+      "P3 frontier w=0.35, epsilon/cutoff=0.75",
+      "P3 frontier w=0.35, epsilon/cutoff=1.00",
+      "P3 frontier w=0.35, epsilon/cutoff=1.25",
+      "P3 frontier w=0.40, epsilon/cutoff=0.75",
+      "P3 frontier w=0.40, epsilon/cutoff=1.00",
+      "P3 frontier w=0.40, epsilon/cutoff=1.25",
+      "P3 frontier w=0.45, epsilon/cutoff=0.75",
+      "P3 frontier w=0.45, epsilon/cutoff=1.00",
+      "P3 frontier w=0.45, epsilon/cutoff=1.25",
+      "P3 frontier w=0.50, epsilon/cutoff=0.75",
+      "P3 frontier w=0.50, epsilon/cutoff=1.00",
+      "P3 frontier w=0.50, epsilon/cutoff=1.25",
+      "P3 frontier w=0.55, epsilon/cutoff=0.75",
+      "P3 frontier w=0.55, epsilon/cutoff=1.00",
+      "P3 frontier w=0.55, epsilon/cutoff=1.25",
+      "P3 frontier w=0.60, epsilon/cutoff=0.75",
+      "P3 frontier w=0.60, epsilon/cutoff=1.00",
+      "P3 frontier w=0.60, epsilon/cutoff=1.25",
+      "P3 frontier w=0.65, epsilon/cutoff=0.75",
+      "P3 frontier w=0.65, epsilon/cutoff=1.00",
+      "P3 frontier w=0.65, epsilon/cutoff=1.25",
+      "P3 frontier w=0.70, epsilon/cutoff=0.75",
+      "P3 frontier w=0.70, epsilon/cutoff=1.00",
+      "P3 frontier w=0.70, epsilon/cutoff=1.25",
+      "P3 frontier w=0.75, epsilon/cutoff=0.75",
+      "P3 frontier w=0.75, epsilon/cutoff=1.00",
+      "P3 frontier w=0.75, epsilon/cutoff=1.25",
+      "P3 frontier w=0.80, epsilon/cutoff=0.75",
+      "P3 frontier w=0.80, epsilon/cutoff=1.00",
+      "P3 frontier w=0.80, epsilon/cutoff=1.25",
+      "P3 frontier w=0.85, epsilon/cutoff=0.75",
+      "P3 frontier w=0.85, epsilon/cutoff=1.00",
+      "P3 frontier w=0.85, epsilon/cutoff=1.25"
+    ],
+    "worked_example": {
+      "q0": 0.28,
+      "R": 1.1,
+      "effort": 0.24596747752497689,
+      "probability_effort_bound": 1.2521980673998825,
+      "q_star": 0.22500000000000003,
+      "selection_change_for_one_pp": 0.0018,
+      "evaluation_change_for_one_pp": 0.0005,
+      "net_risk_change_for_one_pp": 0.0013000000000000002
     },
-    "official_closeout": "pending",
-    "official_check_exit": null,
-    "current_status_file": "docs/lean_progreso.md"
-  }
+    "epsilon_cutoff_at_w_0_2": "13/10",
+    "counterexample_slope": "-17/500",
+    "frontier": "epsilon = 1.04/(1-w); beta_D=0.13, q*-m0=0.125",
+    "historical_baseline_checks": 4018,
+    "scope": "Same model and Proposition 3; no empirical fitting"
+  },
+  "presentation": {
+    "slides": 33,
+    "main": 29,
+    "backup": 4,
+    "planned_seconds": 1800,
+    "observed_rehearsal": false,
+    "timing_file": "docs/timing_presentacion_33.json"
+  },
+  "workflow_sha256": "e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f",
+  "paper_typesetting": {
+    "overfull": 0,
+    "missing_characters": 0,
+    "underfull_warnings": 4
+  },
+  "visual_review": "All 33 supplied slides and all final paper pages inspected using Poppler renders; unchanged deck preserved.",
+  "lean": {
+    "general_endpoints_compiled": 3,
+    "official_final_source_closeout": "pending",
+    "accepted_graph": null
+  },
+  "personal_remaining": [
+    "Authentic handwritten derivations",
+    "Comprehension and oral rehearsal"
+  ]
 }

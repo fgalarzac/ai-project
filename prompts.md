@@ -575,3 +575,32 @@ se distingue de la revisión preliminar. Se priorizó publicar los materiales
 académicos, definir símbolos y aclarar derivadas y unidades en la presentación.
 Se conserva el historial anterior como estados de cada momento. No se atribuye
 al estudiante revisión humana ni escritura manuscrita no observada.
+
+
+## 8. Paper final con presentación preservada — 22 de noviembre de 2026
+
+**Solicitud literal disponible**
+
+```text
+modifiqué e hice la presentación con claude, te adjunto el pdf. Por otro lado, mira nuevamente el repositorio. Completa lo faltante, no cambies los slides, pero completa lo restante del repositorio y crea el paper. Asegura la calidad y la máxima nota posible. Haz una evaluación de todo y mejóralo. Este es mi repositorio: https://github.com/fgalarzac/ai-project
+```
+
+**Aclaración literal del usuario sobre la crítica recibida**
+
+```text
+me dijo que bien, solo que medio complicado el modelo (por eso, quiero que lo expliques bien, paso a paso, pero sin cambiar lo original)
+```
+
+**Respuesta relevante literal del asistente**
+
+```text
+Entendido. Mantendré el modelo, los supuestos y las tres proposiciones originales. La mejora será explicativa: presentar cada objeto antes de usarlo, desarrollar las pruebas paso a paso y conectar cada ecuación con su interpretación económica. Tu PDF coincide con el que está en GitHub; lo conservaré sin cambios.
+```
+
+Se leyó el PDF completo y se contrastó su hash con main. Se ampliaron
+explicaciones y pruebas sin alterar los cinco supuestos ni los tres enunciados.
+La conversión de puntos porcentuales y la denominación precisa de epsilon se
+aclaran en el paper. Las 4018 comprobaciones originales se mantienen separadas
+de 73 controles añadidos de dominio y frontera. No se dispone del historial
+de prompts de Claude: no se reconstruye ni se inventa. Las transcripciones
+de derivaciones no se presentan como manuscritos auténticos del estudiante.

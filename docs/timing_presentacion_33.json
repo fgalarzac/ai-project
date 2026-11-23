@@ -1,0 +1,155 @@
+{
+  "main_slide_count": 29,
+  "backup_slide_count": 4,
+  "spoken_seconds": 1725,
+  "transition_budget_seconds": 75,
+  "estimated_total_seconds": 1800,
+  "observed_rehearsal": false,
+  "slides": [
+    {
+      "page": 1,
+      "title": "Portada",
+      "seconds": 20
+    },
+    {
+      "page": 2,
+      "title": "Problema del supervisor",
+      "seconds": 55
+    },
+    {
+      "page": 3,
+      "title": "Pregunta de investigación",
+      "seconds": 40
+    },
+    {
+      "page": 4,
+      "title": "Resultado condicionado",
+      "seconds": 40
+    },
+    {
+      "page": 5,
+      "title": "Precio relativo",
+      "seconds": 70
+    },
+    {
+      "page": 6,
+      "title": "Tres mecanismos",
+      "seconds": 50
+    },
+    {
+      "page": 7,
+      "title": "Cronología",
+      "seconds": 55
+    },
+    {
+      "page": 8,
+      "title": "Solicitantes y evaluación",
+      "seconds": 90
+    },
+    {
+      "page": 9,
+      "title": "Pago y decisión",
+      "seconds": 85
+    },
+    {
+      "page": 10,
+      "title": "Tres proposiciones",
+      "seconds": 25
+    },
+    {
+      "page": 11,
+      "title": "P1",
+      "seconds": 85
+    },
+    {
+      "page": 12,
+      "title": "P2",
+      "seconds": 85
+    },
+    {
+      "page": 13,
+      "title": "P3",
+      "seconds": 90
+    },
+    {
+      "page": 14,
+      "title": "Prueba P1: óptimo",
+      "seconds": 90
+    },
+    {
+      "page": 15,
+      "title": "Prueba P1: riesgo y pendientes",
+      "seconds": 80
+    },
+    {
+      "page": 16,
+      "title": "Pruebas P2 y P3",
+      "seconds": 90
+    },
+    {
+      "page": 17,
+      "title": "Estado de las pruebas",
+      "seconds": 35
+    },
+    {
+      "page": 18,
+      "title": "Qué comprueban las simulaciones",
+      "seconds": 55
+    },
+    {
+      "page": 19,
+      "title": "Cruce",
+      "seconds": 65
+    },
+    {
+      "page": 20,
+      "title": "Esquinas",
+      "seconds": 55
+    },
+    {
+      "page": 21,
+      "title": "Composición",
+      "seconds": 65
+    },
+    {
+      "page": 22,
+      "title": "Sensibilidad",
+      "seconds": 60
+    },
+    {
+      "page": 23,
+      "title": "Lean",
+      "seconds": 90
+    },
+    {
+      "page": 24,
+      "title": "Crítica de IA",
+      "seconds": 55
+    },
+    {
+      "page": 25,
+      "title": "Derivación 1",
+      "seconds": 35
+    },
+    {
+      "page": 26,
+      "title": "Derivación 2",
+      "seconds": 35
+    },
+    {
+      "page": 27,
+      "title": "Derivación 3",
+      "seconds": 45
+    },
+    {
+      "page": 28,
+      "title": "Lectura para supervisión",
+      "seconds": 45
+    },
+    {
+      "page": 29,
+      "title": "Preguntas",
+      "seconds": 35
+    }
+  ]
+}

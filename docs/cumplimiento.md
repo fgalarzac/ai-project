@@ -1,41 +1,40 @@
-# Matriz de cumplimiento de la consigna vigente
+# Matriz de cumplimiento — revisión del 22 de noviembre de 2026
 
-Estado auditado el10 de noviembre de 2026. Autoridad: issue7, no inferencias de la nota de
-otro proyecto. `Cumplido` describe la evidencia disponible, no una nota.
-Las pruebas analíticas, la comprobación numérica y Lean son capas distintas.
+Autoridad: [consigna vigente, issue 7](https://github.com/alexanderquispe/AI-Econ-Modeling/issues/7).
+La evaluación distingue evidencia disponible y trabajo personal. No predice una nota.
 
-| Requisito | Diagnóstico inicial | Estado actual | Evidencia y verificación | Acción restante |
-|---|---|---|---|---|
-| Tema TrackB y pregunta concreta | Propio en propuesta | Cumplido | paper§1–4; precio relativo y morosidad peruana | Defensa personal |
-| Repositorio público y enlace en issue | Presente | Cumplido | Comentario6157914408 y API pública | Ninguna nueva publicación de enlace |
-| Rama→PR→merge | apoyo existente divergente | Cumplido para base | PR4 fusionado; actualización desde apoyo en PR5 | Conservar flujo por PR en integración Lean |
-| README de una página | Muy extenso | Cumplido | README compacto con condiciones y estados | Revisar comprensión |
-| Propuesta2–4pp y fuente | Avance propio | Cumplido | proposal/proposal.tex/pdf recompilados; conteo en qa_report.json | Versión histórica de octubre |
-| Slides del tema y fuente conservadas | Avance propio | Cumplido | slides/topic.tex/pdf recompilados | Sin reescribir historia |
-| Paper8–20pp desde título a conclusión,11pt,1in,1col | Plantilla | Cumplido | paper.tex y pdf; body:end en aux y revisión del PDF | Véase conteo final QA |
-| Introducción, literatura, modelo, discusión, conclusión | Plantilla | Cumplido | paper§1–8 | Revisar personalmente |
-| Primitivas, unidades, dominios y cronología | Parcial | Cumplido | paper§4, S1–S3 | Ninguna simulación empírica atribuida |
-| Supuestos numerados | Incompletos | Cumplido | S1–S5, referencias en P1–P3 | Mantener al cambiar modelo |
-| Proposición propia con prueba completa | Solo candidata | Cumplido | P1global, P2umbral, P3composición y pruebas | Lean general separado |
-| Existencia, unicidad y esquinas | Solo FOC interior | Cumplido | Cuadrado completo, compactitud, singleton, capacidad y piso | No se resuelve equilibrio de precios |
-| Signo, opacidad y robustez | Cruce impuesto | Cumplido | Condiciones S4, tecnología que empeora, capacidad y sensibilidad | Validar opacidad con datos en trabajo futuro |
-| Conexión flujo-stock | Mapa positivo postulado | Cumplido | S5 y P3, condición cuantitativa y contraejemplo | Examinar castigos/curaciones al llevar a datos |
-| Promedio versus mediana | Inconsistencia | Cumplido | Promedio principal, mediana sensibilidad, ejemplo verificado | Celdas y pesos empíricos pendientes |
-| Hechos, fuentes y editorial de preprints | Cifras del plan sin base | Parcial | docs/fuentes.md; tabla BCRP reproducible; WP identificado | Base del plan necesaria para verificar sus cifras2026 |
-| Verificación de cada resultado | Solo interior | Cumplido | code/verify.py, checks.py; SymPy, optimización independiente, esquinas y diferencias finitas | No se prueba teorema por simulación |
-| Dependencias y semilla | Parcial | Cumplido | requirements.txt; semilla 20261110; fallas explícitas | Instalar versiones compatibles |
-| Figuras legibles con unidades y fuente | Solo figura tema | Cumplido | Cinco figuras finales, captions y fuentes, revisión visual | Véase QA |
-| Presentación final español,30min y discusión | Plantilla | Cumplido | 27slides, timing.json:1780seg, guía y preguntas | Ensayo real pendiente |
-| Lean: enunciado, fragmento real y límites en slide | Ejemplo de plantilla | Cumplido | Slide22 compara identidad de P3 con enunciado y prueba generales reales | Cierre oficial separado y explícito |
-| Lean oficial con agente y paper fijado | Placeholder | Parcial | Fuente fusionada, agente exigido, P1–P3 compiladas, revisión preliminar independiente | Cierre, fuente actualizada y copia íntegra pendientes |
-| Tabla Lean por resultado, hipótesis y chequeo | Ejemplo | Cumplido como reporte de estado | ApéndiceB: declaraciones, archivos, hipótesis, compilación y fuente fijada | Estado vigente fuera del PDF en lean_progreso.md |
-| Manuscrito auténtico de todas las derivaciones | Placeholder | Pendiente | Guía tipográfica de 12 apartados en hand/, no suplantada como manuscrito | Escribir, revisar, escanear y proyectar hoja real |
-| IA: afirmación revisada, veredicto y registro | Parcial | Cumplido como registro disponible | prompts.md y apéndiceC; no revisión humana fabricada | Ratificación personal y manuscrito de crítica |
-| CuatroPDF junto a fuentes | Dos finales de plantilla | Cumplido | Compilación de propuesta, tema, final y paper | CI remota superada; enlace en informe final |
-| build.yml conservado | Original | Cumplido | SHA256e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ningún cambio permitido |
-| Entrega en main a tiempo | No hay merge final | Pendiente | PR revisable desde apoyo | Slides10nov22:00; paper26nov22:00, Lima |
+| Requisito | Estado | Evidencia | Pendiente o límite |
+|---|---|---|---|
+| Tema propio, Línea B y pregunta peruana | Cumplido | Introducción y modelo del paper | Defensa personal de interpretación |
+| Repositorio público y enlace de entrega | Cumplido | Comentario 6157914408 en issue 7 | No se requiere otra publicación |
+| Rama → PR → merge | En integración | Rama apoyo conserva los cambios del autor en main | Fusionar la actualización revisada |
+| README de una página con resultado condicionado | Cumplido | README.md | Actualizar solo el estado final de Lean |
+| Propuesta 2–4 páginas y fuente | Cumplido | proposal/proposal.tex/pdf: 4 páginas | Documento histórico conservado |
+| Slides del tema conservados | Cumplido | slides/topic.tex/pdf: 19 páginas | No modificados en esta revisión |
+| Slides finales y fuente | Cumplido | slides/final.tex/pdf: 33 páginas; PDF adjunto idéntico | Conservados byte por byte por instrucción del autor |
+| Presentación de unos 30 minutos y discusión | Estimación | docs/guia_presentacion_actual.md y timing de 29 láminas principales | No consta un ensayo real; cuatro láminas son respaldo |
+| Paper 8–20 páginas de cuerpo, 11pt, 1in y una columna | Cumplido | paper/paper.tex/pdf: 15 páginas de cuerpo | Conteo final en qa_report.json |
+| Introducción, literatura y contribución acotada | Cumplido | Secciones 1–3 y bibliografía primaria | No se reclama prioridad universal |
+| Primitivas, unidades, cronología y agente | Cumplido | Sección 4, diccionario y distinción de tres operaciones | Precio y pares dados; no juego estratégico |
+| Modelo original preservado | Cumplido | Cinco supuestos y tres enunciados idénticos; docs/modelo_preservado.json | Solo explicación y pruebas ampliadas |
+| Proposición propia con todas sus condiciones y prueba | Cumplido | P1–P3 y demostraciones completas por pasos | La simulación no reemplaza la prueba |
+| Existencia, unicidad y esquinas | Cumplido | Compactitud, concavidad, proyección, singleton y derivadas laterales | No extrapolar la pendiente interior |
+| Opacidad y robustez | Cumplido | S4, prueba de umbral y escenario sin cruce | Opacidad no implica mejor tecnología |
+| Riesgo nuevo frente a saldo total | Cumplido | S5, P3, contraejemplo y frontera de signo | S5 deberá justificarse con datos reales |
+| Promedio y mediana | Cumplido | Definición principal y ejemplo verificado | No elegir comparador por error observado |
+| Evidencia y fuentes verificables | Cumplido con límites | docs/fuentes.md, tabla BCRP 2024 transcrita | No hay panel reproducible del plan ni estimaciones 2026 verificadas |
+| Cada resultado y figura comprobados | Cumplido | verify.py: 4018 + 73 controles y seis figuras | Resultados numéricos ilustrativos |
+| Dependencias y reproducción | Cumplido | requirements.txt fijado; semilla 20261110 | LaTeX y Lean se ejecutan por separado |
+| Slide Lean: enunciado, prueba real y límites | Cumplido como presentación | Diapositiva 23 del PDF del autor | Estado histórico en curso; evidencia actual en lean_progreso.md |
+| Lean oficial del paper entregado y carpeta completa | Parcial | Tres pruebas compiladas y revisiones previas conservadas | Reanudar cierre con el PDF final fijado; no se declara aceptado todavía |
+| Tabla Lean con declaración, archivo, hipótesis y estado | Cumplido como reporte técnico | Apéndice B; prueba del kernel separada del cierre integral | Chequeo actual y fuente se registran fuera del PDF |
+| Apéndice manuscrito auténtico completo | Pendiente personal | Guía tipográfica de 13 apartados | Escribir, revisar y escanear; las láminas transcritas no son manuscrito |
+| Registro IA, crítica y verificación | Cumplido como registro disponible | prompts.md y apéndice C | No se inventan prompts de Claude ni revisión humana |
+| Cuatro PDF y fuentes, compilación | Cumplido en entorno local | Los cuatro compilan desde fuente; QA sin texto fuera de página | CI remoto se comprueba en el PR |
+| Workflow oficial intacto | Cumplido | SHA256 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ninguna modificación |
+| Entrega en main antes del 26-nov 22:00 Lima | En integración | Flujo por PR | El merge remoto es el registro de entrega |
 
-La presentación es trabajo en progreso para recibir crítica. El material académico y su reproducción están preparados. El manuscrito
-personal y el cierre oficial de Lean siguen pendientes.
-Un resultado nulo de predicción no permite atribuir todo a ausencia de señal.
-La entrega puede aspirar a alta calidad sin garantizar una calificación.
+El juicio del profesor comunicado por el autor fue favorable, con observación
+de complejidad. La respuesta es explicar el modelo existente, no sustituirlo
+ni agregar supuestos para facilitar una prueba. La escritura y comprensión
+personales siguen siendo necesarias para completar la entrega.
