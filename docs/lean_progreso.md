@@ -24,7 +24,7 @@ fija la fuente que Lean auditó.
 | Pruebas | `Galarza26RelativeCredit.proposition1`, `proposition2`, `proposition3`; solo axiomas estándar `propext`, `Classical.choice`, `Quot.sound` |
 | Correspondencia con el texto | 18 elementos del modelo y tres resultados vigentes, sin discrepancias ni incertidumbres abiertas |
 | Revisión adversarial final | Contexto independiente, PDF completo; dictamen PASS del agente, no del estudiante |
-| Cierre estricto | [Log real](lean_evidence/strict_worker.log): salida 0, cero errores |
+| Cierre estricto | [Log real](lean_evidence/strict_worker.txt): salida 0, cero errores |
 | Grafo aceptado | [Puntero](../lean/audit/obligation_evidence/current_accepted_graph.json), SHA256 `1e2850e85cf4eb3994a9bc350e5ccc823bf7ab537a9b263575be98761c73b61c` |
 | Planificador actual | [Salida oficial](lean_evidence/accepted_planner.json): cierre completo, recibo actual y ninguna acción pendiente |
 | Comando exigido `--fast` | [Salida 0](lean_evidence/fast_check_stdout.txt) |
@@ -62,3 +62,4 @@ racional inicial está separado en `code/lean_supplement/`; el snippet de la
 diapositiva 23 pertenece a las pruebas generales. Las
 [alternativas e intentos anteriores](lean_alternativas.md) se conservan como
 historia. Los requisitos personales están en la [matriz](cumplimiento.md).
+
