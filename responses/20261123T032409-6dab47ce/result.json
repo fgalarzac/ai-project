@@ -1,0 +1,19 @@
+{
+  "request_id": "20261123T032409-6dab47ce",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/prepare_v11_source_map.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--config",
+    "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+    "--write"
+  ],
+  "started_utc": "2026-11-23T03:24:14Z",
+  "exit_code": 1,
+  "elapsed_seconds": 0.415,
+  "download_sha256": "d524f2fb7457942361a854fd3784bbe8209d16443b2768b36550a9f08a76d7d9",
+  "finished_utc": "2026-11-23T03:24:14Z"
+}
