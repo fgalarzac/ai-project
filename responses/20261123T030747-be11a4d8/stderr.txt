@@ -1,0 +1,11 @@
+From .scratch/galarza/engine_registration.bundle
+ * branch            HEAD       -> FETCH_HEAD
+error: Your local changes to the following files would be overwritten by checkout:
+	lakefile.toml
+Please commit your changes or stash them before you switch branches.
+Aborting
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'checkout', '--detach', '4d30604f45ddd6848fd87691c8e3ca63881b073b']' returned non-zero exit status 1.

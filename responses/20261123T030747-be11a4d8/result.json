@@ -1,0 +1,13 @@
+{
+  "request_id": "20261123T030747-be11a4d8",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import subprocess,hashlib,json; p=Path('papers/Galarza26RelativeCredit'); subprocess.run(['pdftotext',str(p/'source.pdf'),str(p/'source.txt')],check=True); print(json.dumps({'pdf_sha256':hashlib.sha256((p/'source.pdf').read_bytes()).hexdigest(),'text_sha256':hashlib.sha256((p/'source.txt').read_bytes()).hexdigest(),'pages':(p/'source.txt').read_text().count(chr(12))})); subprocess.run(['git','fetch','.scratch/galarza/engine_registration.bundle','HEAD'],check=True); subprocess.run(['git','checkout','--detach','4d30604f45ddd6848fd87691c8e3ca63881b073b'],check=True); subprocess.run(['git','fetch','--unshallow','origin'],check=True); subprocess.run(['git','add','papers/Galarza26RelativeCredit','papers/Galarza26RelativeCredit.lean'],check=True); subprocess.run(['python3','.scratch/galarza/install_report_tools.py'],check=True)"
+  ],
+  "started_utc": "2026-11-23T03:08:17Z",
+  "exit_code": 1,
+  "elapsed_seconds": 0.265,
+  "download_sha256": "c722bc86249293a61a158e66ad8fe085f4208aa23d5b9d17f2be73e6f86561b9",
+  "finished_utc": "2026-11-23T03:08:18Z"
+}
