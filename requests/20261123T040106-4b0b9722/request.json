@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_paper_semantic_prerequisites.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--emit-template",
+    "papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_a7a7c9162f3b1e4965f8c3f40ec13257154777a156145c96b32f68f80a575752.json",
+    "--v11-review-graph",
+    "--changed-only"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ]
+}
