@@ -1,0 +1,16 @@
+{
+  "request_id": "20261123T041613-2ec29cf3",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "TZ=America/Lima",
+    "python3",
+    "-c",
+    "from pathlib import Path; import subprocess; p='Galarza26RelativeCredit'; cmds=[['latexmk','-pdf','-interaction=nonstopmode','-halt-on-error','-cd','papers/'+p+'/docs/DependencyDAG.tex'],['python3','scripts/review_dashboard_packet.py','--paper',p,'--prepare-lean-cache'],['python3','scripts/review_dashboard_packet.py','--paper',p,'--write','--compile']]; [subprocess.run(c,check=True) for c in cmds]"
+  ],
+  "started_utc": "2026-11-23T04:16:18Z",
+  "exit_code": 0,
+  "elapsed_seconds": 4.924,
+  "download_sha256": "a4a19ee7e7df0d6ece54522131bdf92d4d773204de664e0c885530dd4c6ad4a7",
+  "finished_utc": "2026-11-23T04:16:23Z"
+}
