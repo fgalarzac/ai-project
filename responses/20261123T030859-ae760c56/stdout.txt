@@ -1,0 +1,4 @@
+lake registration matches: True
+{"started_pid": 3667, "log": "/home/runner/work/_temp/AppliedModelingLib/.scratch/galarza/tex_install.log"}
+4d30604f45ddd6848fd87691c8e3ca63881b073b
+
