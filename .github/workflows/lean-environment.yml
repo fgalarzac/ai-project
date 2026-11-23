@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/lean-environment.yml'
       - 'code/lean_environment_probe.py'
-      - 'lean/supplement/**'
+      - 'code/lean_supplement/**'
   workflow_dispatch:
     inputs:
       mode:
@@ -51,7 +51,7 @@ jobs:
         run: |
           set -o pipefail
           lean --version | tee "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"
-          lean lean/supplement/Counterexample.lean | tee -a "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"
+          lean code/lean_supplement/Counterexample.lean | tee -a "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"
           if grep -E 'sorryAx|_native' "$RUNNER_TEMP/lean-environment-results/lean_supplement.txt"; then exit 1; fi
       - name: Confirm no AppliedModelingLib checker was patched
         run: |
