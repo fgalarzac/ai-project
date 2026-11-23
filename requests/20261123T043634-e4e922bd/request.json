@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/run_paper_closeout.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--plan-identity",
+    "62f16cbe42d1de16d57b652f5fb60a21e81b6d30e1454d4820371f5bd2d0e725"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ]
+}
