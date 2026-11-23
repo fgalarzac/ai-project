@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/reissue_v11_raw_source_spec_screening.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--decisions",
+    "papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_reissue_decisions_d987866c147ca444f7faf45cf25b005fd02c0e2f88c26d992f524e7580e33481.json",
+    "--validator",
+    "codex-cli:01a20696-64a4-7e30-b2e2-2d19059a27ca",
+    "--v11-review-graph",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ],
+  "upload_sha256": "907a07c3c401303c25bb71515c13ca7f0b627aeaffcd07393984fd40f849cfc0"
+}
