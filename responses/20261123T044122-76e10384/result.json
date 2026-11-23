@@ -1,0 +1,16 @@
+{
+  "request_id": "20261123T044122-76e10384",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/paper_contribution.py",
+    "check",
+    "Galarza26RelativeCredit"
+  ],
+  "started_utc": "2026-11-23T04:41:24Z",
+  "exit_code": 2,
+  "elapsed_seconds": 3.572,
+  "download_sha256": "b021d2567cc45d55aa29c7409da038157392a0f36414863fdb52261da65beb2b",
+  "finished_utc": "2026-11-23T04:41:28Z"
+}
