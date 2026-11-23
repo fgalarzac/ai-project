@@ -7,7 +7,7 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 |---|---|---|---|
 | Tema propio, Línea B y pregunta peruana | Cumplido | Introducción y modelo del paper | Defensa personal de interpretación |
 | Repositorio público y enlace de entrega | Cumplido | Comentario 6157914408 en issue 7 | No se requiere otra publicación |
-| Rama → PR → merge | En integración | Rama apoyo conserva los cambios del autor en main | Fusionar la actualización revisada |
+| Rama → PR → merge | Cumplido para el paper | PR6 fusionado con CI aprobado | El cierre Lean se incorpora por otro PR |
 | README de una página con resultado condicionado | Cumplido | README.md | Actualizar solo el estado final de Lean |
 | Propuesta 2–4 páginas y fuente | Cumplido | proposal/proposal.tex/pdf: 4 páginas | Documento histórico conservado |
 | Slides del tema conservados | Cumplido | slides/topic.tex/pdf: 19 páginas | No modificados en esta revisión |
@@ -30,9 +30,9 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Tabla Lean con declaración, archivo, hipótesis y estado | Cumplido como reporte técnico | Apéndice B; prueba del kernel separada del cierre integral | Chequeo actual y fuente se registran fuera del PDF |
 | Apéndice manuscrito auténtico completo | Pendiente personal | Guía tipográfica de 13 apartados | Escribir, revisar y escanear; las láminas transcritas no son manuscrito |
 | Registro IA, crítica y verificación | Cumplido como registro disponible | prompts.md y apéndice C | No se inventan prompts de Claude ni revisión humana |
-| Cuatro PDF y fuentes, compilación | Cumplido en entorno local | Los cuatro compilan desde fuente; QA sin texto fuera de página | CI remoto se comprueba en el PR |
+| Cuatro PDF y fuentes, compilación | Cumplido | Cuatro compilaciones locales y CI del PR6 aprobado | QA sin texto fuera de página |
 | Workflow oficial intacto | Cumplido | SHA256 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ninguna modificación |
-| Entrega en main antes del 26-nov 22:00 Lima | En integración | Flujo por PR | El merge remoto es el registro de entrega |
+| Entrega en main antes del 26-nov 22:00 Lima | Paper y documentación fusionados | PR6; falta el cierre Lean y el manuscrito personal | El merge remoto registra cada incorporación |
 
 El juicio del profesor comunicado por el autor fue favorable, con observación
 de complejidad. La respuesta es explicar el modelo existente, no sustituirlo
