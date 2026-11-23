@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "-c",
+    "import os,subprocess; subprocess.run(['git','add','papers/Galarza26RelativeCredit','papers/Galarza26RelativeCredit.lean'],check=True); os.execvpe('python3',['python3','scripts/draft_semantic_preflight.py','--paper','Galarza26RelativeCredit'],os.environ)"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
