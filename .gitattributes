@@ -2,4 +2,4 @@
 /lean/** -text whitespace=cr-at-eol
 /docs/lean_evidence/*.lean text eol=lf
 /docs/lean_evidence/*.json text eol=lf
-/docs/lean_evidence/original_adversarial_panel.json -text
+/docs/lean_evidence/original_adversarial_panel.json -text whitespace=cr-at-eol
