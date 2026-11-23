@@ -51,6 +51,11 @@ La semilla base sigue siendo 20261110. Las cifras del plan no reproducibles
 no se presentan como hechos confirmados.
 
 Los conteos, hashes, revisión visual y compilación figuran en qa_report.json.
+El PR6 fue fusionado con las dos ejecuciones de CI aprobadas: los controles
+numéricos y las cuatro compilaciones pasaron en Linux. La lectura algebraica
+final corrigió dos signos de la explicación nueva: la condición estacionaria
+es e=z y la cota por valor absoluto es débil antes de la desigualdad estricta.
+Los enunciados originales permanecen idénticos.
 El control de preservación compara el SHA256 de los archivos de slides con
 el estado inicial del autor. `build.yml` mantiene el SHA256 original
 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f.
