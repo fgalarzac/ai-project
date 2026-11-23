@@ -15,6 +15,11 @@ S4 da un umbral único por opacidad si hay continuidad, descenso estricto,
 cruce e interioridad. S5 conecta cohortes con cartera:
 `M'=wq*'+w'(q*−m0)`. La composición puede invertir el signo.
 
+Aquí g es productividad de evaluar, c escala de su costo, R premio por
+desempeño, q0 riesgo previo y a sensibilidad al precio; w es el peso nuevo y
+m0 el riesgo antiguo. La [guía de lectura](docs/guia_lectura_paper.md) explica
+los símbolos y cada paso siguiendo las páginas del paper.
+
 | Componente | Estado y acceso |
 |---|---|
 | [Paper final](paper/paper.pdf) | Modelo original, cinco supuestos y tres proposiciones preservados. Explicación y pruebas paso a paso; 15 páginas de cuerpo, 11pt y una pulgada. |

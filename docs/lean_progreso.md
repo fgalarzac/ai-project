@@ -3,6 +3,23 @@
 Actualizado el 22 de noviembre de 2026. **P1–P3 compilan; el cierre oficial
 está en curso.** Una compilación no se presenta como aceptación del protocolo.
 
+La fuente final ya está fusionada en el commit
+`25f0b0c7df040e2b04d78064b30949492cd4472f`, por PR7, con CI aprobado.
+Su PDF tiene SHA256
+`d7e8130cf88602523ff6eec460a27f798314c2596a4f241190d1da5c88fc2953`.
+Una lectura independiente del PDF completo y un control preliminar de 21
+filas no detectaron diferencias de significado. El motor oficial está
+renovando las revisiones ligadas a esta fuente. Una fila requiere adjuntar
+el párrafo que define el saldo antiguo positivo y su proporción de atraso
+entre cero y uno; esos límites ya están escritos en el artículo. Se corrige
+el enlace de contexto y se repite la revisión afectada, sin agregar supuestos.
+
+Los ocho dictámenes de la primera cola quedaron guardados antes de que el
+CLI alcanzara su límite temporal: siete coincidencias y una incertidumbre
+por ese contexto. El proceso terminó con salida 1 y no se presenta como
+una corrida aprobada. La incertidumbre permanece abierta hasta su nueva
+revisión independiente y el cierre estricto.
+
 La revisión final independiente iniciada el 10 de noviembre terminó con salida
 1 al alcanzar el límite de uso del CLI. No produjo un dictamen PASS ni un
 grafo aceptado. El 22 de noviembre se comprobó de nuevo el repositorio del
@@ -25,13 +42,12 @@ se conserva sin modificaciones.
 | Aceptación integral | Pendiente: grafo, revisiones vinculadas, informes y chequeos finales |
 | Copia íntegra a lean/ | Se realizará después del cierre; el contenido actual es auxiliar histórico |
 
-La fuente final se volverá a fijar después de fusionar la actualización de
-paper. Los enunciados matemáticos no han cambiado. La evidencia
+La fuente final indicada arriba conserva los enunciados matemáticos. La evidencia
 posterior se registrará aquí, fuera del PDF, para evitar una referencia circular.
 
 La revisión preliminar usa el bundle SHA256
 `df4f92538b1b4a4054d4fe7f0734434c322975d6ebe58af387483f593a7108da`.
-No es una credencial de aceptación. El fragmento de Stock.lean proyectado
+No es una credencial de aceptación. El fragmento de Optimization.lean proyectado
 en la diapositiva 23 pertenece a esas pruebas generales, no al suplemento
 racional inicial. No se atribuye revisión humana al estudiante.
 

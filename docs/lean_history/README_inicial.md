@@ -1,4 +1,10 @@
-# Lean: verificación auxiliar y flujo oficial pendiente
+# Registro histórico del diagnóstico inicial de Lean
+
+Este documento conserva el diagnóstico del 10 de noviembre, anterior a las
+pruebas generales. El [estado vigente](../lean_progreso.md) prevalece sobre
+el plan histórico. La presentación del autor se conserva sin cambios.
+La ruta actual del suplemento es `code/lean_supplement/`; se reproduce con
+`python code/verify_lean.py` desde la raíz del repositorio.
 
 ## Lo efectivamente comprobado
 
@@ -49,7 +55,7 @@ disponibilidad mediante CLI. No se necesita sustituir el modelo.
 También se probó Linux en GitHub Actions: bloqueo POSIX real, entrada oficial
 sin parches y Lean auxiliar. El chequeo oficial ahora llega a un error distinto,
 salida2: falta la carpeta generada y su `status.json`. Es evidencia de entorno
-resuelto, **no** de paper verificado. Véanse [alternativas](../docs/lean_alternativas.md)
+resuelto, **no** de paper verificado. Véanse [alternativas](../lean_alternativas.md)
 y [corrida](https://github.com/fgalarzac/ai-project/actions/runs/42814537900).
 
 El paso inicial todavía exige un paper ya fusionado en main: esta entrega
