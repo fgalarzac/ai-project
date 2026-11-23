@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/closeout_reuse_plan.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--prepare-v11-lean-review-graph"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false
+}
