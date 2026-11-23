@@ -1,0 +1,30 @@
+{
+  "acceptance_credential": false,
+  "checkpoint_reused": false,
+  "graph_reference": {
+    "acceptance_credential": false,
+    "byte_length": 899925,
+    "kind": "v11_lean_review_graph",
+    "operational_scheduling_only": true,
+    "path": ".lake/closeout-objects/sha256/01/01260e88995c38acba1bdd930cf56ee3a26e327cfadd049279d4e4e9419bebb0.json",
+    "schema": 1,
+    "sha256": "01260e88995c38acba1bdd930cf56ee3a26e327cfadd049279d4e4e9419bebb0"
+  },
+  "graph_request_sha256": "2a0e81cefcf11d443d0497dbd6e15f7fda2d74d247009c555727e37114d8384d",
+  "library_prerequisite_count": 0,
+  "operational_scheduling_only": true,
+  "paper": "Galarza26RelativeCredit",
+  "paper_prerequisite_count": 27,
+  "prepared": true,
+  "presentation_materialized": false,
+  "proof_contract_count": 3,
+  "runtime_cache_diagnostics": {
+    "v11_graph_carrier_reuses": 0,
+    "validation_cache_entries": 1,
+    "validation_cache_hits": 0,
+    "validation_cache_misses": 1
+  },
+  "schema": 1,
+  "semantic_judgments_issued": false,
+  "specification_count": 3
+}
