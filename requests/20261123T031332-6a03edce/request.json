@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import subprocess,hashlib,json; p=Path('papers/Galarza26RelativeCredit'); subprocess.run(['pdftotext',str(p/'source.pdf'),str(p/'source.txt')],check=True); print(json.dumps({'pdf_sha256':hashlib.sha256((p/'source.pdf').read_bytes()).hexdigest(),'text_sha256':hashlib.sha256((p/'source.txt').read_bytes()).hexdigest(),'pages':(p/'source.txt').read_text().count(chr(12))}))"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "upload_sha256": "63205728feb8fd0bc05c689ef34b5c2c6edc21bb643ea1aacf36c7854f4eb5fa"
+}
