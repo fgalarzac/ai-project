@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "-c",
+    "import subprocess; p='Galarza26RelativeCredit'; cmds=[['python3','.scratch/galarza/finish_source3_document_assessment.py'],['python3','-m','scripts.report_memo_coverage','--paper',p],['git','add','papers/'+p],['python3','scripts/sync_paper_status.py','--paper',p]]; [subprocess.run(c,check=True) for c in cmds]"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ],
+  "upload_sha256": "14fb3a43558db6133f88b6502bc9601d8b73924ab63c088edab76799f65f66ab"
+}
