@@ -1,0 +1,27 @@
+{
+  "base_commit": "3db7806c09c30f8d217e828db84bef2d4b54bd68",
+  "date": "2026-11-22",
+  "assumptions": 5,
+  "propositions": 3,
+  "statement_sha256": {
+    "block_1": "d5690282122762b71bd2ef257ac688a0a455e9807d53efe1a9af56368b2b5e70",
+    "block_2": "d16d7171d1563950c6a6dc4ea9ca1b5a6d1e3ff488353e4a793e0d8920d77f52",
+    "block_3": "f0dbea89b025883e83bd1afe8d639ca9151317d234ce72d85bb73ad7a120deab",
+    "block_4": "88ce985cbcdc3bb56bae131b8c6b686ed362d6fbc10477eadea629fe7fcb06a4",
+    "block_5": "8a44bd99efef97ee049f771a21d41f8dee0f4c6110128e3314ddf3a0226ff854",
+    "block_6": "81b9e3858eead255299789bd7683cc579d65cfcd70c65637870ce79e2cd95206",
+    "block_7": "0102e0607ab6aba95279301fa145dd4ddaaaecea1f6b8dfc9c449d983d25940f",
+    "block_8": "b9d833c8aa931f8c1cb4d76b88bb655f8d4a766e96229e52634ef4d16f28be8a"
+  },
+  "slides_sha256": {
+    "slides/final.pdf": "64ff9a3fbe3ea1f429a2a7c11d2e5bd185fba4577663f989d783a5a0baf94bbd",
+    "slides/final.tex": "a0f43a05419c4ae4035f5dd5dedf0efd3448e127e3484529bc2c2db5513c2a7c",
+    "slides/final_speaker_guide.md": "cc8cb3dc82c048c41606c3b5548eb53d5a1ed8e5f1b29995f6b857c41ca6e787",
+    "slides/timing.json": "4314fc52efdc71725bf033a545896b74893c6e20092405b7c9576db046eee5fb",
+    "slides/topic.pdf": "52f838837e082bbd06df122669a822337b2118749da8557b177ce31f1e436d4f",
+    "slides/topic.tex": "36645440921a68a953d0c0e1b0f954490c2111e4e2c43889019b56e6b7a4122a",
+    "slides/topic_cheatsheet.md": "1790e167d01e4e3c8d519319679833434bb76d7649fa7ba941eb2ab46673ac39",
+    "slides/topic_QA.md": "eb8a5f79ccf69e4a2ea261a46b295baa9883da86733e14b1389977734d1a77b6"
+  },
+  "method": "Exact literal comparison of all assumption and proposition environments; file hashes for protected slides. This is an editorial preservation check, not a formal semantic credential."
+}

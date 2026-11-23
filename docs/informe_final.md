@@ -1,71 +1,75 @@
-# Informe de entrega y estado del proyecto
+# Evaluación y mejora del proyecto — 22 de noviembre de 2026
 
-10 de noviembre de 2026. Trabajo en apoyo, con publicación mediante pull request.
+## Resultado y criterio académico
 
-## Cambios y contribución
+Se conserva el modelo de la presentación del autor. El profesor lo consideró
+bien, con observación de complejidad, según el comentario comunicado por el
+estudiante. La revisión mejora la explicación y las pruebas, sin sustituir
+las primitivas ni agregar resultados teóricos.
 
-El trabajo explica cuándo el precio relativo del crédito informa sobre riesgo.
-Un precio alto puede empeorar la selección e incentivar evaluación. La capacidad
-limitada altera ese equilibrio. Al agregar créditos antiguos y nuevos, cambiar
-los pesos puede invertir el signo del riesgo. El modelo condiciona en precio;
-no afirma resolver equilibrio ni mejorar un pronóstico peruano ya estimado.
+El paper tiene 15 páginas de cuerpo, dentro de 8–20, en 11pt, una columna y
+márgenes de una pulgada. Sus tres resultados muestran: el óptimo con dos
+restricciones; un umbral único solo bajo cruce e interioridad; y una condición
+exacta para que la composición invierta el signo del riesgo nuevo.
 
-El paper tiene tres proposiciones con pruebas completas: óptimo global y
-esquinas; umbral único bajo cruce e interioridad; y transmisión al saldo con
-composición. Se define el promedio de pares como referencia y la mediana como
-sensibilidad. Las cifras no reproducibles del plan no se presentan como hechos.
+## Cambios realizados
 
-## Artículo y presentación
+- Guía de lectura, diccionario de símbolos y separación de elegir esfuerzo,
+  variar precio y comparar opacidad.
+- Pruebas de P1–P3 divididas en pasos, con reglas y condiciones explícitas.
+- Ejemplo guiado de esfuerzo y riesgo; conversión precisa de unidades.
+- Frontera de composición ya presente en la presentación, ahora reproducida
+  por código y explicada en el paper como aplicación de P3.
+- Validación de probabilidades de referencia, primitivas finitas y saldos,
+  consistente entre el ratio y su derivada.
+- Dependencias fijadas, documentación actualizada y guía de 13 apartados
+  para el manuscrito personal.
 
-Se conserva 11pt, una columna y márgenes de una pulgada. El cuerpo debe tener
-8–20 páginas; el conteo definitivo figura en [qa_report.json](qa_report.json),
-usando la etiqueta body:end y la transición conclusión/referencias del PDF.
-La versión publicada tiene 11 páginas de cuerpo y 14 en total; se recompiló
-y revisó visualmente antes de publicar, sin recortes ni advertencias.
+Los cinco supuestos y los tres enunciados se mantuvieron literalmente iguales;
+sus huellas están en modelo_preservado.json. El PDF adjunto coincide con el
+de main y **no se modificó ningún archivo de slides/**.
 
-La presentación tiene 27 diapositivas en español. Sigue problema, evidencia,
-pregunta, precio relativo, mecanismos, cronología, primitivas, optimización,
-P1–P3 y pruebas, simulaciones, Lean, límites y discusión. Los símbolos nuevos
-se explican en su diapositiva. Se distinguen derivadas respecto de opacidad
-y precio; se explican el saldo base y su sensibilidad antes de utilizarlos.
-El guion suma 1780 segundos (29:40), con unos 15 minutos para discusión.
-Es una estimación, no un ensayo oral observado.
+## Evaluación de calidad
 
-## Verificaciones y límites
+La pregunta, los mecanismos, las proposiciones y las simulaciones cuentan una
+misma historia. La existencia y unicidad no descansan solo en primer orden;
+se tratan esquinas y probabilidades válidas. P2 distingue opacidad de una
+mejora tecnológica impuesta. P3 evita identificar automáticamente un flujo
+de riesgo con un ratio de saldo. La contribución está acotada frente al
+antecedente empírico de Morgan y Ashcraft; no se reclama novedad universal.
 
-- `python code/verify.py`: 4018 comprobaciones aprobadas, con optimizador
-  independiente, diferencias finitas, SymPy, dominios y contraejemplos.
-- Cuatro PDF obligatorios junto a sus fuentes: propuesta, tema, presentación
-  final y paper. La guía de derivaciones es un quinto PDF tipográfico.
-- Conteo, hashes, advertencias, enlaces y recortes: [QA](qa_report.json).
-- `.github/workflows/build.yml` permanece intacto; SHA256
-  `e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f`.
-- P1–P3 generales compilan en Lean; solo axiomas estándar. La revisión
-  preliminar independiente no encontró discrepancias en 21 elementos.
-  El cierre oficial está en curso: [evidencia vigente](lean_progreso.md).
+Las limitaciones sustantivas están visibles: selección reducida, tecnología
+lineal, volumen independiente del esfuerzo, precio dado y contabilidad S5.
+No se reportan causalidad, estimaciones peruanas ni mejora predictiva no ejecutada.
 
-## Publicación y archivos
+## Verificaciones
 
-[PR4](https://github.com/fgalarzac/ai-project/pull/4) fusionó la versión base.
-[PR5](https://github.com/fgalarzac/ai-project/pull/5) concentra la actualización
-académica y la infraestructura Linux para Lean. El estado remoto real debe
-consultarse en esos enlaces. Los cambios académicos abarcan paper/paper.tex/pdf,
-slides/final.tex/pdf, guía y timing, README, prompts y documentación. Las
-fuentes históricas de propuesta y tema se conservan. La carpeta Lean final
-se integrará después de la aceptación oficial, mediante el mismo flujo por PR.
+El punto único de reproducción es `python code/verify.py`: 4018 controles
+originales y 73 adicionales, seis figuras y archivos de resultados separados.
+El contraejemplo exacto es −17/500 y el corte de composición en w=1/5 es 13/10.
+La semilla base sigue siendo 20261110. Las cifras del plan no reproducibles
+no se presentan como hechos confirmados.
 
-La [matriz de cumplimiento](cumplimiento.md) relaciona requisitos con evidencia.
-El [informe anterior](archive/informe_antes_cierre_lean.md) conserva la historia
-y el diagnóstico; sus estados antiguos de GitHub y Lean no son el estado actual.
+Los conteos, hashes, revisión visual y compilación figuran en qa_report.json.
+El control de preservación compara el SHA256 de los archivos de slides con
+el estado inicial del autor. `build.yml` mantiene el SHA256 original
+e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f.
 
-## Participación personal y debilidades
+## Estado restante y entrega
 
-El estudiante aún debe escribir, revisar y digitalizar las derivaciones reales
-de hand/, contrastarlas con la guía, comprender las hipótesis y ensayar la
-defensa. La guía tipográfica no se presenta como manuscrito auténtico.
+La [matriz](cumplimiento.md) distingue cumplimiento, límites y pendientes.
+El cierre oficial de Lean sobre el nuevo PDF y su copia completa siguen en
+curso; el registro vigente está en [lean_progreso.md](lean_progreso.md).
+Las tres pruebas generales compilaron en la ejecución anterior, con solo
+axiomas estándar, pero no se presenta una auditoría interrumpida como aprobada.
 
-Prioridades restantes: cierre oficial de Lean; manuscrito y defensa personales;
-en investigación posterior, panel reproducible, prueba fuera de muestra y
-contraste del supuesto contable frente a castigos, amortización y recuperaciones.
-La revisión independiente realizada es de IA; no se ha fabricado aprobación
-humana. El material apunta a alta calidad académica sin garantizar una nota.
+El requisito manuscrito sigue pendiente de participación real del estudiante:
+escribir, revisar y escanear todos los pasos de hand/, contrastarlos con el
+paper y ensayar la defensa. Las láminas transcritas por Claude no son escaneos.
+El presupuesto de 30 minutos para 29 páginas principales es una estimación;
+cuatro páginas quedan como respaldo. No se inventa un ensayo ni aprobación humana.
+
+Se trabaja en apoyo y se publica por pull request hacia main. La entrega
+oficial requiere el repositorio completo fusionado al 26 de noviembre a las
+22:00 de Lima. La evaluación anterior a esta revisión se conserva en Git.
+La calidad técnica mejora la entrega; no garantiza una nota.

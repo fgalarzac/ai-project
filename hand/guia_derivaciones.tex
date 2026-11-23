@@ -7,7 +7,7 @@
 \usepackage[colorlinks=true,allcolors=blue!50!black]{hyperref}
 \title{Guía completa para escribir las derivaciones a mano}
 \author{Material de apoyo para Fabián Matías Galarza Chumbe}
-\date{10 de noviembre de 2026}
+\date{22 de noviembre de 2026}
 \begin{document}\maketitle
 \noindent\textbf{Estado: guía tipográfica, no manuscrito del autor.}
 Cada paso siguiente debe escribirse y revisarse personalmente. Al digitalizar,
@@ -274,4 +274,32 @@ volumen en este modelo?, ¿cuándo falla el umbral?, ¿por qué un ratio de sald
 puede dar el signo contrario?, ¿qué no ha comprobado Lean?, ¿qué tendría que
 cambiar para una interpretación causal? Si una respuesta no sale con claridad,
 volver a la hoja correspondiente y corregirla.
+\section{13: frontera de composición y unidades}
+Esta es la misma P3, sin un supuesto nuevo. Escribir primero sus condiciones:
+$0<w<1$, $\beta_D>0$, $q^*>m_0$ y saldo exponencial, en un punto diferenciable.
+\begin{align*}
+M'<0
+&\iff w[\beta_D-\varepsilon(1-w)(q^*-m_0)]<0
+ &&[\text{fórmula de P3}]\\
+&\iff\beta_D-\varepsilon(1-w)(q^*-m_0)<0
+ &&[\text{dividir por }w>0]\\
+&\iff\varepsilon(1-w)(q^*-m_0)>\beta_D
+ &&[\text{reordenar}]\\
+&\iff\varepsilon>\frac{\beta_D}{(1-w)(q^*-m_0)}
+ &&[\text{dividir por un positivo}].
+\end{align*}
+En el ejemplo, $\beta_D=13/100$ y $q^*-m_0=1/8$. Entonces
+$(13/100)/(1/8)=26/25=1.04$ y el corte es $1.04/(1-w)$.
+Con $w=1/5$, $1-w=4/5$ y $(26/25)/(4/5)=13/10=1.3$.
+Por debajo no hay inversión; en la igualdad la pendiente total es cero;
+por encima es negativa. El contraejemplo usa $\varepsilon=3>1.3$.
+
+\paragraph{Conversión que debe anotarse al margen.}
+$D$ está en tasa decimal: un punto porcentual es $0.01$. Una pendiente
+$\beta_D=0.13$ da $0.13(0.01)=0.0013$ de probabilidad, equivalente a
+$0.13$ puntos porcentuales. Del mismo modo, $M'=-0.034$ da $-0.00034$
+de fracción de cartera, equivalente a $-0.034$ puntos porcentuales.
+Son aproximaciones locales, no cambios discretos grandes ni efectos causales.
+En $B=B_1\exp(-\varepsilon D)$, $B'/B=-\varepsilon$ es una semielasticidad;
+la elasticidad respecto del nivel de $D$ es $DB'/B=-\varepsilon D$.
 \end{document}

@@ -1,44 +1,37 @@
 # Precio relativo del crédito y morosidad futura
 
-**Fabián Matías Galarza Chumbe · Track B · 10 de noviembre de 2026**
+**Fabián Matías Galarza Chumbe · Línea B · versión del 22 de noviembre de 2026**
 
-¿Cuándo informa el precio de créditos nuevos sobre la morosidad posterior de
-un banco peruano? El indicador principal es la tasa anual del banco menos el
-**promedio simple de otros bancos** en la misma celda y fecha. La mediana es
-sensibilidad. La resta cancela una base aditiva común, pero conserva fondeo,
-composición y exposición al ciclo heterogéneos.
+¿Cuándo una tasa mayor que la de bancos pares informa sobre morosidad futura
+en Perú? El indicador resta a la tasa propia el **promedio simple de otros
+bancos** comparables; la mediana es sensibilidad. La resta cancela una base
+aditiva común, sin eliminar diferencias de fondeo o clientela.
 
-El banco elige evaluación `e` condicionado en precio `D`. El riesgo previo es
-`q0=qbar+aD`, el posterior `q=q0-ge` y el costo `ce²/2`. Con `a,g,c>0`,
-`q0∈[0,1]`, `R=Rbar+D>0` y capacidad no negativa, el máximo único es
-`e*=min(gR/c, capacidad, q0/g)`. La pendiente de riesgo es `a−g²/c` en el
-interior, `a` con capacidad agotada y cero en el piso de riesgo. Un umbral de
-opacidad requiere continuidad, cruce, monotonía estricta de `a−g²/c` e
-interioridad al precio comparado.
+El banco elige evaluación, dado el precio. El esfuerzo óptimo es
+`min(gR/c, capacidad, q0/g)`: demanda de evaluación, capacidad y probabilidad
+válida. Bajo S1–S3, el máximo es único. El riesgo tiene pendiente `a−g²/c`
+solo en el interior; con capacidad agotada es `a` y en el piso es cero.
+S4 da un umbral único por opacidad si hay continuidad, descenso estricto,
+cruce e interioridad. S5 conecta cohortes con cartera:
+`M'=wq*'+w'(q*−m0)`. La composición puede invertir el signo.
 
-La contribución adicional conecta cohortes con el saldo:
-`M=(1−w)m0+wq*`, luego `M'=wq*'+w'(q*−m0)`. Bajo saldos deterministas,
-evento y maduración compatibles, cartera antigua fija y sin castigos, el
-segundo término puede invertir el signo de la cohorte nueva. No se resuelve
-equilibrio de precios ni se demuestra mejora predictiva peruana.
-
-| Componente | Estado y evidencia |
+| Componente | Estado y acceso |
 |---|---|
-| [Artículo](paper/paper.pdf) y bibliografía | Tres proposiciones, pruebas completas, cinco figuras. Formato 11pt, márgenes de una pulgada. Conteo en [QA](docs/qa_report.json). |
-| [Presentación final](slides/final.pdf) | 27 diapositivas en español: variables definidas, construcción gradual, pruebas e interpretación; [guía](slides/final_speaker_guide.md) de 29:40 min estimados, sin ensayo observado. |
-| [Simulaciones](code/verify.py) | P1–P3, optimizador independiente, esquinas, sensibilidad y contraejemplos. Parámetros ilustrativos. |
-| [Lean](docs/lean_progreso.md) | P1–P3 generales compilan y la revisión preliminar independiente no encontró discrepancias. Cierre oficial y copia final: en curso. |
-| [Manuscritos](hand/README.md) | Pendientes de escritura y digitalización personales. Guía tipográfica completa disponible. |
-| Tema de octubre | Propuesta y slides conservadas y recompiladas como versión histórica. Usan mediana y la calibración anterior. |
-| Evidencia y colaboración IA | [Fuentes](docs/fuentes.md), [matriz](docs/cumplimiento.md), [prompts](prompts.md). Las cifras 2026 del plan no se reproducen sin su base. |
+| [Paper final](paper/paper.pdf) | Modelo original, cinco supuestos y tres proposiciones preservados. Explicación y pruebas paso a paso; 15 páginas de cuerpo, 11pt y una pulgada. |
+| [Presentación del autor](slides/final.pdf) | Conservada sin cambios: 33 páginas, 29 principales y cuatro de respaldo. [Guía actual](docs/guia_presentacion_actual.md); duración propuesta de 30 min, sin ensayo observado. |
+| [Verificación](code/verify.py) | 4018 controles originales + 73 adicionales; seis figuras, parámetros ilustrativos y dependencias fijadas. |
+| [Lean](docs/lean_progreso.md) | Compilan las tres pruebas generales, con axiomas estándar. Cierre oficial sobre el nuevo PDF e integración completa pendientes. |
+| [Derivaciones](hand/README.md) | Guía tipográfica de 13 apartados; faltan las páginas manuscritas auténticas y la revisión personal. |
+| Historia y evaluación | Propuesta y tema conservados. [Matriz](docs/cumplimiento.md), [informe](docs/informe_final.md), [fuentes](docs/fuentes.md) y [registro IA](prompts.md). |
 
-Desde la raíz:
 ```bash
 python -m pip install -r code/requirements.txt
 python code/verify.py
 cd paper && latexmk -pdf paper.tex
-cd ../slides && latexmk -pdf final.tex
 ```
-Los cuatro PDF oficiales están junto a sus fuentes. `build.yml` se conserva
-intacto. El flujo de entrega es **apoyo → PR → main**: lo evaluado es `main`.
-Slides: hoy 10-nov a las 22:00 Lima. Paper completo: 26-nov a las 22:00 Lima.
+
+Los cuatro PDF oficiales están junto a sus fuentes. `build.yml` permanece
+intacto. Entrega por **apoyo → PR → main**; se evalúa lo fusionado en `main`
+al **26 de noviembre, 22:00 Lima**. El trabajo es teórico: no prueba precios
+de equilibrio, causalidad ni mejora predictiva peruana. La guía no sustituye
+comprensión, manuscrito ni defensa personal.

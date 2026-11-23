@@ -34,3 +34,23 @@ declaración de contraejemplos, y salvedades explícitas sobre población finita
 auditorías semánticas y agente diferente al exigido. Eso informa organización
 y transparencia, no se reutiliza su modelo, resultados, código o pruebas.
 La nota18 indicada por el usuario no se verificó, y no se infiere su causa.
+
+## Revisión del 22 de noviembre de 2026
+
+Se volvió a leer la consigna y todos sus comentarios mediante GitHub. El enlace
+del estudiante permanece registrado y la fecha común sigue siendo 26-nov,
+22:00 Lima. El PDF adjunto coincide con la presentación de 33 páginas en main.
+
+La página editorial de Morgan y Ashcraft confirma el artículo de 2003,
+volumen 24, pp.181–200 y el resultado del resumen sobre préstamos C&I y
+calificaciones CAMEL. Se consultó ese resumen, no el texto de pago completo.
+La metodología SBS se volvió a leer: sección 3, p.7, treinta días útiles y
+ponderación por desembolsos dentro de empresa. La versión primaria del
+DT BCRP 2024-015 distingue deterioro de créditos normales en doce meses del
+ratio de morosidad. Se mantiene su condición de documento de trabajo; no se
+verificó publicación posterior de revista. Los portales BCRP del catálogo y
+REF devolvieron un iframe de desafío; las cifras históricas 2024 conservan su
+transcripción previamente contrastada, sin presentarse como datos actuales.
+
+La observación docente sobre complejidad fue comunicada por el estudiante;
+no se inventa una rúbrica individual ni se atribuye una nota al profesor.

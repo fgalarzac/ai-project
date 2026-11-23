@@ -20,7 +20,7 @@ Track B, AI and Economic Modeling, 2026-II.
 \url{https://github.com/fgalarzac/ai-project}. El plan de investigación con
 William Brandon Grados Taco motiva la pregunta. Este modelo y su implementación
 son una adaptación para el curso con asistencia de IA declarada en el apéndice.}}
-\date{10 de noviembre de 2026. Manuscrito para discusión}
+\date{22 de noviembre de 2026. Versión para entrega}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -33,8 +33,8 @@ adicionales de cruce y monotonía. Al agregar cohortes, la pendiente del ratio
 de cartera incorpora un término de composición que puede invertir el signo
 del riesgo de originación. Pruebas completas y comprobaciones independientes
 delimitan estos resultados. Las simulaciones son ilustrativas; no estimo una
-mejora predictiva peruana. Las tres proposiciones compilan en Lean; su cierre oficial se documenta
-por separado. Las derivaciones manuscritas personales permanecen pendientes.
+mejora predictiva peruana. El artículo desarrolla cada decisión y demostración
+paso a paso; el apéndice distingue las pruebas Lean de la validación empírica.
 \end{abstract}
 
 \section{Problema económico y contribución}
@@ -57,7 +57,7 @@ tres fuerzas antes de interpretar una regresión predictiva.
 La respuesta del modelo tiene condiciones precisas. En una solución interior,
 la selección supera a la evaluación si $a>g^2/c$, donde $a$ mide la sensibilidad
 de la calidad de solicitantes al precio, $g$ la productividad de evaluar y $c$
-su costo marginal creciente. La pendiente de riesgo cambia de signo con la
+la escala de su costo cuadrático. La pendiente de riesgo cambia de signo con la
 opacidad únicamente si la diferencia entre esas fuerzas cruza cero. Una
 restricción de capacidad puede impedir que opere la respuesta negativa.
 Finalmente, trasladar el signo a una cartera requiere controlar cuánto pesan
@@ -65,10 +65,29 @@ las cohortes y qué ocurre con los créditos antiguos.
 
 El aporte respecto del avance del tema es doble: una solución global con
 restricciones económicamente válidas, y una condición explícita para el
-vínculo entre flujos y stocks. Reemplazo el enlace postulado
-$NPL=\alpha+\rho q+u$ por una identidad de composición. No se obtiene una
+vínculo entre flujos y stocks. En vez de postular una relación de signo fijo
+entre el riesgo de los créditos nuevos y la morosidad total, derivo una
+identidad de composición. No se obtiene una
 nueva estimación del Perú ni se resuelve competencia estratégica en precios.
 Esta delimitación evita llamar evidencia predictiva a una derivada condicional.
+
+El punto de partida empírico más cercano es \citet{morgan2003}: las tasas de
+créditos comerciales e industriales nuevos contienen información sobre su
+desempeño posterior. Este artículo no replica ni extiende una de sus
+estimaciones. Su contribución dentro de la Línea B es mostrar por qué esa
+lectura necesita tres condiciones distintas: identificar la respuesta de
+evaluación, comprobar qué restricción opera y separar créditos nuevos del
+saldo total. Los ingredientes son conocidos; el aporte es su articulación
+en un problema bancario explícito y verificable para la pregunta peruana.
+
+\paragraph{Guía de lectura.}
+El modelo tiene una sola decisión optimizada: cuánto evaluar un crédito,
+dado su precio. La Proposición~\ref{p:global} resuelve esa decisión. La
+Proposición~\ref{p:threshold} mantiene el problema y compara segmentos con
+distinta opacidad, bajo un supuesto adicional de cruce. La
+Proposición~\ref{p:stock} conserva el mismo riesgo óptimo y lo agrega a una
+cartera antigua. Así, opacidad y composición responden preguntas sucesivas;
+no agregan agentes estratégicos ni una segunda decisión de precios.
 
 \section{Evidencia verificable y medición}
 \subsection{Qué se observa y qué no se recibió}
@@ -168,7 +187,11 @@ La literatura peruana de pronóstico también importa. \citet{yamunaque2024}
 figura como Documento de Trabajo 2024-015 en el catálogo primario del BCRP,
 consultado el 10 de noviembre de 2026. Se cita con ese estado editorial; no se
 confirmó una versión de revista en las fuentes primarias consultadas. No es
-evidencia de que nuestro indicador funcione. \citet{clark2007} proporciona una
+evidencia de que nuestro indicador funcione. Su construcción separa el
+deterioro de créditos inicialmente normales durante una ventana de doce
+meses del ratio contable de morosidad. Esta diferencia respalda la necesidad
+de explicitar evento y horizonte; no justifica equiparar automáticamente
+nuestro $q^*$ con una serie publicada. \citet{clark2007} proporciona una
 comparación de modelos predictivos anidados, relevante para un trabajo empírico
 posterior. No se calcula aquí una prueba ni un valor $p$.
 
@@ -207,16 +230,60 @@ sol de crédito. La sensibilidad monetaria del premio de desempeño a una unidad
 de $D$ se normaliza a uno. Esto es una simplificación de remuneración, no una
 conversión exacta de tasas efectivas a cualquier plazo contractual.
 
+Conviene separar tres operaciones que aparecerán en las pruebas. Al elegir
+$e$, el banco mantiene fijos $D$ y $\kappa$: compara esfuerzos para un mismo
+precio y segmento. Al calcular $\partial_Dq^*$, compara problemas con precios
+cercanos, dejando fijo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición~\ref{p:threshold} se comparan distintos valores
+de $\kappa$, siempre al mismo precio $D_0$. La prima de $M'$ se refiere a $D$;
+las primas de $g'$ y $c'$ en el análisis de opacidad se refieren a $\kappa$.
+
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan
+recién en la Proposición~\ref{p:stock}; no intervienen en la elección inicial
+del esfuerzo.
+\begin{center}\small
+\begin{tabular}{@{}p{.15\linewidth}p{.51\linewidth}p{.27\linewidth}@{}}
+\toprule Símbolo & Significado & Unidad o restricción\\\midrule
+$D$ & Tasa propia menos promedio simple de pares & Tasa anual decimal\\
+$\kappa$ & Opacidad exógena del segmento & Índice en $[0,1]$\\
+$\bar q,a$ & Riesgo de referencia y sensibilidad de selección & Probabilidad; $a>0$\\
+$q^0,q,q^*$ & Riesgo previo, posterior y posterior óptimo & Mismo evento y horizonte\\
+$e,\bar e,u$ & Esfuerzo, capacidad y máximo esfuerzo factible & Índices no negativos\\
+$g,c$ & Productividad y escala del costo de evaluación & Ambos positivos\\
+$R,\bar R,F$ & Premio por desempeño, premio de referencia y costo fijo & Pagos por sol de crédito\\
+$z$ & Esfuerzo deseado sin restricciones: $gR/c$ & Índice de esfuerzo\\
+$H,\beta$ & Fuerza de evaluación $g^2/c$ y pendiente neta $a-H$ & Riesgo por unidad de $D$\\
+$\beta_D$ & Derivada de $q^*$ en el régimen efectivo & Riesgo por unidad de $D$\\
+$B_0,B,B_1$ & Saldos antiguo, nuevo y nuevo cuando $D=0$ & Misma unidad monetaria\\
+$m_0,w,M$ & Atraso antiguo, peso nuevo y ratio total & Fracciones en $[0,1]$\\
+$\varepsilon$ & Sensibilidad proporcional de $B$ al precio & Por unidad de $D$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \begin{assumption}[Selección y dominio]\label{as:selection}
 Para cada $\kappa$ fijo, $a=a(\kappa)>0$, $\bar q\in(0,1)$ y $D$ pertenece
 a un intervalo compacto $\mathcal D$. La probabilidad previa es
 $q^0(D,\kappa)=\bar q+a(\kappa)D\in[0,1]$ en todo $\mathcal D$.
 \end{assumption}
 La forma afín es una aproximación local al cambio de solicitantes. Una subida
-de un punto porcentual empeora su probabilidad en $0.01a$, no en $a$ puntos.
+de un punto porcentual es $\Delta D=0.01$: cambia la probabilidad en $0.01a$
+unidades, equivalentes a $a$ puntos porcentuales. Por ejemplo, con $a=0.18$
+el cambio es $0.0018$ de probabilidad, es decir, $0.18$ puntos porcentuales.
 No se extrapola fuera del dominio admisible. La pendiente positiva representa
 selección adversa, no una ley empírica universal ni una respuesta derivada de
 un problema explícito de cada deudor.
+
+La restricción de probabilidad también fija qué precios se pueden comparar.
+Restar $\bar q$ y dividir por $a>0$ da
+\[
+0\le\bar q+aD\le1
+\quad\Longleftrightarrow\quad
+-\frac{\bar q}{a}\le D\le\frac{1-\bar q}{a}.
+\]
+El dominio compacto $\mathcal D$ se elige dentro de ese intervalo y debe
+respetar además el pago positivo del Supuesto~\ref{as:payoff}. No se pretende
+describir cualquier tasa posible con una probabilidad afín.
 
 \begin{assumption}[Tecnología, capacidad y costo]\label{as:technology}
 $g=g(\kappa)>0$, $c=c(\kappa)>0$ y $\bar e\ge0$ son finitos. Para un volumen
@@ -234,6 +301,12 @@ composición endógena de rechazos ni su costo de reemplazo. Si evaluar elimina
 solicitantes sin reemplazo, el volumen dependería de $e$ y la solución cambiaría.
 La tecnología lineal puede llegar a riesgo cero, una frontera matemática cuyo
 realismo es limitado; no se presenta como objetivo factible de un supervisor.
+
+La segunda cota se obtiene directamente de $q\ge0$: como $g>0$,
+$q^0-ge\ge0$ equivale a $e\le q^0/g$. La primera cota, $e\le\bar e$,
+es tecnológica. Cumplir ambas significa tomar su mínimo. Además, $e\ge0$
+asegura $q\le q^0\le1$. El conjunto $0\le e\le u$ impide tanto esfuerzo
+negativo como riesgo negativo, y respeta simultáneamente la capacidad.
 
 \begin{assumption}[Remuneración y problema condicionado]\label{as:payoff}
 El premio normalizado por desempeño es $R(D)=\bar R+D>0$ y $F$ es un costo
@@ -253,6 +326,14 @@ La remuneración supone que evitar el evento adverso mejora el pago esperado.
 Recuperaciones, seguros y garantías que varían con precio o esfuerzo exigirían
 modificar este premio. El horizonte del evento y el flujo contractual deben
 ser compatibles en una implementación empírica.
+
+Para leer el objetivo, empiece por $1-q^0+ge=1-q$: es la probabilidad de
+evitar el evento adverso. Multiplicarla por $R$ da el premio esperado. Después
+se restan el costo fijo $F$ y el costo de evaluar. Una unidad adicional de
+esfuerzo aporta $gR$ de beneficio marginal y cuesta $ce$. Al subir el precio,
+$R$ aumenta; al subir el esfuerzo, su costo marginal aumenta. Ese contraste
+explica la respuesta del banco, pero todavía no dice si el esfuerzo deseado
+cabe dentro de las restricciones.
 
 \section{Resultados y demostraciones completas}
 \subsection{Evaluación óptima con todas sus restricciones}
@@ -278,29 +359,73 @@ dominio de $D$. En empates de restricciones la solución es continua y se usan
 derivadas laterales; una derivada ordinaria puede no existir.
 \end{proposition}
 \begin{proof}
-El intervalo factible es no vacío, cerrado y acotado porque $q^0\ge0$, $g>0$
-y $\bar e\ge0$. El objetivo es continuo, así que alcanza un máximo. Si $u=0$
-solo hay una elección. Si $u>0$, $\pi_{ee}=-c<0$ da concavidad estricta y a
-lo sumo un máximo. Para encontrarlo sin confundir una FOC con suficiencia,
-defina $z=gR/c>0$ y complete el cuadrado:
-\[
-\pi(e)=(1-q^0)R-F+\frac{(gR)^2}{2c}-\frac c2(e-z)^2.
-\]
-Maximizar equivale a minimizar la distancia al punto positivo $z$. Si $z<u$,
-la distancia cero se alcanza solo en $e=z$. Si $z\ge u$, la distancia cae
-estrictamente hasta $e=u$ y ese es el único máximo. Esto también prueba el
-caso $z=u$. Por tanto $e^*=\min\{z,u\}$, que produce la primera fórmula.
-Restar $ge^*$ de $q^0$ y distinguir si $q^0/g$ es la menor cota produce la
-segunda. Ambas probabilidades pertenecen a $[0,1]$: $q^*\ge0$ por la cota y
-$q^*\le q^0\le1$ porque $e^*\ge0$.
+\textbf{Paso 1: hay una elección factible y el máximo es único.}
+Fijamos $D$ y $\kappa$, de modo que $q^0,R,g,c,\bar e$ son constantes al
+comparar esfuerzos. Como $q^0\ge0$, $g>0$ y $\bar e\ge0$, se cumple $u\ge0$.
+El intervalo $[0,u]$ es no vacío y compacto y $\pi$ es continua: por el teorema
+del valor extremo alcanza un máximo. Si $u=0$, solo se puede elegir $e=0$.
+Si $u>0$, la segunda derivada es $\pi_{ee}=-c<0$; la concavidad estricta en
+un intervalo convexo impide dos máximos distintos.
 
-En el primer régimen, $q^*=\bar q+aD-(g^2/c)(\bar R+D)$, y derivar con
-$a,g,c$ fijos da $a-g^2/c$. En el segundo $q^*=\bar q+aD-g\bar e$ y la
-pendiente es $a$. En el tercero $q^*=0$ en un entorno y su derivada es cero.
-Con capacidad nula la fórmula es inmediata. Mínimos y máximos de funciones
-continuas son continuos, lo que prueba continuidad incluso en empates. Las
-expresiones adyacentes determinan las pendientes laterales donde hay cambio
-de régimen. No se requiere que esas pendientes coincidan.
+\textbf{Paso 2: el primer orden identifica el esfuerzo deseado.}
+Derivar respecto de $e$, manteniendo fijos precio y segmento, da
+\[
+\pi_e=gR-ce,\qquad \pi_e=0\ \Longleftrightarrow\ z:=gR/c>0.
+\]
+La igualdad entre beneficio y costo marginal no demuestra que $z\le u$.
+Por eso $z$ es todavía un candidato sin restricciones.
+
+\textbf{Paso 3: resolver el problema restringido.}
+Completar el cuadrado muestra qué hacer cuando el candidato no es factible:
+\begin{align*}
+gRe-\frac c2e^2
+ &=-\frac c2\left[e^2-2\frac{gR}{c}e\right]
+  =-\frac c2\left[(e-z)^2-z^2\right],\\
+\pi(e)&=\underbrace{(1-q^0)R-F+\frac{(gR)^2}{2c}}_{\text{constante respecto de }e}
+              -\frac c2(e-z)^2.
+\end{align*}
+Puesto que $c>0$, maximizar $\pi$ equivale a minimizar $(e-z)^2$ en $[0,u]$.
+Si $z\le u$, el único punto a distancia cero es $e=z$. Si $z>u$, para todo
+$e<u$ se tiene $z-e>z-u>0$ y, al elevar al cuadrado,
+$(e-z)^2>(u-z)^2$. El único máximo es entonces $e=u$. Esto incluye el caso
+$u=0$; si $z=u$, ambos argumentos identifican el mismo punto. En consecuencia,
+\[
+e^*=\min\{z,u\}=\min\{gR/c,\bar e,q^0/g\}.
+\]
+
+\textbf{Paso 4: sustituir en la probabilidad y comprobar sus cotas.}
+Escriba $v=\min\{\bar e,gR/c\}\ge0$. Si $v\le q^0/g$, entonces $e^*=v$ y
+$q^*=q^0-gv\ge0$. Si $v>q^0/g$, entonces $e^*=q^0/g$ y $q^*=0$. Los dos
+casos son exactamente $q^*=\max\{0,q^0-gv\}$. Además, como $e^*\ge0$ y
+$g>0$, $q^*\le q^0\le1$. Así se obtiene la segunda fórmula y se comprueba
+que se trata de una probabilidad válida.
+
+\textbf{Paso 5: derivar dentro de cada régimen.}
+Con $\kappa$ fijo, las desigualdades estrictas se conservan en un entorno
+del precio considerado. Se puede derivar la expresión que allí está activa:
+\begin{align*}
+\text{Interior: }q^*&=\bar q+aD-\frac{g^2}{c}(\bar R+D),
+ &\partial_Dq^*&=a-g^2/c;\\
+\text{Capacidad: }q^*&=\bar q+aD-g\bar e,
+ &\partial_Dq^*&=a;\\
+\text{Piso: }q^*&=0,
+ &\partial_Dq^*&=0.
+\end{align*}
+En el interior, $\partial_De^*=g/c$: al multiplicar por la productividad $g$
+se obtiene la reducción marginal $g^2/c$. Con capacidad agotada el esfuerzo
+ya no responde. En el piso, el riesgo no puede seguir bajando.
+
+\textbf{Paso 6: capacidad cero y empates.}
+Si $\bar e=0$, el conjunto factible es $\{0\}$, por lo que $e^*=0$ y
+$q^*=q^0$; en el interior del dominio su derivada es $a$. Para capacidad
+general, las funciones afines que entran al mínimo son continuas. El mínimo
+y el máximo de un número finito de funciones continuas son continuos: no
+hay saltos en $e^*$ ni en $q^*$. También son funciones afines por tramos.
+En cada lado de un empate se activa una de esas expresiones, de modo que
+existen las pendientes laterales. Si dos expresiones coinciden en todo un
+intervalo, tienen la misma pendiente y no generan un problema nuevo. Cuando
+las pendientes de ambos lados difieren, la derivada ordinaria no existe;
+el ejemplo de capacidad de la sección~\ref{sec:sim} muestra ese caso.
 \end{proof}
 
 La intuición de $g^2/c$ tiene dos pasos: un mayor precio eleva el esfuerzo en
@@ -308,6 +433,17 @@ $g/c$ en el interior y cada unidad de esfuerzo reduce riesgo en $g$. Cuando
 la capacidad está agotada, la primera respuesta desaparece. En consecuencia,
 un banco con alta productividad puede mostrar pendiente positiva si enfrenta
 capacidad escasa. La condición $g^2/c>a$ por sí sola no basta globalmente.
+
+\paragraph{Un recorrido numérico de la decisión.}
+Para fijar la intuición, tome los parámetros hipotéticos de la simulación:
+$\bar q=0.28$, $a=0.18$, $g=\sqrt{0.05}$, $c=1$, $\bar R=1.10$ y
+$\bar e=0.50$. En $D=0$, $q^0=0.28$ y $R=1.10$. El candidato es
+$gR/c\simeq0.246$, menor que la capacidad $0.50$ y que la cota
+$q^0/g\simeq1.252$: el banco es interior. Evaluar reduce el riesgo en
+$ge^*=0.055$, por lo que queda $q^*=0.225$. Localmente, un punto porcentual
+más de precio añade $0.18$ puntos porcentuales por selección y resta $0.05$
+por evaluación; el resultado neto es $0.13$ puntos porcentuales. El cálculo
+solo ilustra las unidades y el mecanismo, sin calibración con datos peruanos.
 
 \subsection{Qué requiere un umbral por opacidad}
 Defina $H(\kappa)=g(\kappa)^2/c(\kappa)$ y
@@ -324,13 +460,32 @@ $\kappa^*\in(0,1)$ con $\partial_Dq^*(D_0,\kappa^*)=0$. La derivada es
 positiva para $\kappa<\kappa^*$ y negativa para $\kappa>\kappa^*$.
 \end{proposition}
 \begin{proof}
-Como $c$ no se anula, $H=g^2/c$ y $\beta=a-H$ son continuas. Los signos
-opuestos en los extremos y el teorema del valor intermedio dan un cero en
-$(0,1)$. Si hubiera dos ceros, la monotonía estricta exigiría que el segundo
-fuera menor que el primero en valor funcional, una contradicción. Para un
-punto menor que el cero, la monotonía da $\beta(\kappa)>\beta(\kappa^*)=0$;
-para uno mayor da la desigualdad inversa. La interioridad permite aplicar
-la primera línea de la Proposición~\ref{p:global} en cada $\kappa$.
+\textbf{Paso 1: continuidad de la pendiente neta.}
+Por S4, $a,g,c$ son continuas en $[0,1]$ y $c$ es estrictamente positiva.
+El cuadrado y el cociente conservan continuidad cuando el denominador no se
+anula. Por tanto $H=g^2/c$ y $\beta=a-H$ son continuas.
+
+\textbf{Paso 2: existencia de un cero interior.}
+S4 implica $\beta(0)=a(0)-H(0)>0$ y $\beta(1)=a(1)-H(1)<0$. El teorema
+del valor intermedio da un $\kappa^*\in(0,1)$ tal que $\beta(\kappa^*)=0$.
+Es interior porque ninguno de los dos extremos tiene valor cero.
+
+\textbf{Paso 3: unicidad y orden de los signos.}
+Si $x<y$ fueran dos ceros, el descenso estricto daría
+$0=\beta(x)>\beta(y)=0$, una contradicción. Para cualquier
+$\kappa<\kappa^*$, la misma propiedad da
+$\beta(\kappa)>\beta(\kappa^*)=0$; para $\kappa>\kappa^*$ da la desigualdad
+inversa. Así se obtienen un único cero y los signos a cada lado.
+
+\textbf{Paso 4: volver a la derivada del riesgo.}
+El cero anterior es el de una función de primitivas. Para identificarlo
+con el objeto económico, falta usar la última parte de S4: al precio común
+$D_0$ el esfuerzo es interior para toda $\kappa$. La primera línea de
+\eqref{eq:regimes} da entonces
+$\partial_Dq^*(D_0,\kappa)=a(\kappa)-g(\kappa)^2/c(\kappa)=\beta(\kappa)$.
+El cero único y sus signos son exactamente los del enunciado. Sin
+interioridad, el cero de $\beta$ no bastaría para caracterizar la pendiente
+del régimen efectivo.
 \end{proof}
 
 El Supuesto~\ref{as:cross} es una restricción económica contrastable, no el
@@ -352,6 +507,12 @@ Fijemos un horizonte $h$. $B_0>0$ es el saldo de créditos antiguos todavía
 vigente en esa fecha y $m_0\in[0,1]$ su proporción en el estado de atraso
 elegido. $B(D)>0$ es el saldo de la cohorte nueva que permanece en cartera a
 $h$, después de amortización normal. Denote $w(D)=B(D)/(B_0+B(D))$.
+
+Un ejemplo explica el peso sin derivadas. Si el saldo antiguo es cuatro y
+el nuevo uno, el peso nuevo es $1/(4+1)=0.20$: el ochenta por ciento del
+ratio corresponde a la cartera antigua. Mejorar o empeorar los créditos
+nuevos no cambia el mismo porcentaje del saldo total. La magnitud depende
+también de cuánto pesa esa cohorte.
 
 \begin{assumption}[Contabilidad y maduración]\label{as:stock}
 Al horizonte, el saldo de cada cohorte es determinista o se trata como
@@ -385,19 +546,59 @@ En particular, $\beta_D>0$ y $q^*>m_0$ generan $M'<0$ si y solo si
 $\varepsilon(1-w)(q^*-m_0)>\beta_D$.
 \end{proposition}
 \begin{proof}
-El saldo esperado en atraso es $B_0m_0+Bq^*$. Dividirlo por el saldo
-determinista $B_0+B$ produce la expresión de $M$; no se sustituye sin
-justificación una esperanza de ratios por un ratio de esperanzas. La regla
-del producto da $M'=-w'm_0+w'q^*+w\beta_D$, que es \eqref{eq:stock}.
-Con $B$ constante, $w'=0$ y $w>0$, así que se conserva el signo, incluido
-el caso cero. Si $\beta_D\ne0$, un término de magnitud estrictamente menor
-que $w|\beta_D|$ no puede cambiar el signo de $w\beta_D$.
+\textbf{Paso 1: construir el ratio con saldos comparables.}
+Bajo S5, el saldo esperado en atraso es $B_0m_0+Bq^*$. Su denominador
+$B_0+B$ es determinista y positivo. Por eso se puede dividir la suma esperada
+por ese saldo; no se intercambian sin justificación una esperanza de ratios
+y un ratio de esperanzas. Separar los dos sumandos da
+\[
+M=\frac{B_0}{B_0+B}m_0+\frac{B}{B_0+B}q^*
+  =(1-w)m_0+wq^*,\qquad 0<w<1.
+\]
 
-La regla del cociente da $w'=B'B_0/(B_0+B)^2$. Como $B'=-\varepsilon B$,
-$w'=-\varepsilon w(1-w)$. Sustituir produce \eqref{eq:composition}.
-Dado que $w>0$, $M'<0$ equivale exactamente a que el término entre llaves
-sea negativo; al despejar se obtiene la última condición. Todas las
-operaciones se realizan en un régimen donde $q^*$ es diferenciable.
+\textbf{Paso 2: identificar calidad y composición.}
+Como $B_0,m_0$ son constantes respecto de $D$, la regla del producto da
+\begin{align*}
+M'&=-w'm_0+w'q^*+w\,\partial_Dq^*\\
+  &=w\beta_D+w'(q^*-m_0),
+\end{align*}
+que es \eqref{eq:stock}. El primer término cambia la calidad de los créditos
+nuevos manteniendo su peso; el segundo cambia el peso de una cohorte cuya
+calidad difiere de la antigua.
+
+\textbf{Paso 3: comprobar las dos reglas de conservación del signo.}
+Si $B$ es constante, también lo es $w$, de modo que $w'=0$ y
+$M'=w\beta_D$. Como $w>0$, ambos tienen el mismo signo, incluido el caso cero.
+Para la segunda regla denote $T=w'(q^*-m_0)$, el término de composición.
+Si $\beta_D>0$ y $|T|<w|\beta_D|=w\beta_D$, entonces
+$M'=w\beta_D+T>w\beta_D-|T|>0$. Si $\beta_D<0$, entonces
+$w|\beta_D|=-w\beta_D$ y
+$M'\le w\beta_D+|T|<0$. La condición estricta evita que composición
+anule o invierta la pendiente no nula.
+
+\textbf{Paso 4: derivar el peso de la cohorte.}
+La regla del cociente, usando $B_0'=0$, produce
+\[
+w'=\frac{B'(B_0+B)-BB'}{(B_0+B)^2}
+   =\frac{B'B_0}{(B_0+B)^2}.
+\]
+En el caso exponencial, $B'= -\varepsilon B$. Al sustituir y reconocer
+$B/(B_0+B)=w$ y $B_0/(B_0+B)=1-w$, resulta
+$w'=-\varepsilon w(1-w)$. Insertar esto en \eqref{eq:stock} da
+\eqref{eq:composition}.
+
+\textbf{Paso 5: despejar la condición exacta de inversión.}
+Puesto que $w>0$, el signo de $M'$ coincide con el del corchete:
+\[
+M'<0\quad\Longleftrightarrow\quad
+\beta_D-\varepsilon(1-w)(q^*-m_0)<0
+\quad\Longleftrightarrow\quad
+\varepsilon(1-w)(q^*-m_0)>\beta_D.
+\]
+Con $\beta_D>0$ y $q^*>m_0$ esta desigualdad describe una inversión: empeora
+el riesgo nuevo, pero cae su peso en una cartera antigua más segura. La
+igualdad deja pendiente total cero y no constituye inversión estricta.
+Todas las operaciones se realizan donde $q^*$ es diferenciable.
 \end{proof}
 
 Esta proposición permite ver la dilución de una cohorte pequeña, pero también
@@ -407,6 +608,13 @@ puede mejorar mientras empeora su riesgo individual. El signo del coeficiente
 predictivo de un ratio de saldo no distingue automáticamente evaluación de
 composición. Si $m_0$ cambia con precio, se suma $(1-w)m_0'$; si $B_0$ cambia,
 tampoco vale la fórmula particular de $w'$. Son exclusiones sustantivas.
+
+En la especificación exponencial, $B_1$ es el saldo nuevo cuando $D=0$ y
+$\varepsilon=-B'/B$ mide su sensibilidad proporcional al precio. Es una
+\emph{semielasticidad} respecto de una tasa decimal: no es la elasticidad
+$DB'/B=-\varepsilon D$. Si $\varepsilon=0$, el saldo no responde y el término
+de composición desaparece. Si $\varepsilon>0$ y $q^*>m_0$, una caída del peso
+nuevo reduce el ratio total; solo domina cuando supera el umbral de P3.
 
 \section{Simulaciones, contraejemplos y sensibilidad}\label{sec:sim}
 Todos los parámetros siguientes son ilustrativos, sin ajuste al Perú.
@@ -495,12 +703,44 @@ sensible ($\varepsilon=3$), la composición domina. Fuente: simulación
 ilustrativa, \texttt{code/verify.py}.}\label{fig:stock}
 \end{figure}
 
+La condición de P3 permite leer qué tan fuerte debe ser esa respuesta, sin
+cambiar el modelo. En el punto del contraejemplo, $\beta_D=0.13$ y
+$q^*-m_0=0.125$, por lo que, para cada peso positivo $0<w<1$,
+\[
+M'<0\quad\Longleftrightarrow\quad
+\varepsilon>\frac{0.13}{(1-w)0.125}=\frac{1.04}{1-w}.
+\]
+Con $w=0.20$, el corte es $1.3$: por debajo predomina calidad, en el corte
+ambos efectos se cancelan y por encima predomina composición. El valor
+$\varepsilon=3$ se ubica en esta última región. La
+Figura~\ref{fig:frontier} representa esa misma desigualdad para distintas
+relaciones de saldos, manteniendo el riesgo y su pendiente en el punto
+considerado. La región no es una frecuencia observada de bancos.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=.82\linewidth]{../code/figures/composition_frontier.pdf}
+\caption{Frontera de inversión del signo de P3 en $D=0$, con
+$\beta_D=0.13$ y $q^*-m_0=0.125$. Cada peso se obtiene con una relación
+distinta de saldos positivos, fijos al tomar su derivada. La línea da
+$M'=0$; encima $M'<0$ y debajo $M'>0$, para $0<w<1$. Fuente:
+\texttt{code/reader\_checks.py}, llamado por \texttt{code/verify.py}.
+Es el mismo ejercicio ilustrativo de la presentación, no un resultado nuevo.}\label{fig:frontier}
+\end{figure}
+
 La Proposición~\ref{p:stock} se contrasta en 51 valores de opacidad, 25 precios
-y cuatro elasticidades, siempre con derivadas bien definidas. El máximo error
+y cuatro valores de $\varepsilon$, siempre con derivadas bien definidas. El máximo error
 frente a diferencias finitas fue inferior a $3\times10^{-11}$. SymPy comprueba
 por separado la regla del producto y la derivada del peso exponencial. Esta
 doble comprobación reduce el riesgo de repetir un mismo error en una fórmula
 y su implementación, aunque no reemplaza una prueba formal.
+
+La versión de la presentación reportaba 4018 comprobaciones, que se mantienen
+como bloque base reproducible. Se añadieron 73 controles: probabilidades de
+referencia y primitivas admisibles, validación de saldos en nivel y derivada,
+aritmética racional del contraejemplo y signos a ambos lados de la frontera
+en diecisiete pesos. Sus resultados están separados en
+\path{code/output/reader_verification.json}. Ninguna comprobación numérica
+se presenta como demostración del continuo ni como estimación empírica.
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.80\linewidth]{../code/figures/sensitivity.pdf}
@@ -542,8 +782,11 @@ principal de doce meses del plan como elección de diseño, sin atribuirlo a
 una equivalencia exacta entre pérdida regulatoria y atraso. La mora mayor de
 noventa días sería una variable objetivo separada de la mora contable.
 Se compararía un pronóstico con morosidad pasada y ciclo frente a su ampliación
-con $D$. La referencia de pares y el spread propio se evaluarían en modelos
-que respeten $S=D+C$: incluir los tres genera colinealidad exacta.
+con $D$. Para evitar duplicar información, se distinguiría el spread propio
+(tasa del banco menos tasa de referencia), el spread medio de sus pares
+(promedio de sus tasas menos esa misma referencia) y $D$, que es la
+diferencia entre ambos. Incluir simultáneamente los tres genera
+colinealidad exacta porque uno es la suma de los otros dos.
 
 Antes de ejecutar haría falta verificar cobertura y fechas de publicación
 reales, sin adoptar las del plan como hechos. En un origen $t$, entrenamiento
@@ -606,8 +849,8 @@ Desde la raíz:
 python -m pip install -r code/requirements.txt
 python code/verify.py
 \end{verbatim}
-Se regeneran cinco figuras finales,
-\texttt{verification.json} y las macros numéricas. Los gráficos del tema de
+Se regeneran seis figuras finales,
+\texttt{verification.json}, \path{reader_verification.json} y las macros numéricas. Los gráficos del tema de
 octubre se conservan como archivos históricos con su definición anterior.
 \texttt{code/model.py} contiene funciones sin efectos de importación;
 \texttt{code/checks.py} concentra los contrastes. No se requieren credenciales
@@ -625,13 +868,15 @@ Python en Windows se resolvieron ejecutando las comprobaciones en Linux real.
 \begin{center}\small
 \begin{tabular}{p{.08\linewidth}p{.22\linewidth}p{.16\linewidth}p{.43\linewidth}}
 \toprule P. & Declaración & Estado de prueba & Hipótesis y cobertura\\\midrule
-P1 & \path{proposition1} & Compila & S1--S3: máximo único factible, fórmulas, cotas, regímenes, capacidad cero, continuidad y derivadas laterales.\\
-P2 & \path{proposition2} & Compila & S1--S4: umbral interior único y signos de la derivada a cada lado.\\
-P3 & \path{proposition3} & Compila & S1--S3 y S5: identidad, derivada, dominancia, saldo exponencial e inversión de signo.\\
+P1 & \path{proposition1} & Probado & S1--S3: máximo único factible, fórmulas, cotas, regímenes, capacidad cero, continuidad y derivadas laterales.\\
+P2 & \path{proposition2} & Probado & S1--S4: umbral interior único y signos de la derivada a cada lado.\\
+P3 & \path{proposition3} & Probado & S1--S3 y S5: identidad, derivada, dominancia, saldo exponencial e inversión de signo.\\
 \bottomrule\end{tabular}
 \end{center}
 Las declaraciones pertenecen al espacio \path{Galarza26RelativeCredit}, en
-\path{ProofInterface.lean}. Los enunciados transparentes se definen en
+\path{lean/ProofInterface.lean}. ``Probado'' describe el cierre de la prueba
+por el kernel; el estado del procedimiento integral se informa abajo.
+Los enunciados transparentes se definen en
 \path{PaperInterface.lean}; sus nombres añaden el sufijo \texttt{Spec} a
 esas declaraciones. No se añaden hipótesis
 matemáticas a las del artículo ni se usa \texttt{sorry}. S5 conserva la
@@ -644,6 +889,11 @@ endpoints terminó con salida 0; la inspección de axiomas reportó únicamente
 Una revisión independiente de borrador comparó 21 resultados y definiciones
 con el texto fuente sin encontrar discrepancias. Es una revisión preliminar,
 no una credencial de aceptación del protocolo.
+
+Esta edición mantiene literalmente los cinco supuestos y los tres enunciados
+de la versión presentada; amplía sus explicaciones y pruebas. La nueva fuente
+se fija al fusionar el PDF. El registro externo contiene ese commit y la
+salida real del chequeo oficial, separado de la compilación de los endpoints.
 
 La compilación por sí sola no sustituye el cierre oficial. El registro
 \path{docs/lean_progreso.md} informa el estado vigente, el commit del PDF
@@ -689,21 +939,16 @@ Lectura de 24 páginas y búsqueda de datos y scripts en el repositorio.\\
 Las comprobaciones numéricas prueban la teoría. &
 Falso: pueden falsar implementaciones en los casos examinados. &
 Pruebas completas separadas de las simulaciones y del estado de Lean.\\
+Una variación de un punto porcentual en precio cambia el riesgo en
+$0.01a$ unidades. &
+Correcto; equivale a $a$ puntos porcentuales, no a $0.01a$ puntos. &
+Conversión explícita de unidades y ejemplo con $a=0.18$ en S1.\\
 \bottomrule
 \end{longtable}
 
 \section{Fuentes y diferencias frente al plan}
-El registro \texttt{docs/fuentes.md} distingue fuentes primarias consultadas,
-metadatos verificados, transcripciones y descargas fallidas. Se prefiere la
-versión publicada de Choy et al. (2015) al documento de trabajo del mismo año.
-Las citas de plantilla sobre automatización y bicicletas se retiraron del
-paper. La propuesta y diapositivas del tema permanecen identificadas como
-versiones históricas; su mediana y su calibración no deben confundirse con
-el comparador principal y el pago normalizado del modelo final.
-
-La principal diferencia con el plan es que aquí la entrega es teórica,
-no un reporte de estimaciones de IE2. Mantiene precio relativo y morosidad
-bancaria peruana como pregunta central. La matriz en
-\texttt{docs/cumplimiento.md} permite revisar cada requisito con su evidencia
-y el trabajo personal pendiente. Se conserva intacto el workflow oficial.
+\path{docs/fuentes.md} registra consultas, transcripciones y descargas fallidas.
+Propuesta y tema son históricos. Esta entrega conserva la pregunta peruana
+del plan y desarrolla teoría. \path{docs/cumplimiento.md} detalla evidencia y
+trabajo personal pendiente. Se conserva el workflow oficial.
 \end{document}
