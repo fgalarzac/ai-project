@@ -25,7 +25,7 @@ los símbolos y cada paso siguiendo las páginas del paper.
 | [Paper final](paper/paper.pdf) | Modelo original, cinco supuestos y tres proposiciones preservados. Explicación y pruebas paso a paso; 15 páginas de cuerpo, 11pt y una pulgada. |
 | [Presentación del autor](slides/final.pdf) | Conservada sin cambios: 33 páginas, 29 principales y cuatro de respaldo. [Guía actual](docs/guia_presentacion_actual.md); duración propuesta de 30 min, sin ensayo observado. |
 | [Verificación](code/verify.py) | 4018 controles originales + 73 adicionales; seis figuras, parámetros ilustrativos y dependencias fijadas. |
-| [Lean](docs/lean_progreso.md) | P1–P3 demostradas; cierre estricto aceptado, cero errores. [Reproducción](docs/reproducir_lean.md) y paquete de revisión; fallo conocido de la fachada general documentado. |
+| [Lean](docs/lean_progreso.md) | P1–P3 demostradas; cierre estricto aceptado, cero errores y CI limpio aprobado. [Reproducción](docs/reproducir_lean.md) y paquete de revisión; fallo conocido de la fachada general documentado. |
 | [Derivaciones](hand/README.md) | Guía tipográfica de 13 apartados; faltan las páginas manuscritas auténticas y la revisión personal. |
 | Historia y evaluación | Propuesta y tema conservados. [Matriz](docs/cumplimiento.md), [informe](docs/informe_final.md), [fuentes](docs/fuentes.md) y [registro IA](prompts.md). |
 

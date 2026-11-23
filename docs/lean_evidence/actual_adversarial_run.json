@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "reviewer_identity": "source3-final-adversary-6f89f424ecf54a0497c2d8c7dea600ef",
+  "actual_thread_id": "01a206a2-c6ba-7ff2-a8dc-eb5e99c9dd5f",
+  "reviewed_surface_sha256": "b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881",
+  "audit": "papers/Galarza26RelativeCredit/docs/AGENT_SOURCE_AUDIT.md",
+  "panel": "papers/Galarza26RelativeCredit/docs/FINAL_ADVERSARIAL_REVIEW_PANEL.json",
+  "audit_sha256": "1d46e3bfa8725c80b2c79f618eab325c716ac7133a81f02b1250377ac7aa2850"
+}

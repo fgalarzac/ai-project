@@ -252,7 +252,33 @@
     "generated_ignore_preserved": true,
     "acceptance_credential": false,
     "authority": "The selected accepted obligation graph, revalidated by the unmodified final_closure_receipt.py, is the machine credential. This summary is descriptive only.",
-    "clean_ci": "Pending execution of final integration PR; record actual run before merge."
+    "clean_ci": {
+      "run": "https://github.com/fgalarzac/ai-project/actions/runs/45114359360",
+      "job_id": 137493661676,
+      "tested_head": "3df130c42218d8d803e75c44228b8573abe62417",
+      "conclusion": "success",
+      "fresh_ubuntu": "24.04",
+      "python": "3.12",
+      "source_hashes_verified": true,
+      "engine_unmodified": true,
+      "official_fast": {
+        "exit_code": 0,
+        "build_jobs": 3298
+      },
+      "all_paper_modules": {
+        "exit_code": 0,
+        "build_jobs": 3307
+      },
+      "accepted_graph_revalidated": {
+        "exit_code": 0,
+        "source_bytes_present": true
+      },
+      "finished_utc": "2026-11-23T04:54:48Z",
+      "build_ci": "https://github.com/fgalarzac/ai-project/actions/runs/45114359301",
+      "numerical_checks": "success",
+      "four_pdf_compilations": "success",
+      "acceptance_credential": false
+    }
   },
   "personal_remaining": [
     "Authentic handwritten derivations",

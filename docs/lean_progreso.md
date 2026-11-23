@@ -63,3 +63,14 @@ diapositiva 23 pertenece a las pruebas generales. Las
 [alternativas e intentos anteriores](lean_alternativas.md) se conservan como
 historia. Los requisitos personales están en la [matriz](cumplimiento.md).
 
+## Reproducción pública comprobada
+
+El [CI limpio](https://github.com/fgalarzac/ai-project/actions/runs/45114359360)
+terminó aprobado: restauración por hashes, motor sin parches, `--fast`,
+reconstrucción de todos los módulos y recibo actual. Los resultados están
+en [clean_ci.json](lean_evidence/clean_ci.json). También pasaron las 4091
+comprobaciones numéricas y las cuatro compilaciones del workflow original.
+La normalización del panel final puede contrastarse con su
+[original](lean_evidence/original_adversarial_panel.json), el
+[registro del ajuste](lean_evidence/panel_format_normalization.json) y la
+[ejecución real del revisor](lean_evidence/actual_adversarial_run.json).

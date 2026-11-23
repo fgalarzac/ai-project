@@ -7,7 +7,7 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 |---|---|---|---|
 | Tema propio, Línea B y pregunta peruana | Cumplido | Introducción y modelo del paper | Defensa personal de interpretación |
 | Repositorio público y enlace de entrega | Cumplido | Comentario 6157914408 en issue 7 | No se requiere otra publicación |
-| Rama → PR → merge | Cumplido para paper y guías; cierre Lean por PR final | PR6–PR8 fusionados con CI aprobado | La integración final registra su propio CI |
+| Rama → PR → merge | Paper, guías y cierre Lean incorporados por PR | PR6–PR9; historial de integración verificable | El cierre Lean tiene CI propio desde una instalación limpia |
 | README de una página con resultado condicionado | Cumplido | README.md | Estado Lean actualizado fuera del PDF fuente |
 | Propuesta 2–4 páginas y fuente | Cumplido | proposal/proposal.tex/pdf: 4 páginas | Documento histórico conservado |
 | Slides del tema conservados | Cumplido | slides/topic.tex/pdf: 19 páginas | No modificados en esta revisión |
@@ -32,7 +32,7 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Registro IA, crítica y verificación | Cumplido como registro disponible | prompts.md y apéndice C | No se inventan prompts de Claude ni revisión humana |
 | Cuatro PDF y fuentes, compilación | Cumplido | Cuatro compilaciones locales y CI del PR6 aprobado | QA sin texto fuera de página |
 | Workflow oficial intacto | Cumplido | SHA256 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ninguna modificación |
-| Entrega en main antes del 26-nov 22:00 Lima | Paper y documentación fusionados; Lean en integración final | PR6–PR8 y PR final del cierre | Solo el manuscrito, la revisión humana y la comprensión requieren participación personal |
+| Entrega en main antes del 26-nov 22:00 Lima | Entregable técnico completo, sujeto al merge registrado | PR6–PR9; controles numéricos, cuatro PDF y Lean aprobados | Solo el manuscrito, la revisión humana y la comprensión requieren participación personal |
 
 El juicio del profesor comunicado por el autor fue favorable, con observación
 de complejidad. La respuesta es explicar el modelo existente, no sustituirlo

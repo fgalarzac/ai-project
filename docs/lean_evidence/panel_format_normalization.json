@@ -1,0 +1,6 @@
+{
+  "original_panel_sha256": "ecb33c487563bb943da21321ce811cb17c2fde5eac7e4b3147076353e5dd113b",
+  "canonical_panel_sha256": "070b08dff392b5a3c86fdb84e0cbe7f2b279f494e4a2df15c410356e7451fe51",
+  "reviewer": "source3-final-adversary-6f89f424ecf54a0497c2d8c7dea600ef",
+  "changes": "Field aliases and paper-local path normalized to the engine schema; the actual PASS, audit bytes/hash, surface, time and both actual independence attestations are unchanged. No new review or semantic judgment."
+}
