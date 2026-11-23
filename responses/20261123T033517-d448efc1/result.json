@@ -1,0 +1,16 @@
+{
+  "request_id": "20261123T033517-d448efc1",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    "scripts/closeout_reuse_plan.py",
+    "--paper",
+    "Galarza26RelativeCredit"
+  ],
+  "started_utc": "2026-11-23T03:35:20Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.916,
+  "download_sha256": "cb5311ab6dd9b6b6caec7722024607a2312041a389269aa59efe5dc48690399c",
+  "finished_utc": "2026-11-23T03:35:21Z"
+}
