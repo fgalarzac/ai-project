@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "true"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": true,
+  "download": [
+    "papers/Galarza26RelativeCredit/FINAL_CLOSURE_RECEIPT.md"
+  ]
+}
