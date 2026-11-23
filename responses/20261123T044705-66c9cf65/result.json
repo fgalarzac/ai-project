@@ -1,0 +1,16 @@
+{
+  "request_id": "20261123T044705-66c9cf65",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/private_paper_checkpoint.py",
+    "Galarza26RelativeCredit"
+  ],
+  "started_utc": "2026-11-23T04:47:10Z",
+  "exit_code": 0,
+  "elapsed_seconds": 2.971,
+  "download_sha256": "aab501c63c76ba806d196d85a34265246d67240608eeb77c056cd057dd474d35",
+  "finished_utc": "2026-11-23T04:47:13Z"
+}

@@ -1,0 +1,57 @@
+checked JSON sidecars under papers/Galarza26RelativeCredit
++ lake --rehash build papers/Galarza26RelativeCredit.lean papers/Galarza26RelativeCredit/Assumptions.lean papers/Galarza26RelativeCredit/Calculus.lean papers/Galarza26RelativeCredit/MainTheorems.lean papers/Galarza26RelativeCredit/Model.lean papers/Galarza26RelativeCredit/Optimization.lean papers/Galarza26RelativeCredit/PaperInterface.lean papers/Galarza26RelativeCredit/ProofInterface.lean papers/Galarza26RelativeCredit/Stock.lean papers/Galarza26RelativeCredit/Threshold.lean papers/Galarza26RelativeCredit/TieExample.lean
+Build completed successfully (3307 jobs).
++ git diff --check -- papers/Galarza26RelativeCredit papers/Galarza26RelativeCredit.lean
++ git status --short -- papers/Galarza26RelativeCredit papers/Galarza26RelativeCredit.lean
+A  papers/Galarza26RelativeCredit.lean
+A  papers/Galarza26RelativeCredit/.gitignore
+A  papers/Galarza26RelativeCredit/Assumptions.lean
+A  papers/Galarza26RelativeCredit/Calculus.lean
+A  papers/Galarza26RelativeCredit/FINAL_VALIDATION_REPORT.md
+A  papers/Galarza26RelativeCredit/MainTheorems.lean
+A  papers/Galarza26RelativeCredit/Model.lean
+A  papers/Galarza26RelativeCredit/Optimization.lean
+A  papers/Galarza26RelativeCredit/PAPER_NOTES.md
+A  papers/Galarza26RelativeCredit/PaperInterface.lean
+A  papers/Galarza26RelativeCredit/ProofInterface.lean
+A  papers/Galarza26RelativeCredit/README.md
+A  papers/Galarza26RelativeCredit/Stock.lean
+A  papers/Galarza26RelativeCredit/Threshold.lean
+A  papers/Galarza26RelativeCredit/TieExample.lean
+A  papers/Galarza26RelativeCredit/audit/LEAN_IMPORT_CLOSURE_RECEIPT.json
+A  papers/Galarza26RelativeCredit/audit/assumption_match_llm.json
+A  papers/Galarza26RelativeCredit/audit/defect_support_match_llm.json
+A  papers/Galarza26RelativeCredit/audit/human_review_packet_lean_cache.json
+A  papers/Galarza26RelativeCredit/audit/library_semantic_review.json
+A  papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_45a683c44d73e6f6ae86db09a913c9d1fde562e52f815137fb954208837cabe0.json
+A  papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_88ff2299010928d7667c3dec8345f2b8d1ba50d1aa684317295cb8c914b30b4a.json
+A  papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_a7a7c9162f3b1e4965f8c3f40ec13257154777a156145c96b32f68f80a575752.json
+A  papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisites.json
+A  papers/Galarza26RelativeCredit/audit/paper_statement_map.json
+A  papers/Galarza26RelativeCredit/audit/source_proof_fidelity.json
+A  papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_reissue_decisions_828e50074022a796a682c88d222e715dcb7352a2e8ef8ba4fcbca8081da1e1f6.json
+A  papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_reissue_decisions_d987866c147ca444f7faf45cf25b005fd02c0e2f88c26d992f524e7580e33481.json
+A  papers/Galarza26RelativeCredit/audit/v11_raw_source_spec_screening.json
+A  papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json
+AM papers/Galarza26RelativeCredit/docs/AGENT_SOURCE_AUDIT.md
+A  papers/Galarza26RelativeCredit/docs/CLOSEOUT_MIGRATION_LEDGER.json
+A  papers/Galarza26RelativeCredit/docs/DependencyDAG.pdf
+A  papers/Galarza26RelativeCredit/docs/DependencyDAG.tex
+A  papers/Galarza26RelativeCredit/docs/FORMALIZATION_NOTES.md
+A  papers/Galarza26RelativeCredit/docs/FORMALIZATION_PLAN.md
+A  papers/Galarza26RelativeCredit/docs/FORMALIZATION_WORKING_MEMO.md
+A  papers/Galarza26RelativeCredit/docs/HUMAN_REVIEW_PACKET.tex
+A  papers/Galarza26RelativeCredit/docs/REPORT_MEMO_COVERAGE.json
+A  papers/Galarza26RelativeCredit/review-dashboard.sh
+A  papers/Galarza26RelativeCredit/source.tex
+AM papers/Galarza26RelativeCredit/status.json
+?? papers/Galarza26RelativeCredit/FINAL_CLOSURE_RECEIPT.md
+?? papers/Galarza26RelativeCredit/audit/FOCUSED_BUILD_RECEIPT.json
+?? papers/Galarza26RelativeCredit/audit/obligation_evidence/
+?? papers/Galarza26RelativeCredit/docs/FINAL_ADVERSARIAL_REVIEW_PANEL.json
+
+Paper-scoped checkpoint complete.
+Stage only this checkpoint with:
+  git add -- papers/Galarza26RelativeCredit papers/Galarza26RelativeCredit.lean
+
+Do not refresh aggregate paper status or unrelated audit sidecars for this private checkpoint.
