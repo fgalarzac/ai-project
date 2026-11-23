@@ -1,0 +1,13 @@
+{
+  "request_id": "20261123T031332-6a03edce",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import subprocess,hashlib,json; p=Path('papers/Galarza26RelativeCredit'); subprocess.run(['pdftotext',str(p/'source.pdf'),str(p/'source.txt')],check=True); print(json.dumps({'pdf_sha256':hashlib.sha256((p/'source.pdf').read_bytes()).hexdigest(),'text_sha256':hashlib.sha256((p/'source.txt').read_bytes()).hexdigest(),'pages':(p/'source.txt').read_text().count(chr(12))}))"
+  ],
+  "started_utc": "2026-11-23T03:13:45Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.114,
+  "download_sha256": "e40a99ef32322a168f55d81b2339f59ca6874f80a8ffb0e4f15dc243c5f0219e",
+  "finished_utc": "2026-11-23T03:13:45Z"
+}
