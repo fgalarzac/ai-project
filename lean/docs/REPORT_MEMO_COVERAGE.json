@@ -1,0 +1,89 @@
+{
+  "schema": 2,
+  "paper": "Galarza26RelativeCredit",
+  "report_sha256": "2cb09fb19f69da2fbd1399790def587a7c517b62a152ca90ca86eee2f0141208",
+  "source_items_sha256": "c7dab662bff5c05088cb1a4908eb55a6ef09b20297782da74ca5a1ced57b915a",
+  "all_selected_semantic_review_sha256": "61f6bf483cb378acb7372f094aa1940ed754e93013285bfe749e5071b4bf9305",
+  "report_inventory_complete": true,
+  "items": {},
+  "result_table": {
+    "schema": 1,
+    "complete": true,
+    "source_inventory": {
+      "schema": 1,
+      "source_artifact_sha256": "9531b374b2be3c9e9d1affb82f03f09e05e99e85353f52aa40eb6beb925ce9d5",
+      "discovered_named_result_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "source_format": "text",
+      "results": {
+        "proposition_1_global_solution_regimes": {
+          "kind": "proposition",
+          "presentations": [],
+          "source_item_ids": [
+            "proposition_1_global_solution_regimes"
+          ]
+        },
+        "proposition_2_conditional_threshold": {
+          "kind": "proposition",
+          "presentations": [],
+          "source_item_ids": [
+            "proposition_2_conditional_threshold"
+          ]
+        },
+        "proposition_3_transmission_composition": {
+          "kind": "proposition",
+          "presentations": [],
+          "source_item_ids": [
+            "proposition_3_transmission_composition"
+          ]
+        }
+      }
+    },
+    "source_inventory_sha256": "dd7bbd7cc3efb6ac73c1cbfead362f160e637f9a6b0e01f3bcf6a4641d49bb94",
+    "results": {
+      "proposition_1_global_solution_regimes": {
+        "numbering": "numbered",
+        "printed_label": "Proposición 1",
+        "printed_label_basis": "reviewed_rendered_source",
+        "row_mappings": [
+          {
+            "report_label": "Proposición 1",
+            "row_sha256": "f468657ef8f0c4630a3a8e142dfd92e4a0dd14177008f24936a3d028daf6ec84"
+          }
+        ]
+      },
+      "proposition_2_conditional_threshold": {
+        "numbering": "numbered",
+        "printed_label": "Proposición 2",
+        "printed_label_basis": "reviewed_rendered_source",
+        "row_mappings": [
+          {
+            "report_label": "Proposición 2",
+            "row_sha256": "5be969ff4da64782524081e6301aa674c92258a6c02372de142ad3058e8dfe34"
+          }
+        ]
+      },
+      "proposition_3_transmission_composition": {
+        "numbering": "numbered",
+        "printed_label": "Proposición 3",
+        "printed_label_basis": "reviewed_rendered_source",
+        "row_mappings": [
+          {
+            "report_label": "Proposición 3",
+            "row_sha256": "4784e8150e83f700d2edffd51c864c6cbd2a675a2666fedc66f756f8984d79f1"
+          }
+        ]
+      }
+    },
+    "rows": {
+      "f468657ef8f0c4630a3a8e142dfd92e4a0dd14177008f24936a3d028daf6ec84": {
+        "explanation_keys": []
+      },
+      "5be969ff4da64782524081e6301aa674c92258a6c02372de142ad3058e8dfe34": {
+        "explanation_keys": []
+      },
+      "4784e8150e83f700d2edffd51c864c6cbd2a675a2666fedc66f756f8984d79f1": {
+        "explanation_keys": []
+      }
+    }
+  }
+}

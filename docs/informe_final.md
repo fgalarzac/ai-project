@@ -63,10 +63,12 @@ e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f.
 ## Estado restante y entrega
 
 La [matriz](cumplimiento.md) distingue cumplimiento, límites y pendientes.
-El cierre oficial de Lean sobre el nuevo PDF y su copia completa siguen en
-curso; el registro vigente está en [lean_progreso.md](lean_progreso.md).
-Las tres pruebas generales compilaron en la ejecución anterior, con solo
-axiomas estándar, pero no se presenta una auditoría interrumpida como aprobada.
+El cierre estricto de Lean sobre el PDF final está aceptado: diez etapas,
+cero errores, tres proposiciones y solo axiomas estándar. La carpeta generada
+se copia íntegra; el [registro vigente](lean_progreso.md) enlaza el grafo,
+la revisión independiente y el paquete humano. La reproducción reconstruye
+todos los módulos y revalida el recibo con fuentes presentes. El fallo de la
+fachada general de esta versión queda documentado; no se afirma su éxito.
 
 El requisito manuscrito sigue pendiente de participación real del estudiante:
 escribir, revisar y escanear todos los pasos de hand/, contrastarlos con el

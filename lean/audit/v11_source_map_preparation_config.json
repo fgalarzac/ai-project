@@ -1,0 +1,671 @@
+{
+  "schema": 1,
+  "paper": "Galarza26RelativeCredit",
+  "namespace": "Galarza26RelativeCredit",
+  "paper_interface_module": "",
+  "semantic_preflight_import_module": "Galarza26RelativeCredit.ProofInterface",
+  "semantic_route_schema": 2,
+  "closeout_review_policy": {
+    "schema": 1,
+    "source_scope": "all_named_theory",
+    "repeat_final_scope": "main_primary",
+    "required_final_adversary_count": 1,
+    "scheduling": {
+      "initial_semantic_review": [],
+      "final_adversarial_review": []
+    }
+  },
+  "source_version": "Versión para entrega, 22 de noviembre de 2026, commit 25f0b0c7df040e2b04d78064b30949492cd4472f",
+  "include_specs": [
+    "proposition1",
+    "proposition2",
+    "proposition3"
+  ],
+  "source_item_for_spec": {
+    "proposition1": "proposition_1_global_solution_regimes",
+    "proposition2": "proposition_2_conditional_threshold",
+    "proposition3": "proposition_3_transmission_composition"
+  },
+  "evidence_declaration_for_spec": {
+    "proposition1": "Galarza26RelativeCredit.proposition1",
+    "proposition2": "Galarza26RelativeCredit.proposition2",
+    "proposition3": "Galarza26RelativeCredit.proposition3"
+  },
+  "explicit_source_claim_atoms": {
+    "proposition_1_global_solution_regimes": [
+      {
+        "id": "proposition1.global_optimizer_and_formulas",
+        "source_locator": "source.txt:349-370",
+        "verbatim_source_clause": "Proposición 1 (Solución global y pendientes por régimen). Bajo los Supuestos 1–3, existe un\núnico máximo en (2). Es\n\u001a\n\u001b\n\u001a\n\u001a\n\u001b\u001b\ngR(D)\nq 0 (D)\ngR(D)\n∗\n0\n∗\ne = mı́n\n, ē,\n,\nq = máx 0, q (D) − g mı́n ē,\n.\n(3)\nc\ng\nc",
+        "semantic_claim": "Under Assumptions 1–3 the conditioned continuation problem has a unique global maximizer; optimal effort is min(g R(D) / c, ebar, q0(D) / g), and optimal risk is max(0, q0(D) - g * min(ebar, g R(D) / c))."
+      },
+      {
+        "id": "proposition1.strict_regime_derivatives",
+        "source_locator": "source.txt:371-385",
+        "verbatim_source_clause": "Para κ ﬁjo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el régimen,\nlas pendientes son\n\na − g 2 /c, gR/c < ē y gR/c < q 0 /g,\n∂q ∗ \n= a,\n(4)\nē < gR/c y ē < q 0 /g,\n\n∂D\n\n0\n0\n0,\nq /g < gR/c y q /g < ē.",
+        "semantic_claim": "On every open interval where the strict inequalities preserve a regime, the derivative of optimal risk with respect to D is respectively a - g^2/c in the interior-effort regime, a in the capacity-binding regime, and 0 in the risk-floor regime."
+      },
+      {
+        "id": "proposition1.zero_capacity",
+        "source_locator": "source.txt:386",
+        "verbatim_source_clause": "Si ē = 0, e∗ = 0 y q ∗ = q 0 , con pendiente a en el interior del dominio de D.",
+        "semantic_claim": "When screening capacity ebar is zero, optimal effort is zero, optimal risk equals prior risk q0, and its derivative is a in the interior of the D domain."
+      },
+      {
+        "id": "proposition1.ties_continuity_and_lateral_derivatives",
+        "source_locator": "source.txt:386-388",
+        "verbatim_source_clause": "En empates de\nrestricciones la solución es continua y se usan derivadas laterales; una derivada ordinaria puede\nno existir.",
+        "semantic_claim": "At ties between constraints the solution is continuous and is governed by one-sided derivatives; an ordinary derivative may fail to exist."
+      }
+    ],
+    "proposition_2_conditional_threshold": {
+      "id": "proposition2.unique_conditional_threshold",
+      "source_locator": "source.txt:484-485",
+      "verbatim_source_clause": "Proposición 2 (Umbral condicional). Bajo los Supuestos 1–4, existe un único κ∗ ∈ (0, 1) con\n∂D q ∗ (D0 , κ∗ ) = 0. La derivada es positiva para κ < κ∗ y negativa para κ > κ∗ .",
+      "semantic_claim": "Under Assumptions 1–4 there is a unique kappa* in (0,1) at which the D-derivative of optimal risk at D0 is zero; that derivative is positive below kappa* and negative above it."
+    },
+    "proposition_3_transmission_composition": [
+      {
+        "id": "proposition3.portfolio_ledger_identity",
+        "source_locator": "source.txt:540-541",
+        "verbatim_source_clause": "Proposición 3 (Transmisión y composición). Bajo los Supuestos 1–3 y 5, el ratio esperado de\ncartera es M (D) = (1 − w)m0 + wq ∗ (D). En cualquier régimen diferenciable, escribiendo βD =",
+        "semantic_claim": "Under Assumptions 1–3 and 5, the expected portfolio ratio is M(D) = (1-w(D)) m0 + w(D) q*(D)."
+      },
+      {
+        "id": "proposition3.general_derivative",
+        "source_locator": "source.txt:542-544",
+        "verbatim_source_clause": "∂D q ∗ (D),\nM ′ (D) = wβD + w′ (q ∗ − m0 ).\n(6)",
+        "semantic_claim": "In every differentiable regime, writing beta_D for the D-derivative of q*, the derivative of the portfolio ratio is M' = w beta_D + w' (q* - m0)."
+      },
+      {
+        "id": "proposition3.sign_preservation_rules",
+        "source_locator": "source.txt:545-546",
+        "verbatim_source_clause": "Si B es constante, el signo es el de βD . Si βD ̸= 0 y |w′ (q ∗ − m0 )| < w|βD |, el signo también se\nconserva.",
+        "semantic_claim": "If the new-cohort balance B is constant, M' has the sign of beta_D; if beta_D is nonzero and the absolute composition term is strictly smaller than w |beta_D|, that sign is also preserved."
+      },
+      {
+        "id": "proposition3.exponential_balance_derivative",
+        "source_locator": "source.txt:546-549",
+        "verbatim_source_clause": "Con B(D) = B1 e−εD , B1 > 0, ε ≥ 0,\nM ′ = w{βD − ε(1 − w)(q ∗ − m0 )}.\n\n(7)",
+        "semantic_claim": "For B(D) = B1 exp(-epsilon D), with B1 > 0 and epsilon >= 0, M' = w { beta_D - epsilon (1-w) (q* - m0) }."
+      },
+      {
+        "id": "proposition3.composition_reversal_iff",
+        "source_locator": "source.txt:551",
+        "verbatim_source_clause": "En particular, βD > 0 y q ∗ > m0 generan M ′ < 0 si y solo si ε(1 − w)(q ∗ − m0 ) > βD .",
+        "semantic_claim": "In particular, when beta_D > 0 and q* > m0, M' < 0 if and only if epsilon (1-w) (q* - m0) > beta_D."
+      }
+    ]
+  },
+  "source_semantic_declarations": {
+    "relative_price_definition": [
+      "Galarza26RelativeCredit.relativePrice",
+      "Galarza26RelativeCredit.relativePrice_eq_rate_gap"
+    ],
+    "governing_continuation_model": [
+      "Galarza26RelativeCredit.conditionedContinuationProblem"
+    ],
+    "assumption_1_selection_domain": [
+      "Galarza26RelativeCredit.priorRisk",
+      "Galarza26RelativeCredit.selectionAndDomain"
+    ],
+    "assumption_2_technology_capacity_cost": [
+      "Galarza26RelativeCredit.screenedRisk",
+      "Galarza26RelativeCredit.screeningCost",
+      "Galarza26RelativeCredit.feasibleEfforts",
+      "Galarza26RelativeCredit.technologyCapacityCost"
+    ],
+    "assumption_3_conditioned_payoff": [
+      "Galarza26RelativeCredit.premium",
+      "Galarza26RelativeCredit.bankProfit",
+      "Galarza26RelativeCredit.conditionedPayoff"
+    ],
+    "screening_strength_and_slope_definitions": [
+      "Galarza26RelativeCredit.screeningStrength",
+      "Galarza26RelativeCredit.screeningAdvantage"
+    ],
+    "assumption_4_crossing_conditions": [
+      "Galarza26RelativeCredit.crossingConditions"
+    ],
+    "stock_model_construction": [
+      "Galarza26RelativeCredit.cohortWeight"
+    ],
+    "assumption_5_stock_accounting": [
+      "Galarza26RelativeCredit.impairedBalance",
+      "Galarza26RelativeCredit.stockAccountingConditions"
+    ]
+  },
+  "paper_semantic_prerequisite_sources": {
+    "Galarza26RelativeCredit.relativePrice": "relative_price_definition",
+    "Galarza26RelativeCredit.relativePrice_eq_rate_gap": "relative_price_definition",
+    "Galarza26RelativeCredit.conditionedContinuationProblem": "governing_continuation_model",
+    "Galarza26RelativeCredit.priorRisk": "assumption_1_selection_domain",
+    "Galarza26RelativeCredit.selectionAndDomain": "assumption_1_selection_domain",
+    "Galarza26RelativeCredit.screenedRisk": "assumption_2_technology_capacity_cost",
+    "Galarza26RelativeCredit.screeningCost": "assumption_2_technology_capacity_cost",
+    "Galarza26RelativeCredit.feasibleEfforts": "assumption_2_technology_capacity_cost",
+    "Galarza26RelativeCredit.technologyCapacityCost": "assumption_2_technology_capacity_cost",
+    "Galarza26RelativeCredit.premium": "assumption_3_conditioned_payoff",
+    "Galarza26RelativeCredit.bankProfit": "assumption_3_conditioned_payoff",
+    "Galarza26RelativeCredit.conditionedPayoff": "assumption_3_conditioned_payoff",
+    "Galarza26RelativeCredit.screeningStrength": "screening_strength_and_slope_definitions",
+    "Galarza26RelativeCredit.screeningAdvantage": "screening_strength_and_slope_definitions",
+    "Galarza26RelativeCredit.crossingConditions": "assumption_4_crossing_conditions",
+    "Galarza26RelativeCredit.cohortWeight": "stock_model_construction",
+    "Galarza26RelativeCredit.impairedBalance": "assumption_5_stock_accounting",
+    "Galarza26RelativeCredit.stockAccountingConditions": "assumption_5_stock_accounting"
+  },
+  "library_semantic_prerequisite_sources": {},
+  "semantic_context_requirements": {
+    "proposition_1_global_solution_regimes": [
+      {
+        "semantic_role": "model",
+        "source_location": "source.txt:211-233"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:283-284"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:299-302"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:316-334"
+      }
+    ],
+    "proposition_2_conditional_threshold": [
+      {
+        "semantic_role": "model",
+        "source_location": "source.txt:211-233"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:283-284"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:299-302"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:316-334"
+      },
+      {
+        "semantic_role": "prior_result",
+        "source_location": "source.txt:349-388"
+      },
+      {
+        "semantic_role": "definition",
+        "source_location": "source.txt:479"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:480-483"
+      }
+    ],
+    "proposition_3_transmission_composition": [
+      {
+        "semantic_role": "model",
+        "source_location": "source.txt:211-233"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:283-284"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:299-302"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:316-334"
+      },
+      {
+        "semantic_role": "prior_result",
+        "source_location": "source.txt:349-388"
+      },
+      {
+        "semantic_role": "model_construction",
+        "source_location": "source.txt:523-525"
+      },
+      {
+        "semantic_role": "stated_antecedent",
+        "source_location": "source.txt:530-535"
+      }
+    ],
+    "assumption_5_stock_accounting": [
+      {
+        "semantic_role": "model_construction",
+        "source_location": "source.txt:523-525"
+      }
+    ]
+  },
+  "model_convention_ids_by_source_item": {},
+  "source_named_result_inventory_review": {
+    "complete": true,
+    "validator": "Codex CLI source-only holistic intake reviewer, thread 01a20665-a71f-7360-9dfc-9d861c606ff6",
+    "method": "Fresh context-isolated read of all 18 pages and the complete canonical cached text of the exact merged source; no Lean, map or status input. Source-only inventory, not semantic certification.",
+    "validated_at": "2026-11-23T03:24:57Z",
+    "prose_definition_presentations": [
+      {
+        "id": "relative_price_definition",
+        "source_locator": "source.txt:127-156",
+        "defined_entity_kind": "object",
+        "defined_object": "Djst",
+        "scope_disposition": "normal_named_theory_definition"
+      },
+      {
+        "id": "screening_strength_slope_definition",
+        "source_locator": "source.txt:479",
+        "defined_entity_kind": "object",
+        "defined_object": "H(κ)",
+        "scope_disposition": "normal_named_theory_definition"
+      },
+      {
+        "id": "cohort_weight_definition",
+        "source_locator": "source.txt:523-525",
+        "defined_entity_kind": "object",
+        "defined_object": "w(D)",
+        "scope_disposition": "normal_named_theory_definition"
+      },
+      {
+        "id": "stationary_effort_notation",
+        "source_locator": "source.txt:396-402",
+        "defined_entity_kind": "object",
+        "defined_object": "z",
+        "scope_disposition": "local_proof_notation",
+        "scope_reason": "Auxiliary notation introduced only within a proof of an already selected proposition; it does not define a separate source model or independent result.",
+        "validator": "Source-map curator after the independent source-only inventory",
+        "validator_type": "agent",
+        "validated_at": "2026-11-23T03:24:57Z"
+      },
+      {
+        "id": "minimum_bound_notation",
+        "source_locator": "source.txt:431-434",
+        "defined_entity_kind": "object",
+        "defined_object": "v",
+        "scope_disposition": "local_proof_notation",
+        "scope_reason": "Auxiliary notation introduced only within a proof of an already selected proposition; it does not define a separate source model or independent result.",
+        "validator": "Source-map curator after the independent source-only inventory",
+        "validator_type": "agent",
+        "validated_at": "2026-11-23T03:24:57Z"
+      },
+      {
+        "id": "composition_term_notation",
+        "source_locator": "source.txt:576-581",
+        "defined_entity_kind": "object",
+        "defined_object": "T",
+        "scope_disposition": "local_proof_notation",
+        "scope_reason": "Auxiliary notation introduced only within a proof of an already selected proposition; it does not define a separate source model or independent result.",
+        "validator": "Source-map curator after the independent source-only inventory",
+        "validator_type": "agent",
+        "validated_at": "2026-11-23T03:24:57Z"
+      }
+    ],
+    "candidate_presentations": [
+      {
+        "id": "abstract_result_summary",
+        "source_locator": "source.txt:6-13",
+        "presentation_label": "Abstract result summary",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Unnumbered abstract restatement of Propositions 1--3, not an independent normal-scope result."
+      },
+      {
+        "id": "introduction_result_summary",
+        "source_locator": "source.txt:29-53",
+        "presentation_label": "Introduction result summary",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Unnumbered introduction restatement and contribution summary for the selected propositions."
+      },
+      {
+        "id": "conclusion_result_summary",
+        "source_locator": "source.txt:1040-1048",
+        "presentation_label": "Conclusion result summary",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Unnumbered conclusion restatement of the selected propositions."
+      },
+      {
+        "id": "alternative_median_comparator",
+        "source_locator": "source.txt:157-161",
+        "presentation_label": "Alternative median comparator",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Sensitivity comparator and hypothetical illustration, not the principal definition or a new theorem."
+      },
+      {
+        "id": "simulation_crossing_and_failure",
+        "source_locator": "source.txt:638-707",
+        "presentation_label": "Cruce condicionado y su fracaso",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Illustrative simulation and counterexample supporting Proposition 2, not a separate general result."
+      },
+      {
+        "id": "corners_and_stability",
+        "source_locator": "source.txt:713-726",
+        "presentation_label": "Esquinas y estabilidad",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Numerical examples and computational checks supporting Proposition 1."
+      },
+      {
+        "id": "composition_counterexample",
+        "source_locator": "source.txt:788-793",
+        "presentation_label": "Contraejemplo de composición",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Named numerical illustration of Proposition 3, outside the normal theoretical denominator."
+      },
+      {
+        "id": "three_distinct_claims",
+        "source_locator": "source.txt:982-992",
+        "presentation_label": "Tres afirmaciones distintas",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Interpretive prose distinguishing comparative statics, prediction, and causality."
+      },
+      {
+        "id": "future_design_identity",
+        "source_locator": "source.txt:998-1004",
+        "presentation_label": "Future-design collinearity observation in words",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "An empirical-design collinearity observation, not a selected theoretical result."
+      },
+      {
+        "id": "figure_1",
+        "source_locator": "source.txt:119-121",
+        "presentation_label": "Figure 1",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "External descriptive context, not an original theoretical claim."
+      },
+      {
+        "id": "figure_2",
+        "source_locator": "source.txt:701-703",
+        "presentation_label": "Figure 2",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Illustrative simulated crossing and capacity comparison."
+      },
+      {
+        "id": "figure_3",
+        "source_locator": "source.txt:780-782",
+        "presentation_label": "Figure 3",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Illustrative numerical regime and corner plot."
+      },
+      {
+        "id": "figure_4",
+        "source_locator": "source.txt:842-844",
+        "presentation_label": "Figure 4",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Illustrative simulated portfolio-composition comparison."
+      },
+      {
+        "id": "figure_6",
+        "source_locator": "source.txt:970-972",
+        "presentation_label": "Figure 6",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Hypothetical sensitivity map, not a selected theoretical result."
+      },
+      {
+        "id": "appendix_b_repeated_p1_p3_rows",
+        "source_locator": "source.txt:1110-1140",
+        "presentation_label": "Appendix B repeated P1--P3 status rows",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Historical formalization-status summaries referring back to the three main propositions."
+      },
+      {
+        "id": "appendix_b_compilation_and_audit_report",
+        "source_locator": "source.txt:1142-1164",
+        "presentation_label": "Appendix B compilation and audit status",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Reports compilation, preliminary review and reproducibility status; no additional mathematical theorem."
+      },
+      {
+        "id": "appendix_c_adjudication_rows",
+        "source_locator": "source.txt:1174-1228",
+        "presentation_label": "Appendix C AI adjudication rows",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Computational-session audit and supporting cautions, not additional paper theorems."
+      },
+      {
+        "id": "common_component_cancellation",
+        "source_locator": "source.txt:162-166",
+        "presentation_label": "Common-component cancellation calculation",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Algebraic commentary on heterogeneous factor loadings, supporting the selected relative-price definition; not a separately presented named result."
+      },
+      {
+        "id": "differentiable_opacity_criterion",
+        "source_locator": "source.txt:501-517",
+        "presentation_label": "Differentiable-opacity identity and stronger criterion",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Unnumbered interpretation and sufficient condition following Proposition 2, not a standalone named theorem."
+      },
+      {
+        "id": "model_limits_prose",
+        "source_locator": "source.txt:1027-1034",
+        "presentation_label": "Limitaciones que condicionan el aporte",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Model-boundary and future-work prose; the material premises are routed through the five stated assumptions."
+      },
+      {
+        "id": "figure_5",
+        "source_locator": "source.txt:901-905",
+        "presentation_label": "Figure 5: composition frontier",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Illustrative rearrangement of Proposition 3 at a specified valid calibration, not new named theory."
+      },
+      {
+        "id": "worked_effort_example",
+        "source_locator": "source.txt:467-473",
+        "presentation_label": "Un recorrido numérico de la decisión",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Numerical illustration of the three existing effort bounds and risk units."
+      },
+      {
+        "id": "composition_frontier_example",
+        "source_locator": "source.txt:845-863",
+        "presentation_label": "Composition frontier calculation",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Numerical specialization of the selected Proposition 3, with no additional general theoretical result."
+      },
+      {
+        "id": "probability_domain_algebra",
+        "source_locator": "source.txt:285-298",
+        "presentation_label": "Probability-domain derivation",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Supporting algebra for the selected Assumption 1, not an independently named theorem."
+      },
+      {
+        "id": "screening_bound_derivation",
+        "source_locator": "source.txt:312-315",
+        "presentation_label": "Feasibility-bound derivation",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Interpretation and algebra for the selected Assumption 2."
+      },
+      {
+        "id": "semielasticity_interpretation",
+        "source_locator": "source.txt:615-619",
+        "presentation_label": "Semielasticity and elasticity",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Parameter interpretation for the exponential case in Proposition 3."
+      },
+      {
+        "id": "notation_and_proof_local_definitions",
+        "source_locator": "source.txt:229-281",
+        "presentation_label": "Dictionary of notation and operations",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Local notation explains existing model objects; auxiliary proof variables z, v and T do not add independently named theoretical definitions."
+      },
+      {
+        "id": "reading_roadmap",
+        "source_locator": "source.txt:54-60",
+        "presentation_label": "Guía de lectura",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Roadmap of the same three propositions, without a separate assertion."
+      },
+      {
+        "id": "cohort_weight_example",
+        "source_locator": "source.txt:526-529",
+        "presentation_label": "Un ejemplo explica el peso sin derivadas",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Numerical illustration of the already defined cohort weight."
+      },
+      {
+        "id": "appendix_a_reproduction",
+        "source_locator": "source.txt:1091-1101",
+        "presentation_label": "Appendix A reproduction guidance",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Instructions and artifact descriptions, not independently named theory."
+      },
+      {
+        "id": "appendix_d_provenance",
+        "source_locator": "source.txt:1230-1234",
+        "presentation_label": "Appendix D provenance",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Provenance and comparison with the plan, not independently named theory."
+      },
+      {
+        "id": "figure_1_axis_label",
+        "source_locator": "source.txt:115",
+        "presentation_label": "Observación (Figure 1 axis)",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Visual inspection confirms an axis label, not a named observation or independent theory presentation."
+      },
+      {
+        "id": "regime_intuition",
+        "source_locator": "source.txt:462-465",
+        "presentation_label": "P1 regime interpretation",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Unnumbered interpretation of the selected P1, without a separate theory claim."
+      },
+      {
+        "id": "stock_exclusions",
+        "source_locator": "source.txt:609-614",
+        "presentation_label": "P3 accounting exclusions",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Unnumbered interpretation of the selected S5/P3; variable old risk or old balance changes the identity outside its stated assumptions."
+      },
+      {
+        "id": "horizon_explanation",
+        "source_locator": "source.txt:536-539",
+        "presentation_label": "S5 horizon explanation",
+        "scope_disposition": "deep_audit_material",
+        "semantic_basis": "Governing interpretation of the selected stock accounting assumption, not an independent result."
+      }
+    ],
+    "source_region_partition": {
+      "complete": true,
+      "validator": "Codex CLI source-only holistic intake reviewer, thread 01a20665-a71f-7360-9dfc-9d861c606ff6",
+      "method": "Complete 1238-line canonical reading-order partition, verified against the 18-page PDF and its same-commit TeX.",
+      "validated_at": "2026-11-23T03:24:57Z",
+      "regions": [
+        {
+          "id": "main_text",
+          "kind": "main_text",
+          "source_locator": "source.txt:1-1086"
+        },
+        {
+          "id": "appendices",
+          "kind": "appendix",
+          "source_locator": "source.txt:1087-1238"
+        }
+      ],
+      "source_item_regions": {
+        "relative_price_definition": "main_text",
+        "governing_continuation_model": "main_text",
+        "assumption_1_selection_domain": "main_text",
+        "assumption_2_technology_capacity_cost": "main_text",
+        "assumption_3_conditioned_payoff": "main_text",
+        "proposition_1_global_solution_regimes": "main_text",
+        "screening_strength_and_slope_definitions": "main_text",
+        "assumption_4_crossing_conditions": "main_text",
+        "proposition_2_conditional_threshold": "main_text",
+        "stock_model_construction": "main_text",
+        "assumption_5_stock_accounting": "main_text",
+        "proposition_3_transmission_composition": "main_text"
+      },
+      "candidate_presentation_regions": {
+        "abstract_result_summary": "main_text",
+        "introduction_result_summary": "main_text",
+        "conclusion_result_summary": "main_text",
+        "simulation_crossing_and_failure": "main_text",
+        "corners_and_stability": "main_text",
+        "composition_counterexample": "main_text",
+        "three_distinct_claims": "main_text",
+        "future_design_identity": "main_text",
+        "figure_1": "main_text",
+        "figure_2": "main_text",
+        "figure_3": "main_text",
+        "figure_4": "main_text",
+        "appendix_b_repeated_p1_p3_rows": "appendices",
+        "appendix_c_adjudication_rows": "appendices",
+        "appendix_b_compilation_and_audit_report": "appendices",
+        "alternative_median_comparator": "main_text",
+        "common_component_cancellation": "main_text",
+        "differentiable_opacity_criterion": "main_text",
+        "model_limits_prose": "main_text",
+        "figure_6": "main_text",
+        "figure_5": "main_text",
+        "worked_effort_example": "main_text",
+        "composition_frontier_example": "main_text",
+        "probability_domain_algebra": "main_text",
+        "screening_bound_derivation": "main_text",
+        "semielasticity_interpretation": "main_text",
+        "notation_and_proof_local_definitions": "main_text",
+        "reading_roadmap": "main_text",
+        "cohort_weight_example": "main_text",
+        "appendix_a_reproduction": "appendices",
+        "appendix_d_provenance": "appendices",
+        "figure_1_axis_label": "main_text",
+        "regime_intuition": "main_text",
+        "stock_exclusions": "main_text",
+        "horizon_explanation": "main_text"
+      },
+      "prose_definition_presentation_regions": {
+        "relative_price_definition": "main_text",
+        "screening_strength_slope_definition": "main_text",
+        "cohort_weight_definition": "main_text",
+        "stationary_effort_notation": "main_text",
+        "minimum_bound_notation": "main_text",
+        "composition_term_notation": "main_text"
+      },
+      "promoted_source_items": []
+    }
+  },
+  "prose_definition_reconciliations": {
+    "relative_price_definition": {
+      "presentation_id": "relative_price_definition",
+      "semantic_basis": "The source-map item and the literal principal definition identify the same simple peer-average relative-price object and its common-base cancellation.",
+      "validator": "formalizer source-map curator (non-certifying)",
+      "validator_type": "agent",
+      "validated_at": "2026-11-10T16:48:00Z"
+    },
+    "screening_strength_and_slope_definitions": {
+      "presentation_id": "screening_strength_slope_definition",
+      "semantic_basis": "The source-map item transcribes exactly the local source definitions H(kappa)=g(kappa)^2/c(kappa) and beta(kappa)=a(kappa)-H(kappa).",
+      "validator": "formalizer source-map curator (non-certifying)",
+      "validator_type": "agent",
+      "validated_at": "2026-11-10T16:48:00Z"
+    },
+    "stock_model_construction": {
+      "presentation_id": "cohort_weight_definition",
+      "semantic_basis": "The source-map item and the prose construction define the same old balance, old event share, new positive balance, and cohort weight w(D).",
+      "validator": "formalizer source-map curator (non-certifying)",
+      "validator_type": "agent",
+      "validated_at": "2026-11-10T16:48:00Z"
+    }
+  },
+  "replace_source_item_anchors": {
+    "relative_price_definition": "source.txt:127-156",
+    "governing_continuation_model": "source.txt:211-233",
+    "assumption_1_selection_domain": "source.txt:283-284",
+    "assumption_2_technology_capacity_cost": "source.txt:299-302",
+    "assumption_3_conditioned_payoff": "source.txt:316-334",
+    "proposition_1_global_solution_regimes": "source.txt:349-388",
+    "screening_strength_and_slope_definitions": "source.txt:479",
+    "assumption_4_crossing_conditions": "source.txt:480-483",
+    "proposition_2_conditional_threshold": "source.txt:484-485",
+    "stock_model_construction": "source.txt:523-525",
+    "assumption_5_stock_accounting": "source.txt:530-535",
+    "proposition_3_transmission_composition": "source.txt:540-551"
+  },
+  "initialize_selected_source_claim_atoms": true
+}

@@ -1,0 +1,88 @@
+{
+  "comment": "Non-evidence review work queue. Inspect the exact deduplicated source inputs, expanded Lean semantic targets, declaration code, and every graph-bound semantic prerequisite below; then select one typed source item and fill judgment and reason. The selected source key and declaration key bind that decision to the canonical material in this file; the receipt writer will reject it if the source text, source bundle, Lean target, or exact declaration source has changed before issuance.",
+  "items": {
+    "Galarza26RelativeCredit.impairedBalance": {
+      "candidate_source_items": [
+        "assumption_5_stock_accounting"
+      ],
+      "judgment": "matches",
+      "reason": "The selected source makes m0 the old cohort's event proportion and q*(D) the expected event fraction of the retained new-cohort balance, while excluding write-offs, sales, reclassifications, and additional risk-selection terms. The Lean value B0 * m0 + B D * q D is therefore exactly the sum of the two impaired cohort balances; the displayed portfolio ratio divides that sum by B0 + B D, and proposition3Spec specializes q to optimalRisk and uses the same weighted two-cohort identity on the admissible interval. Allowing arbitrary real arguments in the reusable definition does not remove any source-admissible case.",
+      "source_item": "assumption_5_stock_accounting",
+      "supporting_declarations": [
+        "Galarza26RelativeCredit.impairedBalance",
+        "Galarza26RelativeCredit.portfolioRatio",
+        "source_claim_use:Galarza26RelativeCredit.proposition3Spec"
+      ]
+    },
+    "Galarza26RelativeCredit.stockAccountingConditions": {
+      "candidate_source_items": [
+        "assumption_5_stock_accounting"
+      ],
+      "judgment": "matches",
+      "reason": "For the selected source, B0 and m0 are D-independent scalars with B0 > 0 and m0 in [0,1], and B(D) is positive and differentiable as D varies. The Lean predicate states precisely those quantitative conditions, pointwise for every D in [lower, upper]; proposition3Spec assumes the predicate and makes every displayed accounting and derivative use on that same interval. The source's deterministic/continuous-population and no-adjustment conventions are reflected in the displayed impaired-balance and portfolio-ratio formulas rather than being lost from the paper use.",
+      "source_item": "assumption_5_stock_accounting",
+      "supporting_declarations": [
+        "Galarza26RelativeCredit.stockAccountingConditions",
+        "source_claim_use:Galarza26RelativeCredit.proposition3Spec"
+      ]
+    }
+  },
+  "paper": "Galarza26RelativeCredit",
+  "review_context_protocol": "identity-bound-semantic-review-work-queue-v3",
+  "review_material": {
+    "declarations": {
+      "Galarza26RelativeCredit.impairedBalance": {
+        "declaration_source": "/-- Expected impaired balance from the source's two-cohort ledger under S5. -/\ndef impairedBalance (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) : \u211d :=\n  B0 * m0 + B D * q D",
+        "declaration_source_sha256": "cb62a48d38556aa314e21f7ed7db9b9b06bce52a1f6fe43127919762b208201a",
+        "semantic_target": "type:\n\u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) => B0 * m0 + B D * q D",
+        "semantic_target_sha256": "92a5e2425b6a95f101da1910152dd5239c60249b3ca90165e0c2b52b75032f36"
+      },
+      "Galarza26RelativeCredit.stockAccountingConditions": {
+        "declaration_source": "/-- Quantitative part of Assumption 5.  The ledger declarations above encode\nthe deterministic/continuous-population accounting convention and the absence\nof an additional risk-selection or write-off term. -/\ndef stockAccountingConditions (B0 m0 lower upper : \u211d) (B : \u211d \u2192 \u211d) : Prop :=\n  0 < B0 \u2227 m0 \u2208 Icc (0 : \u211d) 1 \u2227\n    (\u2200 D \u2208 Icc lower upper, 0 < B D \u2227 DifferentiableAt \u211d B D)",
+        "declaration_source_sha256": "108b5b64efb5b434c9697f837d0e41717d0d787732ac7452ee2e2d24da58dbec",
+        "semantic_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 Prop\n\nvalue:\nfun (B0 m0 lower upper : \u211d) (B : \u211d \u2192 \u211d) =>\n  0 < B0 \u2227 m0 \u2208 Set.Icc 0 1 \u2227 \u2200 D \u2208 Set.Icc lower upper, 0 < B D \u2227 DifferentiableAt \u211d B D",
+        "semantic_target_sha256": "786228d1c62de11d73b97bf1c564c7c698abb3e607bb910d5594b8fb9271a8b7"
+      }
+    },
+    "source_items": {
+      "assumption_5_stock_accounting": {
+        "source_input_bundle_sha256": "9405a6a53cbced1081e280a15c6313d669cdea22419aad043c628985289713db",
+        "source_locator": "source.txt:530-535",
+        "verbatim_source_input": "Supuesto 5 (Contabilidad y maduraci\u00f3n). Al horizonte, el saldo de cada cohorte es determinista\no se trata como exposici\u00f3n de una poblaci\u00f3n continua. El riesgo q \u2217 (D) coincide con la fracci\u00f3n\nesperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortizaci\u00f3n\ny el tama\u00f1o del cr\u00e9dito no seleccionan riesgo adicional no recogido en q \u2217 . B0 , m0 son constantes\nal variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasi\ufb01caciones que\nalteren esta identidad en el ejercicio.\n\n[Next verbatim source excerpt]\n\nFijemos un horizonte h. B0 > 0 es el saldo de cr\u00e9ditos antiguos todav\u00eda vigente en esa fecha y\nm0 \u2208 [0, 1] su proporci\u00f3n en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva\nque permanece en cartera a h, despu\u00e9s de amortizaci\u00f3n normal. Denote w(D) = B(D)/(B0 +B(D)).",
+        "verbatim_source_input_sha256": "e5bd4bcf802d98b8f61288e17482221f74807514e2d26531dfb53ab2d9dbd099"
+      }
+    },
+    "supporting_declarations": {
+      "Galarza26RelativeCredit.impairedBalance": {
+        "declaration_source": "/-- Expected impaired balance from the source's two-cohort ledger under S5. -/\ndef impairedBalance (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) : \u211d :=\n  B0 * m0 + B D * q D",
+        "declaration_source_sha256": "cb62a48d38556aa314e21f7ed7db9b9b06bce52a1f6fe43127919762b208201a",
+        "scope": "paper_prerequisite",
+        "semantic_target": "type:\n\u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) => B0 * m0 + B D * q D",
+        "semantic_target_sha256": "92a5e2425b6a95f101da1910152dd5239c60249b3ca90165e0c2b52b75032f36"
+      },
+      "Galarza26RelativeCredit.portfolioRatio": {
+        "declaration_source": "/-- Expected portfolio ratio: divide the impaired balance by deterministic total balance. -/\ndef portfolioRatio (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) : \u211d :=\n  impairedBalance B0 m0 B q D / (B0 + B D)",
+        "declaration_source_sha256": "0385a643c5449a548fca576f7ed9d98ed5c747b929c01911de19a17a8aed882c",
+        "scope": "paper_prerequisite",
+        "semantic_target": "type:\n\u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 (\u211d \u2192 \u211d) \u2192 \u211d \u2192 \u211d\n\nvalue:\nfun (B0 m0 : \u211d) (B q : \u211d \u2192 \u211d) (D : \u211d) => Galarza26RelativeCredit.impairedBalance B0 m0 B q D / (B0 + B D)",
+        "semantic_target_sha256": "53de563ef793cd39c2285b9b0c9ec1f8ab4451ae1dd4af87a3b1ecec749a806a"
+      },
+      "Galarza26RelativeCredit.stockAccountingConditions": {
+        "declaration_source": "/-- Quantitative part of Assumption 5.  The ledger declarations above encode\nthe deterministic/continuous-population accounting convention and the absence\nof an additional risk-selection or write-off term. -/\ndef stockAccountingConditions (B0 m0 lower upper : \u211d) (B : \u211d \u2192 \u211d) : Prop :=\n  0 < B0 \u2227 m0 \u2208 Icc (0 : \u211d) 1 \u2227\n    (\u2200 D \u2208 Icc lower upper, 0 < B D \u2227 DifferentiableAt \u211d B D)",
+        "declaration_source_sha256": "108b5b64efb5b434c9697f837d0e41717d0d787732ac7452ee2e2d24da58dbec",
+        "scope": "paper_prerequisite",
+        "semantic_target": "type:\n\u211d \u2192 \u211d \u2192 \u211d \u2192 \u211d \u2192 (\u211d \u2192 \u211d) \u2192 Prop\n\nvalue:\nfun (B0 m0 lower upper : \u211d) (B : \u211d \u2192 \u211d) =>\n  0 < B0 \u2227 m0 \u2208 Set.Icc 0 1 \u2227 \u2200 D \u2208 Set.Icc lower upper, 0 < B D \u2227 DifferentiableAt \u211d B D",
+        "semantic_target_sha256": "786228d1c62de11d73b97bf1c564c7c698abb3e607bb910d5594b8fb9271a8b7"
+      },
+      "source_claim_use:Galarza26RelativeCredit.proposition3Spec": {
+        "lean_name": "Galarza26RelativeCredit.proposition3Spec",
+        "scope": "source_claim_use",
+        "semantic_target": "\u2200 (qbar a g c Rbar F E lower upper B0 m0 : \u211d) (B : \u211d \u2192 \u211d),\n  Galarza26RelativeCredit.selectionAndDomain qbar a lower upper \u2192\n    Galarza26RelativeCredit.technologyCapacityCost g c E \u2192\n      Galarza26RelativeCredit.conditionedPayoff Rbar lower upper \u2192\n        Galarza26RelativeCredit.stockAccountingConditions B0 m0 lower upper B \u2192\n          (\u2200 D \u2208 Set.Icc lower upper,\n              Galarza26RelativeCredit.portfolioRatio B0 m0 B (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) D =\n                (1 - Galarza26RelativeCredit.cohortWeight B0 B D) * m0 +\n                  Galarza26RelativeCredit.cohortWeight B0 B D *\n                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D) \u2227\n            (\u2200 D \u2208 Set.Icc lower upper,\n                \u2200 (beta Bprime : \u211d),\n                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D \u2192\n                    HasDerivAt B Bprime D \u2192\n                      have w : \u211d := Galarza26RelativeCredit.cohortWeight B0 B D;\n                      have wprime : \u211d := Bprime * B0 / (B0 + B D) ^ 2;\n                      have slope : \u211d :=\n                        w * beta + wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0);\n                      HasDerivAt\n                          (Galarza26RelativeCredit.portfolioRatio B0 m0 B\n                            (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))\n                          slope D \u2227\n                        ((\u2203 (b : \u211d), B = fun (x : \u211d) => b) \u2192\n                            (0 < slope \u2194 0 < beta) \u2227 (slope = 0 \u2194 beta = 0) \u2227 (slope < 0 \u2194 beta < 0)) \u2227\n                          (beta \u2260 0 \u2192\n                            |wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)| < w * |beta| \u2192\n                              0 < slope * beta)) \u2227\n              \u2200 D \u2208 Set.Icc lower upper,\n                \u2200 (beta B1 epsilon : \u211d),\n                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D \u2192\n                    B = Galarza26RelativeCredit.exponentialBalance B1 epsilon \u2192\n                      0 < B1 \u2192\n                        0 \u2264 epsilon \u2192\n                          have exponentialB : \u211d \u2192 \u211d := Galarza26RelativeCredit.exponentialBalance B1 epsilon;\n                          have w : \u211d := Galarza26RelativeCredit.cohortWeight B0 exponentialB D;\n                          have slope : \u211d :=\n                            w *\n                              (beta -\n                                epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0));\n                          HasDerivAt\n                              (Galarza26RelativeCredit.portfolioRatio B0 m0 B\n                                (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))\n                              slope D \u2227\n                            (0 < beta \u2192\n                              m0 < Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D \u2192\n                                (slope < 0 \u2194\n                                  beta <\n                                    epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)))",
+        "semantic_target_sha256": "ad35ac4ce86720eb205cee956e2900c664eb0930cc63b04adf33d2ee612e9627"
+      }
+    }
+  },
+  "review_material_sha256": "a7a7c9162f3b1e4965f8c3f40ec13257154777a156145c96b32f68f80a575752",
+  "schema": 3,
+  "unrouted_declarations": []
+}

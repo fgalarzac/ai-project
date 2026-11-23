@@ -1,0 +1,21 @@
+{
+  "remote_result": {
+    "request_id": "20261123T043634-e4e922bd",
+    "argv": [
+      "env",
+      "PYTHONPATH=.",
+      "python3",
+      "scripts/run_paper_closeout.py",
+      "--paper",
+      "Galarza26RelativeCredit",
+      "--plan-identity",
+      "62f16cbe42d1de16d57b652f5fb60a21e81b6d30e1454d4820371f5bd2d0e725"
+    ],
+    "started_utc": "2026-11-23T04:36:41Z",
+    "exit_code": 0,
+    "elapsed_seconds": 14.197,
+    "download_sha256": "27e69cb869f718011bc2eeb5a776763e342e6875f8deb1394c05a19b1bfb8e0e",
+    "finished_utc": "2026-11-23T04:36:55Z"
+  },
+  "note": "Recovered exact response after Windows MAX_PATH extraction failure; launcher acknowledged async worker, not an acceptance credential."
+}

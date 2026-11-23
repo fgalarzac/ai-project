@@ -1,0 +1,2332 @@
+% Generated human-review packet template.  Source records, Lean statements,
+% and raw-source-to-Spec screening fields are substituted by
+% scripts/review_dashboard_packet.py.
+% Do not hand-edit generated packets; annotate the PDF or reconcile notes into
+% the paper-local human-review log.
+\documentclass[10pt]{article}
+\usepackage[margin=0.43in,footskip=0.2in]{geometry}
+\usepackage{fontspec}
+% Use a Unicode-complete main face as well as a Unicode-complete code face.
+% Reviewer reasons and source labels can contain exact Greek symbols outside
+% verbatim blocks; silently dropping one would corrupt the review packet.
+\setmainfont{DejaVu Serif}
+% The broad DejaVu Sans Unicode coverage preserves Lean's mathematical glyphs
+% (including U+2216 set difference and superscript identifiers) in verbatim
+% review blocks.  Its proportional metrics are preferable to silently missing
+% exact semantic text from a narrower monospace font.
+\setmonofont{DejaVu Sans}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{fvextra}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.15em}
+\linespread{0.92}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,breaklinks=true}
+\DefineVerbatimEnvironment{ReviewVerbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\scriptsize}
+\newcommand{\reviewerbox}{%
+  \par\noindent\fbox{\parbox{0.96\linewidth}{\rule{0pt}{0.38in}}}\par
+}
+\newcommand{\reviewmatch}[1]{%
+  \par\noindent\textbf{Reviewer check:} $\square$\; #1\par
+  \noindent\emph{If left unchecked, explain the discrepancy or uncertainty below.}\par
+}
+
+\begin{document}
+\fontsize{9}{10}\selectfont
+
+\begin{center}
+{\LARGE Human review packet: Galarza26RelativeCredit}\\[0.35em]
+\small Generated from byte-pinned source excerpts, the expanded PaperInterface
+specifications, and hash-bound raw-source-to-Spec screening records.
+\end{center}
+
+\noindent\textbf{Paper:} Galarza26RelativeCredit\\
+\textbf{Paper id:} \texttt{Galarza26RelativeCredit}\\
+\textbf{Source version:} \parbox[t]{0.76\linewidth}{\raggedright Versión para entrega, 22 de noviembre de 2026, commit 25f0b0c7df040e2b04d78064b30949492cd4472f}\\
+\textbf{Source record:} \texttt{audit/paper\_statement\_map.json}\\
+\textbf{Rows:} 3\\
+\textbf{Generated:} 2026-11-22\\
+\textbf{Source URL:} \href{https://github.com/fgalarzac/ai-project/blob/25f0b0c7df040e2b04d78064b30949492cd4472f/paper/paper.pdf}{official source}
+
+
+
+
+
+\section*{How to use this packet}
+For each source claim, compare the exact source excerpts with the expanded
+PaperInterface specification. Mark up this PDF or fill the blank reviewer box in the TeX source;
+return the annotated file for reconciliation into the paper-local human-review
+log.
+
+\section*{Open the interactive dashboard}
+The interactive dashboard is an optional alternative to using this PDF; it
+presents the same review surface rather than an additional review requirement.
+After forking and cloning (or pulling) AppliedModelingLib, run the following from the
+repository root. The cache command is needed only the first time in a new clone.
+\begin{ReviewVerbatim}
+cd <your-repository-checkout>
+lake exe cache get
+python3 scripts/review_dashboard.py --paper Galarza26RelativeCredit --serve
+\end{ReviewVerbatim}
+Open \url{http://127.0.0.1:8765/} in a browser and keep that terminal running
+while reviewing. The dashboard records saved annotations in this paper's local
+reviewer-owned review record.
+
+\section*{Contents}
+\begin{itemize}[leftmargin=1.2em]
+\item \hyperlink{governing-declaration-section-5ef5ef0364b6939c}{Governing Lean declarations (9; supporting context)}
+\item \hyperlink{paper-prerequisite-section-5ef5ef0364b6939c}{Paper-specific semantic prerequisites (18; not paper claims)}
+\begin{itemize}[leftmargin=1.2em]
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-3f518444e1a02f7c}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Cost}
+\item \hyperlink{paper-prerequisite-646bdd87bd4c2b85}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}bank\allowbreak{}Profit}
+\item \hyperlink{paper-prerequisite-b0571b2c4a78eab5}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}cohort\allowbreak{}Weight}
+\item \hyperlink{paper-prerequisite-3564270d1ab44650}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}feasible\allowbreak{}Efforts}
+\item \hyperlink{paper-prerequisite-a6fae381e2d9a684}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Continuation\allowbreak{}Problem}
+\item \hyperlink{paper-prerequisite-0bf7e0c122a51179}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Payoff}
+\item \hyperlink{paper-prerequisite-edcf6b4879cafd1b}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Strength}
+\item \hyperlink{paper-prerequisite-29fcb63a4a0578b3}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Advantage}
+\item \hyperlink{paper-prerequisite-4f59b48de0be00ac}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}crossing\allowbreak{}Conditions}
+\item \hyperlink{paper-prerequisite-527f5e3e1ca86ece}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}impaired\allowbreak{}Balance}
+\item \hyperlink{paper-prerequisite-3b6383e0216b3c72}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price}
+\item \hyperlink{paper-prerequisite-38fc4c8d2be8054c}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price\_\allowbreak{}eq\_\allowbreak{}rate\_\allowbreak{}gap}
+\item \hyperlink{paper-prerequisite-e9553b2c455b69dd}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screened\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-ab0e2f9b84884bc6}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}selection\allowbreak{}And\allowbreak{}Domain}
+\item \hyperlink{paper-prerequisite-de4cba6057d51d83}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}stock\allowbreak{}Accounting\allowbreak{}Conditions}
+\item \hyperlink{paper-prerequisite-e5f9b7ce782f743a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}technology\allowbreak{}Capacity\allowbreak{}Cost}
+\end{itemize}
+\item \hyperlink{source-section-f10b5f68e4acf3dc}{Source claims (3)}
+\begin{itemize}[leftmargin=1.2em]
+\item \hyperlink{source-claim-71d1c57a6546a5a7}{Proposición 1 (Solución global y pendientes por régimen)}
+\item \hyperlink{source-claim-f0d8e27dfc3b3ee3}{Proposición 2 (Umbral condicional)}
+\item \hyperlink{source-claim-194f750a63a93998}{Proposición 3 (Transmisión y composición)}
+\end{itemize}
+\end{itemize}
+
+\clearpage
+\hypertarget{governing-declaration-section-5ef5ef0364b6939c}{}
+\section*{Governing Lean declarations}
+These exact graph-bound declaration bodies are retained by the displayed specifications or reviewed prerequisites. They are supporting context and do not add source-result rows or semantic judgments.
+\hypertarget{governing-declaration-34d15e1983b4c930}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}Continuation\allowbreak{}Problem}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+field feasible:
+Galarza26RelativeCredit.ContinuationProblem → Set ℝ
+
+field payoff:
+Galarza26RelativeCredit.ContinuationProblem → ℝ → ℝ
+\end{ReviewVerbatim}
+
+
+\hypertarget{governing-declaration-042b6300ffc11e3e}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}Continuation\allowbreak{}Problem.\allowbreak{}Is\allowbreak{}Maximizer}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+Galarza26RelativeCredit.ContinuationProblem → ℝ → Prop
+
+value:
+fun (problem : Galarza26RelativeCredit.ContinuationProblem) (e : ℝ) =>
+  e ∈ problem.feasible ∧ ∀ x ∈ problem.feasible, problem.payoff x ≤ problem.payoff e
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{governing-declaration-34d15e1983b4c930}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}Continuation\allowbreak{}Problem}
+\end{itemize}
+\hypertarget{governing-declaration-ac78c6a99f925061}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}exponential\allowbreak{}Balance}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (B1 epsilon D : ℝ) => B1 * Real.exp (-epsilon * D)
+\end{ReviewVerbatim}
+
+
+\hypertarget{governing-declaration-c80cb553f94a2c2b}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}portfolio\allowbreak{}Ratio}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → (ℝ → ℝ) → (ℝ → ℝ) → ℝ → ℝ
+
+value:
+fun (B0 m0 : ℝ) (B q : ℝ → ℝ) (D : ℝ) => Galarza26RelativeCredit.impairedBalance B0 m0 B q D / (B0 + B D)
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-527f5e3e1ca86ece}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}impaired\allowbreak{}Balance}
+\end{itemize}
+\hypertarget{governing-declaration-6e5d4449ad412574}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}capacity\allowbreak{}Regime}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → Prop
+
+value:
+fun (qbar a g c Rbar E D : ℝ) =>
+  E < g * Galarza26RelativeCredit.premium Rbar D / c ∧ E < Galarza26RelativeCredit.priorRisk qbar a D / g
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\hypertarget{governing-declaration-65adc159d5a1934d}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}floor\allowbreak{}Regime}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → Prop
+
+value:
+fun (qbar a g c Rbar E D : ℝ) =>
+  Galarza26RelativeCredit.priorRisk qbar a D / g < g * Galarza26RelativeCredit.premium Rbar D / c ∧
+    Galarza26RelativeCredit.priorRisk qbar a D / g < E
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\hypertarget{governing-declaration-5f246d7c1bbfcd61}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}interior\allowbreak{}Regime}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → Prop
+
+value:
+fun (qbar a g c Rbar E D : ℝ) =>
+  g * Galarza26RelativeCredit.premium Rbar D / c < E ∧
+    g * Galarza26RelativeCredit.premium Rbar D / c < Galarza26RelativeCredit.priorRisk qbar a D / g
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\hypertarget{governing-declaration-41e961e1975be029}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}optimal\allowbreak{}Effort}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (qbar a g c Rbar E D : ℝ) =>
+  min (g * Galarza26RelativeCredit.premium Rbar D / c) (min E (Galarza26RelativeCredit.priorRisk qbar a D / g))
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\hypertarget{governing-declaration-e139cf967ddac229}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}optimal\allowbreak{}Risk}
+\textbf{Declaration location:} paper-local
+\paragraph{Lean declaration body}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (qbar a g c Rbar E D : ℝ) =>
+  max 0 (Galarza26RelativeCredit.priorRisk qbar a D - g * min E (g * Galarza26RelativeCredit.premium Rbar D / c))
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\clearpage
+\hypertarget{paper-prerequisite-section-5ef5ef0364b6939c}{}
+\section*{Paper-specific semantic prerequisites}
+\hypertarget{paper-prerequisite-6956aaccf5fffc8f}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 316-\allowbreak{}334\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 3 (Remuneración y problema condicionado). El premio normalizado por desempeño es
+R(D) = R̄ + D > 0 y F es un costo por unidad independiente de e. El banco resuelve
+máx
+e∈[0,u(D,κ)]
+
+π(e; D, κ) = [1 − q 0 (D, κ) + g(κ)e]R(D) − F −
+
+c(κ) 2
+e .
+2
+
+(2)
+
+El precio, la referencia de pares y κ se mantienen ﬁjos al evaluar desviaciones de esfuerzo.
+El costo F no afecta el óptimo de esfuerzo. Un volumen estrictamente positivo que multiplique
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ
+
+value:
+fun (Rbar D : ℝ) => Rbar + D
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The selected S3 formula is R(D)=R̄+D, and the expanded target is exactly fun (Rbar D) ↦ Rbar+D.\allowbreak{} The displayed conditionedPayoff prerequisite supplies the source's R(D)>0 restriction over the admissible interval, and every displayed regime, optimizer, and proposition use receives the same premium expression;\allowbreak{} no formula, domain case, or conclusion is changed.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-e8657fe6a37f000a}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 283-\allowbreak{}284\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (qbar a D : ℝ) => qbar + a * D
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared Assumption 1's prior probability q0(D,kappa) = qbar + a(kappa)D with the expanded target qbar + a*D for fixed kappa.\allowbreak{} The displayed selectionAndDomain and proposition uses impose qbar in (0,1), a>0, D in the compact interval, and the resulting value in [0,1], so the general real-\allowbreak{}valued definition is used on precisely the source domain.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-3f518444e1a02f7c}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Cost}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Cost\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 299-\allowbreak{}302\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ
+
+value:
+fun (c e : ℝ) => c * e ^ 2 / 2
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared Assumption 2's normalized quadratic cost c(kappa)e\textasciicircum{}2/\allowbreak{}2 with the expanded target c*e\textasciicircum{}2/\allowbreak{}2;\allowbreak{} the coefficient, exponent, divisor, and effort binder agree exactly.\allowbreak{} Its bankProfit and continuation-\allowbreak{}problem uses hold c fixed during effort comparison and technologyCapacityCost supplies c>0.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-646bdd87bd4c2b85}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}bank\allowbreak{}Profit}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}bank\allowbreak{}Profit\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 316-\allowbreak{}334\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 3 (Remuneración y problema condicionado). El premio normalizado por desempeño es
+R(D) = R̄ + D > 0 y F es un costo por unidad independiente de e. El banco resuelve
+máx
+e∈[0,u(D,κ)]
+
+π(e; D, κ) = [1 − q 0 (D, κ) + g(κ)e]R(D) − F −
+
+c(κ) 2
+e .
+2
+
+(2)
+
+El precio, la referencia de pares y κ se mantienen ﬁjos al evaluar desviaciones de esfuerzo.
+El costo F no afecta el óptimo de esfuerzo. Un volumen estrictamente positivo que multiplique
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (qbar a g c Rbar F D e : ℝ) =>
+  (1 - Galarza26RelativeCredit.priorRisk qbar a D + g * e) * Galarza26RelativeCredit.premium Rbar D - F -
+    Galarza26RelativeCredit.screeningCost c e
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-3f518444e1a02f7c}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Cost}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The selected S3 span gives π(e;\allowbreak{}D,κ) = [1-\allowbreak{}q₀(D,κ)+g(κ)e](R̄+D)-\allowbreak{}F-\allowbreak{}c(κ)e²/\allowbreak{}2 with D and κ fixed during an effort comparison.\allowbreak{} The expanded target substitutes priorRisk = qbar+aD, premium = Rbar+D, and screeningCost = c e²/\allowbreak{}2, yielding exactly that payoff for fixed scalar primitives;\allowbreak{} its displayed paper use is through the conditioned problem under the source-\allowbreak{}domain assumptions, so the unrestricted raw function introduces no different source conclusion.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-b0571b2c4a78eab5}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}cohort\allowbreak{}Weight}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}cohort\allowbreak{}Weight\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 523-\allowbreak{}525\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Fijemos un horizonte h. B0 > 0 es el saldo de créditos antiguos todavía vigente en esa fecha y
+m0 ∈ [0, 1] su proporción en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva
+que permanece en cartera a h, después de amortización normal. Denote w(D) = B(D)/(B0 +B(D)).
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → (ℝ → ℝ) → ℝ → ℝ
+
+value:
+fun (B0 : ℝ) (B : ℝ → ℝ) (D : ℝ) => B D / (B0 + B D)
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared the stock-\allowbreak{}model definition w(D) = B(D)/\allowbreak{}(B0+B(D)) with the expanded target B D/\allowbreak{}(B0+B D);\allowbreak{} the binders and formula coincide.\allowbreak{} In the displayed proposition-\allowbreak{}3 use, stockAccountingConditions supplies B0 > 0 and B(D) > 0 on the paper interval, so the more generally typed definition specializes to the source-\allowbreak{}admissible nonzero denominator.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-3564270d1ab44650}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}feasible\allowbreak{}Efforts}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}feasible\allowbreak{}Efforts\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 299-\allowbreak{}302\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → Prop
+
+value:
+fun (qbar a g E D a_1 : ℝ) => Set.Icc 0 (min E (Galarza26RelativeCredit.priorRisk qbar a D / g)) a_1
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared Assumption 2's 0 <= e <= min(E,q0(D,kappa)/\allowbreak{}g(kappa)) with the expanded membership target Set.\allowbreak{}Icc 0 (min E (priorRisk qbar a D/\allowbreak{}g)).\allowbreak{} With priorRisk expanded to qbar+a*D, the bounds, divisions, minimum, and closed endpoints coincide, and proposition 1 uses the set under g>0, E>=0, and q0 in [0,1].\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-a6fae381e2d9a684}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Continuation\allowbreak{}Problem}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Continuation\allowbreak{}Problem\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 211-\allowbreak{}233\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+automáticamente microempresa con opacidad alta.
+La cronología es: primero se ﬁjan segmento, tecnología y precio observado; después se forma el
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+se normalizan por sol de crédito. La sensibilidad monetaria del premio de desempeño a una unidad
+4
+
+
+[form-feed in source extraction]
+de D se normaliza a uno. Esto es una simpliﬁcación de remuneración, no una conversión exacta de
+tasas efectivas a cualquier plazo contractual.
+Conviene separar tres operaciones que aparecerán en las pruebas. Al elegir e, el banco mantiene
+ﬁjos D y κ: compara esfuerzos para un mismo precio y segmento. Al calcular ∂D q ∗ , compara
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → ℝ → Galarza26RelativeCredit.ContinuationProblem
+
+value:
+fun (qbar a g c Rbar F E D : ℝ) =>
+  { feasible := Galarza26RelativeCredit.feasibleEfforts qbar a g E D,
+    payoff := fun (e : ℝ) => Galarza26RelativeCredit.bankProfit qbar a g c Rbar F D e }
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{governing-declaration-34d15e1983b4c930}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}Continuation\allowbreak{}Problem}
+\item \hyperlink{paper-prerequisite-646bdd87bd4c2b85}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}bank\allowbreak{}Profit}
+\item \hyperlink{paper-prerequisite-3564270d1ab44650}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}feasible\allowbreak{}Efforts}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The governing span makes the risk-\allowbreak{}neutral bank the sole optimizer, fixes segment, technology, observed price D, and κ before effort is varied, and expressly treats price as an argument of a continuation problem.\allowbreak{} The expanded target is exactly a one-\allowbreak{}shot feasible-\allowbreak{}set/\allowbreak{}payoff record:\allowbreak{} feasibleEfforts expands to [0,min E ((qbar+aD)/\allowbreak{}g)] and the payoff is e ↦ bankProfit at fixed D and fixed scalar primitives.\allowbreak{} Its Proposition 1 use ranges D over the admissible interval under the displayed selection/\allowbreak{}domain, technology/\allowbreak{}capacity/\allowbreak{}cost, and positive-\allowbreak{}premium premises, preserving the source chronology and conditioned optimization domain.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-0bf7e0c122a51179}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Payoff}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Payoff\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 316-\allowbreak{}334\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 3 (Remuneración y problema condicionado). El premio normalizado por desempeño es
+R(D) = R̄ + D > 0 y F es un costo por unidad independiente de e. El banco resuelve
+máx
+e∈[0,u(D,κ)]
+
+π(e; D, κ) = [1 − q 0 (D, κ) + g(κ)e]R(D) − F −
+
+c(κ) 2
+e .
+2
+
+(2)
+
+El precio, la referencia de pares y κ se mantienen ﬁjos al evaluar desviaciones de esfuerzo.
+El costo F no afecta el óptimo de esfuerzo. Un volumen estrictamente positivo que multiplique
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → Prop
+
+value:
+fun (Rbar lower upper : ℝ) => ∀ D ∈ Set.Icc lower upper, 0 < Galarza26RelativeCredit.premium Rbar D
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The selected S3 span states R(D)=R̄+D>0.\allowbreak{} The expanded target requires 0 < premium Rbar D for every D in the admissible closed interval, and premium expands to Rbar+D;\allowbreak{} all three displayed proposition uses assume this same interval-\allowbreak{}wide condition.\allowbreak{} Thus the binder, domain restriction, formula, and strict positivity premise match the source.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-edcf6b4879cafd1b}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Strength}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Strength\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 479\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Deﬁna H(κ) = g(κ)2 /c(κ) y β(κ) = a(κ) − H(κ).
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ
+
+value:
+fun (g c : ℝ) => g ^ 2 / c
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared H(kappa) = g(kappa)\textasciicircum{}2/\allowbreak{}c(kappa) with the expanded target g\textasciicircum{}2/\allowbreak{}c.\allowbreak{} The displayed crossing and proposition-\allowbreak{}2 contexts evaluate it pointwise with c(kappa)>0 from the source technology assumptions, and screeningAdvantage then forms exactly a-\allowbreak{}H.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-29fcb63a4a0578b3}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Advantage}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Advantage\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 479\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Deﬁna H(κ) = g(κ)2 /c(κ) y β(κ) = a(κ) − H(κ).
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (a g c : ℝ) => a - Galarza26RelativeCredit.screeningStrength g c
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-edcf6b4879cafd1b}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Strength}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared beta(kappa) = a(kappa) -\allowbreak{} H(kappa) with the expanded target a -\allowbreak{} screeningStrength g c, and the displayed screeningStrength expands to g\textasciicircum{}2/\allowbreak{}c.\allowbreak{} CrossingConditions and proposition 2 apply this exact quantity pointwise on kappa in [0,1] for endpoint signs, strict decrease, and derivative conclusions.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-4f59b48de0be00ac}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}crossing\allowbreak{}Conditions}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}crossing\allowbreak{}Conditions\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 480-\allowbreak{}483\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 4 (Condiciones suﬁcientes para el cruce). En κ ∈ [0, 1], a, g, c son continuas y positivas.
+La función a − H es estrictamente decreciente y satisface a(0) > H(0) y a(1) < H(1). Al precio D0
+que se compara se cumplen estrictamente las dos condiciones de interioridad de la primera línea de
+(4) para todo κ.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → (ℝ → ℝ) → (ℝ → ℝ) → (ℝ → ℝ) → Prop
+
+value:
+fun (qbar Rbar E D0 : ℝ) (a g c : ℝ → ℝ) =>
+  ContinuousOn a (Set.Icc 0 1) ∧
+    ContinuousOn g (Set.Icc 0 1) ∧
+      ContinuousOn c (Set.Icc 0 1) ∧
+        (∀ k ∈ Set.Icc 0 1, 0 < a k ∧ 0 < g k ∧ 0 < c k) ∧
+          StrictAntiOn (fun (k : ℝ) => Galarza26RelativeCredit.screeningAdvantage (a k) (g k) (c k)) (Set.Icc 0 1) ∧
+            0 < Galarza26RelativeCredit.screeningAdvantage (a 0) (g 0) (c 0) ∧
+              Galarza26RelativeCredit.screeningAdvantage (a 1) (g 1) (c 1) < 0 ∧
+                ∀ k ∈ Set.Icc 0 1, Galarza26RelativeCredit.interiorRegime qbar (a k) (g k) (c k) Rbar E D0
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{governing-declaration-5f246d7c1bbfcd61}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}interior\allowbreak{}Regime}
+\item \hyperlink{paper-prerequisite-29fcb63a4a0578b3}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Advantage}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared every clause of Assumption 4 with the expanded target on kappa in [0,1]:\allowbreak{} continuity and positivity of a,g,c, strict decrease of a-\allowbreak{}g\textasciicircum{}2/\allowbreak{}c, positive and negative endpoint signs, and both strict interior inequalities at D0 for every kappa are all present.\allowbreak{} The displayed proposition-\allowbreak{}2 use also places D0 in the price interval and supplies S1-\allowbreak{}S3 for every kappa.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-527f5e3e1ca86ece}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}impaired\allowbreak{}Balance}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}impaired\allowbreak{}Balance\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 530-\allowbreak{}535\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 5 (Contabilidad y maduración). Al horizonte, el saldo de cada cohorte es determinista
+o se trata como exposición de una población continua. El riesgo q ∗ (D) coincide con la fracción
+esperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortización
+y el tamaño del crédito no seleccionan riesgo adicional no recogido en q ∗ . B0 , m0 son constantes
+al variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasiﬁcaciones que
+alteren esta identidad en el ejercicio.
+
+[Next verbatim source excerpt]
+
+Fijemos un horizonte h. B0 > 0 es el saldo de créditos antiguos todavía vigente en esa fecha y
+m0 ∈ [0, 1] su proporción en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva
+que permanece en cartera a h, después de amortización normal. Denote w(D) = B(D)/(B0 +B(D)).
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → (ℝ → ℝ) → (ℝ → ℝ) → ℝ → ℝ
+
+value:
+fun (B0 m0 : ℝ) (B q : ℝ → ℝ) (D : ℝ) => B0 * m0 + B D * q D
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The selected source makes m0 the old cohort's event proportion and q*(D) the expected event fraction of the retained new-\allowbreak{}cohort balance, while excluding write-\allowbreak{}offs, sales, reclassifications, and additional risk-\allowbreak{}selection terms.\allowbreak{} The Lean value B0 * m0 + B D * q D is therefore exactly the sum of the two impaired cohort balances;\allowbreak{} the displayed portfolio ratio divides that sum by B0 + B D, and proposition3Spec specializes q to optimalRisk and uses the same weighted two-\allowbreak{}cohort identity on the admissible interval.\allowbreak{} Allowing arbitrary real arguments in the reusable definition does not remove any source-\allowbreak{}admissible case.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-3b6383e0216b3c72}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 127-\allowbreak{}156\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Sea j un banco, s una celda de tipo de crédito, modalidad o tramo de plazo y moneda, y t la
+fecha del reporte. Denote por ijst su tasa anual en decimales y por bst una base común en la misma
+moneda. Sea P−j,st el conjunto de otros bancos con observación válida y n−j,st su tamaño. Deﬁno
+Djst = (ijst − bst ) −
+
+1
+n−j,st
+
+X
+
+(ikst − bst ) = ijst −
+
+k∈P−j,st
+
+1
+
+X
+
+n−j,st
+
+k
+
+ikst .
+
+(1)
+
+El banco evaluado no entra en su referencia. D = 0.02 signiﬁca dos puntos porcentuales por encima
+del promedio de pares. Se usa el promedio simple, coherente con el plan y transparente cuando no
+se observan desembolsos por tramo. No es la tasa promedio del sistema ponderada por operaciones.
+Se exigirían al menos tres pares para la aplicación empírica.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+{n : ℕ} → ℝ → ℝ → (Fin (n + 3) → ℝ) → ℝ
+
+value:
+fun {n : ℕ} (ownRate baseRate : ℝ) (peerRates : Fin (n + 3) → ℝ) =>
+  ownRate - baseRate - (∑ k : Fin (n + 3), (peerRates k - baseRate)) / ↑(Fintype.card (Fin (n + 3)))
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The selected equation (1) defines the own-\allowbreak{}minus-\allowbreak{}base spread minus the simple average of other-\allowbreak{}bank spreads, excludes the evaluated bank, and requires at least three peers.\allowbreak{} The expanded target supplies ownRate separately and indexes peerRates by Fin(n+3), so it enforces at least three peer observations and divides their unweighted sum by exactly their cardinality.\allowbreak{} Its formula and displayed algebraic use therefore match the source definition.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-38fc4c8d2be8054c}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price\_\allowbreak{}eq\_\allowbreak{}rate\_\allowbreak{}gap}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price\_\allowbreak{}eq\_\allowbreak{}rate\_\allowbreak{}gap\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 127-\allowbreak{}156\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Sea j un banco, s una celda de tipo de crédito, modalidad o tramo de plazo y moneda, y t la
+fecha del reporte. Denote por ijst su tasa anual en decimales y por bst una base común en la misma
+moneda. Sea P−j,st el conjunto de otros bancos con observación válida y n−j,st su tamaño. Deﬁno
+Djst = (ijst − bst ) −
+
+1
+n−j,st
+
+X
+
+(ikst − bst ) = ijst −
+
+k∈P−j,st
+
+1
+
+X
+
+n−j,st
+
+k
+
+ikst .
+
+(1)
+
+El banco evaluado no entra en su referencia. D = 0.02 signiﬁca dos puntos porcentuales por encima
+del promedio de pares. Se usa el promedio simple, coherente con el plan y transparente cuando no
+se observan desembolsos por tramo. No es la tasa promedio del sistema ponderada por operaciones.
+Se exigirían al menos tres pares para la aplicación empírica.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-elaborated paper signature}
+\begin{ReviewVerbatim}
+∀ {n : ℕ} (ownRate baseRate : ℝ) (peerRates : Fin (n + 3) → ℝ),
+  Galarza26RelativeCredit.relativePrice ownRate baseRate peerRates =
+    ownRate - (∑ k : Fin (n + 3), peerRates k) / ↑(Fintype.card (Fin (n + 3)))
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-3b6383e0216b3c72}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}relative\allowbreak{}Price}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} The selected equation (1) states that subtracting the same base from the own rate and every peer rate equals the own rate minus the simple peer-\allowbreak{}rate average.\allowbreak{} The target quantifies over the same relativePrice inputs and concludes precisely that identity;\allowbreak{} Fin(n+3) makes the divisor nonzero, so expanding relativePrice cancels the common base for every source-\allowbreak{}admissible peer set.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-e9553b2c455b69dd}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screened\allowbreak{}Risk}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screened\allowbreak{}Risk\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 299-\allowbreak{}302\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → ℝ → ℝ
+
+value:
+fun (qbar a g D e : ℝ) => Galarza26RelativeCredit.priorRisk qbar a D - g * e
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared Assumption 2's post-\allowbreak{}screening probability q(D,e,kappa) = q0(D,kappa) -\allowbreak{} g(kappa)e with the expanded target priorRisk qbar a D -\allowbreak{} g*e.\allowbreak{} The displayed feasible-\allowbreak{}set and proposition-\allowbreak{}1 contexts impose the source bounds that keep the optimized risk on the probability domain.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-ab0e2f9b84884bc6}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}selection\allowbreak{}And\allowbreak{}Domain}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}selection\allowbreak{}And\allowbreak{}Domain\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 283-\allowbreak{}284\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → Prop
+
+value:
+fun (qbar a lower upper : ℝ) =>
+  0 < qbar ∧
+    qbar < 1 ∧
+      0 < a ∧ lower ≤ upper ∧ ∀ D ∈ Set.Icc lower upper, Galarza26RelativeCredit.priorRisk qbar a D ∈ Set.Icc 0 1
+\end{ReviewVerbatim}
+
+\paragraph{Direct retained dependencies}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\end{itemize}
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared all of Assumption 1 with the target:\allowbreak{} 0<qbar<1, a>0, a nonempty closed interval lower<=upper, and qbar+a*D in [0,1] for every D in that interval are all explicit.\allowbreak{} Each displayed proposition use invokes this predicate at the relevant fixed kappa, so it specializes exactly to the source's compact-\allowbreak{}domain statement.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-de4cba6057d51d83}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}stock\allowbreak{}Accounting\allowbreak{}Conditions}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}stock\allowbreak{}Accounting\allowbreak{}Conditions\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 530-\allowbreak{}535\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 5 (Contabilidad y maduración). Al horizonte, el saldo de cada cohorte es determinista
+o se trata como exposición de una población continua. El riesgo q ∗ (D) coincide con la fracción
+esperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortización
+y el tamaño del crédito no seleccionan riesgo adicional no recogido en q ∗ . B0 , m0 son constantes
+al variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasiﬁcaciones que
+alteren esta identidad en el ejercicio.
+
+[Next verbatim source excerpt]
+
+Fijemos un horizonte h. B0 > 0 es el saldo de créditos antiguos todavía vigente en esa fecha y
+m0 ∈ [0, 1] su proporción en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva
+que permanece en cartera a h, después de amortización normal. Denote w(D) = B(D)/(B0 +B(D)).
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → ℝ → (ℝ → ℝ) → Prop
+
+value:
+fun (B0 m0 lower upper : ℝ) (B : ℝ → ℝ) =>
+  0 < B0 ∧ m0 ∈ Set.Icc 0 1 ∧ ∀ D ∈ Set.Icc lower upper, 0 < B D ∧ DifferentiableAt ℝ B D
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} For the selected source, B0 and m0 are D-\allowbreak{}independent scalars with B0 > 0 and m0 in [0,1], and B(D) is positive and differentiable as D varies.\allowbreak{} The Lean predicate states precisely those quantitative conditions, pointwise for every D in [lower, upper];\allowbreak{} proposition3Spec assumes the predicate and makes every displayed accounting and derivative use on that same interval.\allowbreak{} The source's deterministic/\allowbreak{}continuous-\allowbreak{}population and no-\allowbreak{}adjustment conventions are reflected in the displayed impaired-\allowbreak{}balance and portfolio-\allowbreak{}ratio formulas rather than being lost from the paper use.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{paper-prerequisite-e5f9b7ce782f743a}{}
+\subsection*{\small\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}technology\allowbreak{}Capacity\allowbreak{}Cost}
+\noindent\textbf{Paper-local declaration:}\par
+{\footnotesize\ttfamily\raggedright Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}technology\allowbreak{}Capacity\allowbreak{}Cost\par}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 299-\allowbreak{}302\par}
+\paragraph{Verbatim paper-source connection}
+\begin{ReviewVerbatim}
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Lean-expanded paper semantic target}
+\begin{ReviewVerbatim}
+type:
+ℝ → ℝ → ℝ → Prop
+
+value:
+fun (g c E : ℝ) => 0 < g ∧ 0 < c ∧ 0 ≤ E
+\end{ReviewVerbatim}
+
+
+\paragraph{Recorded source-to-declaration screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared Assumption 2's finite g>0, c>0, and E>=0 with the expanded target containing exactly those inequalities.\allowbreak{} Lean real binders already exclude infinite values, and every displayed proposition use combines this predicate with the source selection and remuneration domains before using the reusable formulas.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+
+\clearpage
+\hypertarget{source-claim-71d1c57a6546a5a7}{}
+\hypertarget{source-section-f10b5f68e4acf3dc}{}
+\section*{Source claims}
+\subsection*{Review row 1}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 349-\allowbreak{}388\par}
+\paragraph{Verbatim source input}
+\begin{ReviewVerbatim}
+Proposición 1 (Solución global y pendientes por régimen). Bajo los Supuestos 1–3, existe un
+único máximo en (2). Es
+[U+001A control character]
+[U+001B control character]
+[U+001A control character]
+[U+001A control character]
+[U+001B control character][U+001B control character]
+gR(D)
+q 0 (D)
+gR(D)
+∗
+0
+∗
+e = mı́n
+, ē,
+,
+q = máx 0, q (D) − g mı́n ē,
+.
+(3)
+c
+g
+c
+Para κ ﬁjo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el régimen,
+las pendientes son
+[U+F8F1 delimiter glyph]
+[U+F8F4 delimiter glyph]a − g 2 /c, gR/c < ē y gR/c < q 0 /g,
+∂q ∗ [U+F8F2 delimiter glyph]
+= a,
+(4)
+ē < gR/c y ē < q 0 /g,
+[U+F8F4 delimiter glyph]
+∂D
+[U+F8F3 delimiter glyph]
+0
+0
+0,
+q /g < gR/c y q /g < ē.
+Si ē = 0, e∗ = 0 y q ∗ = q 0 , con pendiente a en el interior del dominio de D. En empates de
+restricciones la solución es continua y se usan derivadas laterales; una derivada ordinaria puede
+no existir.
+
+[Next verbatim source excerpt]
+
+primarias consultadas. No es evidencia de que nuestro indicador funcione. Su construcción separa
+el deterioro de créditos inicialmente normales durante una ventana de doce meses del ratio contable
+de morosidad. Esta diferencia respalda la necesidad de explicitar evento y horizonte; no justiﬁca
+equiparar automáticamente nuestro q ∗ con una serie publicada. Clark and West (2007) proporciona
+una comparación de modelos predictivos anidados, relevante para un trabajo empírico posterior.
+No se calcula aquí una prueba ni un valor p.
+Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba. Si domina selección, precios altos anteceden peor calidad de nuevas cosechas, manteniendo constante la evaluación.
+Si domina evaluación, el precio alto debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor riesgo posterior, salvo que la capacidad esté saturada. Si domina composición, el
+cambio de signo aparece al agregar al saldo y depende de la participación de colocaciones recientes.
+Los costos de fondeo o venta cruzada pueden generar brechas sin estos patrones. Con promedios
+públicos será difícil separarlos; harían falta, idealmente, datos de cosechas, rotación, evaluación y
+garantías.
+
+4.
+
+Ambiente y decisión del banco
+
+4.1.
+
+Agentes, información, unidades y cronología
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+
+[Next verbatim source excerpt]
+
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+
+[Next verbatim source excerpt]
+
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+
+[Next verbatim source excerpt]
+
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan recién en la Proposición 3; no intervienen en la elección inicial del esfuerzo.
+Símbolo
+
+Signiﬁcado
+
+Unidad o restricción
+
+D
+κ
+q̄, a
+q 0 , q, q ∗
+
+[Next verbatim source excerpt]
+
+de morosidad. Esta diferencia respalda la necesidad de explicitar evento y horizonte; no justiﬁca
+equiparar automáticamente nuestro q ∗ con una serie publicada. Clark and West (2007) proporciona
+una comparación de modelos predictivos anidados, relevante para un trabajo empírico posterior.
+No se calcula aquí una prueba ni un valor p.
+Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba. Si domina selección, precios altos anteceden peor calidad de nuevas cosechas, manteniendo constante la evaluación.
+Si domina evaluación, el precio alto debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor riesgo posterior, salvo que la capacidad esté saturada. Si domina composición, el
+cambio de signo aparece al agregar al saldo y depende de la participación de colocaciones recientes.
+Los costos de fondeo o venta cruzada pueden generar brechas sin estos patrones. Con promedios
+públicos será difícil separarlos; harían falta, idealmente, datos de cosechas, rotación, evaluación y
+garantías.
+
+4.
+
+Ambiente y decisión del banco
+
+4.1.
+
+Agentes, información, unidades y cronología
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+
+[Next verbatim source excerpt]
+
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+
+[Next verbatim source excerpt]
+
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+
+[Next verbatim source excerpt]
+
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan recién en la Proposición 3; no intervienen en la elección inicial del esfuerzo.
+Símbolo
+
+Signiﬁcado
+
+Unidad o restricción
+
+D
+κ
+q̄, a
+q 0 , q, q ∗
+e, ē, u
+g, c
+
+[Next verbatim source excerpt]
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+automáticamente microempresa con opacidad alta.
+La cronología es: primero se ﬁjan segmento, tecnología y precio observado; después se forma el
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+se normalizan por sol de crédito. La sensibilidad monetaria del premio de desempeño a una unidad
+4
+
+
+[form-feed in source extraction]
+de D se normaliza a uno. Esto es una simpliﬁcación de remuneración, no una conversión exacta de
+tasas efectivas a cualquier plazo contractual.
+Conviene separar tres operaciones que aparecerán en las pruebas. Al elegir e, el banco mantiene
+ﬁjos D y κ: compara esfuerzos para un mismo precio y segmento. Al calcular ∂D q ∗ , compara
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+
+[Next verbatim source excerpt]
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+
+[Next verbatim source excerpt]
+
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+
+[Next verbatim source excerpt]
+
+Supuesto 3 (Remuneración y problema condicionado). El premio normalizado por desempeño es
+R(D) = R̄ + D > 0 y F es un costo por unidad independiente de e. El banco resuelve
+máx
+e∈[0,u(D,κ)]
+
+π(e; D, κ) = [1 − q 0 (D, κ) + g(κ)e]R(D) − F −
+
+c(κ) 2
+e .
+2
+
+(2)
+
+El precio, la referencia de pares y κ se mantienen ﬁjos al evaluar desviaciones de esfuerzo.
+El costo F no afecta el óptimo de esfuerzo. Un volumen estrictamente positivo que multiplique
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Expanded PaperInterface specification}
+\begin{ReviewVerbatim}
+(∀ (qbar a g c Rbar F E lower upper : ℝ),
+    Galarza26RelativeCredit.selectionAndDomain qbar a lower upper →
+      Galarza26RelativeCredit.technologyCapacityCost g c E →
+        Galarza26RelativeCredit.conditionedPayoff Rbar lower upper →
+          (∀ D ∈ Set.Icc lower upper,
+              ((∃! e : ℝ,
+                    (Galarza26RelativeCredit.conditionedContinuationProblem qbar a g c Rbar F E D).IsMaximizer e) ∧
+                  (Galarza26RelativeCredit.conditionedContinuationProblem qbar a g c Rbar F E D).IsMaximizer
+                    (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D)) ∧
+                Galarza26RelativeCredit.screenedRisk qbar a g D
+                      (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D) =
+                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D ∧
+                  0 ≤ Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D ∧
+                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D ≤ 1) ∧
+            (∀ D ∈ Set.Ioo lower upper,
+                Galarza26RelativeCredit.interiorRegime qbar a g c Rbar E D →
+                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) (a - g ^ 2 / c) D) ∧
+              (∀ D ∈ Set.Ioo lower upper,
+                  Galarza26RelativeCredit.capacityRegime qbar a g c Rbar E D →
+                    HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) a D) ∧
+                (∀ D ∈ Set.Ioo lower upper,
+                    Galarza26RelativeCredit.floorRegime qbar a g c Rbar E D →
+                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) 0 D) ∧
+                  (E = 0 →
+                      (∀ D ∈ Set.Icc lower upper,
+                          Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D = 0 ∧
+                            Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D =
+                              Galarza26RelativeCredit.priorRisk qbar a D) ∧
+                        ∀ D ∈ Set.Ioo lower upper,
+                          HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) a D) ∧
+                    ContinuousOn (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E) (Set.Icc lower upper) ∧
+                      ContinuousOn (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) (Set.Icc lower upper) ∧
+                        ∀ D ∈ Set.Icc lower upper,
+                          ∃ (left : ℝ) (right : ℝ),
+                            HasDerivWithinAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) left (Set.Iic D)
+                                D ∧
+                              HasDerivWithinAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) right (Set.Ici D)
+                                D) ∧
+  ∃ (qbar' : ℝ) (a' : ℝ) (g' : ℝ) (c' : ℝ) (Rbar' : ℝ) (E' : ℝ) (lower' : ℝ) (upper' : ℝ) (D' : ℝ),
+    Galarza26RelativeCredit.selectionAndDomain qbar' a' lower' upper' ∧
+      Galarza26RelativeCredit.technologyCapacityCost g' c' E' ∧
+        Galarza26RelativeCredit.conditionedPayoff Rbar' lower' upper' ∧
+          D' ∈ Set.Ioo lower' upper' ∧
+            g' * Galarza26RelativeCredit.premium Rbar' D' / c' = E' ∧
+              E' < Galarza26RelativeCredit.priorRisk qbar' a' D' / g' ∧
+                ¬DifferentiableAt ℝ (Galarza26RelativeCredit.optimalRisk qbar' a' g' c' Rbar' E') D'
+\end{ReviewVerbatim}
+
+\paragraph{Retained governing declarations}
+\begin{itemize}\raggedright
+\item \hyperlink{governing-declaration-042b6300ffc11e3e}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}Continuation\allowbreak{}Problem.\allowbreak{}Is\allowbreak{}Maximizer}
+\item \hyperlink{governing-declaration-6e5d4449ad412574}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}capacity\allowbreak{}Regime}
+\item \hyperlink{paper-prerequisite-a6fae381e2d9a684}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Continuation\allowbreak{}Problem}
+\item \hyperlink{paper-prerequisite-0bf7e0c122a51179}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Payoff}
+\item \hyperlink{governing-declaration-65adc159d5a1934d}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}floor\allowbreak{}Regime}
+\item \hyperlink{governing-declaration-5f246d7c1bbfcd61}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}interior\allowbreak{}Regime}
+\item \hyperlink{governing-declaration-41e961e1975be029}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}optimal\allowbreak{}Effort}
+\item \hyperlink{governing-declaration-e139cf967ddac229}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}optimal\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-6956aaccf5fffc8f}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}premium}
+\item \hyperlink{paper-prerequisite-e8657fe6a37f000a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}prior\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-e9553b2c455b69dd}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screened\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-ab0e2f9b84884bc6}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}selection\allowbreak{}And\allowbreak{}Domain}
+\item \hyperlink{paper-prerequisite-e5f9b7ce782f743a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}technology\allowbreak{}Capacity\allowbreak{}Cost}
+\end{itemize}
+\paragraph{Lean-elaborated claim roles}\begin{ReviewVerbatim}
+1. conclusion: (∀ (qbar a g c Rbar F E lower upper : ℝ),
+    Galarza26RelativeCredit.selectionAndDomain qbar a lower upper →
+      Galarza26RelativeCredit.technologyCapacityCost g c E →
+        Galarza26RelativeCredit.conditionedPayoff Rbar lower upper →
+          (∀ D ∈ Set.Icc lower upper,
+              ((∃! e : ℝ,
+                    (Galarza26RelativeCredit.conditionedContinuationProblem qbar a g c Rbar F E D).IsMaximizer e) ∧
+                  (Galarza26RelativeCredit.conditionedContinuationProblem qbar a g c Rbar F E D).IsMaximizer
+                    (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D)) ∧
+                Galarza26RelativeCredit.screenedRisk qbar a g D
+                      (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D) =
+                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D ∧
+                  0 ≤ Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D ∧
+                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D ≤ 1) ∧
+            (∀ D ∈ Set.Ioo lower upper,
+                Galarza26RelativeCredit.interiorRegime qbar a g c Rbar E D →
+                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) (a - g ^ 2 / c) D) ∧
+              (∀ D ∈ Set.Ioo lower upper,
+                  Galarza26RelativeCredit.capacityRegime qbar a g c Rbar E D →
+                    HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) a D) ∧
+                (∀ D ∈ Set.Ioo lower upper,
+                    Galarza26RelativeCredit.floorRegime qbar a g c Rbar E D →
+                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) 0 D) ∧
+                  (E = 0 →
+                      (∀ D ∈ Set.Icc lower upper,
+                          Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E D = 0 ∧
+                            Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D =
+                              Galarza26RelativeCredit.priorRisk qbar a D) ∧
+                        ∀ D ∈ Set.Ioo lower upper,
+                          HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) a D) ∧
+                    ContinuousOn (Galarza26RelativeCredit.optimalEffort qbar a g c Rbar E) (Set.Icc lower upper) ∧
+                      ContinuousOn (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) (Set.Icc lower upper) ∧
+                        ∀ D ∈ Set.Icc lower upper,
+                          ∃ (left : ℝ) (right : ℝ),
+                            HasDerivWithinAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) left (Set.Iic D)
+                                D ∧
+                              HasDerivWithinAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) right (Set.Ici D)
+                                D) ∧
+  ∃ (qbar' : ℝ) (a' : ℝ) (g' : ℝ) (c' : ℝ) (Rbar' : ℝ) (E' : ℝ) (lower' : ℝ) (upper' : ℝ) (D' : ℝ),
+    Galarza26RelativeCredit.selectionAndDomain qbar' a' lower' upper' ∧
+      Galarza26RelativeCredit.technologyCapacityCost g' c' E' ∧
+        Galarza26RelativeCredit.conditionedPayoff Rbar' lower' upper' ∧
+          D' ∈ Set.Ioo lower' upper' ∧
+            g' * Galarza26RelativeCredit.premium Rbar' D' / c' = E' ∧
+              E' < Galarza26RelativeCredit.priorRisk qbar' a' D' / g' ∧
+                ¬DifferentiableAt ℝ (Galarza26RelativeCredit.optimalRisk qbar' a' g' c' Rbar' E') D'
+\end{ReviewVerbatim}
+
+\paragraph{Lean proof endpoint (built separately)}\begin{ReviewVerbatim}
+Galarza26RelativeCredit.proposition1
+\end{ReviewVerbatim}
+
+\paragraph{Recorded source-to-Spec screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared the verbatim Proposition 1 and Assumptions 1–3 with the expanded target and every displayed prerequisite.\allowbreak{} selectionAndDomain, technologyCapacityCost, and conditionedPayoff encode the stated compact probability domain, g > 0, c > 0, nonnegative capacity, and positive R(D);\allowbreak{} feasibleEfforts and bankProfit reproduce the feasible interval and objective (2).\allowbreak{} optimalEffort is min\{gR/\allowbreak{}c, E, q0/\allowbreak{}g\}, optimalRisk is max\{0, q0 -\allowbreak{} g min\{E, gR/\allowbreak{}c\}\}, and the three strict regime predicates yield exactly the slopes a -\allowbreak{} g\textasciicircum{}2/\allowbreak{}c, a, and 0.\allowbreak{} The target also retains the E = 0 case, continuity, and one-\allowbreak{}sided derivatives at constraint ties;\allowbreak{} its admissible tie witness for failure of an ordinary derivative is the source's stated possibility that such a derivative need not exist.\allowbreak{} The extra all-\allowbreak{}domain bounds and one-\allowbreak{}sided statements are valid strengthenings that include every source-\allowbreak{}admissible case and do not alter the source conclusion.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{source-claim-f0d8e27dfc3b3ee3}{}
+\section*{Review row 2}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 484-\allowbreak{}485\par}
+\paragraph{Verbatim source input}
+\begin{ReviewVerbatim}
+Proposición 2 (Umbral condicional). Bajo los Supuestos 1–4, existe un único κ∗ ∈ (0, 1) con
+∂D q ∗ (D0 , κ∗ ) = 0. La derivada es positiva para κ < κ∗ y negativa para κ > κ∗ .
+
+[Next verbatim source excerpt]
+
+primarias consultadas. No es evidencia de que nuestro indicador funcione. Su construcción separa
+el deterioro de créditos inicialmente normales durante una ventana de doce meses del ratio contable
+de morosidad. Esta diferencia respalda la necesidad de explicitar evento y horizonte; no justiﬁca
+equiparar automáticamente nuestro q ∗ con una serie publicada. Clark and West (2007) proporciona
+una comparación de modelos predictivos anidados, relevante para un trabajo empírico posterior.
+No se calcula aquí una prueba ni un valor p.
+Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba. Si domina selección, precios altos anteceden peor calidad de nuevas cosechas, manteniendo constante la evaluación.
+Si domina evaluación, el precio alto debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor riesgo posterior, salvo que la capacidad esté saturada. Si domina composición, el
+cambio de signo aparece al agregar al saldo y depende de la participación de colocaciones recientes.
+Los costos de fondeo o venta cruzada pueden generar brechas sin estos patrones. Con promedios
+públicos será difícil separarlos; harían falta, idealmente, datos de cosechas, rotación, evaluación y
+garantías.
+
+4.
+
+Ambiente y decisión del banco
+
+4.1.
+
+Agentes, información, unidades y cronología
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+
+[Next verbatim source excerpt]
+
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+
+[Next verbatim source excerpt]
+
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+
+[Next verbatim source excerpt]
+
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan recién en la Proposición 3; no intervienen en la elección inicial del esfuerzo.
+Símbolo
+
+Signiﬁcado
+
+Unidad o restricción
+
+D
+κ
+q̄, a
+q 0 , q, q ∗
+
+[Next verbatim source excerpt]
+
+Esfuerzo, capacidad y máximo esfuerzo factible
+Productividad y escala del costo de evaluación
+Premio por desempeño, premio de referencia y costo ﬁjo
+Esfuerzo deseado sin restricciones: gR/c
+Fuerza de evaluación g 2 /c y pendiente neta a − H
+Derivada de q ∗ en el régimen efectivo
+Saldos antiguo, nuevo y nuevo cuando D = 0
+Atraso antiguo, peso nuevo y ratio total
+Sensibilidad proporcional de B al precio
+
+Tasa anual decimal
+Índice en [0, 1]
+Probabilidad; a > 0
+Mismo evento y horizonte
+Índices no negativos
+Ambos positivos
+Pagos por sol de crédito
+Índice de esfuerzo
+Riesgo por unidad de D
+Riesgo por unidad de D
+Misma unidad monetaria
+Fracciones en [0, 1]
+Por unidad de D
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+La forma afín es una aproximación local al cambio de solicitantes. Una subida de un punto
+porcentual es ∆D = 0.01: cambia la probabilidad en 0.01a unidades, equivalentes a a puntos porcentuales. Por ejemplo, con a = 0.18 el cambio es 0.0018 de probabilidad, es decir, 0.18 puntos
+porcentuales. No se extrapola fuera del dominio admisible. La pendiente positiva representa selección adversa, no una ley empírica universal ni una respuesta derivada de un problema explícito de
+cada deudor.
+La restricción de probabilidad también ﬁja qué precios se pueden comparar. Restar q̄ y dividir
+por a > 0 da
+1 − q̄
+q̄
+.
+0 ≤ q̄ + aD ≤ 1 ⇐⇒ − ≤ D ≤
+a
+a
+El dominio compacto D se elige dentro de ese intervalo y debe respetar además el pago positivo del
+Supuesto 3. No se pretende describir cualquier tasa posible con una probabilidad afín.
+
+[Next verbatim source excerpt]
+
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+
+[Next verbatim source excerpt]
+
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+Para leer el objetivo, empiece por 1 − q 0 + ge = 1 − q: es la probabilidad de evitar el evento
+adverso. Multiplicarla por R da el premio esperado. Después se restan el costo ﬁjo F y el costo de
+
+[Next verbatim source excerpt]
+
+de morosidad. Esta diferencia respalda la necesidad de explicitar evento y horizonte; no justiﬁca
+equiparar automáticamente nuestro q ∗ con una serie publicada. Clark and West (2007) proporciona
+una comparación de modelos predictivos anidados, relevante para un trabajo empírico posterior.
+No se calcula aquí una prueba ni un valor p.
+Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba. Si domina selección, precios altos anteceden peor calidad de nuevas cosechas, manteniendo constante la evaluación.
+Si domina evaluación, el precio alto debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor riesgo posterior, salvo que la capacidad esté saturada. Si domina composición, el
+cambio de signo aparece al agregar al saldo y depende de la participación de colocaciones recientes.
+Los costos de fondeo o venta cruzada pueden generar brechas sin estos patrones. Con promedios
+públicos será difícil separarlos; harían falta, idealmente, datos de cosechas, rotación, evaluación y
+garantías.
+
+4.
+
+Ambiente y decisión del banco
+
+4.1.
+
+Agentes, información, unidades y cronología
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+
+[Next verbatim source excerpt]
+
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+
+[Next verbatim source excerpt]
+
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+
+[Next verbatim source excerpt]
+
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan recién en la Proposición 3; no intervienen en la elección inicial del esfuerzo.
+Símbolo
+
+Signiﬁcado
+
+Unidad o restricción
+
+D
+κ
+q̄, a
+q 0 , q, q ∗
+e, ē, u
+g, c
+
+[Next verbatim source excerpt]
+
+Premio por desempeño, premio de referencia y costo ﬁjo
+Esfuerzo deseado sin restricciones: gR/c
+Fuerza de evaluación g 2 /c y pendiente neta a − H
+Derivada de q ∗ en el régimen efectivo
+Saldos antiguo, nuevo y nuevo cuando D = 0
+Atraso antiguo, peso nuevo y ratio total
+Sensibilidad proporcional de B al precio
+
+Tasa anual decimal
+Índice en [0, 1]
+Probabilidad; a > 0
+Mismo evento y horizonte
+Índices no negativos
+Ambos positivos
+Pagos por sol de crédito
+Índice de esfuerzo
+Riesgo por unidad de D
+Riesgo por unidad de D
+Misma unidad monetaria
+Fracciones en [0, 1]
+Por unidad de D
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+La forma afín es una aproximación local al cambio de solicitantes. Una subida de un punto
+porcentual es ∆D = 0.01: cambia la probabilidad en 0.01a unidades, equivalentes a a puntos porcentuales. Por ejemplo, con a = 0.18 el cambio es 0.0018 de probabilidad, es decir, 0.18 puntos
+porcentuales. No se extrapola fuera del dominio admisible. La pendiente positiva representa selección adversa, no una ley empírica universal ni una respuesta derivada de un problema explícito de
+cada deudor.
+La restricción de probabilidad también ﬁja qué precios se pueden comparar. Restar q̄ y dividir
+por a > 0 da
+1 − q̄
+q̄
+.
+0 ≤ q̄ + aD ≤ 1 ⇐⇒ − ≤ D ≤
+a
+a
+El dominio compacto D se elige dentro de ese intervalo y debe respetar además el pago positivo del
+
+[Next verbatim source excerpt]
+
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+
+[Next verbatim source excerpt]
+
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+Para leer el objetivo, empiece por 1 − q 0 + ge = 1 − q: es la probabilidad de evitar el evento
+
+[Next verbatim source excerpt]
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+automáticamente microempresa con opacidad alta.
+La cronología es: primero se ﬁjan segmento, tecnología y precio observado; después se forma el
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+se normalizan por sol de crédito. La sensibilidad monetaria del premio de desempeño a una unidad
+4
+
+
+[form-feed in source extraction]
+de D se normaliza a uno. Esto es una simpliﬁcación de remuneración, no una conversión exacta de
+tasas efectivas a cualquier plazo contractual.
+Conviene separar tres operaciones que aparecerán en las pruebas. Al elegir e, el banco mantiene
+ﬁjos D y κ: compara esfuerzos para un mismo precio y segmento. Al calcular ∂D q ∗ , compara
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+
+[Next verbatim source excerpt]
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+
+[Next verbatim source excerpt]
+
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+
+[Next verbatim source excerpt]
+
+Supuesto 3 (Remuneración y problema condicionado). El premio normalizado por desempeño es
+R(D) = R̄ + D > 0 y F es un costo por unidad independiente de e. El banco resuelve
+máx
+e∈[0,u(D,κ)]
+
+π(e; D, κ) = [1 − q 0 (D, κ) + g(κ)e]R(D) − F −
+
+c(κ) 2
+e .
+2
+
+(2)
+
+El precio, la referencia de pares y κ se mantienen ﬁjos al evaluar desviaciones de esfuerzo.
+El costo F no afecta el óptimo de esfuerzo. Un volumen estrictamente positivo que multiplique
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+
+[Next verbatim source excerpt]
+
+Proposición 1 (Solución global y pendientes por régimen). Bajo los Supuestos 1–3, existe un
+único máximo en (2). Es
+[U+001A control character]
+[U+001B control character]
+[U+001A control character]
+[U+001A control character]
+[U+001B control character][U+001B control character]
+gR(D)
+q 0 (D)
+gR(D)
+∗
+0
+∗
+e = mı́n
+, ē,
+,
+q = máx 0, q (D) − g mı́n ē,
+.
+(3)
+c
+g
+c
+Para κ ﬁjo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el régimen,
+las pendientes son
+[U+F8F1 delimiter glyph]
+[U+F8F4 delimiter glyph]a − g 2 /c, gR/c < ē y gR/c < q 0 /g,
+∂q ∗ [U+F8F2 delimiter glyph]
+= a,
+(4)
+ē < gR/c y ē < q 0 /g,
+[U+F8F4 delimiter glyph]
+∂D
+[U+F8F3 delimiter glyph]
+0
+0
+0,
+q /g < gR/c y q /g < ē.
+Si ē = 0, e∗ = 0 y q ∗ = q 0 , con pendiente a en el interior del dominio de D. En empates de
+restricciones la solución es continua y se usan derivadas laterales; una derivada ordinaria puede
+no existir.
+
+[Next verbatim source excerpt]
+
+Deﬁna H(κ) = g(κ)2 /c(κ) y β(κ) = a(κ) − H(κ).
+
+[Next verbatim source excerpt]
+
+Supuesto 4 (Condiciones suﬁcientes para el cruce). En κ ∈ [0, 1], a, g, c son continuas y positivas.
+La función a − H es estrictamente decreciente y satisface a(0) > H(0) y a(1) < H(1). Al precio D0
+que se compara se cumplen estrictamente las dos condiciones de interioridad de la primera línea de
+(4) para todo κ.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Expanded PaperInterface specification}
+\begin{ReviewVerbatim}
+∀ (qbar Rbar F E lower upper D0 : ℝ) (a g c : ℝ → ℝ),
+  D0 ∈ Set.Icc lower upper →
+    (∀ k ∈ Set.Icc 0 1,
+        Galarza26RelativeCredit.selectionAndDomain qbar (a k) lower upper ∧
+          Galarza26RelativeCredit.technologyCapacityCost (g k) (c k) E ∧
+            Galarza26RelativeCredit.conditionedPayoff Rbar lower upper) →
+      Galarza26RelativeCredit.crossingConditions qbar Rbar E D0 a g c →
+        ∃ k ∈ Set.Ioo 0 1,
+          HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a k) (g k) (c k) Rbar E) 0 D0 ∧
+            (∀ y ∈ Set.Ioo 0 1,
+                HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a y) (g y) (c y) Rbar E) 0 D0 → y = k) ∧
+              (∀ x ∈ Set.Icc 0 1,
+                  x < k →
+                    0 < Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x) ∧
+                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a x) (g x) (c x) Rbar E)
+                        (Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x)) D0) ∧
+                ∀ x ∈ Set.Icc 0 1,
+                  k < x →
+                    Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x) < 0 ∧
+                      HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a x) (g x) (c x) Rbar E)
+                        (Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x)) D0
+\end{ReviewVerbatim}
+
+\paragraph{Retained governing declarations}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-0bf7e0c122a51179}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Payoff}
+\item \hyperlink{paper-prerequisite-4f59b48de0be00ac}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}crossing\allowbreak{}Conditions}
+\item \hyperlink{governing-declaration-e139cf967ddac229}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}optimal\allowbreak{}Risk}
+\item \hyperlink{paper-prerequisite-29fcb63a4a0578b3}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}screening\allowbreak{}Advantage}
+\item \hyperlink{paper-prerequisite-ab0e2f9b84884bc6}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}selection\allowbreak{}And\allowbreak{}Domain}
+\item \hyperlink{paper-prerequisite-e5f9b7ce782f743a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}technology\allowbreak{}Capacity\allowbreak{}Cost}
+\end{itemize}
+\paragraph{Lean-elaborated claim roles}\begin{ReviewVerbatim}
+1. parameter: ℝ
+2. parameter: ℝ
+3. parameter: ℝ
+4. parameter: ℝ
+5. parameter: ℝ
+6. parameter: ℝ
+7. parameter: ℝ
+8. parameter: ℝ → ℝ
+9. parameter: ℝ → ℝ
+10. parameter: ℝ → ℝ
+11. assumption: D0 ∈ Set.Icc lower upper
+12. assumption: ∀ k ∈ Set.Icc 0 1,
+  Galarza26RelativeCredit.selectionAndDomain qbar (a k) lower upper ∧
+    Galarza26RelativeCredit.technologyCapacityCost (g k) (c k) E ∧
+      Galarza26RelativeCredit.conditionedPayoff Rbar lower upper
+13. assumption: Galarza26RelativeCredit.crossingConditions qbar Rbar E D0 a g c
+14. conclusion: ∃ k ∈ Set.Ioo 0 1,
+  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a k) (g k) (c k) Rbar E) 0 D0 ∧
+    (∀ y ∈ Set.Ioo 0 1, HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a y) (g y) (c y) Rbar E) 0 D0 → y = k) ∧
+      (∀ x ∈ Set.Icc 0 1,
+          x < k →
+            0 < Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x) ∧
+              HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a x) (g x) (c x) Rbar E)
+                (Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x)) D0) ∧
+        ∀ x ∈ Set.Icc 0 1,
+          k < x →
+            Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x) < 0 ∧
+              HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar (a x) (g x) (c x) Rbar E)
+                (Galarza26RelativeCredit.screeningAdvantage (a x) (g x) (c x)) D0
+\end{ReviewVerbatim}
+
+\paragraph{Lean proof endpoint (built separately)}\begin{ReviewVerbatim}
+Galarza26RelativeCredit.proposition2
+\end{ReviewVerbatim}
+
+\paragraph{Recorded source-to-Spec screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared the verbatim Proposition 2 and Assumptions 1–4 with the full expanded target and prerequisites.\allowbreak{} For every kappa in [0,1], the displayed assumptions impose the source's probability domain, positive technology parameters, nonnegative capacity, and positive payoff.\allowbreak{} crossingConditions states continuity and positivity of a, g, c, strict decrease of beta(kappa)=a(kappa)-\allowbreak{}g(kappa)\textasciicircum{}2/\allowbreak{}c(kappa), the positive and negative endpoint signs, and both strict interior-\allowbreak{}regime inequalities at the common D0.\allowbreak{} The conclusion then gives a unique interior kappa with D-\allowbreak{}derivative zero and, on the two sides, the exact positive/\allowbreak{}negative beta derivative required by the source.\allowbreak{} Quantifiers, the fixed-\allowbreak{}price comparison, strict inequalities, and the interval domains agree;\allowbreak{} the unused fixed cost F does not change the source claim.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+\clearpage
+\hypertarget{source-claim-194f750a63a93998}{}
+\section*{Review row 3}
+\textbf{Source locator:} {\footnotesize\raggedright cited publication, lines 540-\allowbreak{}551\par}
+\paragraph{Verbatim source input}
+\begin{ReviewVerbatim}
+Proposición 3 (Transmisión y composición). Bajo los Supuestos 1–3 y 5, el ratio esperado de
+cartera es M (D) = (1 − w)m0 + wq ∗ (D). En cualquier régimen diferenciable, escribiendo βD =
+∂D q ∗ (D),
+M ′ (D) = wβD + w′ (q ∗ − m0 ).
+(6)
+Si B es constante, el signo es el de βD . Si βD ̸= 0 y |w′ (q ∗ − m0 )| < w|βD |, el signo también se
+conserva. Con B(D) = B1 e−εD , B1 > 0, ε ≥ 0,
+M ′ = w{βD − ε(1 − w)(q ∗ − m0 )}.
+
+(7)
+
+En particular, βD > 0 y q ∗ > m0 generan M ′ < 0 si y solo si ε(1 − w)(q ∗ − m0 ) > βD .
+
+[Next verbatim source excerpt]
+
+primarias consultadas. No es evidencia de que nuestro indicador funcione. Su construcción separa
+el deterioro de créditos inicialmente normales durante una ventana de doce meses del ratio contable
+de morosidad. Esta diferencia respalda la necesidad de explicitar evento y horizonte; no justiﬁca
+equiparar automáticamente nuestro q ∗ con una serie publicada. Clark and West (2007) proporciona
+una comparación de modelos predictivos anidados, relevante para un trabajo empírico posterior.
+No se calcula aquí una prueba ni un valor p.
+Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba. Si domina selección, precios altos anteceden peor calidad de nuevas cosechas, manteniendo constante la evaluación.
+Si domina evaluación, el precio alto debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor riesgo posterior, salvo que la capacidad esté saturada. Si domina composición, el
+cambio de signo aparece al agregar al saldo y depende de la participación de colocaciones recientes.
+Los costos de fondeo o venta cruzada pueden generar brechas sin estos patrones. Con promedios
+públicos será difícil separarlos; harían falta, idealmente, datos de cosechas, rotación, evaluación y
+garantías.
+
+4.
+
+Ambiente y decisión del banco
+
+4.1.
+
+Agentes, información, unidades y cronología
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+
+[Next verbatim source excerpt]
+
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+
+[Next verbatim source excerpt]
+
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+
+[Next verbatim source excerpt]
+
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan recién en la Proposición 3; no intervienen en la elección inicial del esfuerzo.
+Símbolo
+
+Signiﬁcado
+
+Unidad o restricción
+
+D
+κ
+q̄, a
+q 0 , q, q ∗
+
+[Next verbatim source excerpt]
+
+Esfuerzo, capacidad y máximo esfuerzo factible
+Productividad y escala del costo de evaluación
+Premio por desempeño, premio de referencia y costo ﬁjo
+Esfuerzo deseado sin restricciones: gR/c
+Fuerza de evaluación g 2 /c y pendiente neta a − H
+Derivada de q ∗ en el régimen efectivo
+Saldos antiguo, nuevo y nuevo cuando D = 0
+Atraso antiguo, peso nuevo y ratio total
+Sensibilidad proporcional de B al precio
+
+Tasa anual decimal
+Índice en [0, 1]
+Probabilidad; a > 0
+Mismo evento y horizonte
+Índices no negativos
+Ambos positivos
+Pagos por sol de crédito
+Índice de esfuerzo
+Riesgo por unidad de D
+Riesgo por unidad de D
+Misma unidad monetaria
+Fracciones en [0, 1]
+Por unidad de D
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+La forma afín es una aproximación local al cambio de solicitantes. Una subida de un punto
+porcentual es ∆D = 0.01: cambia la probabilidad en 0.01a unidades, equivalentes a a puntos porcentuales. Por ejemplo, con a = 0.18 el cambio es 0.0018 de probabilidad, es decir, 0.18 puntos
+porcentuales. No se extrapola fuera del dominio admisible. La pendiente positiva representa selección adversa, no una ley empírica universal ni una respuesta derivada de un problema explícito de
+cada deudor.
+La restricción de probabilidad también ﬁja qué precios se pueden comparar. Restar q̄ y dividir
+por a > 0 da
+1 − q̄
+q̄
+.
+0 ≤ q̄ + aD ≤ 1 ⇐⇒ − ≤ D ≤
+a
+a
+El dominio compacto D se elige dentro de ese intervalo y debe respetar además el pago positivo del
+Supuesto 3. No se pretende describir cualquier tasa posible con una probabilidad afín.
+
+[Next verbatim source excerpt]
+
+q = máx 0, q (D) − g mı́n ē,
+.
+(3)
+
+[Next verbatim source excerpt]
+
+Para κ ﬁjo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el régimen,
+las pendientes son
+[U+F8F1 delimiter glyph]
+[U+F8F4 delimiter glyph]a − g 2 /c, gR/c < ē y gR/c < q 0 /g,
+∂q ∗ [U+F8F2 delimiter glyph]
+= a,
+
+[Next verbatim source excerpt]
+
+de morosidad. Esta diferencia respalda la necesidad de explicitar evento y horizonte; no justiﬁca
+equiparar automáticamente nuestro q ∗ con una serie publicada. Clark and West (2007) proporciona
+una comparación de modelos predictivos anidados, relevante para un trabajo empírico posterior.
+No se calcula aquí una prueba ni un valor p.
+Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba. Si domina selección, precios altos anteceden peor calidad de nuevas cosechas, manteniendo constante la evaluación.
+Si domina evaluación, el precio alto debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor riesgo posterior, salvo que la capacidad esté saturada. Si domina composición, el
+cambio de signo aparece al agregar al saldo y depende de la participación de colocaciones recientes.
+Los costos de fondeo o venta cruzada pueden generar brechas sin estos patrones. Con promedios
+públicos será difícil separarlos; harían falta, idealmente, datos de cosechas, rotación, evaluación y
+garantías.
+
+4.
+
+Ambiente y decisión del banco
+
+4.1.
+
+Agentes, información, unidades y cronología
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+
+[Next verbatim source excerpt]
+
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+
+[Next verbatim source excerpt]
+
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+
+[Next verbatim source excerpt]
+
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+La tabla siguiente sirve como diccionario. Los objetos de cartera se usan recién en la Proposición 3; no intervienen en la elección inicial del esfuerzo.
+Símbolo
+
+Signiﬁcado
+
+Unidad o restricción
+
+D
+κ
+q̄, a
+q 0 , q, q ∗
+e, ē, u
+g, c
+
+[Next verbatim source excerpt]
+
+Premio por desempeño, premio de referencia y costo ﬁjo
+Esfuerzo deseado sin restricciones: gR/c
+Fuerza de evaluación g 2 /c y pendiente neta a − H
+Derivada de q ∗ en el régimen efectivo
+Saldos antiguo, nuevo y nuevo cuando D = 0
+Atraso antiguo, peso nuevo y ratio total
+Sensibilidad proporcional de B al precio
+
+Tasa anual decimal
+Índice en [0, 1]
+Probabilidad; a > 0
+Mismo evento y horizonte
+Índices no negativos
+Ambos positivos
+Pagos por sol de crédito
+Índice de esfuerzo
+Riesgo por unidad de D
+Riesgo por unidad de D
+Misma unidad monetaria
+Fracciones en [0, 1]
+Por unidad de D
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+La forma afín es una aproximación local al cambio de solicitantes. Una subida de un punto
+porcentual es ∆D = 0.01: cambia la probabilidad en 0.01a unidades, equivalentes a a puntos porcentuales. Por ejemplo, con a = 0.18 el cambio es 0.0018 de probabilidad, es decir, 0.18 puntos
+porcentuales. No se extrapola fuera del dominio admisible. La pendiente positiva representa selección adversa, no una ley empírica universal ni una respuesta derivada de un problema explícito de
+cada deudor.
+La restricción de probabilidad también ﬁja qué precios se pueden comparar. Restar q̄ y dividir
+por a > 0 da
+1 − q̄
+q̄
+.
+0 ≤ q̄ + aD ≤ 1 ⇐⇒ − ≤ D ≤
+a
+a
+El dominio compacto D se elige dentro de ese intervalo y debe respetar además el pago positivo del
+
+[Next verbatim source excerpt]
+
+,
+q = máx 0, q (D) − g mı́n ē,
+.
+
+[Next verbatim source excerpt]
+
+g
+c
+Para κ ﬁjo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el régimen,
+las pendientes son
+[U+F8F1 delimiter glyph]
+[U+F8F4 delimiter glyph]a − g 2 /c, gR/c < ē y gR/c < q 0 /g,
+
+[Next verbatim source excerpt]
+
+El único agente que optimiza en este modelo es un banco neutral al riesgo. Los solicitantes
+y los bancos pares determinan una calidad y una referencia reducidas; no se modela su juego
+estratégico. El supervisor observa D y más tarde un ratio de cartera, pero no el esfuerzo ni toda la
+composición de riesgo. La opacidad κ ∈ [0, 1] es una característica exógena del segmento: un valor
+mayor representa menor información veriﬁcable inicial. No se estima este índice ni se equipara
+automáticamente microempresa con opacidad alta.
+La cronología es: primero se ﬁjan segmento, tecnología y precio observado; después se forma el
+conjunto de solicitantes y el banco observa su riesgo medio; luego elige esfuerzo antes de originar;
+ﬁnalmente se realiza el estado crediticio y se observa la cartera al horizonte h. El banco conoce los
+parámetros al decidir. La incertidumbre de desempeño permanece y se integra en su objetivo. El
+precio es un argumento del problema de continuación, no una variable resuelta en equilibrio.
+q 0 y q son probabilidades sin unidades, referidas al mismo evento y horizonte para una cohorte
+estandarizada. e y κ son índices. D se mide en unidades de tasa anual decimal. Los pagos y costos
+se normalizan por sol de crédito. La sensibilidad monetaria del premio de desempeño a una unidad
+4
+
+
+[form-feed in source extraction]
+de D se normaliza a uno. Esto es una simpliﬁcación de remuneración, no una conversión exacta de
+tasas efectivas a cualquier plazo contractual.
+Conviene separar tres operaciones que aparecerán en las pruebas. Al elegir e, el banco mantiene
+ﬁjos D y κ: compara esfuerzos para un mismo precio y segmento. Al calcular ∂D q ∗ , compara
+problemas con precios cercanos, dejando ﬁjo el segmento y permitiendo que cambie el esfuerzo
+óptimo. Solo en la Proposición 2 se comparan distintos valores de κ, siempre al mismo precio D0 .
+La prima de M ′ se reﬁere a D; las primas de g ′ y c′ en el análisis de opacidad se reﬁeren a κ.
+
+[Next verbatim source excerpt]
+
+Supuesto 1 (Selección y dominio). Para cada κ ﬁjo, a = a(κ) > 0, q̄ ∈ (0, 1) y D pertenece a un
+intervalo compacto D. La probabilidad previa es q 0 (D, κ) = q̄ + a(κ)D ∈ [0, 1] en todo D.
+
+[Next verbatim source excerpt]
+
+Supuesto 2 (Tecnología, capacidad y costo). g = g(κ) > 0, c = c(κ) > 0 y ē ≥ 0 son ﬁnitos.
+Para un volumen normalizado de créditos, q(D, e, κ) = q 0 (D, κ) − g(κ)e y el costo es c(κ)e2 /2. La
+elección factible cumple
+0 ≤ e ≤ u(D, κ) := mı́n{ē, q 0 (D, κ)/g(κ)}.
+
+[Next verbatim source excerpt]
+
+Supuesto 3 (Remuneración y problema condicionado). El premio normalizado por desempeño es
+R(D) = R̄ + D > 0 y F es un costo por unidad independiente de e. El banco resuelve
+máx
+e∈[0,u(D,κ)]
+
+π(e; D, κ) = [1 − q 0 (D, κ) + g(κ)e]R(D) − F −
+
+c(κ) 2
+e .
+2
+
+(2)
+
+El precio, la referencia de pares y κ se mantienen ﬁjos al evaluar desviaciones de esfuerzo.
+El costo F no afecta el óptimo de esfuerzo. Un volumen estrictamente positivo que multiplique
+todo el objetivo tampoco lo afecta si no depende de e. La participación o decisión de no prestar
+no está resuelta: el resultado se reﬁere a una unidad que el banco ya contempla originar. La remuneración supone que evitar el evento adverso mejora el pago esperado. Recuperaciones, seguros y
+garantías que varían con precio o esfuerzo exigirían modiﬁcar este premio. El horizonte del evento
+y el ﬂujo contractual deben ser compatibles en una implementación empírica.
+
+[Next verbatim source excerpt]
+
+Proposición 1 (Solución global y pendientes por régimen). Bajo los Supuestos 1–3, existe un
+único máximo en (2). Es
+[U+001A control character]
+[U+001B control character]
+[U+001A control character]
+[U+001A control character]
+[U+001B control character][U+001B control character]
+gR(D)
+q 0 (D)
+gR(D)
+∗
+0
+∗
+e = mı́n
+, ē,
+,
+q = máx 0, q (D) − g mı́n ē,
+.
+(3)
+c
+g
+c
+Para κ ﬁjo, en cualquier intervalo abierto con desigualdades estrictas que mantengan el régimen,
+las pendientes son
+[U+F8F1 delimiter glyph]
+[U+F8F4 delimiter glyph]a − g 2 /c, gR/c < ē y gR/c < q 0 /g,
+∂q ∗ [U+F8F2 delimiter glyph]
+= a,
+(4)
+ē < gR/c y ē < q 0 /g,
+[U+F8F4 delimiter glyph]
+∂D
+[U+F8F3 delimiter glyph]
+0
+0
+0,
+q /g < gR/c y q /g < ē.
+Si ē = 0, e∗ = 0 y q ∗ = q 0 , con pendiente a en el interior del dominio de D. En empates de
+restricciones la solución es continua y se usan derivadas laterales; una derivada ordinaria puede
+no existir.
+
+[Next verbatim source excerpt]
+
+Fijemos un horizonte h. B0 > 0 es el saldo de créditos antiguos todavía vigente en esa fecha y
+m0 ∈ [0, 1] su proporción en el estado de atraso elegido. B(D) > 0 es el saldo de la cohorte nueva
+que permanece en cartera a h, después de amortización normal. Denote w(D) = B(D)/(B0 +B(D)).
+
+[Next verbatim source excerpt]
+
+Supuesto 5 (Contabilidad y maduración). Al horizonte, el saldo de cada cohorte es determinista
+o se trata como exposición de una población continua. El riesgo q ∗ (D) coincide con la fracción
+esperada de su saldo en el evento crediticio elegido, condicional a seguir en cartera. La amortización
+y el tamaño del crédito no seleccionan riesgo adicional no recogido en q ∗ . B0 , m0 son constantes
+al variar D; B(D) > 0 es diferenciable. No hay castigos, ventas de cartera ni reclasiﬁcaciones que
+alteren esta identidad en el ejercicio.
+\end{ReviewVerbatim}
+
+
+
+\paragraph{Expanded PaperInterface specification}
+\begin{ReviewVerbatim}
+∀ (qbar a g c Rbar F E lower upper B0 m0 : ℝ) (B : ℝ → ℝ),
+  Galarza26RelativeCredit.selectionAndDomain qbar a lower upper →
+    Galarza26RelativeCredit.technologyCapacityCost g c E →
+      Galarza26RelativeCredit.conditionedPayoff Rbar lower upper →
+        Galarza26RelativeCredit.stockAccountingConditions B0 m0 lower upper B →
+          (∀ D ∈ Set.Icc lower upper,
+              Galarza26RelativeCredit.portfolioRatio B0 m0 B (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) D =
+                (1 - Galarza26RelativeCredit.cohortWeight B0 B D) * m0 +
+                  Galarza26RelativeCredit.cohortWeight B0 B D *
+                    Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D) ∧
+            (∀ D ∈ Set.Icc lower upper,
+                ∀ (beta Bprime : ℝ),
+                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D →
+                    HasDerivAt B Bprime D →
+                      have w : ℝ := Galarza26RelativeCredit.cohortWeight B0 B D;
+                      have wprime : ℝ := Bprime * B0 / (B0 + B D) ^ 2;
+                      have slope : ℝ :=
+                        w * beta + wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0);
+                      HasDerivAt
+                          (Galarza26RelativeCredit.portfolioRatio B0 m0 B
+                            (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))
+                          slope D ∧
+                        ((∃ (b : ℝ), B = fun (x : ℝ) => b) →
+                            (0 < slope ↔ 0 < beta) ∧ (slope = 0 ↔ beta = 0) ∧ (slope < 0 ↔ beta < 0)) ∧
+                          (beta ≠ 0 →
+                            |wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)| < w * |beta| →
+                              0 < slope * beta)) ∧
+              ∀ D ∈ Set.Icc lower upper,
+                ∀ (beta B1 epsilon : ℝ),
+                  HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D →
+                    B = Galarza26RelativeCredit.exponentialBalance B1 epsilon →
+                      0 < B1 →
+                        0 ≤ epsilon →
+                          have exponentialB : ℝ → ℝ := Galarza26RelativeCredit.exponentialBalance B1 epsilon;
+                          have w : ℝ := Galarza26RelativeCredit.cohortWeight B0 exponentialB D;
+                          have slope : ℝ :=
+                            w *
+                              (beta -
+                                epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0));
+                          HasDerivAt
+                              (Galarza26RelativeCredit.portfolioRatio B0 m0 B
+                                (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))
+                              slope D ∧
+                            (0 < beta →
+                              m0 < Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D →
+                                (slope < 0 ↔
+                                  beta <
+                                    epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)))
+\end{ReviewVerbatim}
+
+\paragraph{Retained governing declarations}
+\begin{itemize}\raggedright
+\item \hyperlink{paper-prerequisite-b0571b2c4a78eab5}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}cohort\allowbreak{}Weight}
+\item \hyperlink{paper-prerequisite-0bf7e0c122a51179}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}conditioned\allowbreak{}Payoff}
+\item \hyperlink{governing-declaration-ac78c6a99f925061}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}exponential\allowbreak{}Balance}
+\item \hyperlink{governing-declaration-e139cf967ddac229}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}optimal\allowbreak{}Risk}
+\item \hyperlink{governing-declaration-c80cb553f94a2c2b}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}portfolio\allowbreak{}Ratio}
+\item \hyperlink{paper-prerequisite-ab0e2f9b84884bc6}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}selection\allowbreak{}And\allowbreak{}Domain}
+\item \hyperlink{paper-prerequisite-de4cba6057d51d83}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}stock\allowbreak{}Accounting\allowbreak{}Conditions}
+\item \hyperlink{paper-prerequisite-e5f9b7ce782f743a}{Galarza26\allowbreak{}Relative\allowbreak{}Credit.\allowbreak{}technology\allowbreak{}Capacity\allowbreak{}Cost}
+\end{itemize}
+\paragraph{Lean-elaborated claim roles}\begin{ReviewVerbatim}
+1. parameter: ℝ
+2. parameter: ℝ
+3. parameter: ℝ
+4. parameter: ℝ
+5. parameter: ℝ
+6. parameter: ℝ
+7. parameter: ℝ
+8. parameter: ℝ
+9. parameter: ℝ
+10. parameter: ℝ
+11. parameter: ℝ
+12. parameter: ℝ → ℝ
+13. assumption: Galarza26RelativeCredit.selectionAndDomain qbar a lower upper
+14. assumption: Galarza26RelativeCredit.technologyCapacityCost g c E
+15. assumption: Galarza26RelativeCredit.conditionedPayoff Rbar lower upper
+16. assumption: Galarza26RelativeCredit.stockAccountingConditions B0 m0 lower upper B
+17. conclusion: (∀ D ∈ Set.Icc lower upper,
+    Galarza26RelativeCredit.portfolioRatio B0 m0 B (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) D =
+      (1 - Galarza26RelativeCredit.cohortWeight B0 B D) * m0 +
+        Galarza26RelativeCredit.cohortWeight B0 B D * Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D) ∧
+  (∀ D ∈ Set.Icc lower upper,
+      ∀ (beta Bprime : ℝ),
+        HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D →
+          HasDerivAt B Bprime D →
+            have w : ℝ := Galarza26RelativeCredit.cohortWeight B0 B D;
+            have wprime : ℝ := Bprime * B0 / (B0 + B D) ^ 2;
+            have slope : ℝ := w * beta + wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0);
+            HasDerivAt
+                (Galarza26RelativeCredit.portfolioRatio B0 m0 B (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))
+                slope D ∧
+              ((∃ (b : ℝ), B = fun (x : ℝ) => b) →
+                  (0 < slope ↔ 0 < beta) ∧ (slope = 0 ↔ beta = 0) ∧ (slope < 0 ↔ beta < 0)) ∧
+                (beta ≠ 0 →
+                  |wprime * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)| < w * |beta| →
+                    0 < slope * beta)) ∧
+    ∀ D ∈ Set.Icc lower upper,
+      ∀ (beta B1 epsilon : ℝ),
+        HasDerivAt (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E) beta D →
+          B = Galarza26RelativeCredit.exponentialBalance B1 epsilon →
+            0 < B1 →
+              0 ≤ epsilon →
+                have exponentialB : ℝ → ℝ := Galarza26RelativeCredit.exponentialBalance B1 epsilon;
+                have w : ℝ := Galarza26RelativeCredit.cohortWeight B0 exponentialB D;
+                have slope : ℝ :=
+                  w * (beta - epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0));
+                HasDerivAt
+                    (Galarza26RelativeCredit.portfolioRatio B0 m0 B
+                      (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E))
+                    slope D ∧
+                  (0 < beta →
+                    m0 < Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D →
+                      (slope < 0 ↔
+                        beta < epsilon * (1 - w) * (Galarza26RelativeCredit.optimalRisk qbar a g c Rbar E D - m0)))
+\end{ReviewVerbatim}
+
+\paragraph{Lean proof endpoint (built separately)}\begin{ReviewVerbatim}
+Galarza26RelativeCredit.proposition3
+\end{ReviewVerbatim}
+
+\paragraph{Recorded source-to-Spec screening}
+\textbf{Verdict:} \texttt{matches}
+\\
+{\raggedright
+\textbf{Reason:} Compared the verbatim Proposition 3 and Assumptions 1–3 and 5 with the expanded target and all displayed accounting prerequisites.\allowbreak{} impairedBalance, portfolioRatio, and cohortWeight expand to (B0*m0+B*q*)/\allowbreak{}(B0+B) and w=B/\allowbreak{}(B0+B), so the first identity is exactly M=(1-\allowbreak{}w)m0+wq*.\allowbreak{} Under B0>0, m0 in [0,1], and positive differentiable B, the general derivative uses w'=B'B0/\allowbreak{}(B0+B)\textasciicircum{}2 and exactly M'=w*beta+w'*(q*-\allowbreak{}m0).\allowbreak{} The constant-\allowbreak{}B sign equivalences and the strict absolute-\allowbreak{}value dominance premise preserve the source's two sign rules.\allowbreak{} With B=B1*exp(-\allowbreak{}epsilon*D), B1>0, and epsilon>=0, the displayed slope is w\{beta-\allowbreak{}epsilon(1-\allowbreak{}w)(q*-\allowbreak{}m0)\}, and for beta>0 and q*>m0 its negative-\allowbreak{}slope equivalence is precisely epsilon(1-\allowbreak{}w)(q*-\allowbreak{}m0)>beta.\allowbreak{} No source case, hypothesis, formula, or conclusion is changed.\allowbreak{}
+\par}
+\reviewmatch{Matches source input}
+\noindent\textbf{Reviewer annotation}\par
+\reviewerbox
+
+\end{document}
