@@ -1,0 +1,86 @@
+name: Verify the formalized paper in Lean
+
+on:
+  pull_request:
+    paths:
+      - 'lean/**'
+      - 'paper/paper.pdf'
+      - 'paper/paper.tex'
+      - 'code/restore_lean_run.py'
+      - 'docs/lean_evidence/**'
+      - '.github/workflows/lean-paper.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'lean/**'
+      - 'paper/paper.pdf'
+      - 'paper/paper.tex'
+      - 'code/restore_lean_run.py'
+      - 'docs/lean_evidence/**'
+      - '.github/workflows/lean-paper.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paper:
+    name: Official Lean paper checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install the source-text extractor
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+      - name: Obtain the unmodified engine and its paper registration
+        run: |
+          git clone --no-tags https://github.com/nikhgarg/AppliedModelingLib.git "$RUNNER_TEMP/AppliedModelingLib"
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          git fetch "$GITHUB_WORKSPACE/docs/lean_evidence/engine_registration.bundle" HEAD
+          git checkout --detach 4d30604f45ddd6848fd87691c8e3ca63881b073b
+      - name: Install the pinned Lean toolchain and dependency cache
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          export PATH="$HOME/.elan/bin:$PATH"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          elan toolchain install "$(cat lean-toolchain)"
+          elan default "$(cat lean-toolchain)"
+          lake exe cache get
+      - name: Restore the generated paper and verify its exact source
+        run: python code/restore_lean_run.py --aml "$RUNNER_TEMP/AppliedModelingLib"
+      - name: Confirm that the formalization engine was not patched
+        run: |
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          git diff --exit-code 194edcc95df74806a39b961d10dedddc6e730cce -- scripts config skills AppliedModelingLib
+      - name: Run the official fast check
+        run: |
+          set -o pipefail
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          env PYTHONPATH=. python3 scripts/paper_contribution.py check Galarza26RelativeCredit --fast | tee "$GITHUB_WORKSPACE/lean_paper_fast.txt"
+      - name: Rebuild every paper module with the official checkpoint
+        run: |
+          set -o pipefail
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          env PYTHONPATH=. python3 scripts/private_paper_checkpoint.py Galarza26RelativeCredit | tee "$GITHUB_WORKSPACE/lean_paper_modules.txt"
+      - name: Revalidate the accepted graph against all current inputs
+        run: |
+          set -o pipefail
+          cd "$RUNNER_TEMP/AppliedModelingLib"
+          env PYTHONPATH=. python3 scripts/final_closure_receipt.py --paper Galarza26RelativeCredit --check | tee "$GITHUB_WORKSPACE/lean_paper_receipt.txt"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: lean-paper-checks
+          path: |
+            lean_paper_fast.txt
+            lean_paper_modules.txt
+            lean_paper_receipt.txt

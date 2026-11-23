@@ -604,3 +604,31 @@ aclaran en el paper. Las 4018 comprobaciones originales se mantienen separadas
 de 73 controles añadidos de dominio y frontera. No se dispone del historial
 de prompts de Claude: no se reconstruye ni se inventa. Las transcripciones
 de derivaciones no se presentan como manuscritos auténticos del estudiante.
+
+
+## 9. Cierre Lean sobre la fuente final — 22 de noviembre de 2026
+
+Continuación autorizada por las solicitudes anteriores y «continúa».
+Resumen de acciones, no una transcripción reconstruida: el PDF fusionado
+en 25f0b0c se fijó por SHA256. Sesiones reales y separadas del CLI
+`gpt-5.6-sol` con `xhigh` leyeron la fuente completa y revisaron el modelo,
+los tres resultados y la superficie final. Una incertidumbre por contexto
+se resolvió enlazando el párrafo ya escrito, sin cambiar los supuestos.
+La primera cola guardó decisiones antes de terminar por cuota; esa salida 1
+no se oculta ni se presenta como aprobación de toda la corrida.
+
+La revisión adversarial nueva terminó con salida 0 y PASS. Se normalizaron
+únicamente los nombres de claves y rutas de su panel al formato que exige
+el motor, conservando dictamen, hash, superficie e independencia reales.
+El cierre estricto oficial terminó con salida 0: diez etapas, cero errores
+y grafo aceptado 1e2850e8…. La descarga se recuperó tras el límite de rutas
+de Windows, sin repetir ni atribuir al transporte la aceptación.
+
+El comando exigido con `--fast`, la reconstrucción completa de módulos y
+el recibo vigente terminaron con salida 0. La fachada general sin `--fast`
+dio salida 2 por no reconocer la respuesta terminal del planificador; los
+diagnósticos sin recibo operativo dieron salida 1. Sus salidas se conservan.
+No se parcheó el motor ni se usaron opciones de fuentes ausentes para
+obtener aceptación. No se atribuyen al estudiante revisión humana,
+derivaciones manuscritas ni ensayo no observados. El PDF y slides siguen
+fijos; el cierre se registra en documentos externos al paper.

@@ -1,0 +1,22 @@
+{
+  "source_commit": "25f0b0c7df040e2b04d78064b30949492cd4472f",
+  "previous_source_commit": "17b74e49f59468f2189709fa771b70e7551dae7b",
+  "pdf_sha256": "d7e8130cf88602523ff6eec460a27f798314c2596a4f241190d1da5c88fc2953",
+  "tex_sha256": "ec83d0498d5b7549077747a12e431fc53abb37efe05b757cc214783022383863",
+  "pdf_git_blob": "fdfc02d72cb26ee9105b0bf2d998492551257c49",
+  "tex_git_blob": "6f240dbce905908381c812dd6cac8e42188473ef",
+  "source_url": "https://github.com/fgalarzac/ai-project/blob/25f0b0c7df040e2b04d78064b30949492cd4472f/paper/paper.pdf",
+  "pull_request": "https://github.com/fgalarzac/ai-project/pull/7",
+  "ci": "https://github.com/fgalarzac/ai-project/actions/runs/45104412172",
+  "original_assumptions_and_propositions_literal_match": true,
+  "text_extraction": {
+    "tool": "pdftotext",
+    "options": [],
+    "status": "completed",
+    "runs_on_this_pdf": 1,
+    "linux_request": "20261123T031332-6a03edce"
+  },
+  "text_sha256": "9531b374b2be3c9e9d1affb82f03f09e05e99e85353f52aa40eb6beb925ce9d5",
+  "intake_thread": "01a20665-a71f-7360-9dfc-9d861c606ff6",
+  "intake_sha256": "8fa8aa4e44e7f461376264c86dd8c8bf0169553cf3f145e15b0b68df4bfbe247"
+}

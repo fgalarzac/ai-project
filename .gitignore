@@ -26,3 +26,22 @@ __pycache__/
 # Never commit personal documents to a public repository
 DNI*
 *_DNI*
+
+# Preserve AppliedModelingLib's outer cache exclusions when rebasing its
+# generated paper folder to lean/. The generated lean/.gitignore is retained.
+/lean/.review_traces/*
+!/lean/.review_traces/paper_theorem_validations.jsonl
+/lean/source-audited*
+/lean/*.txt
+!/lean/citation_source.txt
+!/lean/*PLAN*.txt
+!/lean/HANDOFF*.txt
+!/lean/*AUDIT*.txt
+!/lean/PAPER_NOTES.txt
+/lean/**/*.olean
+/lean/**/*.ilean
+/lean/**/*.c
+/lean/**/*.o
+/lean/**/*.so
+/lean/**/*.a
+/lean/**/HUMAN_REVIEW_PACKET.xdv

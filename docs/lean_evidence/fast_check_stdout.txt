@@ -1,0 +1,3 @@
++ lake build +Galarza26RelativeCredit.PaperInterface
+Build completed successfully (3298 jobs).
++ git diff --check -- papers/Galarza26RelativeCredit papers/Galarza26RelativeCredit.lean lakefile.toml ':(exclude)papers/Galarza26RelativeCredit/source/'

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "paper": "Galarza26RelativeCredit",
+  "review_material_sha256": "b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881",
+  "required_reviewer_count": 1,
+  "ineligible_reviewer_identities": [
+    "/root",
+    "01a1c640-f50a-78a1-9c12-abe2032594ff",
+    "01a1c79d-967f-7b00-b62e-6fadc8845320",
+    "01a1c79a-73e3-76d2-971a-4283f202fc20",
+    "01a20660-3ebe-7b81-b046-be3762ffae56",
+    "01a20665-a71f-7360-9dfc-9d861c606ff6",
+    "01a20671-a87e-72b3-ae09-daf35bc6d568",
+    "01a2068c-f62c-7da3-9d2c-33a57e86940e",
+    "01a20679-8ab3-7682-9997-d44ce3f5e9ed",
+    "01a20692-3dd9-7210-b411-9ed82cb87303",
+    "01a20696-64a4-7e30-b2e2-2d19059a27ca"
+  ],
+  "reviews": [
+    {
+      "reviewer_identity": "source3-final-adversary-6f89f424ecf54a0497c2d8c7dea600ef",
+      "audit_path": "papers/Galarza26RelativeCredit/docs/AGENT_SOURCE_AUDIT.md",
+      "audit_sha256": "1d46e3bfa8725c80b2c79f618eab325c716ac7133a81f02b1250377ac7aa2850",
+      "review_material_sha256": "b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881",
+      "judgment": "PASS",
+      "scope": "complete_current_surface",
+      "reviewed_at": "2026-11-23T04:30:51Z",
+      "did_not_author_or_repair": true,
+      "did_not_issue_semantic_judgments": true
+    }
+  ]
+}

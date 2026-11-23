@@ -7,8 +7,8 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 |---|---|---|---|
 | Tema propio, Línea B y pregunta peruana | Cumplido | Introducción y modelo del paper | Defensa personal de interpretación |
 | Repositorio público y enlace de entrega | Cumplido | Comentario 6157914408 en issue 7 | No se requiere otra publicación |
-| Rama → PR → merge | Cumplido para el paper | PR6 fusionado con CI aprobado | El cierre Lean se incorpora por otro PR |
-| README de una página con resultado condicionado | Cumplido | README.md | Actualizar solo el estado final de Lean |
+| Rama → PR → merge | Paper, guías y cierre Lean incorporados por PR | PR6–PR9; historial de integración verificable | El cierre Lean tiene CI propio desde una instalación limpia |
+| README de una página con resultado condicionado | Cumplido | README.md | Estado Lean actualizado fuera del PDF fuente |
 | Propuesta 2–4 páginas y fuente | Cumplido | proposal/proposal.tex/pdf: 4 páginas | Documento histórico conservado |
 | Slides del tema conservados | Cumplido | slides/topic.tex/pdf: 19 páginas | No modificados en esta revisión |
 | Slides finales y fuente | Cumplido | slides/final.tex/pdf: 33 páginas; PDF adjunto idéntico | Conservados byte por byte por instrucción del autor |
@@ -26,13 +26,13 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Cada resultado y figura comprobados | Cumplido | verify.py: 4018 + 73 controles y seis figuras | Resultados numéricos ilustrativos |
 | Dependencias y reproducción | Cumplido | requirements.txt fijado; semilla 20261110 | LaTeX y Lean se ejecutan por separado |
 | Slide Lean: enunciado, prueba real y límites | Cumplido como presentación | Diapositiva 23 del PDF del autor | Estado histórico en curso; evidencia actual en lean_progreso.md |
-| Lean oficial del paper entregado y carpeta completa | Parcial | Tres pruebas compiladas y revisiones previas conservadas | Reanudar cierre con el PDF final fijado; no se declara aceptado todavía |
+| Lean oficial del paper entregado y carpeta completa | Cierre estricto aceptado | lean/, grafo 1e2850e8…, diez etapas y cero errores | Revisión humana 0/3; fachada general con fallo documentado; controles oficiales de reproducción separados |
 | Tabla Lean con declaración, archivo, hipótesis y estado | Cumplido como reporte técnico | Apéndice B; prueba del kernel separada del cierre integral | Chequeo actual y fuente se registran fuera del PDF |
 | Apéndice manuscrito auténtico completo | Pendiente personal | Guía tipográfica de 13 apartados | Escribir, revisar y escanear; las láminas transcritas no son manuscrito |
 | Registro IA, crítica y verificación | Cumplido como registro disponible | prompts.md y apéndice C | No se inventan prompts de Claude ni revisión humana |
 | Cuatro PDF y fuentes, compilación | Cumplido | Cuatro compilaciones locales y CI del PR6 aprobado | QA sin texto fuera de página |
 | Workflow oficial intacto | Cumplido | SHA256 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ninguna modificación |
-| Entrega en main antes del 26-nov 22:00 Lima | Paper y documentación fusionados | PR6; falta el cierre Lean y el manuscrito personal | El merge remoto registra cada incorporación |
+| Entrega en main antes del 26-nov 22:00 Lima | Entregable técnico completo, sujeto al merge registrado | PR6–PR9; controles numéricos, cuatro PDF y Lean aprobados | Solo el manuscrito, la revisión humana y la comprensión requieren participación personal |
 
 El juicio del profesor comunicado por el autor fue favorable, con observación
 de complejidad. La respuesta es explicar el modelo existente, no sustituirlo

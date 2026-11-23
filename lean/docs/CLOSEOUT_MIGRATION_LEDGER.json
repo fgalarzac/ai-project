@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "paper": "Galarza26RelativeCredit",
+  "source_commit": "25f0b0c7df040e2b04d78064b30949492cd4472f",
+  "local_timezone": "America/Lima",
+  "started_local": "2026-11-22T22:22:14-05:00",
+  "finished_local": "2026-11-22T23:36:55-05:00",
+  "new_semantic_review_rows": 13,
+  "new_semantic_review_batches": 3,
+  "independent_final_adversarial_checks": 1,
+  "stages": [
+    {
+      "stage": "source_freeze",
+      "utc": "2026-11-23T03:13:45Z",
+      "note": "Merged source extracted once by real Linux pdftotext; original statements identical."
+    },
+    {
+      "stage": "source_intake_and_official_map",
+      "utc": "2026-11-23T03:25:04Z",
+      "note": "Full independent source-only inventory completed and official preparer materialized the current source routes."
+    },
+    {
+      "stage": "draft_preflight",
+      "utc": "2026-11-23T03:26:35Z",
+      "note": "Actual Linux stdout-only expanded bundle: three result rows and eighteen model/definition rows; independent repair-screen reviewer running."
+    },
+    {
+      "stage": "draft_preflight_independent_review",
+      "utc": "2026-11-23T03:30:48+00:00",
+      "note": "Actual isolated reviewer: 21 matches, zero mismatches, zero uncertainties; repair screen only, not semantic evidence."
+    },
+    {
+      "stage": "one_typed_graph_acquired",
+      "utc": "2026-11-23T03:33:34Z",
+      "note": "New exact Lean-owned graph 01260e88... acquired by the official action; this is not acceptance.",
+      "linux_request": "20261123T033315-6c74dd40"
+    },
+    {
+      "stage": "prerequisite_queue_issued",
+      "note": "Eight changed prerequisite rows actually issued; unchanged judgments remain subject to identity validation.",
+      "utc": "2026-11-23T03:34:48Z",
+      "linux_request": "20261123T033445-9ac4a210"
+    },
+    {
+      "stage": "context_repair_prerequisite_queue",
+      "utc": "2026-11-23T04:01:10Z",
+      "linux_request": "20261123T040106-4b0b9722",
+      "note": "Two affected prerequisite rows reissued after attaching the already explicit stock-construction paragraph; no source or Lean mathematical change. The existing Lean graph remains current by the official planner."
+    },
+    {
+      "stage": "first_prerequisite_review_saved",
+      "reviewer": "01a20679-8ab3-7682-9997-d44ce3f5e9ed",
+      "note": "Seven matches and one uncertain decision were saved before the CLI usage-limit exit1. Actual decisions recorded by the official issuer; this is not an accepted closeout."
+    },
+    {
+      "stage": "three_results_reviewed",
+      "reviewer": "01a20696-64a4-7e30-b2e2-2d19059a27ca",
+      "note": "Actual isolated result reviewer returned three matches, zero mismatches and zero uncertainties; CLI exit0."
+    },
+    {
+      "stage": "final_adversarial_review_started",
+      "utc": "2026-11-23T04:21:10+00:00",
+      "surface_sha256": "b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881",
+      "note": "One distinct fresh context-isolated reviewer dispatched on the exact policy-selected frozen source and Lean surface."
+    },
+    {
+      "stage": "strict_closeout_completed",
+      "utc": "2026-11-23T04:36:55Z",
+      "linux_request": "20261123T043634-e4e922bd",
+      "note": "Atomic background worker exited0, all10 strict gates completed, zero errors; acceptedgraph pointer1e285... issued. Launcher result alone was not acceptance. Local Windows long-path transport recovered without rerunning the worker."
+    }
+  ],
+  "acceptance_credential": false,
+  "accepted_graph_sha256": "1e2850e85cf4eb3994a9bc350e5ccc823bf7ab537a9b263575be98761c73b61c"
+}

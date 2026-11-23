@@ -1,0 +1,30 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\input{../../../docs/tikz/dag_preamble.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={outer sep=4pt}]
+\dagPaperMetadata{El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera}{Fabián Matías Galarza Chumbe}{Trabajo de curso}{2026}{https://github.com/fgalarzac/ai-project/blob/25f0b0c7df040e2b04d78064b30949492cd4472f/paper/paper.pdf}
+\dagPaperLegendRightOfMetadata{
+  \node[dag_model,dag_template_legend] (lDef) at (0,0) {Definición o\\supuesto};
+  \node[dag_result,dag_template_legend] (lRes) at (4.2,0) {Resultado\\formalizado};
+}
+\daglegend{(lDef)(lRes)}{Leyenda}
+\begin{dagPaperBody}
+\node[dag_model] (price) at (0,0) {\textbf{Precio relativo}\\Tasa propia menos promedio de otros bancos};
+\node[dag_model] (model) at (8.2,0) {\textbf{Supuestos 1--3}\\Selección, evaluación, capacidad y pago condicionado};
+\node[dag_model] (cross) at (0,-3.5) {\textbf{Definición y Supuesto 4}\\Fuerza de evaluación; cruce, monotonía e interioridad};
+\node[dag_result] (p1) at (8.2,-3.5) {\textbf{Proposición 1}\\Óptimo único, riesgo y pendientes por régimen};
+\node[dag_model] (stock) at (16.4,-3.5) {\textbf{Definición y Supuesto 5}\\Pesos, saldos en atraso y maduración de cohortes};
+\node[dag_result] (p2) at (0,-7) {\textbf{Proposición 2}\\Umbral interior único y cambio de signo};
+\node[dag_result] (p3) at (16.4,-7) {\textbf{Proposición 3}\\Transmisión a cartera, composición e inversión de signo};
+\draw[dag_arrow] (price.east) -- (model.west);
+\draw[dag_arrow] (model.south) -- (p1.north);
+\draw[dag_arrow] (cross.south) -- (p2.north);
+\draw[dag_arrow] (stock.south) -- (p3.north);
+\draw[dag_arrow] (p1.south west) -- node[below,sloped,font=\small] {Pendiente interior} (p2.north east);
+\draw[dag_arrow] (p1.south east) -- node[below,sloped,font=\small] {Riesgo óptimo} (p3.north west);
+\node[align=center,text width=13cm,font=\small] at (8.2,-9.6) {El precio se mantiene dado. El diagrama no afirma equilibrio, causalidad ni validación predictiva con datos.};
+\end{dagPaperBody}
+\end{tikzpicture}
+\end{document}

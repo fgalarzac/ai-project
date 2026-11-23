@@ -26,7 +26,7 @@ Esta notación local es distinta de la abreviatura z usada en la prueba de P1.
 ## 2. Qué se mantiene fijo y qué se elige — páginas 4–6
 
 Se fija el segmento, su tecnología y el precio. Luego el banco observa la
-calidad media de sus solicitantes y elige **e\**, un índice de esfuerzo de
+calidad media de sus solicitantes y elige **e**, un índice de esfuerzo de
 evaluación. El desempeño se observa más tarde, al mismo horizonte **h** al
 que se refieren las probabilidades del modelo.
 
