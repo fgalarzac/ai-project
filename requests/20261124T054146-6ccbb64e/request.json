@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    ".scratch/galarza/install_report_tools.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ],
+  "upload_sha256": "d8c980baa5877ff2ef394555ec08330870782114876f3f79c297ee22c3c8d918"
+}
