@@ -1,0 +1,21 @@
+{
+  "request_id": "20261124T055537-4a1438e3",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/reissue_paper_semantic_prerequisites.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--emit-template",
+    "papers/Galarza26RelativeCredit/audit/paper_semantic_prerequisite_reissue_decisions_37bdb3b801c5fc3328d0352e445dd13c4ae1a5ac9825cf2caf0003836529396a.json",
+    "--v11-review-graph",
+    "--changed-only"
+  ],
+  "started_utc": "2026-11-24T05:55:42Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.465,
+  "download_sha256": "1ab8d9bb9e7390c34b6a80f90fb5e2cb43bd9021b9406a167903c6fdc87407fb",
+  "finished_utc": "2026-11-24T05:55:42Z"
+}
