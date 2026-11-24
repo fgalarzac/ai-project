@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import subprocess; commands=[['env','PYTHONPATH=.','python3','.scratch/editorial24/finish_source4_document_assessment.py'],['env','PYTHONPATH=.','python3','-m','scripts.report_memo_coverage','--paper','Galarza26RelativeCredit']]; [subprocess.run(c,check=True) for c in commands]"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ]
+}
