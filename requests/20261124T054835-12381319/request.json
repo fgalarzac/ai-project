@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/prepare_v11_source_map.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--config",
+    "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+    "--write"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects"
+  ],
+  "upload_sha256": "744e5c838df7c63278ff4f52c645239c47ecab09522c492e4cbcb564c355c4ae"
+}
