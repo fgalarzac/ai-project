@@ -1,0 +1,19 @@
+{
+  "request_id": "20261124T060059-b180abdc",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/reissue_v11_raw_source_spec_screening.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--emit-current-template",
+    "--v11-review-graph"
+  ],
+  "started_utc": "2026-11-24T06:01:05Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.314,
+  "download_sha256": "98ab20effdcb6d7a7bda7918f5c98bb05c1d5976264ad77fc76b7b8df76f32ec",
+  "finished_utc": "2026-11-24T06:01:06Z"
+}
