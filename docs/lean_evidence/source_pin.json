@@ -18,5 +18,8 @@
   },
   "text_sha256": "9531b374b2be3c9e9d1affb82f03f09e05e99e85353f52aa40eb6beb925ce9d5",
   "intake_thread": "01a20665-a71f-7360-9dfc-9d861c606ff6",
-  "intake_sha256": "8fa8aa4e44e7f461376264c86dd8c8bf0169553cf3f145e15b0b68df4bfbe247"
+  "intake_sha256": "8fa8aa4e44e7f461376264c86dd8c8bf0169553cf3f145e15b0b68df4bfbe247",
+  "repo_pdf_path": "docs/lean_evidence/frozen_source/paper.pdf",
+  "repo_tex_path": "docs/lean_evidence/frozen_source/paper.tex",
+  "edition_relation": "Accepted source of 22 November. The bilingual editorial edition of 24 November is being revalidated separately."
 }

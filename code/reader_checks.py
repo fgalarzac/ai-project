@@ -8,6 +8,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 from model import Parameters, solve, stock, stock_slope, opacity
+from figure_output import save_figure
 
 
 def main():
@@ -64,10 +65,7 @@ def main():
            ylabel='Semielasticidad del saldo ε (por unidad de D)',
            title='P3: la inversión exige ε > 1.04 / (1 − w)')
     ax.legend(frameon=False,ncol=3,loc='upper left')
-    fig.tight_layout()
-    fig.savefig(root/'figures/composition_frontier.pdf',metadata={'CreationDate':None})
-    fig.savefig(root/'figures/composition_frontier.png',dpi=180)
-    plt.close(fig)
+    save_figure(fig,root/'figures','composition_frontier')
     demo=opacity(0);demo_effort,demo_risk=solve(0,demo)
     result={'additional_checks_passed':len(passed),'checks':passed,
             'worked_example':{'q0':demo.qbar,'R':demo.rbar,'effort':float(demo_effort),

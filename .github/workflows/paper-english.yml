@@ -1,0 +1,35 @@
+name: Compile the English paper
+
+on:
+  push:
+    paths:
+      - 'paper/**'
+      - 'code/figures/**'
+      - '.github/workflows/paper-english.yml'
+  pull_request:
+    paths:
+      - 'paper/**'
+      - 'code/figures/**'
+      - '.github/workflows/paper-english.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  english:
+    name: Compile the complete English edition
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: Compile the English article from LaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: paper/paper_en.tex
+          work_in_root_file_dir: true
+      - name: Confirm that the English sources and PDF are committed
+        run: git ls-files --error-unmatch paper/paper_en.tex paper/references_en.bib paper/paper_en.pdf
+      - uses: actions/upload-artifact@v7
+        with:
+          name: english-paper
+          path: paper/paper_en.pdf

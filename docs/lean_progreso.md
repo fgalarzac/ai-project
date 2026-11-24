@@ -1,3 +1,19 @@
+# Estado de la edición editorial del 24 de noviembre de 2026
+
+La edición española y su traducción inglesa tienen una redacción final y la
+figura 1 corregida. Los cinco supuestos y los tres enunciados españoles son
+idénticos a la fuente aceptada; las ecuaciones y condiciones de la traducción
+se han contrastado. Cambiaron los bytes del PDF y se está renovando su vínculo
+con la evidencia de Lean. **No se atribuye el cierre anterior al nuevo PDF.**
+
+El cierre descrito a continuación corresponde a la fuente fusionada en
+`25f0b0c`, del 22-nov. Sus PDF y TeX exactos se conservan en
+`docs/lean_evidence/frozen_source/`. El restaurador utiliza la ruta declarada
+en `source_pin.json` y verifica sus hashes antes de ejecutar los controles.
+La compilación de las pruebas sigue vigente para esa fuente histórica.
+
+---
+
 # Lean: cierre y evidencia vigente
 
 **P1–P3 están demostradas y el cierre estricto está aceptado.** La ejecución

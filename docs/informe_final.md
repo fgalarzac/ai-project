@@ -7,7 +7,7 @@ bien, con observación de complejidad, según el comentario comunicado por el
 estudiante. La revisión mejora la explicación y las pruebas, sin sustituir
 las primitivas ni agregar resultados teóricos.
 
-El paper tiene 15 páginas de cuerpo, dentro de 8–20, en 11pt, una columna y
+El paper en español tiene 16 páginas de cuerpo; la edición inglesa, 15, ambas dentro de 8–20, en 11pt, una columna y
 márgenes de una pulgada. Sus tres resultados muestran: el óptimo con dos
 restricciones; un umbral único solo bajo cruce e interioridad; y una condición
 exacta para que la composición invierta el signo del riesgo nuevo.
@@ -80,3 +80,16 @@ Se trabaja en apoyo y se publica por pull request hacia main. La entrega
 oficial requiere el repositorio completo fusionado al 26 de noviembre a las
 22:00 de Lima. La evaluación anterior a esta revisión se conserva en Git.
 La calidad técnica mejora la entrega; no garantiza una nota.
+
+
+## Ediciones finales del 24 de noviembre de 2026
+
+La revisión editorial convierte las notas de seguimiento en una exposición
+académica final, desarrolla las transiciones y conserva literalmente los
+cinco supuestos y los tres enunciados en español. La edición inglesa incluye
+el texto completo, las demostraciones y las seis figuras traducidas.
+La figura 1 tiene márgenes equilibrados, escala y etiquetas legibles y una
+leyenda exterior. Las magnitudes no cambian. Ambas ediciones compilan sin
+desbordamientos ni caracteres faltantes y cumplen el límite de cuerpo.
+La aceptación Lean de la fuente anterior se conserva con sus bytes exactos;
+la nueva edición se somete a revalidación, sin atribuirle el certificado previo.
