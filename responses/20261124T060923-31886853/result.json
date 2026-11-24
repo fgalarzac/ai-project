@@ -1,0 +1,13 @@
+{
+  "request_id": "20261124T060923-31886853",
+  "argv": [
+    "python3",
+    "-c",
+    "import subprocess; commands=[['env','PYTHONPATH=.','python3','.scratch/editorial24/finish_source4_document_assessment.py'],['env','PYTHONPATH=.','python3','-m','scripts.report_memo_coverage','--paper','Galarza26RelativeCredit']]; [subprocess.run(c,check=True) for c in commands]"
+  ],
+  "started_utc": "2026-11-24T06:09:29Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.565,
+  "download_sha256": "829b072500443604ccf27157a499ddd1e5331e77ea6ef0fcd59d86515b89887b",
+  "finished_utc": "2026-11-24T06:09:30Z"
+}
