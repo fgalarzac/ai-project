@@ -1,0 +1,13 @@
+{
+  "request_id": "20261124T054910-f9cca9a1",
+  "argv": [
+    "python3",
+    "-c",
+    "import subprocess; subprocess.run(['git','add','--','papers/Galarza26RelativeCredit','papers/Galarza26RelativeCredit.lean'],check=True); subprocess.run(['env','PYTHONPATH=.','LEAN_NUM_THREADS=1','python3','scripts/draft_semantic_preflight.py','--paper','Galarza26RelativeCredit'],check=True)"
+  ],
+  "started_utc": "2026-11-24T05:49:14Z",
+  "exit_code": 0,
+  "elapsed_seconds": 67.23,
+  "download_sha256": "0faff4574e18e94397e9365cfc959cffcb97a071697649bc193b4502d3cc2223",
+  "finished_utc": "2026-11-24T05:50:21Z"
+}
