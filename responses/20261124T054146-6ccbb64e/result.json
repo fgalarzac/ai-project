@@ -1,0 +1,14 @@
+{
+  "request_id": "20261124T054146-6ccbb64e",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "python3",
+    ".scratch/galarza/install_report_tools.py"
+  ],
+  "started_utc": "2026-11-24T05:41:50Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.032,
+  "download_sha256": "5ef4fdea4d78fd8d905ae95e091b3cde41d16c9ca386855559889854faf174fb",
+  "finished_utc": "2026-11-24T05:41:50Z"
+}
