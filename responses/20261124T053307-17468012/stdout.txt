@@ -1,0 +1,5 @@
++ git fetch --unshallow origin
++ git pull --ff-only origin main
+Already up to date.
++ git fetch .scratch/editorial24/engine_registration.bundle HEAD
++ git checkout --detach 4d30604f45ddd6848fd87691c8e3ca63881b073b
