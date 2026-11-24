@@ -1,0 +1,15 @@
+{
+  "request_id": "20261124T053538-85713384",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    ".scratch/editorial24/bootstrap.py"
+  ],
+  "started_utc": "2026-11-24T05:35:42Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.915,
+  "download_sha256": "1bfae25e422620e342362b2bf5dae9c2f29cac8c3c68cf21ac2424b83d84d298",
+  "finished_utc": "2026-11-24T05:35:44Z"
+}
