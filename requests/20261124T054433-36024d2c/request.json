@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import shutil; from pathlib import Path; print(shutil.which('latexmk')); print(Path('.scratch/galarza/tex_install_result.json').read_text())"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    ".scratch/galarza/tex_install_result.json"
+  ]
+}
