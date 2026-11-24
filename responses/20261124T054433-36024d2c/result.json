@@ -1,0 +1,13 @@
+{
+  "request_id": "20261124T054433-36024d2c",
+  "argv": [
+    "python3",
+    "-c",
+    "import shutil; from pathlib import Path; print(shutil.which('latexmk')); print(Path('.scratch/galarza/tex_install_result.json').read_text())"
+  ],
+  "started_utc": "2026-11-24T05:44:38Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.032,
+  "download_sha256": "a0d28502701769f6f55108bbb28e5915d891fa1393b1c99ba70f52d489aac9eb",
+  "finished_utc": "2026-11-24T05:44:38Z"
+}
