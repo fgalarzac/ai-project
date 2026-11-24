@@ -1,0 +1,439 @@
+{
+  "acceptance_credential": false,
+  "actions": [
+    {
+      "argv": [],
+      "command": "",
+      "errors": [
+        "final-adversary review panel does not bind the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+        "reviews[0] does not attest the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+        "final-adversary audit artifact does not bind the exact current final holistic audit surface identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`"
+      ],
+      "final_holistic_surface_identity": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
+      "id": "perform_final_adversarial_source_audit",
+      "reason": "perform only the missing independent final review identified below against the frozen policy-selected source-and-Lean surface; retain valid prior panel entries and bind each new audit artifact to this exact comparison identity",
+      "required": true,
+      "state": "ready_now"
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/closeout_reuse_plan.py",
+        "--paper",
+        "Galarza26RelativeCredit"
+      ],
+      "command": "python3 scripts/closeout_reuse_plan.py --paper Galarza26RelativeCredit",
+      "id": "replan_after_final_adversarial_source_audit",
+      "reason": "verify that the required independent reviewer panel names the unchanged comparison surface before scheduling strict closeout",
+      "required": true,
+      "state": "after_final_adversarial_source_audit"
+    }
+  ],
+  "all_selected_semantic_review_sha256": "997b08776480fa20f787f2a9c0e5603628914f2ae4fe026a7a230c23f16f50ec",
+  "audit_material_identity": "strict_transaction_content_snapshot",
+  "audit_material_sha256": "126bf422ed177f54ab9194362cc2263344d473ea8676e5759b38dbefc54edb79",
+  "cache_reusable": true,
+  "closeout_complete": false,
+  "closeout_stage_dag": {
+    "acceptance_credential": false,
+    "current_prefix_length": 0,
+    "next_stage": "closeout_artifact_preflight",
+    "operational_scheduling_only": true,
+    "schema": 2,
+    "stages": [
+      {
+        "dependencies": [],
+        "id": "closeout_artifact_preflight",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "closeout_artifact_preflight"
+        ],
+        "id": "acquire_exact_context",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "acquire_exact_context"
+        ],
+        "id": "route_schema_preflight",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "route_schema_preflight"
+        ],
+        "id": "acquire_lean_context",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "acquire_lean_context"
+        ],
+        "id": "current_evidence_transaction_preflight",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "current_evidence_transaction_preflight"
+        ],
+        "id": "paper_root_build",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "paper_root_build"
+        ],
+        "id": "primary_paper_gate",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "primary_paper_gate"
+        ],
+        "id": "evidence_integrity",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "evidence_integrity"
+        ],
+        "id": "conclusion_provenance",
+        "state": "pending"
+      },
+      {
+        "dependencies": [
+          "conclusion_provenance"
+        ],
+        "id": "final_input_check",
+        "state": "pending"
+      }
+    ]
+  },
+  "compiled_artifacts_ready": true,
+  "compiled_invalidation_reasons": [],
+  "compiled_material_sha256": "",
+  "compiled_validation_mode": "lean_live_import_closure",
+  "final_focused_build": "run_via_strict_closeout",
+  "final_holistic_audit": {
+    "acceptance_credential": false,
+    "errors": [
+      {
+        "message": "final-adversary review panel does not bind the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+        "path": "papers/Galarza26RelativeCredit/docs/FINAL_ADVERSARIAL_REVIEW_PANEL.json"
+      },
+      {
+        "message": "reviews[0] does not attest the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+        "path": "papers/Galarza26RelativeCredit/docs/FINAL_ADVERSARIAL_REVIEW_PANEL.json"
+      },
+      {
+        "message": "final-adversary audit artifact does not bind the exact current final holistic audit surface identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+        "path": "papers/Galarza26RelativeCredit/docs/AGENT_SOURCE_AUDIT.md"
+      }
+    ],
+    "ready": false,
+    "required": true,
+    "state": "review_required",
+    "target_surface_identity": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79"
+  },
+  "final_holistic_audit_errors": [
+    "final-adversary review panel does not bind the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+    "reviews[0] does not attest the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+    "final-adversary audit artifact does not bind the exact current final holistic audit surface identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`"
+  ],
+  "final_holistic_audit_ready": false,
+  "final_holistic_audit_surface_sha256": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
+  "full_item_plan_command": "python3 scripts/closeout_reuse_plan.py --paper Galarza26RelativeCredit --all-items",
+  "future_reuse_pin_maintenance": {
+    "coverage_items": 0,
+    "policy": "historical reuse pins are not current-v11 obligations",
+    "required_for_this_closeout": false,
+    "statement_items": 0
+  },
+  "global_error": "",
+  "intermediate_focused_build": "reuse_current_lean_import_closure",
+  "last_closeout_execution": {
+    "acceptance_credential": false,
+    "completed_at": "2026-11-23T04:36:54.343061Z",
+    "exit_code": 0,
+    "launch_id": "b778f557238349ebb894f2d027a2049c",
+    "namespace": "worker",
+    "result": {
+      "acceptance_credential": false,
+      "audit_exit_code": 0,
+      "audit_log": "papers/Galarza26RelativeCredit/.review_traces/paper_closeout_worker.b778f557238349ebb894f2d027a2049c.log",
+      "audit_log_sha256": "7277099c4a056afbaf8d59f97c1eaa8bc6c1eb6f21fb2c654272e7392de3a696",
+      "closeout_finalization": {
+        "canonical_receipt": "papers/Galarza26RelativeCredit/FINAL_CLOSURE_RECEIPT.md",
+        "closeout_stage_dag": {
+          "acceptance_credential": false,
+          "current_prefix_length": 10,
+          "next_stage": null,
+          "operational_scheduling_only": true,
+          "schema": 2,
+          "stages": [
+            {
+              "dependencies": [],
+              "id": "closeout_artifact_preflight",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "closeout_artifact_preflight"
+              ],
+              "id": "acquire_exact_context",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "acquire_exact_context"
+              ],
+              "id": "route_schema_preflight",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "route_schema_preflight"
+              ],
+              "id": "acquire_lean_context",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "acquire_lean_context"
+              ],
+              "id": "current_evidence_transaction_preflight",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "current_evidence_transaction_preflight"
+              ],
+              "id": "paper_root_build",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "paper_root_build"
+              ],
+              "id": "primary_paper_gate",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "primary_paper_gate"
+              ],
+              "id": "evidence_integrity",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "evidence_integrity"
+              ],
+              "id": "conclusion_provenance",
+              "state": "completed"
+            },
+            {
+              "dependencies": [
+                "conclusion_provenance"
+              ],
+              "id": "final_input_check",
+              "state": "completed"
+            }
+          ]
+        },
+        "derived_status_metadata_refreshed": true,
+        "evidence_lane": "obligation-graph",
+        "focused_build_receipt": "papers/Galarza26RelativeCredit/audit/FOCUSED_BUILD_RECEIPT.json",
+        "obligation_evidence": {
+          "acceptance_credential": false,
+          "bundle_path": "papers/Galarza26RelativeCredit/audit/obligation_evidence/current_bundle.json",
+          "direct_claim_count": 3,
+          "elapsed_seconds": 0.488114,
+          "engine_tree_sha256": "547eec4fbff97e0c15b11ad7714451ce730f28968e717d743bb651eddb145c24",
+          "graph_sha256": "1e784dc9aba1fff5ab0e2a65d4d34badad9b462a80623d2eaaaf292b97be3fcd",
+          "issuance_authority_sha256": "1df7c21b63604bb0e5012140e1fcce2732d024955e93d32a698941b3b6a75636",
+          "leaf_count": 68,
+          "materialized_prerequisite_leaf_count": 0,
+          "operation": "authenticated_strict_closeout_materialization",
+          "paper": "Galarza26RelativeCredit",
+          "paper_index_sha256": "1cab790d64b6c2b9b58dcbd18cd0a7220389e17e6c82985fa32901c33a1cfd7c",
+          "reused_prerequisite_leaf_count": 18,
+          "schema": 1,
+          "semantic_prerequisite_count": 18,
+          "source_route_count": 12
+        },
+        "runtime_pass_bound_stage_count": 10
+      },
+      "operational_plan_identity": "62f16cbe42d1de16d57b652f5fb60a21e81b6d30e1454d4820371f5bd2d0e725",
+      "operational_plan_identity_schema": "closeout-execution-input-graph-v7",
+      "semantic_closeout_passed": true
+    },
+    "started_at": "2026-11-23T04:36:41.249323Z",
+    "state": "complete"
+  },
+  "next_action": {
+    "argv": [],
+    "command": "",
+    "errors": [
+      "final-adversary review panel does not bind the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+      "reviews[0] does not attest the exact frozen review material identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`",
+      "final-adversary audit artifact does not bind the exact current final holistic audit surface identity `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`"
+    ],
+    "final_holistic_surface_identity": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
+    "id": "perform_final_adversarial_source_audit",
+    "reason": "perform only the missing independent final review identified below against the frozen policy-selected source-and-Lean surface; retain valid prior panel entries and bind each new audit artifact to this exact comparison identity",
+    "required": true,
+    "state": "ready_now"
+  },
+  "paper": "Galarza26RelativeCredit",
+  "plan_identity_input_path_count": 23,
+  "plan_identity_schema": "closeout-execution-input-graph-v7",
+  "plan_identity_sha256": "83fe6e816771d1eaada8ae1e0722227d5dbfcc1b6aadb3df817d3180d8e1de23",
+  "plan_receipt_acceptance_credential": false,
+  "plan_receipt_path": "papers/Galarza26RelativeCredit/.review_traces/closeout_execution_plan.83fe6e816771d1eaada8ae1e0722227d5dbfcc1b6aadb3df817d3180d8e1de23.json",
+  "planner_compatibility": {
+    "dashboard_manifest_required": false,
+    "operational_input_lane": "lean_live_import_closure",
+    "semantic_input_lane": "current_v11_direct_ledgers",
+    "semantic_material_identity": "strict_transaction_content_snapshot",
+    "strict_closeout_remains_authoritative": true
+  },
+  "readiness_matrix": {
+    "acceptance_credential": false,
+    "blockers": [],
+    "lanes": {
+      "final_validation_report_status": {
+        "errors": [],
+        "ready": null,
+        "scope": "controlled Closeout Status/status.json agreement only",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "focused_build_target": {
+        "errors": [],
+        "ready": true,
+        "scope": "exact path-independent paper-root Lake target"
+      },
+      "paper_local_proof_surface": {
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-elaborated declaration, proof, and axiom closure",
+        "state": "deferred_to_lean_graph_and_focused_build"
+      },
+      "required_artifacts": {
+        "missing": [],
+        "ready": true,
+        "scope": "source, interface, status, and Lean entrypoint inputs"
+      },
+      "review_surface_projection": {
+        "errors": [],
+        "ready": true,
+        "scope": "generated status navigation projected from typed source routes; not semantic or proof evidence"
+      },
+      "review_surface_structure": {
+        "errors": [],
+        "findings": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "typed source/Spec/proof routes and Lean-elaborated declaration membership",
+        "state": "deferred_to_typed_route_and_lean_graph_preflight"
+      },
+      "semantic_and_recursive_gates": {
+        "proof_placeholder_scope": "exact Lean-loaded import closure",
+        "reason": "the planner does not duplicate semantic receipt producers or turn legacy missing fields into new closeout requirements",
+        "state": "deferred_to_authoritative_closeout"
+      },
+      "source_intake_boundary": {
+        "acceptance_credential": false,
+        "authority": "reviewed_source_inventory_v1",
+        "errors": [],
+        "path": "papers/Galarza26RelativeCredit/audit/v11_source_map_preparation_config.json",
+        "ready": true,
+        "state": "current"
+      },
+      "strict_closeout_documents": {
+        "errors": [],
+        "ready": null,
+        "scope": "strict ERROR-class report and source-first audit gates",
+        "state": "deferred_until_terminal_closeout"
+      },
+      "terminal_presentation_artifacts": {
+        "missing": [],
+        "ready": true,
+        "required_now": false,
+        "scope": "final report and rendered dependency DAG",
+        "state": "current"
+      },
+      "tracked_lean_import_closure": {
+        "errors": [],
+        "python_lean_source_parsing": false,
+        "ready": null,
+        "scope": "Lean-loaded repository and external module closure",
+        "state": "deferred_to_lean_owned_import_closure"
+      }
+    },
+    "ready": true
+  },
+  "realization_receipt_preflight": {
+    "acceptance_credential": false,
+    "current": true,
+    "errors": [],
+    "graph_native_items": [
+      "proposition_1_global_solution_regimes",
+      "proposition_2_conditional_threshold",
+      "proposition_3_transmission_composition"
+    ],
+    "required": true,
+    "schema": 3,
+    "state": "current_graph_authority"
+  },
+  "requires_fresh_strict_closeout": true,
+  "reusable_items_omitted_from_output": {
+    "coverage": 0,
+    "statement": 0
+  },
+  "schema": 2,
+  "semantic_review_authoritative_lane": {
+    "errors": [],
+    "lane": "current_v11_raw_source_to_expanded_spec",
+    "ready": true,
+    "required": true,
+    "validation_lane": "shared_evidence_run_context"
+  },
+  "semantic_review_reuse_ready": true,
+  "source_coverage_mode": "named_theoretical_statements",
+  "source_material_sha256": "",
+  "summary": {
+    "coverage_future_reuse_pin_missing": 0,
+    "coverage_requires_review": 0,
+    "coverage_reusable": 0,
+    "retirement_candidates": 0,
+    "statement_future_reuse_pin_missing": 0,
+    "statement_requires_review": 0,
+    "statement_reusable": 0
+  },
+  "superseded_legacy_review_diagnostics": {
+    "coverage_records": 0,
+    "current_closeout_obligations": 0,
+    "reason": "the current v11 raw-source-to-expanded-Spec lane is authoritative; legacy item records remain historical diagnostics",
+    "retirement_candidates": 0,
+    "statement_records": 0
+  },
+  "terminal_presentation_closeout_preflight": {
+    "acceptance_credential": false,
+    "errors": [],
+    "ready": true,
+    "state": "current"
+  },
+  "v11_reducer": {
+    "acceptance_credential": false,
+    "action": "perform_final_source_audit",
+    "legacy_adoption_consulted": false,
+    "worker_disposition": "different_plan"
+  },
+  "validator_identity_errors": {
+    "coverage": [],
+    "statement": []
+  }
+}
