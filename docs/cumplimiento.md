@@ -13,7 +13,7 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Slides del tema conservados | Cumplido | slides/topic.tex/pdf: 19 páginas | No modificados en esta revisión |
 | Slides finales y fuente | Cumplido | slides/final.tex/pdf: 33 páginas; PDF adjunto idéntico | Conservados byte por byte por instrucción del autor |
 | Presentación de unos 30 minutos y discusión | Estimación | docs/guia_presentacion_actual.md y timing de 29 láminas principales | No consta un ensayo real; cuatro láminas son respaldo |
-| Paper 8–20 páginas de cuerpo, 11pt, 1in y una columna | Cumplido | paper/paper.tex/pdf: 15 páginas de cuerpo | Conteo final en qa_report.json |
+| Paper 8–20 páginas de cuerpo, 11pt, 1in y una columna | Cumplido | paper/paper.tex/pdf: 16 páginas de cuerpo; edición inglesa: 15 | Conteo final en qa_report.json |
 | Introducción, literatura y contribución acotada | Cumplido | Secciones 1–3 y bibliografía primaria | No se reclama prioridad universal |
 | Primitivas, unidades, cronología y agente | Cumplido | Sección 4, diccionario y distinción de tres operaciones | Precio y pares dados; no juego estratégico |
 | Modelo original preservado | Cumplido | Cinco supuestos y tres enunciados idénticos; docs/modelo_preservado.json | Solo explicación y pruebas ampliadas |
@@ -26,7 +26,7 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Cada resultado y figura comprobados | Cumplido | verify.py: 4018 + 73 controles y seis figuras | Resultados numéricos ilustrativos |
 | Dependencias y reproducción | Cumplido | requirements.txt fijado; semilla 20261110 | LaTeX y Lean se ejecutan por separado |
 | Slide Lean: enunciado, prueba real y límites | Cumplido como presentación | Diapositiva 23 del PDF del autor | Estado histórico en curso; evidencia actual en lean_progreso.md |
-| Lean oficial del paper entregado y carpeta completa | Cierre estricto aceptado | lean/, grafo 1e2850e8…, diez etapas y cero errores | Revisión humana 0/3; fachada general con fallo documentado; controles oficiales de reproducción separados |
+| Lean oficial del paper entregado y carpeta completa | Fuente del 22-nov aceptada; revalidación editorial del 24-nov en curso | lean/, grafo 1e2850e8…, diez etapas y cero errores | Revisión humana 0/3; fachada general con fallo documentado; controles oficiales de reproducción separados |
 | Tabla Lean con declaración, archivo, hipótesis y estado | Cumplido como reporte técnico | Apéndice B; prueba del kernel separada del cierre integral | Chequeo actual y fuente se registran fuera del PDF |
 | Apéndice manuscrito auténtico completo | Pendiente personal | Guía tipográfica de 13 apartados | Escribir, revisar y escanear; las láminas transcritas no son manuscrito |
 | Registro IA, crítica y verificación | Cumplido como registro disponible | prompts.md y apéndice C | No se inventan prompts de Claude ni revisión humana |

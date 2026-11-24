@@ -9,6 +9,7 @@ import numpy as np
 import sympy as sp
 from scipy.optimize import minimize_scalar,brentq
 from model import Parameters,solve,profit,regime,risk_slope,opacity,stock,stock_slope
+from figure_output import save_figure
 HERE=Path(__file__).resolve().parent
 OUT,FIG=HERE/'output',HERE/'figures'
 OUT.mkdir(exist_ok=True); FIG.mkdir(exist_ok=True)
@@ -17,10 +18,7 @@ def check(x,label):
     if not bool(x): raise RuntimeError(label)
     CHECKS.append(label)
 def save(fig,name):
-    fig.tight_layout()
-    fig.savefig(FIG/f'{name}.pdf',metadata={'CreationDate':None,'ModDate':None})
-    fig.savefig(FIG/f'{name}.png',dpi=170)
-    plt.close(fig)
+    save_figure(fig,FIG,name)
 def axis(ax,title,x,y):
     ax.set(title=title,xlabel=x,ylabel=y); ax.spines[['top','right']].set_visible(False); ax.grid(alpha=.18)
 
@@ -118,7 +116,7 @@ def main():
     check(maxstock<1e-8,'P3: independent finite-difference stock slope')
     p=opacity(0);fig,axs=plt.subplots(1,2,figsize=(9,3.5))
     axs[0].plot(100*ds,100*solve(ds,p)[1]);axis(axs[0],'Selección domina en originación','D (pp anuales)','Probabilidad de atraso (%)')
-    for el in [0,3]: axs[1].plot(100*ds,100*stock(ds,p,elasticity=el),label=f'Elasticidad ε = {el}')
+    for el in [0,3]: axs[1].plot(100*ds,100*stock(ds,p,elasticity=el),label=f'Semielasticidad ε = {el}')
     axis(axs[1],'La composición cambia el signo','D (pp anuales)','Ratio esperado de cartera (%)')
     axs[1].legend(frameon=False);save(fig,'stock_composition')
     gm=np.linspace(.5,1.8,100);caps=np.linspace(.04,.65,100)
@@ -128,10 +126,24 @@ def main():
     axis(ax,'Sensibilidad de tecnología y capacidad (κ=0.9)','Multiplicador de productividad g','Capacidad (índice)');save(fig,'sensitivity')
     with (HERE/'data'/'bcrp_2024_table_2_2.csv').open(encoding='utf-8',newline='') as f: public=list(csv.DictReader(f))
     check(len(public)==4 and [float(x['sep2024']) for x in public]==[9.8,16.3,15.2,4.7],'Public context frozen transcription')
-    fig,ax=plt.subplots(figsize=(7.6,3.5))
-    for row in public:
-        ax.plot(['Set. 2023','Mar. 2024','Set. 2024'],[float(row[x]) for x in ['sep2023','mar2024','sep2024']],marker='o',label=row['segment'])
-    axis(ax,'Contexto del sistema financiero peruano','Observación','CAR ajustada por castigos (%)');ax.legend(frameon=False,ncol=2);save(fig,'public_context')
+    fig,ax=plt.subplots(figsize=(7.3,3.4))
+    fig.subplots_adjust(left=.095,right=.985,top=.87,bottom=.25)
+    colors=['#214e72','#267c6b','#bc5d38','#755384']
+    for row,color in zip(public,colors):
+        ax.plot([0,1,2],[float(row[x]) for x in ['sep2023','mar2024','sep2024']],
+                marker='o',markersize=4.5,lw=1.7,color=color,label=row['segment'])
+    ax.set_xticks([0,1,2],['Set. 2023','Mar. 2024','Set. 2024'])
+    ax.set(xlim=(-.06,2.06),ylim=(0,18),yticks=np.arange(0,19,3),
+           ylabel='CAR ajustada (%)',title='Calidad de cartera por segmento, 2023–2024')
+    ax.tick_params(labelsize=9)
+    ax.yaxis.label.set_size(10)
+    ax.title.set_size(11)
+    ax.set_title('Calidad de cartera por segmento, 2023–2024',fontsize=11,pad=12)
+    ax.spines[['top','right']].set_visible(False)
+    ax.grid(axis='y',alpha=.2)
+    ax.legend(frameon=False,ncol=4,loc='upper center',bbox_to_anchor=(.5,-.17),
+              fontsize=9,columnspacing=1.8,handlelength=2)
+    save(fig,'public_context')
     rates=np.array([.08,.09,.10,.25]);own=.12;base=.0425
     mean_signal=own-rates.mean();median_signal=own-np.median(rates)
     check(abs(own-base-np.mean(rates-base)-mean_signal)<1e-14,'Peer mean cancels common base')

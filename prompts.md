@@ -632,3 +632,28 @@ No se parcheó el motor ni se usaron opciones de fuentes ausentes para
 obtener aceptación. No se atribuyen al estudiante revisión humana,
 derivaciones manuscritas ni ensayo no observados. El PDF y slides siguen
 fijos; el cierre se registra en documentos externos al paper.
+
+
+## 10. Ediciones finales en español e inglés — 24 de noviembre de 2026
+
+**Solicitud literal del usuario**
+
+```text
+He encontrado puntos a mejorar. En concreto, mejora la redacción en todo el paper, recuerda que es una ENTREGA, no un borrador. Por otro lado, en el paper, el primer gráfico (figura 1) no está bien cuadrado, asegúrate de que sí. Además, mejora la redacción: sé más explicativo, que quede claro. Realiza una versión en español y en inglés. Asegúrate de que la redacción esté acorde a una entrega final, no a un borrador.
+```
+
+**Respuesta literal inicial del asistente**
+
+```text
+Revisaré la redacción de todo el artículo y la composición de la figura 1. Prepararé versiones finales en español e inglés, conservando el modelo, los supuestos y las proposiciones, y comprobaré su extensión, compilación y diseño. También revisaré qué exige actualizar Lean al cambiar el PDF.
+```
+
+Resumen de acciones, no transcripción de interacciones ausentes: se reescribió
+el artículo español con tono académico final y se preparó una traducción
+inglesa completa. Se conservaron literalmente sus cinco supuestos y tres
+enunciados españoles. Se contrastaron ecuaciones y condiciones entre idiomas.
+La figura 1 se rediseñó sin cambiar datos, y se publicaron versiones inglesas
+de las seis figuras. La verificación numérica permanece en 4018+73 controles.
+Ambos PDF compilaron y se inspeccionaron todas sus páginas. La fuente anterior
+de Lean se preserva y se distingue de la renovación del PDF editorial.
+No se atribuyen escaneos ni revisión personal al autor sin evidencia.

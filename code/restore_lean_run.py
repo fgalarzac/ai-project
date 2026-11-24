@@ -42,8 +42,15 @@ def main():
     evidence = repo / 'docs' / 'lean_evidence'
     pin = json.loads((evidence / 'source_pin.json').read_text(encoding='utf-8'))
     public_artifacts = json.loads((evidence / 'public_artifacts.json').read_text(encoding='utf-8'))
-    require_hash(repo / 'paper' / 'paper.pdf', pin['pdf_sha256'])
-    require_hash(repo / 'paper' / 'paper.tex', pin['tex_sha256'])
+    def source_path(key, default):
+        path = (repo / pin.get(key, default)).resolve(strict=True)
+        if not path.is_relative_to(repo):
+            raise ValueError('Pinned source must remain inside the project')
+        return path
+    source_pdf = source_path('repo_pdf_path', 'paper/paper.pdf')
+    source_tex = source_path('repo_tex_path', 'paper/paper.tex')
+    require_hash(source_pdf, pin['pdf_sha256'])
+    require_hash(source_tex, pin['tex_sha256'])
     for relative, expected in public_artifacts['sha256'].items():
         path = (repo / relative).resolve(strict=True)
         if not path.is_relative_to(repo):
@@ -51,8 +58,8 @@ def main():
         require_hash(path, expected)
     shutil.copytree(repo / 'lean', target)
     shutil.copy2(evidence / f'{paper_id}.lean', entrypoint)
-    shutil.copy2(repo / 'paper' / 'paper.pdf', target / 'source.pdf')
-    shutil.copy2(repo / 'paper' / 'paper.tex', target / 'source.tex')
+    shutil.copy2(source_pdf, target / 'source.pdf')
+    shutil.copy2(source_tex, target / 'source.tex')
     # The course asks us to preserve the generated ignore file. Restore the
     # ignored packet from its separately published, byte-identical copy.
     shutil.copy2(evidence / 'HUMAN_REVIEW_PACKET.pdf', target / 'docs' / 'HUMAN_REVIEW_PACKET.pdf')
@@ -71,6 +78,8 @@ def main():
     subprocess.run(['git', 'add', '--', f'papers/{paper_id}', f'papers/{paper_id}.lean'],
                    cwd=aml, check=True)
     print(f'Restored {paper_id} from paper commit {pin["source_commit"]}.')
+    if digest(repo / 'paper' / 'paper.pdf') != pin['pdf_sha256']:
+        print('This reproduces the accepted historical source. The current editorial edition is a different PDF; consult docs/lean_progreso.md for its validation status.')
     print('Exact source and public-artifact hashes match. Run the official fast check, module checkpoint, and receipt check.')
 
 

@@ -1,6 +1,6 @@
 # Cómo leer el modelo, paso a paso
 
-Esta guía acompaña al paper final de 15 páginas de cuerpo. Explica su misma
+Esta guía acompaña al paper final de 16 páginas de cuerpo. Explica su misma
 decisión y sus tres proposiciones. Las páginas indicadas son las numeradas en
 el artículo, incluida su primera página.
 
@@ -107,7 +107,7 @@ la interioridad permite identificar β con la derivada de q\*. La opacidad
 por sí sola no demuestra esas condiciones. El escenario alternativo del
 paper explica por qué el cruce puede fallar.
 
-## 6. Por qué el ratio de cartera puede moverse al revés — P3, páginas 9–13
+## 6. Por qué el ratio de cartera puede moverse al revés — P3, páginas 9–14
 
 **B₀** es el saldo antiguo y **m₀** su fracción en atraso. **B(D)** es el
 saldo de los créditos nuevos que permanece al horizonte elegido.
@@ -132,7 +132,7 @@ Para w=0.20 el corte es 1.3; ε=3 lo supera. La pendiente de cartera es
 porcentual de D implica una variación local del ratio de −0.034 puntos
 porcentuales. La igualdad en el corte da pendiente cero, sin inversión estricta.
 
-## 7. Cómo evaluar el alcance — páginas 14–18
+## 7. Cómo evaluar el alcance — páginas 13–19
 
 Una derivada condicional, una mejora de pronóstico fuera de muestra y un
 efecto causal requieren argumentos diferentes. Este artículo demuestra las

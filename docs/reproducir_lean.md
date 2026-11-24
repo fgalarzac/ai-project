@@ -36,7 +36,10 @@ cd ..
 python3 ai-project/code/restore_lean_run.py --aml AppliedModelingLib
 ```
 
-El restaurador verifica los SHA256 del PDF, del TeX y de los artefactos
+El restaurador utiliza el PDF y TeX declarados en `source_pin.json`. Durante
+la renovación editorial, esos archivos son la fuente histórica exacta en
+`docs/lean_evidence/frozen_source/`; no se intercambia por el PDF nuevo.
+Verifica los SHA256 de esa fuente y de los artefactos
 públicos. Copia la carpeta generada y restaura los insumos que su `.gitignore`
 excluye: el PDF fuente, su extracción con `pdftotext` y el paquete de revisión
 humana. Exige el commit correcto y rechaza sobrescribir un paper existente.

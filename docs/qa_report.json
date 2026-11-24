@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-22",
-  "body_pages": 15,
+  "date": "2026-11-24",
+  "body_pages": 16,
   "paper_format": "11pt, 1-inch margins, single column",
   "body_count_method": "body:end in compiled aux; visual conclusion/reference transition",
   "pdfs": {
@@ -23,16 +23,22 @@
       "external_links": 2
     },
     "paper/paper.pdf": {
-      "pages": 18,
-      "sha256": "d7e8130cf88602523ff6eec460a27f798314c2596a4f241190d1da5c88fc2953",
-      "text_outside_page": 0,
-      "external_links": 19
+      "pages": 19,
+      "body_pages": 16,
+      "sha256": "381af6e7d069af85faca6774b3c07e0f927fced227c284c41cf9b203ac81f4a5",
+      "text_outside_page": 0
     },
     "hand/guia_derivaciones.pdf": {
       "pages": 7,
       "sha256": "744e7eb5ef107f765ea3a3b91020293a081d7a2161dc508d6cd0e245d2e38c3b",
       "text_outside_page": 0,
       "external_links": 0
+    },
+    "paper/paper_en.pdf": {
+      "pages": 18,
+      "body_pages": 15,
+      "sha256": "92905541206ceda53baab4ed8a96e7429e831dd15e972477a97350708fc29589",
+      "text_outside_page": 0
     }
   },
   "scratch_compilation": {
@@ -49,7 +55,14 @@
       "evidence": "prior successful scratch compilation this revision; slide inputs unchanged"
     },
     "paper/paper.tex": {
-      "exit_code": 0
+      "exit_code": 0,
+      "overfull": 0,
+      "missing_characters": 0
+    },
+    "paper/paper_en.tex": {
+      "exit_code": 0,
+      "overfull": 0,
+      "missing_characters": 0
     }
   },
   "slides_unchanged": true,
@@ -278,10 +291,41 @@
       "numerical_checks": "success",
       "four_pdf_compilations": "success",
       "acceptance_credential": false
-    }
+    },
+    "current_editorial_source": "Revalidation in progress; accepted historical source preserved exactly."
   },
   "personal_remaining": [
     "Authentic handwritten derivations",
     "Comprehension and oral rehearsal"
-  ]
+  ],
+  "editorial_editions": {
+    "spanish_original_statements_preserved": 8,
+    "numbered_display_equations_equal": 7,
+    "all_statement_math_conditions_equal": true,
+    "numeric_json_unchanged": true,
+    "slides_files_unchanged": 8,
+    "original_workflow_unchanged": true,
+    "editions": {
+      "es": {
+        "body_pages": 16,
+        "total_pages": 19,
+        "text_outside_page": 0,
+        "overfull": 0,
+        "missing_characters": 0,
+        "pdf_sha256": "381af6e7d069af85faca6774b3c07e0f927fced227c284c41cf9b203ac81f4a5",
+        "visual_review": "All pages inspected from current Poppler renders; Figure 1 also inspected at full size.",
+        "tex_sha256": "a3ed2abf032b516fb3d30c3cad0abaf643c0b9d97d8b20d47675a6777146bddf"
+      },
+      "en": {
+        "body_pages": 15,
+        "total_pages": 18,
+        "text_outside_page": 0,
+        "overfull": 0,
+        "missing_characters": 0,
+        "pdf_sha256": "92905541206ceda53baab4ed8a96e7429e831dd15e972477a97350708fc29589",
+        "visual_review": "All pages inspected from current Poppler renders; Figure 1 also inspected at full size.",
+        "tex_sha256": "d06cb482d8d29d23f1ca80bc3c2c1e413a9ae234aeee4f8ec107ef5dca04c78f"
+      }
+    }
+  }
 }
