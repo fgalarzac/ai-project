@@ -1,0 +1,15 @@
+{
+  "request_id": "20261124T053825-d09791ee",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    ".scratch/editorial24/extract_source.py"
+  ],
+  "started_utc": "2026-11-24T05:38:32Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.114,
+  "download_sha256": "c5c8522a97a9c3279ef55baf080bd992ae6625415304f86e255df2a526373f66",
+  "finished_utc": "2026-11-24T05:38:32Z"
+}

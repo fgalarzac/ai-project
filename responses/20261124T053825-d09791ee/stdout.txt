@@ -1,0 +1,11 @@
+{
+  "text_sha256": "49958ac27627c107f5b4f51d2eaa0e9ba9570ec9703b199215fac76edc2ab7fc",
+  "lines": 1274,
+  "pages": 19,
+  "text_extraction": {
+    "tool": "pdftotext",
+    "options": [],
+    "platform": "Linux",
+    "status": "extracted_once"
+  }
+}
