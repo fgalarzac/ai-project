@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    ".scratch/editorial24/finalchecks25.py"
+  ],
+  "cwd": ".",
+  "timeout": 1800,
+  "shutdown": false,
+  "download": [
+    "papers/Galarza26RelativeCredit",
+    "papers/Galarza26RelativeCredit.lean",
+    "lakefile.toml",
+    ".lake/closeout-objects",
+    ".scratch/editorial24/finalchecks25"
+  ],
+  "upload_sha256": "931bff6ac0a89ba4da8c185896d80c75139a807646e201f618b57c3dbca4a302"
+}
