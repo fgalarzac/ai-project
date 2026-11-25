@@ -1,0 +1,15 @@
+{
+  "request_id": "20261125T125320-7c419d5b",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    ".scratch/editorial24/finalchecks25.py"
+  ],
+  "started_utc": "2026-11-25T12:53:23Z",
+  "exit_code": 0,
+  "elapsed_seconds": 24.367,
+  "download_sha256": "857da119bd064ac09c79c367036c308e6193d4f8b0a1bd47fe859c35f1d0f32f",
+  "finished_utc": "2026-11-25T12:53:48Z"
+}

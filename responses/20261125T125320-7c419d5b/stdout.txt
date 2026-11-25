@@ -1,0 +1,5 @@
+fast_check 0
+full_module_checkpoint 0
+receipt_final 0
+full_check 2
+accepted_planner 0
