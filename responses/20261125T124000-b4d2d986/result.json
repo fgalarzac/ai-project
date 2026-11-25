@@ -1,0 +1,15 @@
+{
+  "request_id": "20261125T124000-b4d2d986",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    ".scratch/editorial24/restart25.py"
+  ],
+  "started_utc": "2026-11-25T12:40:42Z",
+  "exit_code": 0,
+  "elapsed_seconds": 22.57,
+  "download_sha256": "b00a5d8f02bd1046fdfb31eee7f3867ac22f2f462b878a7590e140e6e5604ed2",
+  "finished_utc": "2026-11-25T12:41:05Z"
+}
