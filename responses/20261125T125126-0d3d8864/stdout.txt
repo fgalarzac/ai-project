@@ -1,0 +1,9 @@
+{
+  "acceptance_credential": false,
+  "launch_id": "3da053f4584f436f872ba5138b361cdd",
+  "log_path": "papers/Galarza26RelativeCredit/.review_traces/paper_closeout_worker.3da053f4584f436f872ba5138b361cdd.log",
+  "paper": "Galarza26RelativeCredit",
+  "startup_acknowledged": true,
+  "state_path": "papers/Galarza26RelativeCredit/.review_traces/paper_closeout_worker.json",
+  "worker_pid": 5439
+}

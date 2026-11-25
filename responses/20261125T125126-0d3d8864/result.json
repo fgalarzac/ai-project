@@ -1,0 +1,20 @@
+{
+  "request_id": "20261125T125126-0d3d8864",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/run_paper_closeout.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--plan-identity",
+    "83fe6e816771d1eaada8ae1e0722227d5dbfcc1b6aadb3df817d3180d8e1de23",
+    "--new-run"
+  ],
+  "started_utc": "2026-11-25T12:51:28Z",
+  "exit_code": 0,
+  "elapsed_seconds": 48.278,
+  "download_sha256": "a18202d8afd7dd2cfd2bd9b1b604b266e3273ca2c504d5be5a67f3ea5d882dcc",
+  "finished_utc": "2026-11-25T12:52:17Z"
+}
