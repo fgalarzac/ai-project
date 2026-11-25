@@ -1,0 +1,11 @@
+{
+  "request_id": "20261125T130334-a5dd40ca",
+  "argv": [
+    "true"
+  ],
+  "started_utc": "2026-11-25T13:03:37Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.002,
+  "download_sha256": "9ca4cc8660fca9fa33623f44d79799edfda0ad5c8d8214ae6c7ba54f5e413b18",
+  "finished_utc": "2026-11-25T13:03:37Z"
+}
