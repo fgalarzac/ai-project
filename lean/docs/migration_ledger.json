@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "paper": "Galarza26RelativeCredit",
+  "source_commit": "1f26057150da8a1bffbf1fc357f15bd14466a090",
+  "local_timezone": "America/Lima",
+  "started_local": "2026-11-24T00:40:52-05:00",
+  "finished_local": "2026-11-25T07:53:38-05:00",
+  "new_semantic_review_rows": 12,
+  "new_semantic_review_batches": 2,
+  "independent_final_adversarial_checks": 2,
+  "stages": [
+    {
+      "stage": "source_freeze_and_intake",
+      "utc": "2026-11-24T05:40:52+00:00",
+      "note": "Merged bilingual final delivery; canonical Spanish source extracted once on Linux, source-only isolated intake running."
+    },
+    {
+      "stage": "source_intake_and_official_map",
+      "utc": "2026-11-24T05:49:09+00:00",
+      "reviewer": "01a20c10-7891-7f60-a567-7067fc314be3",
+      "note": "Fresh source-only reviewer read all19 pages and classified source presentations; official preparer exit0, three result routes. Curator retained stock-construction context already present in the source."
+    },
+    {
+      "stage": "draft_preflight_independent_repair_screen",
+      "utc": "2026-11-24T05:52:59+00:00",
+      "reviewer": "01a20c1b-96e0-7f83-9b36-c258638bcc88",
+      "note": "Actual context-isolated reviewer returned21 matches,0 mismatches,0 uncertainties; CLIexit0. This is a non-evidence repair screen."
+    },
+    {
+      "stage": "one_typed_graph_acquired",
+      "note": "Official graph preparation exited0; actual times remain in graph_prepare_transport.txt. This record does not certify acceptance.",
+      "lean_graph_sha256": "0e5015d50d6b497d6472f6823ca17730c876245a4fabe5b84cecc154a8eb611e",
+      "utc": "2026-11-24T05:54:54Z",
+      "linux_request": "20261124T055432-67820211"
+    },
+    {
+      "stage": "prerequisite_queue_issued",
+      "utc": "2026-11-24T05:56:38+00:00",
+      "note": "Nine changed source-to-Lean model rows actually issued; fresh isolated reviewer dispatched. Other judgments may be reused only through the official identity checks."
+    },
+    {
+      "stage": "nine_changed_prerequisites_reviewed",
+      "reviewer": "01a20c20-89ce-7f83-a73f-02b4381f2f05",
+      "note": "Actual isolated CLI exit0, nine matches and no uncertainties; official issuer exit0 and18 current model judgments."
+    },
+    {
+      "stage": "result_queue_issued",
+      "utc": "2026-11-24T06:01:59+00:00",
+      "note": "Three changed result rows actually issued; fresh independent reviewer dispatched."
+    },
+    {
+      "stage": "three_changed_results_reviewed",
+      "utc": "2026-11-24T06:07:28+00:00",
+      "reviewer": "01a20c25-6ede-7ed2-925d-eb86a4ce77a0",
+      "note": "Actual isolated CLIexit0: three matches, no mismatches or uncertainties. Official issuer exit0; semantic surface is current."
+    },
+    {
+      "stage": "final_adversary_dispatched",
+      "utc": "2026-11-24T06:10:51+00:00",
+      "surface_sha256": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
+      "note": "One new no-history reviewer, distinct from all authors and semantic reviewers, dispatched on the exact policy-selected final surface. No verdict yet."
+    },
+    {
+      "stage": "first_final_adversary_aborted",
+      "reviewer": "01a20c2d-8d29-7200-acc6-85397015116f",
+      "note": "Actual CLIexit1 due usage limit. No audit, panel PASS, or acceptance was issued."
+    },
+    {
+      "stage": "fresh_final_adversary_dispatched",
+      "utc": "2026-11-25T12:39:44+00:00",
+      "surface_sha256": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
+      "note": "Fresh no-history reviewer on the unchanged exact frozen surface; earlier attempt yielded no verdict."
+    },
+    {
+      "stage": "final_adversary_passed",
+      "utc": "2026-11-25T12:47:55Z",
+      "reviewer": "01a212b6-e106-78c1-93fa-c98af3d2ac1a",
+      "surface_sha256": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
+      "note": "Actual fresh no-history reviewer CLIexit0 and PASS; no substantive findings. Exact audit and panel copied without normalization."
+    },
+    {
+      "stage": "panel_schema_normalized",
+      "note": "Original panel preserved; only aliases, existing-attestation nesting, and paper-local path normalized. No new judgment."
+    },
+    {
+      "stage": "strict_closeout_and_required_checks_completed",
+      "utc": "2026-11-25T12:53:38.082944+00:00",
+      "note": "Canonical accepted graph issued;10 strict stages0errors7nonblockingwarnings. Actual official fast0, allmodulecheckpoint0, receipt0. General facade2 remains a documented upstream limitation."
+    }
+  ],
+  "acceptance_credential": false,
+  "accepted_graph_sha256": "73176b110cad1b3750b61da169704116cafbae83a77cc510c87c1fef04801977"
+}

@@ -2,31 +2,31 @@
   "schema": 2,
   "paper": "Galarza26RelativeCredit",
   "source_artifact_path": "source.txt",
-  "source_artifact_sha256": "9531b374b2be3c9e9d1affb82f03f09e05e99e85353f52aa40eb6beb925ce9d5",
+  "source_artifact_sha256": "49958ac27627c107f5b4f51d2eaa0e9ba9570ec9703b199215fac76edc2ab7fc",
   "review_status": "reviewed_no_defects",
   "reviewed_proof_scopes": [
     {
-      "source_locator": "source.txt:389-434",
+      "source_locator": "source.txt:387-433",
       "semantic_scope": "Proposition 1, S1–S3; global effort choice including capacity and probability corners. The source uses strict concavity and the squared distance to the unconstrained stationary effort, treating the zero-width interval separately.",
       "outcome": "no_defect"
     },
     {
-      "source_locator": "source.txt:435-459",
+      "source_locator": "source.txt:434-461",
       "semantic_scope": "Proposition 1, strict regimes and ties on the source price domain. Each strict regime persists on a neighborhood; the three affine risk branches have slopes a-g²/c, a, and zero. Minima and maxima preserve continuity, and adjacent branches give one-sided derivatives.",
       "outcome": "no_defect"
     },
     {
-      "source_locator": "source.txt:486-500",
+      "source_locator": "source.txt:485-504",
       "semantic_scope": "Proposition 2, S1–S4 at the compared price. The continuous difference a-g²/c has opposite endpoint signs, a zero by the intermediate value theorem, and a unique zero by strict decrease. Interiority identifies the difference with the risk derivative.",
       "outcome": "no_defect"
     },
     {
-      "source_locator": "source.txt:552-581",
+      "source_locator": "source.txt:556-582",
       "semantic_scope": "Proposition 3, S1–S3 and S5; no empirical assertion that a real ledger obeys S5. Divide expected impaired balances by the positive deterministic total, then differentiate the weighted sum; a positive constant weight preserves sign and a sufficiently small composition term does not change a nonzero sign.",
       "outcome": "no_defect"
     },
     {
-      "source_locator": "source.txt:582-608",
+      "source_locator": "source.txt:583-610",
       "semantic_scope": "Proposition 3 exponential specialization at differentiable points, under the source sign conditions. The quotient and exponential rules give the derivative of the weight; factoring out the positive weight gives the necessary and sufficient inequality for reversal.",
       "outcome": "no_defect"
     }
@@ -34,35 +34,35 @@
   "checked_proof_steps": [
     {
       "id": "p1.global_optimum",
-      "source_locator": "source.txt:389-434",
+      "source_locator": "source.txt:387-433",
       "source_step": "The source uses strict concavity and the squared distance to the unconstrained stationary effort, treating the zero-width interval separately.",
       "checked_conclusion": "The checked payoff difference yields a strict comparison against every feasible distinct effort. The candidate belongs to the interval and is its unique maximizer; the screened-risk formula and bounds follow from the minimum.",
       "scope": "Proposition 1, S1–S3; global effort choice including capacity and probability corners."
     },
     {
       "id": "p1.regime_derivatives",
-      "source_locator": "source.txt:435-459",
+      "source_locator": "source.txt:434-461",
       "source_step": "Each strict regime persists on a neighborhood; the three affine risk branches have slopes a-g²/c, a, and zero. Minima and maxima preserve continuity, and adjacent branches give one-sided derivatives.",
       "checked_conclusion": "The checked local equalities give the stated ordinary derivatives, zero-capacity specialization, and continuous piecewise-affine risk and effort. One-sided affine germs give one-sided derivatives, with a valid capacity-tie witness for failure of ordinary differentiation.",
       "scope": "Proposition 1, strict regimes and ties on the source price domain."
     },
     {
       "id": "p2.continuous_crossing",
-      "source_locator": "source.txt:486-500",
+      "source_locator": "source.txt:485-504",
       "source_step": "The continuous difference a-g²/c has opposite endpoint signs, a zero by the intermediate value theorem, and a unique zero by strict decrease. Interiority identifies the difference with the risk derivative.",
       "checked_conclusion": "Continuity on the closed opacity interval, an interior zero, strict uniqueness and signs are derived. The interior derivative result is applied at the common price for every admissible opacity.",
       "scope": "Proposition 2, S1–S4 at the compared price."
     },
     {
       "id": "p3.ledger_and_derivative",
-      "source_locator": "source.txt:552-581",
+      "source_locator": "source.txt:556-582",
       "source_step": "Divide expected impaired balances by the positive deterministic total, then differentiate the weighted sum; a positive constant weight preserves sign and a sufficiently small composition term does not change a nonzero sign.",
       "checked_conclusion": "The ledger quotient equals the weighted sum. Differentiation derives the same quality and composition terms; sign rules include the zero case for constant balance and strict dominance for nonzero derivative.",
       "scope": "Proposition 3, S1–S3 and S5; no empirical assertion that a real ledger obeys S5."
     },
     {
       "id": "p3.exponential_reversal",
-      "source_locator": "source.txt:582-608",
+      "source_locator": "source.txt:583-610",
       "source_step": "The quotient and exponential rules give the derivative of the weight; factoring out the positive weight gives the necessary and sufficient inequality for reversal.",
       "checked_conclusion": "The exponential balance is substituted into the same ledger, the derivative and weight identities are checked, and division by the strictly positive weight preserves the exact sign equivalence.",
       "scope": "Proposition 3 exponential specialization at differentiable points, under the source sign conditions."
@@ -71,5 +71,5 @@
   "model_conventions": [],
   "defects": [],
   "reviewer": "Proof coordinator; own comparison of source proofs and checked Lean support, not an independent source-to-Spec judgment",
-  "validated_at": "2026-11-23T03:24:57Z"
+  "validated_at": "2026-11-24T05:48:34Z"
 }

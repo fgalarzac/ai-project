@@ -6,7 +6,7 @@ import Mathlib.Tactic
 
 /-!
 Source model for the author-owned manuscript pinned at
-https://github.com/fgalarzac/ai-project/blob/25f0b0c7df040e2b04d78064b30949492cd4472f/paper/paper.pdf.
+https://github.com/fgalarzac/ai-project/blob/1f26057150da8a1bffbf1fc357f15bd14466a090/paper/paper.pdf.
 The price and technology are fixed before effort is chosen. There is no price
 equilibrium assertion. All formulas below are transparent model primitives;
 no record assumes optimality, a derivative formula, or a threshold.

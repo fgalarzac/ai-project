@@ -91,5 +91,6 @@ el texto completo, las demostraciones y las seis figuras traducidas.
 La figura 1 tiene márgenes equilibrados, escala y etiquetas legibles y una
 leyenda exterior. Las magnitudes no cambian. Ambas ediciones compilan sin
 desbordamientos ni caracteres faltantes y cumplen el límite de cuerpo.
-La aceptación Lean de la fuente anterior se conserva con sus bytes exactos;
-la nueva edición se somete a revalidación, sin atribuirle el certificado previo.
+La edición española final del 24 de noviembre tiene su propio cierre Lean
+aceptado. La fuente anterior se conserva con sus bytes exactos como archivo
+histórico. La traducción inglesa mantiene los mismos enunciados y condiciones.

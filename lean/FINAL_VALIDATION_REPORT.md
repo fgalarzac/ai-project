@@ -1,6 +1,6 @@
-# Final Validation Report: El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera
+# Final Validation Report: El precio relativo del crédito como señal de morosidad: evaluación crediticia, restricciones y composición de cartera
 
-Updated: 2026-11-22
+Updated: 2026-11-24
 
 ## 1. Human Verdict
 
@@ -13,7 +13,7 @@ Las tres proposiciones del artículo se formalizaron con sus condiciones origina
 
 ## 3. Source and Scope
 
-Manuscrito de Fabián Matías Galarza Chumbe, 22 de noviembre de 2026, para el curso de IA y modelación económica. La [versión fusionada del artículo](https://github.com/fgalarzac/ai-project/blob/25f0b0c7df040e2b04d78064b30949492cd4472f/paper/paper.pdf) contiene las tres proposiciones principales, sus definiciones y cinco supuestos. Los ejemplos numéricos, las figuras y la agenda empírica son material de interpretación.
+Manuscrito de Fabián Matías Galarza Chumbe, 24 de noviembre de 2026, para el curso de IA y modelación económica. La [versión fusionada del artículo](https://github.com/fgalarzac/ai-project/blob/1f26057150da8a1bffbf1fc357f15bd14466a090/paper/paper.pdf) contiene las tres proposiciones principales, sus definiciones y cinco supuestos. Los ejemplos numéricos, las figuras y la agenda empírica son material de interpretación.
 
 ## 4. Researcher Summary of Checked Results
 
@@ -55,7 +55,7 @@ None.
 
 `PaperInterface.lean` contiene las tres especificaciones transparentes. `ProofInterface.lean` cierra `proposition1`, `proposition2` y `proposition3` con los tipos exactos. La inspección de axiomas de los endpoints solo encontró `propext`, `Classical.choice` y `Quot.sound`.
 
-Fuente PDF: commit `25f0b0c7df040e2b04d78064b30949492cd4472f`, SHA256 `d7e8130cf88602523ff6eec460a27f798314c2596a4f241190d1da5c88fc2953`. El [mapa](audit/paper_statement_map.json) fija los pasajes de esa versión. [Fidelidad de las pruebas](audit/source_proof_fidelity.json) registra la comparación de los pasos matemáticos.
+Fuente PDF: commit `1f26057150da8a1bffbf1fc357f15bd14466a090`, SHA256 `381af6e7d069af85faca6774b3c07e0f927fced227c284c41cf9b203ac81f4a5`. El [mapa](audit/paper_statement_map.json) fija los pasajes de esa versión. [Fidelidad de las pruebas](audit/source_proof_fidelity.json) registra la comparación de los pasos matemáticos.
 
 ## 13. Paper Assumption Provenance
 

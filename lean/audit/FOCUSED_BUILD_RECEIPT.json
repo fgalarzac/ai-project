@@ -2,7 +2,7 @@
   "command": "lake build +Galarza26RelativeCredit",
   "commit": "4d30604f45ddd6848fd87691c8e3ca63881b073b",
   "lean_entrypoint": "papers/Galarza26RelativeCredit.lean",
-  "lean_import_closure_sha256": "c25cdd1af534a461dd2b2fd141af2c3f821d09349a14043e39a5ff51bcc6e133",
+  "lean_import_closure_sha256": "2d6a23390aa66c077bc1ad3ed2969fba90e6a73987baede5f823125e67e2117f",
   "paper": "Galarza26RelativeCredit",
   "result": "passed",
   "schema": 3,

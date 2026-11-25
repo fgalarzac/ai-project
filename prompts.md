@@ -657,3 +657,28 @@ de las seis figuras. La verificación numérica permanece en 4018+73 controles.
 Ambos PDF compilaron y se inspeccionaron todas sus páginas. La fuente anterior
 de Lean se preserva y se distingue de la renovación del PDF editorial.
 No se atribuyen escaneos ni revisión personal al autor sin evidencia.
+
+
+## 11. Renovación Lean concluida — 25 de noviembre de 2026
+
+Continuación literal del usuario: «continúa».
+Resumen de acciones, no transcripción reconstruida: se conservó el PDF español
+fusionado por PR10. Una lectura independiente de la nueva fuente, un examen
+preliminar y las comparaciones oficiales renovaron la correspondencia: nueve
+filas de definiciones y tres de resultados recibieron revisión nueva; las
+restantes se conservaron solo por identidad validada. El primer intento de
+revisión final terminó por cuota, sin dictamen. Un nuevo revisor independiente
+completó la auditoría con salida 0 y PASS, sin hallazgos sustantivos. Su informe
+y panel originales se conservan. Solo se normalizaron los nombres de claves,
+la anidación de las dos declaraciones de independencia ya existentes y la
+ruta local del panel al esquema del motor, sin cambiar dictamen, hash,
+superficie, fecha ni declaraciones del revisor.
+
+El cierre estricto emitió el grafo `73176b110cad1b3750b61da169704116cafbae83a77cc510c87c1fef04801977` con diez controles completos y cero
+errores. El chequeo rápido, todos los módulos y el recibo vigente terminaron
+con salida 0. La fachada general conservó su fallo documentado, salida
+2; no se presenta como aprobada. La carpeta generada se
+copió íntegra, respetando su ignore. Las dos ediciones del paper y todos los
+archivos de slides conservaron sus hashes. La credencial formal corresponde
+al español; la traducción inglesa se contrastó por separado. No se inventó
+revisión humana, manuscrito ni historial de Claude.

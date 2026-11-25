@@ -36,9 +36,9 @@ cd ..
 python3 ai-project/code/restore_lean_run.py --aml AppliedModelingLib
 ```
 
-El restaurador utiliza el PDF y TeX declarados en `source_pin.json`. Durante
-la renovación editorial, esos archivos son la fuente histórica exacta en
-`docs/lean_evidence/frozen_source/`; no se intercambia por el PDF nuevo.
+El restaurador utiliza el PDF y TeX canónicos de la edición española final
+del 24 de noviembre, declarados en `source_pin.json`: `paper/paper.pdf` y
+`paper/paper.tex`. La fuente anterior se conserva como archivo histórico.
 Verifica los SHA256 de esa fuente y de los artefactos
 públicos. Copia la carpeta generada y restaura los insumos que su `.gitignore`
 excluye: el PDF fuente, su extracción con `pdftotext` y el paquete de revisión
@@ -66,7 +66,7 @@ ni un motor parcheado. Si un insumo cambia, su aceptación debe revalidarse.
 ## Alcance y fallo conocido de la biblioteca
 
 El cierre estricto original terminó con salida 0, diez etapas completas y
-cero errores. El recibo vigente identifica el grafo `1e2850e8…`.
+cero errores. El recibo vigente identifica el grafo `73176b11…`.
 La evidencia está en [lean_progreso.md](lean_progreso.md).
 
 En esta versión, `paper_contribution.py check` sin `--fast` devuelve salida
@@ -81,7 +81,7 @@ revalidar la aceptación ya emitida. La CI no afirma éxito de esa fachada.
 
 `lean/` es una copia íntegra y sin edición del directorio generado. Se respeta
 su `.gitignore` y no se usa `git add -f`. El PDF fuente está en `paper/paper.pdf`;
-el paquete de revisión tiene una copia idéntica de 37 páginas en
+el paquete de revisión tiene una copia idéntica de 40 páginas en
 [HUMAN_REVIEW_PACKET.pdf](lean_evidence/HUMAN_REVIEW_PACKET.pdf).
 El restaurador recompone los archivos excluidos para ejecutar los controles.
 Los finales de línea del directorio generado se preservan byte por byte.

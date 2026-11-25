@@ -1,33 +1,29 @@
-# Final adversarial source audit: Galarza26RelativeCredit
+# Final adversarial source audit: `Galarza26RelativeCredit`
 
-Reviewer identity: `source3-final-adversary-6f89f424ecf54a0497c2d8c7dea600ef`
+Stable reviewer identity: `source4-final-adversary-85d8bfb5aa004067bc5efe899837fba9`
 
 ## Overall status: PASS
-- Reviewed final holistic audit surface identity: `b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881`
+- Reviewed final holistic audit surface identity: `5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79`
 - Final audit scope: `complete_current_surface`
 
-## Independent read performed
+## Independent review performed
 
-I independently read the formalization protocol, the planner-issued schema-3 final holistic surface, its frozen `closeout_review_policy` assurance, and the complete policy-selected terminal projection. The frozen policy requires one final adversary over `main_primary`; no appendix item is promoted. I rehashed and read the complete 1,086-line `main_text` source region (`238ef96335ec682623e5ed3fdb16ca2907e8b19f0f00abfd7f8e104f757dcc13`). I also checked the 152-line appendix partition boundary (`dc77d72f7e69ec6c705ce6cf1173315080f398a5eb85079efdb03706334b0f77`) to verify that no appendix-only material had silently entered the terminal target.
+I reviewed the planner-issued policy-aware schema-3 surface and applied its frozen policy: `all_named_theory` source intake, with `main_primary` as the repeat final-adversarial scope and one required final adversary. The terminal surface contains the 1,098-line main-text region, twelve unique primary source items, three source-result reviews, eighteen paper-prerequisite reviews, and no promoted appendix item. I did not widen the terminal challenge to appendix-only reproduction or provenance material.
 
-I challenged the source inventory rather than treating it as acceptance evidence. The selected denominator is complete and nonduplicative: three numbered propositions plus nine source-model, definition, or assumption groups. I checked the 35 holistic candidate presentations and six prose-definition presentations against the source. The abstract, introduction and conclusion summaries, proof derivations, numerical examples, figures, empirical-design observations, and model-limit prose are supporting or deep-audit material; none is a separate selected theorem. The material clauses they supply to selected results are already carried by the five assumptions, the continuation model, the relative-price definition, the `H`/`beta` definitions, or the stock construction. The three proof-local names `z`, `v`, and `T` are not additional paper claims.
+I independently read the complete main-text source region rather than treating the inventory or earlier verdicts as evidence. The named normal-scope surface is complete: the relative-price definition, conditioned continuation model, Assumptions 1--5, the screening-strength/net-slope and cohort-weight definitions, and Propositions 1--3 are selected. The remaining recorded main-text candidates are supporting derivations, numerical examples, figures, empirical-design discussion, or restatements of those selected items and are correctly outside the human claim denominator. The proof-local symbols `z`, `v`, and `T` are not duplicate claims.
 
-I then compared every terminal semantic row with its exact source bundle and current graph-bound Lean target. This covered all 18 paper-prerequisite declaration rows and all three result rows. In particular:
+I revalidated all 130 quoted source anchors in `audit/paper_statement_map.json`: every quotation has its declared SHA-256 and exactly equals its declared `source.txt` line slice. The canonical source hash is `49958ac27627c107f5b4f51d2eaa0e9ba9570ec9703b199215fac76edc2ab7fc`; the terminal main-region hash is `337885572299e9ec5d1751070caf68eec5509fc5ff422a57e053a951a62cda17`.
 
-- Proposition 1 retains the unique constrained maximum, both closed forms, probability bounds, the three strict-regime slopes, zero capacity, continuity, one-sided derivatives, and an admissible nondifferentiable tie. `proposition1Spec` has the same source premises; `proposition1` proves that exact transparent Spec.
-- Proposition 2 retains the common price, opacity domain, continuity and positivity of the primitives, strict decrease and endpoint crossing of `a - g^2/c`, uniform strict interiority, the unique interior threshold, and the signs on both sides. `proposition2` proves the exact `proposition2Spec`.
-- Proposition 3 retains the two-cohort ledger identity, the general quality-plus-composition derivative, both sign-preservation rules, the exponential-balance derivative, and the strict sign-reversal equivalence under `beta_D > 0` and `q* > m0`. `proposition3` proves the exact `proposition3Spec`.
+Against `PaperInterface.lean`, `Model.lean`, and the source-connected semantic ledgers, I checked the material domains, quantifiers, premises, formulas, and conclusions. Proposition 1 retains the constrained unique maximizer, both closed forms, the three strict-regime derivatives, zero capacity, continuity, and one-sided tie behavior. Proposition 2 retains the common-price interiority, continuous strictly decreasing screening advantage, unique interior threshold, and derivative signs. Proposition 3 retains the two-cohort ledger, general derivative, both sign-preservation rules, exponential-balance specialization, and exact reversal equivalence. The nine definition/model/assumption groups route to the eighteen actual paper-local semantic declarations without an added non-source premise.
 
-The prerequisite audit included the peer-count carrier and common-base cancellation; the fixed-price continuation problem; all S1--S5 domains and inequalities; the payoff, cost and feasible-set formulas; the screening-strength definitions; and the deterministic/continuous-population stock ledger. I found no hidden premise, non-source assumption, probability-domain loss, conditioning change, expectation substitution, rate-codomain change, or invalid boundary classification.
+I also read the proof endpoints and their supporting Lean modules and inspected the frozen Lean review graph. The three endpoints prove distinct transparent Specs by exact type; no reviewed declaration is unsafe, an axiom, or sorry-bearing. The recorded endpoint axiom closure is limited to `Classical.choice`, `Quot.sound`, and `propext`. The optimization, threshold, derivative, tie, and portfolio routes prove the advertised mathematical content directly and do not substitute an external certificate or an assumption for a conclusion.
 
-I inspected `PaperInterface.lean`, `ProofInterface.lean`, the empty additional-assumption surface, the paper-owned proof modules, and the frozen Lean review graph. The graph contains one distinct exact-type proof endpoint per Spec, no `sorry`, no unsafe endpoint, no unregistered external semantic root, and only `Classical.choice`, `Quot.sound`, and `propext` in each endpoint's checked axiom closure. The optimization, derivative, threshold, tie, and stock routes derive their obligations from the displayed source primitives; none substitutes a certificate-shaped assumption for a paper conclusion.
+Finally, I checked the current final validation report, dependency DAG, human-review packet, README, and status projection. Their three-result denominator, twelve-item source denominator, eighteen prerequisite declarations, boundaries, blank human annotations, and `formalized` projection agree with the frozen source and interface. I found no privately unresolvable acceptance claim and did not treat a pre-credential receipt or pointer as required evidence.
 
-Finally, I read the validation report, dependency DAG, human-review packet, README, status projection, proof-fidelity ledger, and semantic ledgers. Their mathematical scope, three-result denominator, 18 prerequisite-card count, dependency ordering, explicit boundaries, and source/Lean descriptions agree with the frozen terminal surface. I visually inspected the rendered DAG and found its dependency labels and arrow directions legible and consistent with the source-facing route. No substantive failure or optional source-semantic editorial suggestion remains.
-
-## Findings
+## Substantive findings
 
 None.
 
-## Independence attestation
+## Optional editorial suggestions
 
-I did not author or repair the paper, Lean files, source map, semantic ledgers, report, DAG, packet, status, planner surface, or review graph. I did not issue any of the item-level semantic judgments relied on by the frozen surface. This report records a complete independent adversarial read, not a bounded repair recheck.
+None recorded; no presentation-only observation affects closeout.

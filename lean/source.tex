@@ -1,4 +1,4 @@
-% Final paper: Track B. 11pt, one column, 1-inch margins.
+% Final Spanish edition. 11pt, one column, 1-inch margins.
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -10,210 +10,227 @@
 \usepackage{xcolor}
 \newtheorem{proposition}{Proposición}
 \theoremstyle{definition}\newtheorem{assumption}{Supuesto}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcommand{\R}{\mathbb R}
 \newcommand{\E}{\mathbb E}
 \input{../code/output/numbers.tex}
 \title{El precio relativo del crédito como señal de morosidad:\\
-\large evaluación óptima, restricciones y composición de la cartera}
+\large evaluación crediticia, restricciones y composición de cartera}
 \author{Fabián Matías Galarza Chumbe\thanks{Universidad del Pacífico.
-Track B, AI and Economic Modeling, 2026-II.
-\url{https://github.com/fgalarzac/ai-project}. El plan de investigación con
-William Brandon Grados Taco motiva la pregunta. Este modelo y su implementación
-son una adaptación para el curso con asistencia de IA declarada en el apéndice.}}
-\date{22 de noviembre de 2026. Versión para entrega}
+Proyecto final de AI and Economic Modeling, Línea B. El artículo desarrolla
+el fundamento teórico de la investigación sobre precio relativo y morosidad
+iniciada con William Brandon Grados Taco. Materiales de reproducción:
+\url{https://github.com/fgalarzac/ai-project}. El apéndice documenta la
+colaboración con inteligencia artificial.}}
+\date{24 de noviembre de 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-¿Cuándo informa el precio de créditos nuevos sobre la morosidad futura de un
-banco peruano? Resuelvo una decisión de evaluación condicionada en el precio.
-Con selección adversa lineal y costo cuadrático, el riesgo marginal es
-$a-g^2/c$ solo en el interior. La capacidad limitada lo vuelve $a$ y el piso
-de probabilidad lo vuelve cero. Un umbral por opacidad requiere condiciones
-adicionales de cruce y monotonía. Al agregar cohortes, la pendiente del ratio
-de cartera incorpora un término de composición que puede invertir el signo
-del riesgo de originación. Pruebas completas y comprobaciones independientes
-delimitan estos resultados. Las simulaciones son ilustrativas; no estimo una
-mejora predictiva peruana. El artículo desarrolla cada decisión y demostración
-paso a paso; el apéndice distingue las pruebas Lean de la validación empírica.
+El precio de los créditos nuevos se observa antes que su desempeño y puede
+aportar información para la supervisión bancaria. Su relación con la morosidad
+futura, sin embargo, depende de mecanismos que actúan en sentidos opuestos.
+Este artículo resuelve la elección de evaluación crediticia de un banco,
+condicionada en su precio relativo frente a otros bancos. Con selección
+adversa lineal y costo cuadrático, la pendiente del riesgo es $a-g^2/c$
+únicamente cuando la solución es interior: $a$ representa la selección de
+solicitantes y $g^2/c$ la respuesta de evaluación. La capacidad limitada y
+el piso de probabilidad modifican esa pendiente. Un cambio de signo por
+opacidad requiere condiciones explícitas de cruce e interioridad. Al agregar
+créditos nuevos y antiguos, la composición de cartera puede invertir el signo
+del riesgo de originación. Tres proposiciones, sus demostraciones completas
+y comprobaciones simbólicas y numéricas establecen estas condiciones. Los
+resultados ofrecen una interpretación del indicador para la banca peruana;
+las simulaciones son ilustrativas y no constituyen una estimación predictiva.
 \end{abstract}
 
-\section{Problema económico y contribución}
-Un supervisor observa el precio al que un banco coloca préstamos nuevos antes
-de conocer cómo se comportarán. Cuando una parte de esos préstamos acumula
-atrasos, la exposición ya está en el balance. Una brecha de tasas frente a
-otros bancos podría aportar información para decidir dónde investigar primero.
-La pregunta de la tesis que motiva este trabajo es si esa brecha mejora el
-pronóstico de morosidad de la banca múltiple peruana. Aquí desarrollo el
-modelo económico que debe preceder a esa evaluación, dentro de Track B.
+\section{Introducción}
+El precio de un préstamo se conoce al originarlo; su desempeño crediticio se
+revela más tarde. Esta diferencia temporal hace relevante preguntar si una
+tasa inusualmente alta frente a la de bancos comparables permite anticipar
+morosidad. Para un supervisor, una señal de ese tipo puede orientar el examen
+de una entidad antes de que el deterioro sea visible en su balance. La
+pregunta es especialmente pertinente cuando los datos disponibles combinan
+tasas de colocaciones recientes con indicadores de calidad de una cartera
+que contiene créditos de distintas edades.
 
-El signo de la señal no es obvio. Una tasa mayor puede atraer un conjunto de
-solicitantes más riesgoso. También aumenta el valor de que un préstamo se
-mantenga al día y puede incentivar una evaluación más cuidadosa. Además, el
-precio puede reducir el volumen de nuevas colocaciones: si estas son más
-riesgosas que la cartera antigua, reducir su peso baja el ratio total aunque
-empeore la calidad de cada préstamo nuevo. Es indispensable distinguir estas
-tres fuerzas antes de interpretar una regresión predictiva.
+El signo de la relación no es inmediato. Una tasa mayor puede atraer
+solicitantes más riesgosos, pero también aumenta el beneficio de evitar un
+crédito en atraso y, con ello, el incentivo del banco a evaluar. Además, una
+reducción de nuevas colocaciones cambia su peso en el saldo total. Si esas
+colocaciones son más riesgosas que la cartera antigua, su menor participación
+puede reducir la morosidad agregada aun cuando empeore su riesgo individual.
+Selección, evaluación y composición son, por tanto, mecanismos distintos que
+deben separarse al interpretar el precio relativo.
 
-La respuesta del modelo tiene condiciones precisas. En una solución interior,
-la selección supera a la evaluación si $a>g^2/c$, donde $a$ mide la sensibilidad
-de la calidad de solicitantes al precio, $g$ la productividad de evaluar y $c$
-la escala de su costo cuadrático. La pendiente de riesgo cambia de signo con la
-opacidad únicamente si la diferencia entre esas fuerzas cruza cero. Una
-restricción de capacidad puede impedir que opere la respuesta negativa.
-Finalmente, trasladar el signo a una cartera requiere controlar cuánto pesan
-las cohortes y qué ocurre con los créditos antiguos.
+El artículo desarrolla el modelo económico de esta interpretación para la
+pregunta de la banca múltiple peruana. El banco elige cuánto evaluar un
+crédito, dado su precio y la tecnología del segmento. La selección adversa
+eleva el riesgo previo con el precio; la evaluación lo reduce, a un costo
+creciente. Dos restricciones delimitan el esfuerzo: la capacidad operativa y
+la imposibilidad de obtener una probabilidad negativa. Resolver el problema
+con ambas restricciones permite identificar cuándo responde el esfuerzo y
+cuándo cambia únicamente la calidad de los solicitantes.
 
-El aporte respecto del avance del tema es doble: una solución global con
-restricciones económicamente válidas, y una condición explícita para el
-vínculo entre flujos y stocks. En vez de postular una relación de signo fijo
-entre el riesgo de los créditos nuevos y la morosidad total, derivo una
-identidad de composición. No se obtiene una
-nueva estimación del Perú ni se resuelve competencia estratégica en precios.
-Esta delimitación evita llamar evidencia predictiva a una derivada condicional.
+El primer resultado caracteriza un máximo único y distingue tres regímenes.
+En el interior, la selección domina si $a>g^2/c$, donde $a$ mide la sensibilidad
+del riesgo previo al precio, $g$ la productividad de evaluar y $c$ la escala
+del costo cuadrático. Cuando se agota la capacidad, el esfuerzo deja de
+responder y la pendiente del riesgo es $a$. Cuando se alcanza el piso de
+probabilidad, esa pendiente es cero. El segundo resultado establece un
+umbral único por opacidad bajo condiciones de continuidad, descenso estricto,
+cruce e interioridad. El tercero deriva la transmisión al ratio de cartera y
+una condición exacta para que la composición invierta el signo.
 
-El punto de partida empírico más cercano es \citet{morgan2003}: las tasas de
-créditos comerciales e industriales nuevos contienen información sobre su
-desempeño posterior. Este artículo no replica ni extiende una de sus
-estimaciones. Su contribución dentro de la Línea B es mostrar por qué esa
-lectura necesita tres condiciones distintas: identificar la respuesta de
-evaluación, comprobar qué restricción opera y separar créditos nuevos del
-saldo total. Los ingredientes son conocidos; el aporte es su articulación
-en un problema bancario explícito y verificable para la pregunta peruana.
+El antecedente empírico más próximo es \citet{morgan2003}, que encuentra
+información sobre desempeño posterior en las tasas de nuevos préstamos
+comerciales e industriales. La contribución del presente artículo es precisar
+las condiciones necesarias para interpretar una señal de ese tipo cuando la
+evaluación es endógena y la variable observada es un ratio de saldo. La
+solución global y la identidad de composición articulan ingredientes conocidos
+en un problema bancario explícito. El análisis es teórico y condicionado en
+precio; su aplicación predictiva al Perú requiere una contrastación empírica
+separada.
 
-\paragraph{Guía de lectura.}
-El modelo tiene una sola decisión optimizada: cuánto evaluar un crédito,
-dado su precio. La Proposición~\ref{p:global} resuelve esa decisión. La
-Proposición~\ref{p:threshold} mantiene el problema y compara segmentos con
-distinta opacidad, bajo un supuesto adicional de cruce. La
-Proposición~\ref{p:stock} conserva el mismo riesgo óptimo y lo agrega a una
-cartera antigua. Así, opacidad y composición responden preguntas sucesivas;
-no agregan agentes estratégicos ni una segunda decisión de precios.
+La exposición sigue el orden del mecanismo. La Proposición~\ref{p:global}
+resuelve la decisión de esfuerzo. La Proposición~\ref{p:threshold} compara
+segmentos con distinta opacidad al mismo precio. La Proposición~\ref{p:stock}
+agrega el riesgo resultante a una cartera antigua. Las simulaciones permiten
+examinar las condiciones y los casos de fracaso de cada resultado; la
+discusión final extrae sus implicaciones para medición y pronóstico.
 
-\section{Evidencia verificable y medición}
-\subsection{Qué se observa y qué no se recibió}
-La SBS publica tasas efectivas anuales por empresa y operación. Su metodología,
-sección 3, indica promedios de operaciones de los últimos treinta días útiles
-ponderados por los montos desembolsados \citep{sbsmetodo}. Son tasas sobre
-\emph{flujos}, diferentes de las tasas sobre saldos. Treinta días útiles
-pueden superponerse entre cierres mensuales: no equivalen a una cohorte exacta
-del mes calendario. Las celdas mejoran comparabilidad, pero no igualan
-garantías, plazo exacto, calidad del deudor o relaciones comerciales.
+\section{Evidencia institucional y medición}
+\subsection{Tasas de colocación e indicadores de cartera}
+La Superintendencia de Banca, Seguros y AFP (SBS), autoridad de supervisión
+financiera peruana, publica tasas efectivas anuales por empresa y operación. La sección 3
+de su metodología define promedios de operaciones de los últimos treinta días
+útiles, ponderados por los montos desembolsados \citep{sbsmetodo}. Son tasas
+sobre \emph{flujos}: describen créditos recientes y difieren de las tasas
+sobre saldos vigentes. Como las ventanas de treinta días útiles pueden
+superponerse entre cierres mensuales, tampoco equivalen a una cohorte exacta
+del mes calendario. Agrupar por tipo de operación, plazo y moneda mejora la
+comparabilidad, aunque persisten diferencias de garantías, deudores y relaciones
+comerciales.
 
-La descomposición de costos de \citet{choy2015}, para 2010--2014, documenta que
-costos operativos y riesgo ayudan a explicar las diferencias entre segmentos
-peruanos. Por eso una tasa elevada no identifica por sí sola selección
-adversa ni una prima de riesgo pura. Una segunda regularidad institucional es
-la coexistencia de medidas distintas de calidad: cartera atrasada, atraso
-mayor de noventa días y cartera de alto riesgo (CAR). El evento del modelo
-debe corresponder a la medida elegida, no a una etiqueta genérica de impago.
+La evidencia peruana ilustra por qué estas distinciones importan.
+\citet{choy2015} documenta, para 2010--2014, el papel de costos operativos y
+riesgo en las diferencias de tasas entre segmentos. Una tasa elevada puede
+reflejar esos componentes además de selección adversa. Asimismo, cartera
+atrasada, atraso mayor de noventa días y cartera de alto riesgo (CAR) miden
+eventos distintos. Vincular una tasa con una probabilidad requiere precisar
+el evento, la población y el horizonte de observación.
 
-El BCRP presenta tanto indicadores de saldo como seguimiento por cosechas en
-su Reporte de Estabilidad Financiera de noviembre de 2024, cuadro 2.2 y gráfico
-2.7 \citep{bcrp2024}. La Figura~\ref{fig:context} reproduce una transcripción
-acotada del cuadro: revela heterogeneidad entre segmentos y justifica cuidar
-composición y definición. Su universo es el sistema financiero, más amplio
-que banca múltiple. La CAR ajustada incluye castigos de doce meses y no es la
-variable dependiente que se propone para la tesis. Esta evidencia motiva el
-modelo; no valida sus parámetros ni sus mecanismos.
+El Reporte de Estabilidad Financiera de noviembre de 2024 del Banco Central
+de Reserva del Perú (BCRP) presenta
+indicadores de saldo y seguimiento por cosechas, en su cuadro 2.2 y gráfico
+2.7 \citep{bcrp2024}. La Figura~\ref{fig:context} reproduce cuatro series del
+cuadro y muestra diferencias persistentes entre segmentos. La CAR ajustada
+incluye castigos de los últimos doce meses y corresponde al sistema financiero,
+un universo más amplio que la banca múltiple. Se utiliza como contexto
+institucional, con su definición original; no como calibración del modelo ni
+como sustituto de la variable objetivo de la tesis.
 
 \begin{figure}[htbp]
-\centering\includegraphics[width=.88\linewidth]{../code/figures/public_context.pdf}
-\caption{Contexto observado. CAR ajustada por castigos, porcentaje, sistema
-financiero. Fuente: BCRP, Reporte de Estabilidad Financiera, noviembre de 2024,
-cuadro 2.2, p. 21. Transcripción en \texttt{code/data/}. No es una estimación
-original ni un ratio exclusivo de banca múltiple.}\label{fig:context}
+\centering
+\begin{minipage}{.96\linewidth}
+\centering\includegraphics[width=\linewidth]{../code/figures/public_context.pdf}
+\caption{Calidad de cartera por segmento. CAR ajustada por castigos de los
+últimos doce meses, en porcentaje; sistema financiero. MYPE designa los
+créditos a micro y pequeñas empresas.
+Fuente: BCRP, Reporte de Estabilidad Financiera, noviembre de 2024,
+cuadro 2.2, p. 21. La transcripción reproducible se encuentra en
+\texttt{code/data/}.}\label{fig:context}
+\end{minipage}
 \end{figure}
 
-El plan de Grados y Galarza tiene 24 páginas e incluye cifras para 18 bancos,
-porcentajes de varianza, correlaciones y coberturas hasta 2026. No se recibió
-la base consolidada ni los scripts que el propio plan dice entregar aparte.
-Por tanto, estas cifras permanecen \emph{no verificadas} en esta entrega y
-no se reutilizan como hechos confirmados. Tampoco se adopta su afirmación de
-que restar pares elimina toda la exposición común al ciclo. La distinción
-entre una fuente observada, un cálculo reproducido y una hipótesis importa
-para la calidad de la inferencia.
+El análisis cuantitativo del artículo consiste en simulaciones del modelo y
+en esta transcripción acotada de estadísticas públicas. Los parámetros de las
+simulaciones son hipotéticos. La interpretación económica de sus resultados
+se distingue de una estimación de parámetros o de una evaluación de pronósticos.
 
-\subsection{Definición principal del precio relativo}
+\subsection{Definición del precio relativo}
 Sea $j$ un banco, $s$ una celda de tipo de crédito, modalidad o tramo de plazo
 y moneda, y $t$ la fecha del reporte. Denote por $i_{jst}$ su tasa anual en
 decimales y por $b_{st}$ una base común en la misma moneda. Sea
 $\mathcal P_{-j,st}$ el conjunto de otros bancos con observación válida y
-$n_{-j,st}$ su tamaño. Defino
+$n_{-j,st}$ su tamaño. El precio relativo se define como
 \begin{equation}\label{eq:D}
 D_{jst}=(i_{jst}-b_{st})-
 \frac{1}{n_{-j,st}}\sum_{k\in\mathcal P_{-j,st}}(i_{kst}-b_{st})
 =i_{jst}-\frac{1}{n_{-j,st}}\sum_k i_{kst}.
 \end{equation}
-El banco evaluado no entra en su referencia. $D=0.02$ significa dos puntos
-porcentuales por encima del promedio de pares. Se usa el promedio simple,
-coherente con el plan y transparente cuando no se observan desembolsos por
-tramo. No es la tasa promedio del sistema ponderada por operaciones.
-Se exigirían al menos tres pares para la aplicación empírica.
+El banco evaluado queda fuera de su referencia. Un valor $D=0.02$ indica una
+tasa dos puntos porcentuales superior al promedio de pares. El promedio
+simple permite construir una comparación transparente cuando no se observan
+desembolsos por tramo; difiere de una tasa del sistema ponderada por
+operaciones. Una aplicación empírica debe fijar las reglas de comparabilidad
+y exigir al menos tres pares válidos antes de evaluar su desempeño predictivo.
 
-La propuesta de octubre utilizaba mediana. La mantengo como sensibilidad
-porque es menos sensible a tasas extremas, pero cambia el comparador y puede
-cambiar incluso el signo de la brecha. Con tasas de pares hipotéticas de
-8, 9, 10 y 25\%, una tasa propia de 12\% está un punto por debajo del promedio
-y 2.5 puntos por encima de la mediana. El código comprueba ambas diferencias.
-Ninguna medida se elige después de observar el error de pronóstico.
+La mediana constituye una medida de sensibilidad. Reduce la influencia de
+tasas extremas, pero cambia el comparador y puede modificar incluso el signo
+de la brecha. Con tasas de pares hipotéticas de 8, 9, 10 y 25\%, una tasa
+propia de 12\% está un punto por debajo del promedio y 2.5 puntos por encima
+de la mediana. Ambas diferencias se verifican en el código. La elección del
+comparador debe preceder a la evaluación del error de pronóstico.
 
-La base común se cancela algebraicamente en ambas definiciones. Sin embargo,
-si $i_j=b+\lambda_j z+v_j$, donde $z$ es un shock agregado, queda
-$(\lambda_j-\bar\lambda_{-j})z+(v_j-\bar v_{-j})$. Subsisten exposiciones
-heterogéneas, fondeo, costos, clientela y márgenes. Los cambios en los pares
-también mueven $D$ sin que cambie el banco. No interpreto la resta como
-identificación causal ni como eliminación de toda heterogeneidad.
+La cancelación de la base común en \eqref{eq:D} es algebraica. No elimina las
+exposiciones heterogéneas a un mismo shock. Si $i_j=b+\lambda_j z+v_j$, donde
+$z$ es el shock agregado, $\lambda_j$ la exposición del banco y $v_j$ su
+componente específico, la diferencia frente a pares conserva
+$(\lambda_j-\bar\lambda_{-j})z+(v_j-\bar v_{-j})$. Las barras representan
+promedios de los otros bancos. Por ello, fondeo, costos, clientela y márgenes
+pueden seguir afectando la brecha. Un cambio en el conjunto de pares también
+puede mover $D$ sin que cambie la tasa propia. La comparación relativa mejora
+la descripción del precio, pero no constituye una estrategia de identificación
+causal.
 
-\section{Literatura y mecanismos rivales}
-\citet{morgan2003} es el antecedente empírico más próximo: encuentra contenido
-predictivo de las tasas de nuevos préstamos comerciales e industriales de
-Estados Unidos para su desempeño y calificaciones supervisoras. Es un artículo
-publicado en 2003, no un preprint. El resumen editorial permite verificar el
-alcance; no atribuyo una magnitud o un diseño de identificación que no haya
-reproducido. La aplicación peruana con promedios por banco y celda y una
-variable de saldo es una pregunta diferente, no una consecuencia del hallazgo.
+\section{Literatura relacionada y mecanismos}
+\citet{morgan2003} encuentra contenido predictivo de las tasas de nuevos
+préstamos comerciales e industriales de Estados Unidos para su desempeño
+posterior y sus calificaciones supervisoras. El hallazgo, publicado en 2003,
+motiva el uso informativo del precio. El presente análisis estudia una
+distinción adicional: la calidad de una cohorte nueva y el ratio de saldo de
+una cartera pueden responder de manera diferente. La evidencia estadounidense
+no establece por sí sola el signo de esa relación para bancos peruanos.
 
-En teoría, \citet{stiglitz1981}, p. 393, explica que el precio puede modificar
-la composición y los incentivos de quienes solicitan crédito. Aquí resumo
-el primer canal mediante una pendiente positiva de riesgo previo. No reproduzco
-su equilibrio de racionamiento. \citet{broecker1990} estudia pruebas imperfectas
-y competencia entre bancos; \citet{ruckes2004} relaciona selección crediticia
-y competencia con perspectivas económicas. \citet{dellariccia2006} distingue
-regímenes de evaluación y agrupación de prestatarios. Son artículos publicados.
-El modelo de este curso utiliza ingredientes conocidos para construir una
-descomposición explicable, no reclama prioridad general en economía bancaria.
+El mecanismo de selección se relaciona con \citet{stiglitz1981}, p. 393:
+el precio altera la composición y los incentivos de quienes solicitan crédito.
+El modelo resume el primer canal mediante una sensibilidad positiva del riesgo
+previo al precio. \citet{broecker1990} estudia pruebas imperfectas y competencia
+entre bancos; \citet{ruckes2004} relaciona estándares crediticios y competencia
+con las perspectivas económicas; y \citet{dellariccia2006} distingue regímenes
+de evaluación y agrupación de prestatarios. Estos artículos publicados aportan
+el contexto teórico. La contribución se concentra en una decisión de evaluación
+condicionada en precio y en su vínculo con la composición de cartera.
 
-La literatura peruana de pronóstico también importa. \citet{yamunaque2024}
-figura como Documento de Trabajo 2024-015 en el catálogo primario del BCRP,
-consultado el 10 de noviembre de 2026. Se cita con ese estado editorial; no se
-confirmó una versión de revista en las fuentes primarias consultadas. No es
-evidencia de que nuestro indicador funcione. Su construcción separa el
-deterioro de créditos inicialmente normales durante una ventana de doce
-meses del ratio contable de morosidad. Esta diferencia respalda la necesidad
-de explicitar evento y horizonte; no justifica equiparar automáticamente
-nuestro $q^*$ con una serie publicada. \citet{clark2007} proporciona una
-comparación de modelos predictivos anidados, relevante para un trabajo empírico
-posterior. No se calcula aquí una prueba ni un valor $p$.
+Para la medición peruana, \citet{yamunaque2024} construye una medida del
+deterioro de créditos inicialmente normales durante doce meses y la distingue
+del ratio contable de morosidad. La referencia se cita como Documento de
+Trabajo 2024-015 del BCRP, estado editorial verificado en su catálogo. Esta
+distinción respalda la elección explícita de evento y horizonte en el modelo:
+una probabilidad de deterioro no puede equipararse automáticamente a cualquier
+serie publicada de morosidad. \citet{clark2007}, por su parte, desarrolla una
+comparación de pronósticos de modelos anidados que resulta pertinente para
+evaluar posteriormente la información incremental del precio relativo.
 
-Los mecanismos rivales tienen implicaciones que ayudan a diseñar esa prueba.
-Si domina selección, precios altos anteceden peor calidad de nuevas cosechas,
-manteniendo constante la evaluación. Si domina evaluación, el precio alto
-debe acompañarse de mayor esfuerzo efectivo o mejor documentación y menor
-riesgo posterior, salvo que la capacidad esté saturada. Si domina composición,
-el cambio de signo aparece al agregar al saldo y depende de la participación
-de colocaciones recientes. Los costos de fondeo o venta cruzada pueden generar
-brechas sin estos patrones. Con promedios públicos será difícil separarlos;
-harían falta, idealmente, datos de cosechas, rotación, evaluación y garantías.
+Los mecanismos generan patrones observables diferentes. Cuando domina la
+selección, precios mayores se asocian con peor calidad de nuevas cosechas,
+manteniendo constante la evaluación. Cuando domina la evaluación, el mayor
+precio debe acompañarse de una respuesta efectiva del esfuerzo y de menor
+riesgo posterior, siempre que la capacidad permita esa respuesta. Cuando
+domina la composición, el cambio de signo aparece al agregar cohortes y
+depende de sus pesos. Distinguir esos patrones requiere información sobre
+cosechas, saldos, evaluación y garantías; las tasas promedio, por sí solas,
+no identifican cuál de ellos opera.
 
-\section{Ambiente y decisión del banco}\label{sec:model}
+\section{Modelo}\label{sec:model}
 \subsection{Agentes, información, unidades y cronología}
 El único agente que optimiza en este modelo es un banco neutral al riesgo.
 Los solicitantes y los bancos pares determinan una calidad y una referencia
 reducidas; no se modela su juego estratégico. El supervisor observa $D$ y más
 tarde un ratio de cartera, pero no el esfuerzo ni toda la composición de riesgo.
 La opacidad $\kappa\in[0,1]$ es una característica exógena del segmento: un
-valor mayor representa menor información verificable inicial. No se estima
-este índice ni se equipara automáticamente microempresa con opacidad alta.
+valor mayor representa menor información verificable inicial. El índice organiza la comparación teórica entre segmentos y no se identifica
+automáticamente con una categoría observada, como microempresa.
 
 La cronología es: primero se fijan segmento, tecnología y precio observado;
 después se forma el conjunto de solicitantes y el banco observa su riesgo
@@ -230,7 +247,7 @@ sol de crédito. La sensibilidad monetaria del premio de desempeño a una unidad
 de $D$ se normaliza a uno. Esto es una simplificación de remuneración, no una
 conversión exacta de tasas efectivas a cualquier plazo contractual.
 
-Conviene separar tres operaciones que aparecerán en las pruebas. Al elegir
+La interpretación de las pruebas exige distinguir tres operaciones. Al elegir
 $e$, el banco mantiene fijos $D$ y $\kappa$: compara esfuerzos para un mismo
 precio y segmento. Al calcular $\partial_Dq^*$, compara problemas con precios
 cercanos, dejando fijo el segmento y permitiendo que cambie el esfuerzo
@@ -238,11 +255,11 @@ cercanos, dejando fijo el segmento y permitiendo que cambie el esfuerzo
 de $\kappa$, siempre al mismo precio $D_0$. La prima de $M'$ se refiere a $D$;
 las primas de $g'$ y $c'$ en el análisis de opacidad se refieren a $\kappa$.
 
-La tabla siguiente sirve como diccionario. Los objetos de cartera se usan
-recién en la Proposición~\ref{p:stock}; no intervienen en la elección inicial
+La tabla siguiente reúne la notación y sus unidades. Los objetos de cartera
+intervienen a partir de la Proposición~\ref{p:stock}; no intervienen en la elección inicial
 del esfuerzo.
 \begin{center}\small
-\begin{tabular}{@{}p{.15\linewidth}p{.51\linewidth}p{.27\linewidth}@{}}
+\begin{tabular}{@{}L{.15\linewidth}L{.51\linewidth}L{.27\linewidth}@{}}
 \toprule Símbolo & Significado & Unidad o restricción\\\midrule
 $D$ & Tasa propia menos promedio simple de pares & Tasa anual decimal\\
 $\kappa$ & Opacidad exógena del segmento & Índice en $[0,1]$\\
@@ -359,7 +376,7 @@ dominio de $D$. En empates de restricciones la solución es continua y se usan
 derivadas laterales; una derivada ordinaria puede no existir.
 \end{proposition}
 \begin{proof}
-\textbf{Paso 1: hay una elección factible y el máximo es único.}
+\textbf{Paso 1: hay una elección factible y el máximo es único.}\par
 Fijamos $D$ y $\kappa$, de modo que $q^0,R,g,c,\bar e$ son constantes al
 comparar esfuerzos. Como $q^0\ge0$, $g>0$ y $\bar e\ge0$, se cumple $u\ge0$.
 El intervalo $[0,u]$ es no vacío y compacto y $\pi$ es continua: por el teorema
@@ -367,7 +384,7 @@ del valor extremo alcanza un máximo. Si $u=0$, solo se puede elegir $e=0$.
 Si $u>0$, la segunda derivada es $\pi_{ee}=-c<0$; la concavidad estricta en
 un intervalo convexo impide dos máximos distintos.
 
-\textbf{Paso 2: el primer orden identifica el esfuerzo deseado.}
+\textbf{Paso 2: el primer orden identifica el esfuerzo deseado.}\par
 Derivar respecto de $e$, manteniendo fijos precio y segmento, da
 \[
 \pi_e=gR-ce,\qquad \pi_e=0\ \Longleftrightarrow\ e=z:=gR/c>0.
@@ -375,7 +392,7 @@ Derivar respecto de $e$, manteniendo fijos precio y segmento, da
 La igualdad entre beneficio y costo marginal no demuestra que $z\le u$.
 Por eso $z$ es todavía un candidato sin restricciones.
 
-\textbf{Paso 3: resolver el problema restringido.}
+\textbf{Paso 3: resolver el problema restringido.}\par
 Completar el cuadrado muestra qué hacer cuando el candidato no es factible:
 \begin{align*}
 gRe-\frac c2e^2
@@ -393,14 +410,14 @@ $u=0$; si $z=u$, ambos argumentos identifican el mismo punto. En consecuencia,
 e^*=\min\{z,u\}=\min\{gR/c,\bar e,q^0/g\}.
 \]
 
-\textbf{Paso 4: sustituir en la probabilidad y comprobar sus cotas.}
-Escriba $v=\min\{\bar e,gR/c\}\ge0$. Si $v\le q^0/g$, entonces $e^*=v$ y
+\textbf{Paso 4: sustituir en la probabilidad y comprobar sus cotas.}\par
+Definimos $v=\min\{\bar e,gR/c\}\ge0$. Si $v\le q^0/g$, entonces $e^*=v$ y
 $q^*=q^0-gv\ge0$. Si $v>q^0/g$, entonces $e^*=q^0/g$ y $q^*=0$. Los dos
 casos son exactamente $q^*=\max\{0,q^0-gv\}$. Además, como $e^*\ge0$ y
 $g>0$, $q^*\le q^0\le1$. Así se obtiene la segunda fórmula y se comprueba
 que se trata de una probabilidad válida.
 
-\textbf{Paso 5: derivar dentro de cada régimen.}
+\textbf{Paso 5: derivar dentro de cada régimen.}\par
 Con $\kappa$ fijo, las desigualdades estrictas se conservan en un entorno
 del precio considerado. Se puede derivar la expresión que allí está activa:
 \begin{align*}
@@ -415,7 +432,7 @@ En el interior, $\partial_De^*=g/c$: al multiplicar por la productividad $g$
 se obtiene la reducción marginal $g^2/c$. Con capacidad agotada el esfuerzo
 ya no responde. En el piso, el riesgo no puede seguir bajando.
 
-\textbf{Paso 6: capacidad cero y empates.}
+\textbf{Paso 6: capacidad cero y empates.}\par
 Si $\bar e=0$, el conjunto factible es $\{0\}$, por lo que $e^*=0$ y
 $q^*=q^0$; en el interior del dominio su derivada es $a$. Para capacidad
 general, las funciones afines que entran al mínimo son continuas. El mínimo
@@ -435,7 +452,7 @@ un banco con alta productividad puede mostrar pendiente positiva si enfrenta
 capacidad escasa. La condición $g^2/c>a$ por sí sola no basta globalmente.
 
 \paragraph{Un recorrido numérico de la decisión.}
-Para fijar la intuición, tome los parámetros hipotéticos de la simulación:
+El cálculo puede seguirse con los parámetros hipotéticos de la simulación:
 $\bar q=0.28$, $a=0.18$, $g=\sqrt{0.05}$, $c=1$, $\bar R=1.10$ y
 $\bar e=0.50$. En $D=0$, $q^0=0.28$ y $R=1.10$. El candidato es
 $gR/c\simeq0.246$, menor que la capacidad $0.50$ y que la cota
@@ -460,24 +477,24 @@ $\kappa^*\in(0,1)$ con $\partial_Dq^*(D_0,\kappa^*)=0$. La derivada es
 positiva para $\kappa<\kappa^*$ y negativa para $\kappa>\kappa^*$.
 \end{proposition}
 \begin{proof}
-\textbf{Paso 1: continuidad de la pendiente neta.}
+\textbf{Paso 1: continuidad de la pendiente neta.}\par
 Por S4, $a,g,c$ son continuas en $[0,1]$ y $c$ es estrictamente positiva.
 El cuadrado y el cociente conservan continuidad cuando el denominador no se
 anula. Por tanto $H=g^2/c$ y $\beta=a-H$ son continuas.
 
-\textbf{Paso 2: existencia de un cero interior.}
+\textbf{Paso 2: existencia de un cero interior.}\par
 S4 implica $\beta(0)=a(0)-H(0)>0$ y $\beta(1)=a(1)-H(1)<0$. El teorema
 del valor intermedio da un $\kappa^*\in(0,1)$ tal que $\beta(\kappa^*)=0$.
 Es interior porque ninguno de los dos extremos tiene valor cero.
 
-\textbf{Paso 3: unicidad y orden de los signos.}
+\textbf{Paso 3: unicidad y orden de los signos.}\par
 Si $x<y$ fueran dos ceros, el descenso estricto daría
 $0=\beta(x)>\beta(y)=0$, una contradicción. Para cualquier
 $\kappa<\kappa^*$, la misma propiedad da
 $\beta(\kappa)>\beta(\kappa^*)=0$; para $\kappa>\kappa^*$ da la desigualdad
 inversa. Así se obtienen un único cero y los signos a cada lado.
 
-\textbf{Paso 4: volver a la derivada del riesgo.}
+\textbf{Paso 4: volver a la derivada del riesgo.}\par
 El cero anterior es el de una función de primitivas. Para identificarlo
 con el objeto económico, falta usar la última parte de S4: al precio común
 $D_0$ el esfuerzo es interior para toda $\kappa$. La primera línea de
@@ -498,7 +515,7 @@ verificación adicional, pero no demuestra $g'>0$. Si el acceso a información
 es más difícil, es plausible $g'\le0$ y $c'\ge0$, con $H'\le0$. Puede no
 haber cruce, o puede haberlo si $a$ cae suficientemente rápido. Ni $H'>0$ es
 necesario por sí solo ni la mera continuidad asegura unicidad. Un criterio
-suficiente más fuerte, usado en octubre, es $a'<0$, $H'>0$ y cruce de extremos.
+suficiente más fuerte es $a'<0$, $H'>0$ y cruce de extremos.
 El resultado final solo exige que $a-H$ decrezca estrictamente. La sensibilidad
 estudia explícitamente una tecnología que empeora con opacidad.
 
@@ -523,7 +540,7 @@ riesgo adicional no recogido en $q^*$. $B_0,m_0$ son constantes al variar $D$;
 $B(D)>0$ es diferenciable. No hay castigos, ventas de cartera ni
 reclasificaciones que alteren esta identidad en el ejercicio.
 \end{assumption}
-El supuesto hace explícito lo que faltaba en el enlace de octubre. Una
+La compatibilidad exigida por el supuesto es sustantiva. Una
 probabilidad de impago de por vida no equivale a la probabilidad de figurar
 con atraso mayor de noventa días en una fecha dada. Hay que definir horizonte,
 maduración, persistencia del atraso y permanencia del saldo. Si esos procesos
@@ -546,7 +563,7 @@ En particular, $\beta_D>0$ y $q^*>m_0$ generan $M'<0$ si y solo si
 $\varepsilon(1-w)(q^*-m_0)>\beta_D$.
 \end{proposition}
 \begin{proof}
-\textbf{Paso 1: construir el ratio con saldos comparables.}
+\textbf{Paso 1: construir el ratio con saldos comparables.}\par
 Bajo S5, el saldo esperado en atraso es $B_0m_0+Bq^*$. Su denominador
 $B_0+B$ es determinista y positivo. Por eso se puede dividir la suma esperada
 por ese saldo; no se intercambian sin justificación una esperanza de ratios
@@ -556,7 +573,7 @@ M=\frac{B_0}{B_0+B}m_0+\frac{B}{B_0+B}q^*
   =(1-w)m_0+wq^*,\qquad 0<w<1.
 \]
 
-\textbf{Paso 2: identificar calidad y composición.}
+\textbf{Paso 2: identificar calidad y composición.}\par
 Como $B_0,m_0$ son constantes respecto de $D$, la regla del producto da
 \begin{align*}
 M'&=-w'm_0+w'q^*+w\,\partial_Dq^*\\
@@ -566,7 +583,7 @@ que es \eqref{eq:stock}. El primer término cambia la calidad de los créditos
 nuevos manteniendo su peso; el segundo cambia el peso de una cohorte cuya
 calidad difiere de la antigua.
 
-\textbf{Paso 3: comprobar las dos reglas de conservación del signo.}
+\textbf{Paso 3: comprobar las dos reglas de conservación del signo.}\par
 Si $B$ es constante, también lo es $w$, de modo que $w'=0$ y
 $M'=w\beta_D$. Como $w>0$, ambos tienen el mismo signo, incluido el caso cero.
 Para la segunda regla denote $T=w'(q^*-m_0)$, el término de composición.
@@ -576,7 +593,7 @@ $w|\beta_D|=-w\beta_D$ y
 $M'\le w\beta_D+|T|<0$. La condición estricta evita que composición
 anule o invierta la pendiente no nula.
 
-\textbf{Paso 4: derivar el peso de la cohorte.}
+\textbf{Paso 4: derivar el peso de la cohorte.}\par
 La regla del cociente, usando $B_0'=0$, produce
 \[
 w'=\frac{B'(B_0+B)-BB'}{(B_0+B)^2}
@@ -587,7 +604,7 @@ $B/(B_0+B)=w$ y $B_0/(B_0+B)=1-w$, resulta
 $w'=-\varepsilon w(1-w)$. Insertar esto en \eqref{eq:stock} da
 \eqref{eq:composition}.
 
-\textbf{Paso 5: despejar la condición exacta de inversión.}
+\textbf{Paso 5: despejar la condición exacta de inversión.}\par
 Puesto que $w>0$, el signo de $M'$ coincide con el del corchete:
 \[
 M'<0\quad\Longleftrightarrow\quad
@@ -630,7 +647,7 @@ afecta esfuerzo. La escala de riesgo, relativamente alta, exhibe un conjunto
 factible amplio y no es una calibración de morosidad peruana.
 
 \subsection{Cruce condicionado y su fracaso}
-Aquí $H=0.05e^{1.2\kappa}$ y $\beta=0.18e^{-0.8\kappa}-0.05e^{1.2\kappa}$.
+En este escenario, $H=0.05e^{1.2\kappa}$ y $\beta=0.18e^{-0.8\kappa}-0.05e^{1.2\kappa}$.
 Igualar fuerzas, dividir por $0.05e^{-0.8\kappa}>0$ y tomar logaritmos da
 $\kappa^*=\log(3.6)/2=\threshold$. Las pendientes de extremos son
 \betaZero{} y \betaOne{}. En una malla de 1001 opacidades por 121 precios,
@@ -680,8 +697,8 @@ Las pendientes se contrastan con diferencias centrales de paso $10^{-6}$
 solo cuando los tres puntos conservan régimen; el error máximo fue menor
 que $1.1\times10^{-10}$. Se comprueba capacidad nula y se rechazan parámetros
 con probabilidades inválidas, costo nulo, productividad negativa o pago no
-positivo. No se usan \texttt{assert} que desaparezcan al ejecutar Python con
-optimización: una falla necesaria lanza una excepción.
+positivo. Las comprobaciones necesarias lanzan excepciones ante una falla, por lo que
+permanecen activas también al ejecutar Python con optimización.
 
 \subsection{Contraejemplo de composición}
 En $\kappa=0$, $D=0$, la evaluación interior da $q^*=0.225$ y
@@ -734,13 +751,13 @@ por separado la regla del producto y la derivada del peso exponencial. Esta
 doble comprobación reduce el riesgo de repetir un mismo error en una fórmula
 y su implementación, aunque no reemplaza una prueba formal.
 
-La versión de la presentación reportaba 4018 comprobaciones, que se mantienen
-como bloque base reproducible. Se añadieron 73 controles: probabilidades de
-referencia y primitivas admisibles, validación de saldos en nivel y derivada,
-aritmética racional del contraejemplo y signos a ambos lados de la frontera
-en diecisiete pesos. Sus resultados están separados en
-\path{code/output/reader_verification.json}. Ninguna comprobación numérica
-se presenta como demostración del continuo ni como estimación empírica.
+La verificación contiene 4018 comprobaciones base y 73 controles adicionales
+de probabilidades de referencia, primitivas admisibles, saldos en nivel y
+derivada, aritmética racional y signos a ambos lados de la frontera en
+diecisiete pesos. Los resultados adicionales se registran en
+\path{code/output/reader_verification.json}. Estos controles permiten detectar
+errores de implementación en los casos examinados; la validez general de los
+resultados descansa en las demostraciones.
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=.80\linewidth]{../code/figures/sensitivity.pdf}
@@ -757,198 +774,201 @@ El ejercicio identifica regiones del modelo, no frecuencias con que ocurren
 en bancos peruanos. Sin datos de evaluación no se puede asignar un banco a
 una región a partir de su tasa observada.
 
-\section{Interpretación predictiva, límites y agenda empírica}
-\subsection{Tres afirmaciones distintas}
-La derivada $\partial_Dq^*$ es una estática comparativa condicional: mantiene
-primitivas, referencia y régimen al variar precio y permite reoptimizar
-esfuerzo. Un coeficiente predictivo de $M_{t+h}$ sobre $D_t$ resume una
-distribución conjunta de precios, tecnología, composición y shocks. Un
-efecto causal de imponer un precio requiere identificar una intervención y
-resolver las respuestas de demanda y de otros bancos. Ni el primero implica
-el segundo ni el segundo identifica el tercero.
+\section{Discusión e implicaciones empíricas}
+\subsection{Estática comparativa, predicción y causalidad}
+La derivada $\partial_Dq^*$ compara problemas de evaluación con precios
+cercanos: mantiene fijas las primitivas y permite reoptimizar el esfuerzo.
+Es, por tanto, una estática comparativa condicional. Un coeficiente predictivo
+de $M_{t+h}$ sobre $D_t$ resume, en cambio, una distribución conjunta de
+precios, tecnología, composición y shocks. Un efecto causal de modificar el
+precio exige además identificar una intervención y modelar las respuestas
+de demanda y de los demás bancos. Son objetos distintos, aunque utilicen
+las mismas variables observables.
 
-No se ha resuelto la etapa de precios. La continuidad y un conjunto compacto
-pueden asegurar un máximo para un problema externo bien especificado, pero
-no caracterizan su unicidad ni un equilibrio oligopólico. En este trabajo no
-se añade una demanda estratégica solo para aparentar cierre. La curva
-condicional es útil para organizar interpretaciones, pero no determina qué
-variación de $D$ se observará ni su endogeneidad. Tampoco se deriva el bienestar
-del deudor ni una regla óptima de supervisión.
+La decisión de precios queda fuera del problema de continuación. En
+consecuencia, el modelo caracteriza cómo responde la evaluación a un precio
+dado, pero no determina qué precio se observa en equilibrio. Esta delimitación
+permite aislar el mecanismo sin atribuir al resultado una interpretación
+causal, una recomendación de fijación de tasas o una regla óptima de supervisión.
 
-\subsection{Qué podría comprobar un ejercicio futuro}
-El diseño principal sería banco-mes, con precio por celda agregado usando
-pesos de saldo rezagados y cobertura explícita. Se conservaría el horizonte
-principal de doce meses del plan como elección de diseño, sin atribuirlo a
-una equivalencia exacta entre pérdida regulatoria y atraso. La mora mayor de
-noventa días sería una variable objetivo separada de la mora contable.
-Se compararía un pronóstico con morosidad pasada y ciclo frente a su ampliación
-con $D$. Para evitar duplicar información, se distinguiría el spread propio
-(tasa del banco menos tasa de referencia), el spread medio de sus pares
-(promedio de sus tasas menos esa misma referencia) y $D$, que es la
-diferencia entre ambos. Incluir simultáneamente los tres genera
-colinealidad exacta porque uno es la suma de los otros dos.
+\subsection{Requisitos para evaluar el contenido predictivo}
+Una evaluación empírica compatible con el modelo requiere un panel banco-mes,
+tasas comparables por celda, pesos de saldo rezagados y cobertura documentada.
+Un horizonte de doce meses permite estudiar el desempeño posterior, siempre
+que el evento se mantenga definido de manera uniforme. La mora mayor de
+noventa días, por ejemplo, debe tratarse como un objetivo distinto de la mora
+contable cuando sus definiciones no coinciden.
 
-Antes de ejecutar haría falta verificar cobertura y fechas de publicación
-reales, sin adoptar las del plan como hechos. En un origen $t$, entrenamiento
-solo incluiría pares cuyo resultado a $t+h$ ya fue publicado; el extremo de
-la ventana debe purgar los horizontes aún desconocidos. Los pesos, escalas,
-posición habitual y tratamiento de faltantes se estimarían con pasado
-disponible. Las decisiones se fijarían en entrenamiento, incluyendo mínimo
-de pares y alternativa mediana. Revisiones históricas de datos convierten una
-evaluación en pseudo tiempo real si no hay vintages archivados.
+La comparación relevante enfrenta un pronóstico basado en morosidad pasada
+y ciclo económico con su ampliación mediante el precio relativo. Es necesario
+separar el spread propio, definido como tasa del banco menos referencia, del
+spread medio de pares, definido con la misma referencia. Como $D$ es la
+diferencia entre ambos, incluir simultáneamente los tres regresores produce
+colinealidad exacta. Esta identidad debe respetarse al especificar el contraste.
 
-La comparación fuera de muestra usaría los mismos bancos y fechas para ambos
-modelos, pérdidas agregadas por origen que respeten dependencia entre bancos,
-y corrección por errores superpuestos en horizontes largos. Clark--West sería
-una opción para modelos anidados bajo sus condiciones. El criterio de una
-reducción de 5\% de la raíz del error del plan es una meta previamente elegida,
-no algo demostrado por nuestra teoría. Una ausencia de mejora tampoco prueba
-que el precio no contenga ninguna información: pueden intervenir error de
-medición, poca potencia y cambios de régimen. No reporto resultados de esa
-evaluación porque no se recibió un panel reproducible.
+La cronología de información es igualmente decisiva. En un origen $t$, el
+entrenamiento solo puede incorporar observaciones cuyo resultado a $t+h$ ya
+se haya publicado. Por eso deben excluirse del extremo de la ventana los
+horizontes aún desconocidos. Los pesos, escalas, tratamientos de faltantes y
+reglas de comparabilidad deben estimarse con información pasada y fijarse
+antes de evaluar. Si las series históricas están revisadas y no existen
+versiones archivadas, el ejercicio corresponde a una evaluación en pseudo
+tiempo real.
 
-\subsection{Limitaciones que condicionan el aporte}
-La selección es reducida y la tecnología lineal. Evaluar no reduce volumen;
-pares y solicitantes no optimizan estratégicamente. La opacidad carece de
-medición validada y el cruce es adicional. Castigos, curaciones, garantías,
-ventas y exposición cambiaria pueden romper el puente contable. El saldo
-determinista excluye covarianzas de numerador y denominador. Restar pares o
-incluir efectos fijos no resuelve estos límites.
+Ambos pronósticos deben evaluarse sobre los mismos bancos y fechas. La
+dependencia entre entidades y la superposición de errores a horizontes largos
+exigen un tratamiento explícito de la inferencia. La prueba de Clark--West
+es una opción para modelos anidados bajo sus condiciones. Una reducción de
+error constituye un resultado empírico que debe medirse; no se desprende de
+las proposiciones. Del mismo modo, la ausencia de una mejora detectable puede
+reflejar error de medición, poca potencia o cambios de régimen, además de la
+información efectiva del precio.
 
-La composición aporta una extensión demostrable que cambia la lectura del
-signo. Información imperfecta del banco, recuperaciones y evaluación cóncava
-son extensiones abiertas. La prioridad empírica es contrastar cosechas y pesos
-con datos reproducibles.
+\subsection{Supuestos que delimitan la interpretación}
+La selección reducida y la tecnología lineal hacen transparente el mecanismo,
+pero restringen su alcance. El esfuerzo no modifica el volumen de créditos y
+los solicitantes y pares no eligen estratégicamente dentro del modelo. El
+índice de opacidad tampoco proporciona, por sí mismo, una clasificación empírica
+de segmentos. El cruce de P2 exige S4: sin esas condiciones, la opacidad puede
+variar sin invertir la pendiente.
 
-\section{Conclusión}
-El precio relativo puede ser una señal de calidad por fuerzas rivales. La
-solución global muestra que la diferencia selección menos evaluación solo
-determina el signo en el interior. La capacidad y el piso de probabilidad
-cambian esa regla. Un umbral por opacidad necesita cruce y monotonía que no
-se desprenden de la opacidad misma. Finalmente, el riesgo de una cohorte y
-el ratio de una cartera pueden tener pendientes opuestas por composición.
+El puente de P3 exige además que evento, horizonte y saldo sean compatibles.
+Castigos, curaciones, ventas de cartera, garantías o exposición cambiaria
+pueden alterar la relación entre el riesgo nuevo y el ratio total. Los saldos
+deterministas excluyen las covarianzas que aparecerían con un denominador
+aleatorio. Restar tasas de pares o incorporar efectos fijos no sustituye esos
+supuestos contables.
 
-Para supervisión, la implicación es condicional: una brecha de tasas merece
-investigarse junto con evaluación y rotación. El modelo precisa qué medir;
-la mejora predictiva peruana sigue abierta. Las pruebas matemáticas y
-comprobaciones computacionales, pruebas Lean y validación semántica son
-capas distintas. La revisión manuscrita personal permanece pendiente.\label{body:end}
+Estas restricciones orientan la aplicación del modelo. Para distinguir calidad
+de composición es necesario observar cosechas y pesos; para atribuir una
+respuesta a la evaluación se necesita información sobre esfuerzo o su
+tecnología. Incorporar recuperaciones, evaluación cóncava o información
+imperfecta del banco ampliaría el problema, pero requeriría volver a derivar
+el óptimo y las condiciones de transmisión.
+
+\section{Conclusiones}
+El contenido informativo del precio relativo depende del mecanismo que
+predomina y de la variable de riesgo que se observa. La solución global de la
+decisión de evaluación muestra que la diferencia entre selección y evaluación
+determina la pendiente únicamente en el interior. La capacidad y el piso de
+probabilidad cambian esa regla, aun cuando la productividad de evaluar sea alta.
+El umbral por opacidad requiere continuidad, descenso estricto, cruce e
+interioridad; no es una consecuencia automática de la opacidad.
+
+Al pasar de una cohorte al saldo total aparece un segundo margen: la
+composición de cartera. La derivada del ratio agrega al efecto de calidad un
+efecto de cambio de peso, que puede dominarlo e invertir su signo. Por ello,
+una reducción de la morosidad agregada no implica necesariamente que haya
+mejorado el riesgo de los créditos nuevos.
+
+Para la supervisión de la banca peruana, el resultado precisa cómo interpretar
+y contrastar una brecha de tasas: junto con la capacidad de evaluación, las
+cosechas y la renovación del saldo. Las demostraciones y los ejercicios
+reproducibles establecen las condiciones del mecanismo. Determinar cuánto
+mejora el pronóstico requiere una evaluación empírica que respete las
+definiciones y la información disponible en cada fecha.\label{body:end}
 \clearpage
 \bibliographystyle{plainnat}\bibliography{references}
 \clearpage\appendix
 
-\section{Inventario de derivaciones y reproducción}
-Las tres pruebas están completas en el cuerpo. La guía
-\texttt{hand/guia\_derivaciones.tex} desglosa FOC, cuadrado completo,
-restricciones, pendientes, umbral, logaritmos, identidad de cartera,
-contraejemplo y unidades. Su PDF es una guía tipográfica, no manuscrito.
-El autor debe escribir, revisar y digitalizar cada paso personalmente.
+\section{Reproducibilidad y material complementario}
+Las demostraciones de las tres proposiciones se presentan completas en el
+cuerpo del artículo. La guía \path{hand/guia_derivaciones.tex} organiza sus
+manipulaciones algebraicas, reglas, condiciones y unidades. Es material
+tipográfico de apoyo; no constituye evidencia de una revisión manuscrita
+personal. Esa evidencia se distingue expresamente en \path{hand/README.md}.
 
-Desde la raíz:
+El punto único de reproducción computacional, desde la raíz del repositorio, es:
 \begin{verbatim}
 python -m pip install -r code/requirements.txt
 python code/verify.py
 \end{verbatim}
-Se regeneran seis figuras finales,
-\texttt{verification.json}, \path{reader_verification.json} y las macros numéricas. Los gráficos del tema de
-octubre se conservan como archivos históricos con su definición anterior.
-\texttt{code/model.py} contiene funciones sin efectos de importación;
-\texttt{code/checks.py} concentra los contrastes. No se requieren credenciales
-ni red para las simulaciones. La transcripción externa tiene fuente, unidades
-y universo en \texttt{code/data/README.md}.
+Se regeneran las seis figuras en español e inglés, los archivos
+\path{verification.json} y \path{reader_verification.json}, y las macros
+numéricas utilizadas en el artículo. Las dependencias y la semilla están
+fijadas. Las simulaciones no requieren credenciales ni conexión de red;
+\path{code/data/README.md} documenta la fuente, las unidades y el universo
+de la transcripción del BCRP. Los materiales de la presentación del tema se
+conservan identificados como documentos históricos.
 
-\section{Formalización Lean: alcance real}\label{app:lean}
-Las tres proposiciones cuentan con especificaciones transparentes y pruebas
-generales que compilan con Lean 4.30.0-rc2. La elaboración utiliza
-\path{gpt-5.6-sol}, esfuerzo \path{xhigh}, y el motor oficial de
-Applied\-Modeling\-Lib, commit
-\href{https://github.com/nikhgarg/AppliedModelingLib/commit/194edcc95df74806a39b961d10dedddc6e730cce}{\texttt{194edcc95df7}}, sin parches. Los bloqueos de
-Python en Windows se resolvieron ejecutando las comprobaciones en Linux real.
+\section{Formalización de las proposiciones en Lean}\label{app:lean}
+Las tres proposiciones tienen especificaciones transparentes y pruebas
+generales en Lean 4.30.0-rc2. La formalización utiliza AppliedModelingLib y
+la configuración \path{gpt-5.6-sol}, esfuerzo \path{xhigh}, exigida por el
+curso. Los controles se ejecutan en Linux con el motor oficial sin parches.
 
 \begin{center}\small
-\begin{tabular}{p{.08\linewidth}p{.22\linewidth}p{.16\linewidth}p{.43\linewidth}}
-\toprule P. & Declaración & Estado de prueba & Hipótesis y cobertura\\\midrule
-P1 & \path{proposition1} & Probado & S1--S3: máximo único factible, fórmulas, cotas, regímenes, capacidad cero, continuidad y derivadas laterales.\\
-P2 & \path{proposition2} & Probado & S1--S4: umbral interior único y signos de la derivada a cada lado.\\
-P3 & \path{proposition3} & Probado & S1--S3 y S5: identidad, derivada, dominancia, saldo exponencial e inversión de signo.\\
+\begin{tabular}{L{.06\linewidth}L{.21\linewidth}L{.15\linewidth}L{.47\linewidth}}
+\toprule P. & Declaración & Estado & Hipótesis y cobertura\\\midrule
+P1 & \path{proposition1} & Probado & S1--S3: máximo único, fórmulas, cotas, regímenes, capacidad cero, continuidad y derivadas laterales.\\
+P2 & \path{proposition2} & Probado & S1--S4: umbral interior único y signos de la derivada.\\
+P3 & \path{proposition3} & Probado & S1--S3 y S5: identidad, derivada, conservación e inversión de signo.\\
 \bottomrule\end{tabular}
 \end{center}
-Las declaraciones pertenecen al espacio \path{Galarza26RelativeCredit}, en
-\path{lean/ProofInterface.lean}. ``Probado'' describe el cierre de la prueba
-por el kernel; el estado del procedimiento integral se informa abajo.
-Los enunciados transparentes se definen en
-\path{PaperInterface.lean}; sus nombres añaden el sufijo \texttt{Spec} a
-esas declaraciones. No se añaden hipótesis
-matemáticas a las del artículo ni se usa \texttt{sorry}. S5 conserva la
-convención contable condicional de evento, horizonte y saldo compatibles.
-
-La fuente inicial de las pruebas es el PDF fusionado en el commit
-\href{https://github.com/fgalarzac/ai-project/commit/dc52cd19c3a53b4350c1cba1cf8b4a11037b95ad}{\texttt{dc52cd19c3a5}}. La compilación de los tres
-endpoints terminó con salida 0; la inspección de axiomas reportó únicamente
+Las declaraciones pertenecen al espacio \path{Galarza26RelativeCredit} y se
+encuentran en \path{lean/ProofInterface.lean}. Cada una prueba el tipo exacto
+definido en \path{lean/PaperInterface.lean}, con sufijo \texttt{Spec}. No se
+introducen hipótesis matemáticas adicionales ni se utiliza \texttt{sorry}.
+La clausura de axiomas de los tres endpoints contiene únicamente
 \texttt{propext}, \texttt{Classical.choice} y \texttt{Quot.sound}.
-Una revisión independiente de borrador comparó 21 resultados y definiciones
-con el texto fuente sin encontrar discrepancias. Es una revisión preliminar,
-no una credencial de aceptación del protocolo.
 
-Esta edición mantiene literalmente los cinco supuestos y los tres enunciados
-de la versión presentada; amplía sus explicaciones y pruebas. La nueva fuente
-se fija al fusionar el PDF. El registro externo contiene ese commit y la
-salida real del chequeo oficial, separado de la compilación de los endpoints.
+La identificación exacta del PDF auditado, su commit, el resultado del
+chequeo oficial y el grafo de evidencia se conservan en
+\href{https://github.com/fgalarzac/ai-project/blob/main/docs/lean_progreso.md}{\path{docs/lean_progreso.md}}.
+Este registro distingue la compilación de las pruebas, la correspondencia
+con el texto y el cierre del protocolo. Su ubicación externa permite fijar
+la fuente sin una referencia circular a su propia huella digital. Las
+ediciones española e inglesa expresan el mismo modelo y los mismos resultados;
+el registro identifica expresamente la fuente sometida a validación.
 
-La compilación por sí sola no sustituye el cierre oficial. El registro
-\path{docs/lean_progreso.md} informa el estado vigente, el commit del PDF
-actualizado, los chequeos oficiales rápido y completo y la ubicación de la
-carpeta generada. Si cambia este PDF se repite el flujo sobre la nueva fuente;
-la evidencia posterior se registra fuera del PDF para evitar un hash
-autorreferente. Las primeras pruebas aritméticas se conservan como material
-auxiliar, separadas de los tres resultados generales.
+La verificación formal establece consecuencias de las definiciones y los
+supuestos. No acredita que los bancos peruanos satisfagan S5, ni identifica
+efectos causales o mejoras predictivas. Tampoco sustituye la comprobación
+personal de las derivaciones.
 
-Lean no demuestra equilibrio de precios, identificación causal, mejora
-predictiva peruana ni que los datos reales satisfagan S5. Tampoco sustituye
-la revisión y las derivaciones manuscritas personales del estudiante.
+\clearpage
+\section{Colaboración con inteligencia artificial}
+El registro \path{prompts.md} conserva las interacciones literales disponibles
+y distingue los resúmenes de los textos originales. La tabla siguiente
+documenta afirmaciones relevantes, el veredicto aplicado y la comprobación
+que lo sustenta. Estos controles computacionales no se atribuyen a una
+revisión manuscrita del autor que carezca de evidencia documental.
 
-\section{Colaboración con IA y adjudicación}
-El registro histórico de octubre se conserva en \path{prompts.md}. La
-solicitud actual y respuestas relevantes disponibles se añaden literalmente.
-No se reconstruyen mensajes ausentes ni se afirma que el estudiante haya
-revisado a mano esta versión. Las decisiones siguientes son una auditoría
-computacional de la sesión, pendientes de ratificación personal.
-
-\begin{longtable}{p{.30\linewidth}p{.29\linewidth}p{.32\linewidth}}
-\toprule Afirmación o aporte de IA & Veredicto y razón & Comprobación\\\midrule
+\begin{longtable}{L{.29\linewidth}L{.29\linewidth}L{.33\linewidth}}
+\toprule Afirmación o aporte & Veredicto y fundamento & Comprobación\\\midrule
 \endhead
-``El modelo está cerrado como problema de dos etapas'' (respuesta heredada de octubre). &
-Incompleta: la decisión interior de esfuerzo se resolvió, pero no la etapa
-de precios ni todas las restricciones. & P1 usa cuadrado completo y cotas.
-La sección de límites delimita precio condicionado.\\
-El signo $a-g^2/c$ se puede usar para todo precio. &
-Falso fuera del interior: capacidad da $a$, piso da cero. &
-P1, optimizador independiente y contraejemplo de capacidad.\\
-Opacidad implica mejor eficacia relativa de evaluación. &
-No justificado como afirmación general. $2g'/g-c'/c$ puede ser negativo. &
-Derivación \eqref{eq:logs}, escenario alternativo sin cruce.\\
-Un vínculo positivo entre riesgo nuevo y saldo conserva el signo. &
-Condicional: requiere pesos y riesgo antiguo fijos o control de composición. &
-P3 y contraejemplo con $M'=-0.034$ y $q^{*\prime}=0.13$.\\
-Restar pares elimina todos los factores comunes. &
-Excesivo: solo cancela un componente aditivo con carga común. &
-Descomposición con cargas $\lambda_j$ heterogéneas.\\
-Cifras descriptivas del plan 2026. &
-No verificables con los materiales entregados. &
-Lectura de 24 páginas y búsqueda de datos y scripts en el repositorio.\\
-Las comprobaciones numéricas prueban la teoría. &
-Falso: pueden falsar implementaciones en los casos examinados. &
-Pruebas completas separadas de las simulaciones y del estado de Lean.\\
-Una variación de un punto porcentual en precio cambia el riesgo en
-$0.01a$ unidades. &
-Correcto; equivale a $a$ puntos porcentuales, no a $0.01a$ puntos. &
-Conversión explícita de unidades y ejemplo con $a=0.18$ en S1.\\
+El problema de dos etapas está resuelto. &
+Incompleto: el precio es un dato; la optimización corresponde al esfuerzo. &
+Definición del problema de continuación y prueba global de P1.\\
+La pendiente $a-g^2/c$ rige para todo precio. &
+Falso fuera del interior: la capacidad produce pendiente $a$ y el piso, cero. &
+P1, optimizador independiente y ejemplo de capacidad.\\
+La opacidad mejora necesariamente la evaluación. &
+No es una implicación general: $2g'/g-c'/c$ puede ser negativo. &
+Identidad \eqref{eq:logs} y escenario sin cruce.\\
+El signo del riesgo nuevo pasa al ratio de saldo. &
+Condicional: los pesos y el riesgo antiguo deben satisfacer las restricciones de P3. &
+Identidad de composición y contraejemplo con $M'=-0.034$ y $q^{*\prime}=0.13$.\\
+Restar pares elimina toda exposición común. &
+Excesivo: se cancela la base aditiva, pero pueden persistir cargas heterogéneas. &
+Descomposición con coeficientes $\lambda_j$.\\
+Las cifras del plan equivalen a estimaciones reproducidas. &
+Se excluyen del análisis empírico al no existir una base consolidada reproducible en los materiales. &
+Separación entre estadísticas públicas documentadas y parámetros ilustrativos.\\
+Las simulaciones demuestran los resultados generales. &
+Falso: comprueban implementaciones y pueden detectar errores en los casos examinados. &
+Demostraciones completas, controles independientes y pruebas Lean.\\
+Un punto porcentual de precio cambia el riesgo previo en $0.01a$ unidades. &
+Correcto: equivale a $a$ puntos porcentuales de riesgo. &
+Conversión de unidades en S1 y ejemplo con $a=0.18$.\\
 \bottomrule
 \end{longtable}
 
-\section{Fuentes y diferencias frente al plan}
-\path{docs/fuentes.md} registra consultas, transcripciones y descargas fallidas.
-Propuesta y tema son históricos. Esta entrega conserva la pregunta peruana
-del plan y desarrolla teoría. \path{docs/cumplimiento.md} detalla evidencia y
-trabajo personal pendiente. Se conserva el workflow oficial.
+\section{Disponibilidad de materiales}
+Las fuentes LaTeX, ambas ediciones del artículo, las figuras, el código y los
+artefactos de formalización se distribuyen en el repositorio público citado
+en la primera página. \path{docs/fuentes.md} detalla la procedencia y el
+alcance de la verificación de cada fuente. Los documentos de propuesta y
+presentación conservan sus fechas y definiciones originales; el artículo
+identifica la especificación empleada en los resultados finales.
 \end{document}

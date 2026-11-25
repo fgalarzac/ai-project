@@ -30,10 +30,9 @@ adicional compila y publica la edición inglesa.
 
 ## Fuente de la formalización
 
-La fuente aceptada del 22-nov se conserva exactamente. La renovación de
-la fuente editorial del 24-nov se registra en [lean_progreso.md](lean_progreso.md).
-La identidad de los enunciados no se usa para fingir que ambos PDF tienen
-el mismo hash. La traducción inglesa representa la misma matemática; el
+La edición española final del 24-nov tiene un cierre Lean aceptado y propio,
+registrado en [lean_progreso.md](lean_progreso.md). La fuente anterior del
+22-nov se conserva como archivo histórico con sus bytes exactos. La traducción inglesa representa la misma matemática; el
 registro identifica por separado la fuente sometida al protocolo oficial.
 El manuscrito auténtico y la revisión personal mantienen el estado indicado
 en `hand/README.md`.

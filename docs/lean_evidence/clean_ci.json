@@ -1,7 +1,10 @@
 {
-  "run": "https://github.com/fgalarzac/ai-project/actions/runs/45114359360",
-  "job_id": 137493661676,
-  "tested_head": "3df130c42218d8d803e75c44228b8573abe62417",
+  "run": "https://github.com/fgalarzac/ai-project/actions/runs/45618898598",
+  "job_id": 139221485032,
+  "tested_head": "afb0da269219d22393b2c7abf5f0daaa6c1ef4f0",
+  "source_commit": "1f26057150da8a1bffbf1fc357f15bd14466a090",
+  "source_pdf_sha256": "381af6e7d069af85faca6774b3c07e0f927fced227c284c41cf9b203ac81f4a5",
+  "accepted_graph_sha256": "73176b110cad1b3750b61da169704116cafbae83a77cc510c87c1fef04801977",
   "conclusion": "success",
   "fresh_ubuntu": "24.04",
   "python": "3.12",
@@ -19,9 +22,11 @@
     "exit_code": 0,
     "source_bytes_present": true
   },
-  "finished_utc": "2026-11-23T04:54:48Z",
-  "build_ci": "https://github.com/fgalarzac/ai-project/actions/runs/45114359301",
+  "finished_utc": "2026-11-25T13:01:33Z",
+  "build_ci": "https://github.com/fgalarzac/ai-project/actions/runs/45618898545",
   "numerical_checks": "success",
   "four_pdf_compilations": "success",
+  "english_unchanged_source_ci": "https://github.com/fgalarzac/ai-project/actions/runs/45334103684",
+  "english_pdf_sha256": "92905541206ceda53baab4ed8a96e7429e831dd15e972477a97350708fc29589",
   "acceptance_credential": false
 }

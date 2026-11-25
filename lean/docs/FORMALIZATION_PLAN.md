@@ -1,6 +1,6 @@
 # Plan y alcance de la formalización
 
-La fuente es el paper fusionado en el commit `25f0b0c7df040e2b04d78064b30949492cd4472f`, del 22 de noviembre de 2026. Se seleccionan sus tres proposiciones, los cinco supuestos y las definiciones que los gobiernan. Los ejemplos, simulaciones y párrafos de interpretación apoyan esas proposiciones; no añaden resultados al denominador.
+La fuente es el paper fusionado en el commit `1f26057150da8a1bffbf1fc357f15bd14466a090`, del 24 de noviembre de 2026. Se seleccionan sus tres proposiciones, los cinco supuestos y las definiciones que los gobiernan. Los ejemplos, simulaciones y párrafos de interpretación apoyan esas proposiciones; no añaden resultados al denominador.
 
 ## Orden matemático
 
