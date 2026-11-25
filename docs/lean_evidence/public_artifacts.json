@@ -3,7 +3,7 @@
   "sha256": {
     "docs/lean_evidence/engine_registration.bundle": "94dcd47c21f8644c09dc9af7b8da56d28a7a34075aefeb99850cf55e6c93b06f",
     "docs/lean_evidence/Galarza26RelativeCredit.lean": "53a0c034a1b188822aea18fb2387c456dd4e0cdcf16821b4294f6ab04652f525",
-    "docs/lean_evidence/HUMAN_REVIEW_PACKET.pdf": "d5a2e1da5bf7f0bcb94e916c280668587c0d44df1595bc12a7f1bd304b6a9d75"
+    "docs/lean_evidence/HUMAN_REVIEW_PACKET.pdf": "40c3890a533d0222017944e072e1a4bf1b3f110e57671b2003f2f597ffde0b96"
   },
-  "note": "Exact published copies used to restore ignored local artifacts; not an acceptance credential."
+  "note": "Exact published copies for restoring ignored artifacts; descriptive, not acceptance."
 }

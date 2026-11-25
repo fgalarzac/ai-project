@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "id": "Galarza26RelativeCredit",
-  "title": "El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera",
+  "title": "El precio relativo del crédito como señal de morosidad: evaluación crediticia, restricciones y composición de cartera",
   "authors": "Fabián Matías Galarza Chumbe",
-  "source_version": "Versión para entrega, 22 de noviembre de 2026, commit 25f0b0c7df040e2b04d78064b30949492cd4472f",
+  "source_version": "Entrega final en español, 24 de noviembre de 2026, commit 1f26057150da8a1bffbf1fc357f15bd14466a090",
   "source_inventory_review_required": true,
   "repository_visibility": "public",
   "build_target": "lake build +Galarza26RelativeCredit",

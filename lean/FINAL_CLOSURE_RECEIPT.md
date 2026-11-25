@@ -3,11 +3,11 @@ schema = 6
 paper = "Galarza26RelativeCredit"
 closure_status = "current"
 acceptance_credential = false
-closed_at = "2026-11-23"
+closed_at = "2026-11-25"
 
 [accepted_graph]
 pointer = "papers/Galarza26RelativeCredit/audit/obligation_evidence/current_accepted_graph.json"
-graph_sha256 = "1e2850e85cf4eb3994a9bc350e5ccc823bf7ab537a9b263575be98761c73b61c"
+graph_sha256 = "73176b110cad1b3750b61da169704116cafbae83a77cc510c87c1fef04801977"
 
 +++
 

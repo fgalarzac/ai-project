@@ -1,10 +1,10 @@
 <!-- BEGIN GENERATED PAPER FOLDER README -->
-# El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera
+# El precio relativo del crédito como señal de morosidad: evaluación crediticia, restricciones y composición de cartera
 
 | Field | Value |
 |---|---|
 | Final status | Formalized |
-| Paper reference | El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera by Fabián Matías Galarza Chumbe; Publication details not listed. |
+| Paper reference | El precio relativo del crédito como señal de morosidad: evaluación crediticia, restricciones y composición de cartera by Fabián Matías Galarza Chumbe; Publication details not listed. |
 | Lines of Code | 1,191 |
 
 ## Key Links

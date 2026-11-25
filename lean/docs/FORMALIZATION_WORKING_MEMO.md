@@ -1,4 +1,4 @@
-# Formalization Working Memo: El precio relativo del crédito como señal de morosidad: evaluación óptima, restricciones y composición de la cartera
+# Formalization Working Memo: El precio relativo del crédito como señal de morosidad: evaluación crediticia, restricciones y composición de cartera
 
 This is a working lead log, not audit evidence and not a final validation
 report. Record possible issues while reading and proving; independently verify

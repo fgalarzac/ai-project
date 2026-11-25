@@ -1,0 +1,154 @@
+{
+  "acceptance_credential": false,
+  "child_process_identity": {
+    "boot_id": "033323b9-05cf-4065-8ba8-dce6a0dd7fe2",
+    "command_sha256": "947c8ff815a0bc84687a52e0588fda25ff60c21ac3c34ac5ad198ef4882d877b",
+    "pid": 5440,
+    "start_ticks": "103636"
+  },
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.16/x64/bin/python3",
+    "-m",
+    "scripts.current_closeout.strict_runner",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--operational-plan-identity",
+    "83fe6e816771d1eaada8ae1e0722227d5dbfcc1b6aadb3df817d3180d8e1de23"
+  ],
+  "completed_at": "2026-11-25T12:52:16.376607Z",
+  "exit_code": 0,
+  "launch_id": "3da053f4584f436f872ba5138b361cdd",
+  "lease_id": "3a8eaf417e3149fc922ee4d2bb1c8bc1",
+  "lock_backend": "flock_v1",
+  "log_path": "papers/Galarza26RelativeCredit/.review_traces/paper_closeout_worker.3da053f4584f436f872ba5138b361cdd.log",
+  "operational_recovery_only": true,
+  "paper": "Galarza26RelativeCredit",
+  "process_identity": {
+    "boot_id": "033323b9-05cf-4065-8ba8-dce6a0dd7fe2",
+    "command_sha256": "b7b1f062e086d764cfb28d0b9d42b160346bf89966f6e9b0e8b070d3ba8f3257",
+    "pid": 5439,
+    "start_ticks": "103625"
+  },
+  "request": {
+    "audit_command_sha256": "63b24422a48080d081b518629c90d68a6442624dea0c0f3e77b299d3d9717d05",
+    "deep_paper_prose": false,
+    "operational_plan_identity": "83fe6e816771d1eaada8ae1e0722227d5dbfcc1b6aadb3df817d3180d8e1de23",
+    "operational_plan_identity_schema": "closeout-execution-input-graph-v7",
+    "paper": "Galarza26RelativeCredit",
+    "schema": 2
+  },
+  "result": {
+    "acceptance_credential": false,
+    "audit_exit_code": 0,
+    "audit_log": "papers/Galarza26RelativeCredit/.review_traces/paper_closeout_worker.3da053f4584f436f872ba5138b361cdd.log",
+    "audit_log_sha256": "a24d7254e3d27a4fcac9382fe22f4b74caa507d0f1e9588fdd3fe124ad45b4a7",
+    "closeout_finalization": {
+      "canonical_receipt": "papers/Galarza26RelativeCredit/FINAL_CLOSURE_RECEIPT.md",
+      "closeout_stage_dag": {
+        "acceptance_credential": false,
+        "current_prefix_length": 10,
+        "next_stage": null,
+        "operational_scheduling_only": true,
+        "schema": 2,
+        "stages": [
+          {
+            "dependencies": [],
+            "id": "closeout_artifact_preflight",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "closeout_artifact_preflight"
+            ],
+            "id": "acquire_exact_context",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "acquire_exact_context"
+            ],
+            "id": "route_schema_preflight",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "route_schema_preflight"
+            ],
+            "id": "acquire_lean_context",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "acquire_lean_context"
+            ],
+            "id": "current_evidence_transaction_preflight",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "current_evidence_transaction_preflight"
+            ],
+            "id": "paper_root_build",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "paper_root_build"
+            ],
+            "id": "primary_paper_gate",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "primary_paper_gate"
+            ],
+            "id": "evidence_integrity",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "evidence_integrity"
+            ],
+            "id": "conclusion_provenance",
+            "state": "completed"
+          },
+          {
+            "dependencies": [
+              "conclusion_provenance"
+            ],
+            "id": "final_input_check",
+            "state": "completed"
+          }
+        ]
+      },
+      "derived_status_metadata_refreshed": false,
+      "evidence_lane": "obligation-graph",
+      "focused_build_receipt": "papers/Galarza26RelativeCredit/audit/FOCUSED_BUILD_RECEIPT.json",
+      "obligation_evidence": {
+        "acceptance_credential": false,
+        "bundle_path": "papers/Galarza26RelativeCredit/audit/obligation_evidence/current_bundle.json",
+        "direct_claim_count": 3,
+        "elapsed_seconds": 0.722242,
+        "engine_tree_sha256": "547eec4fbff97e0c15b11ad7714451ce730f28968e717d743bb651eddb145c24",
+        "graph_sha256": "ee8f2e3c1ef4a57d37f514167ffa9f4fd41c0f2d6fd37755f274f3b14330e718",
+        "issuance_authority_sha256": "1df7c21b63604bb0e5012140e1fcce2732d024955e93d32a698941b3b6a75636",
+        "leaf_count": 68,
+        "materialized_prerequisite_leaf_count": 0,
+        "operation": "authenticated_strict_closeout_materialization",
+        "paper": "Galarza26RelativeCredit",
+        "paper_index_sha256": "35ba63d2160d42999a6be98f7491695bd7025e3dd216d4b700e395df2bc22931",
+        "reused_prerequisite_leaf_count": 18,
+        "schema": 1,
+        "semantic_prerequisite_count": 18,
+        "source_route_count": 12
+      },
+      "runtime_pass_bound_stage_count": 10
+    },
+    "operational_plan_identity": "83fe6e816771d1eaada8ae1e0722227d5dbfcc1b6aadb3df817d3180d8e1de23",
+    "operational_plan_identity_schema": "closeout-execution-input-graph-v7",
+    "semantic_closeout_passed": true
+  },
+  "schema": 1,
+  "started_at": "2026-11-25T12:51:28.870036Z",
+  "state": "complete"
+}

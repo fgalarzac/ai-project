@@ -1,7 +1,7 @@
 {
   "schema": 5,
   "paper": "Galarza26RelativeCredit",
-  "paper_lean_tree_sha256": "79358f70a228bfcde2074862216897f81e4859ddaaa3057795772759274a7310",
+  "paper_lean_tree_sha256": "a365a519bd48eb70c171ec7fd7beaea33ecfeb9d36b79a7bf82a35835adecd3d",
   "library_lean_tree_sha256": "c797c162b383948166d1eed716192bd0d91d8638016123250654b8000741dad2",
   "lean_display_engine_sha256": "9d6abcd545bcee8824ae8a03507e6e38fcae2f59e8ffda3ab26864df6e9e2b9f",
   "display_protocols": {

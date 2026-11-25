@@ -246,53 +246,28 @@
   "visual_review": "All 33 supplied slides and all final paper pages inspected using Poppler renders; unchanged deck preserved.",
   "lean": {
     "paper": "Galarza26RelativeCredit",
-    "source_commit": "25f0b0c7df040e2b04d78064b30949492cd4472f",
-    "source_pdf_sha256": "d7e8130cf88602523ff6eec460a27f798314c2596a4f241190d1da5c88fc2953",
-    "accepted_graph_sha256": "1e2850e85cf4eb3994a9bc350e5ccc823bf7ab537a9b263575be98761c73b61c",
+    "accepted_graph_sha256": "73176b110cad1b3750b61da169704116cafbae83a77cc510c87c1fef04801977",
     "strict_worker_exit": 0,
     "strict_errors": 0,
-    "strict_warnings": 6,
+    "strict_warnings": 7,
+    "strict_stages_completed": 10,
+    "strict_completed_utc": "2026-11-25T12:52:16.376607Z",
     "official_fast_exit": 0,
     "all_modules_checkpoint_exit": 0,
     "current_receipt_exit": 0,
     "full_facade_exit": 2,
-    "full_facade_limitation": "Upstream facade expects legacy inspect_existing_closeout, but the current accepted planner returns closeout_complete=true and next_action=null.",
-    "direct_diagnostic_exit": 1,
-    "direct_diagnostic_limitation": "All strict gates passed, but a stateless diagnostic cannot publish acceptance without an exact operational plan receipt; no claim of diagnostic success.",
+    "full_facade_limitation": "Pinned upstream facade expects legacy terminal action although the accepted planner correctly returns closeout_complete=true and next_action=null.",
+    "final_adversary_exit": 0,
+    "final_adversary_verdict": "PASS",
+    "strict_materialization_graph_sha256": "ee8f2e3c1ef4a57d37f514167ffa9f4fd41c0f2d6fd37755f274f3b14330e718",
+    "source_commit": "1f26057150da8a1bffbf1fc357f15bd14466a090",
+    "source_pdf_sha256": "381af6e7d069af85faca6774b3c07e0f927fced227c284c41cf9b203ac81f4a5",
+    "exact_generated_folder_files": 313,
+    "generated_ignore_preserved": true,
     "human_review_completed": 0,
     "human_review_total": 3,
-    "exact_generated_folder_files": 210,
-    "generated_ignore_preserved": true,
     "acceptance_credential": false,
-    "authority": "The selected accepted obligation graph, revalidated by the unmodified final_closure_receipt.py, is the machine credential. This summary is descriptive only.",
-    "clean_ci": {
-      "run": "https://github.com/fgalarzac/ai-project/actions/runs/45114359360",
-      "job_id": 137493661676,
-      "tested_head": "3df130c42218d8d803e75c44228b8573abe62417",
-      "conclusion": "success",
-      "fresh_ubuntu": "24.04",
-      "python": "3.12",
-      "source_hashes_verified": true,
-      "engine_unmodified": true,
-      "official_fast": {
-        "exit_code": 0,
-        "build_jobs": 3298
-      },
-      "all_paper_modules": {
-        "exit_code": 0,
-        "build_jobs": 3307
-      },
-      "accepted_graph_revalidated": {
-        "exit_code": 0,
-        "source_bytes_present": true
-      },
-      "finished_utc": "2026-11-23T04:54:48Z",
-      "build_ci": "https://github.com/fgalarzac/ai-project/actions/runs/45114359301",
-      "numerical_checks": "success",
-      "four_pdf_compilations": "success",
-      "acceptance_credential": false
-    },
-    "current_editorial_source": "Revalidation in progress; accepted historical source preserved exactly."
+    "authority": "The selected accepted graph revalidated by the unmodified official engine is the credential; this is a descriptive summary."
   },
   "personal_remaining": [
     "Authentic handwritten derivations",
@@ -326,6 +301,18 @@
         "visual_review": "All pages inspected from current Poppler renders; Figure 1 also inspected at full size.",
         "tex_sha256": "d06cb482d8d29d23f1ca80bc3c2c1e413a9ae234aeee4f8ec107ef5dca04c78f"
       }
+    }
+  },
+  "lean_document_layout": {
+    "DependencyDAG": {
+      "pages": 1,
+      "text_outside_page": [],
+      "all_pages_visually_inspected": true
+    },
+    "HUMAN_REVIEW_PACKET": {
+      "pages": 40,
+      "text_outside_page": [],
+      "all_pages_visually_inspected": true
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "paper": "Galarza26RelativeCredit",
-  "review_material_sha256": "b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881",
+  "review_material_sha256": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
   "required_reviewer_count": 1,
   "ineligible_reviewer_identities": [
     "/root",
@@ -14,17 +14,22 @@
     "01a2068c-f62c-7da3-9d2c-33a57e86940e",
     "01a20679-8ab3-7682-9997-d44ce3f5e9ed",
     "01a20692-3dd9-7210-b411-9ed82cb87303",
-    "01a20696-64a4-7e30-b2e2-2d19059a27ca"
+    "01a20696-64a4-7e30-b2e2-2d19059a27ca",
+    "01a20c10-7891-7f60-a567-7067fc314be3",
+    "01a20c1b-96e0-7f83-9b36-c258638bcc88",
+    "01a20c20-89ce-7f83-a73f-02b4381f2f05",
+    "01a20c25-6ede-7ed2-925d-eb86a4ce77a0",
+    "01a20c2d-8d29-7200-acc6-85397015116f"
   ],
   "reviews": [
     {
-      "reviewer_identity": "source3-final-adversary-6f89f424ecf54a0497c2d8c7dea600ef",
+      "reviewer_identity": "source4-final-adversary-85d8bfb5aa004067bc5efe899837fba9",
       "audit_artifact_path": "docs/AGENT_SOURCE_AUDIT.md",
-      "audit_artifact_sha256": "1d46e3bfa8725c80b2c79f618eab325c716ac7133a81f02b1250377ac7aa2850",
-      "reviewed_surface_sha256": "b5e7dcd886a81ef579b2e71845fe15cec240b95c1a06c89fd687c1f1cf492881",
+      "audit_artifact_sha256": "e6de54302a52b37fc9f830160fa3470659e09bf53ff6434becb48b4c649112db",
+      "reviewed_surface_sha256": "5c9d032ac87dd92d3ce3fde075d6ebe30e2afe9c2a66434b1e954270ae161b79",
       "judgment": "PASS",
       "scope": "complete_current_surface",
-      "reviewed_at": "2026-11-23T04:30:51Z",
+      "reviewed_at": "2026-11-25T12:47:55Z",
       "independence": {
         "did_not_author_or_repair": true,
         "did_not_issue_semantic_judgments": true

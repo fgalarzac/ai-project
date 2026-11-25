@@ -1,9 +1,9 @@
 {
   "schema": 2,
   "paper": "Galarza26RelativeCredit",
-  "report_sha256": "2cb09fb19f69da2fbd1399790def587a7c517b62a152ca90ca86eee2f0141208",
+  "report_sha256": "e8c8b7e52a3c9e241c1553ffda3a83d14e5af9a92c82888bdfebb2e6da058d31",
   "source_items_sha256": "c7dab662bff5c05088cb1a4908eb55a6ef09b20297782da74ca5a1ced57b915a",
-  "all_selected_semantic_review_sha256": "61f6bf483cb378acb7372f094aa1940ed754e93013285bfe749e5071b4bf9305",
+  "all_selected_semantic_review_sha256": "997b08776480fa20f787f2a9c0e5603628914f2ae4fe026a7a230c23f16f50ec",
   "report_inventory_complete": true,
   "items": {},
   "result_table": {
@@ -11,7 +11,7 @@
     "complete": true,
     "source_inventory": {
       "schema": 1,
-      "source_artifact_sha256": "9531b374b2be3c9e9d1affb82f03f09e05e99e85353f52aa40eb6beb925ce9d5",
+      "source_artifact_sha256": "49958ac27627c107f5b4f51d2eaa0e9ba9570ec9703b199215fac76edc2ab7fc",
       "discovered_named_result_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "source_format": "text",
       "results": {
@@ -38,7 +38,7 @@
         }
       }
     },
-    "source_inventory_sha256": "dd7bbd7cc3efb6ac73c1cbfead362f160e637f9a6b0e01f3bcf6a4641d49bb94",
+    "source_inventory_sha256": "96839213f5800f6234eab40b45954783d4ba997596d2640da3f66120817a5fe8",
     "results": {
       "proposition_1_global_solution_regimes": {
         "numbering": "numbered",
