@@ -34,7 +34,7 @@ La fuente anterior se conserva como archivo histórico en `lean_evidence/frozen_
 | Grafo revalidado, fuentes presentes | [Salida 0](lean_evidence/receipt_final_stdout.txt) |
 | Material de lectura | [Paquete de 40 páginas](lean_evidence/HUMAN_REVIEW_PACKET.pdf), [diagrama](../lean/docs/DependencyDAG.pdf) e [informe](../lean/FINAL_VALIDATION_REPORT.md) |
 
-La reproducción limpia de esta actualización se comprueba en el PR; su resultado se registra después de la ejecución real.
+La [reproducción limpia en CI](https://github.com/fgalarzac/ai-project/actions/runs/45618898598) terminó aprobada sobre el commit `afb0da269219d22393b2c7abf5f0daaa6c1ef4f0`: fuente por hashes, motor sin parches, chequeo rápido, todos los módulos y grafo vigente.
 
 Las siete advertencias del cierre están documentadas en el log: seis son
 comprobaciones de encabezados o referencias de los registros y una corresponde
