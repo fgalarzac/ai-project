@@ -1,0 +1,18 @@
+{
+  "request_id": "20261125T125551-dc13141f",
+  "argv": [
+    "env",
+    "PYTHONPATH=.",
+    "LEAN_NUM_THREADS=1",
+    "python3",
+    "scripts/final_closure_receipt.py",
+    "--paper",
+    "Galarza26RelativeCredit",
+    "--check"
+  ],
+  "started_utc": "2026-11-25T12:55:54Z",
+  "exit_code": 0,
+  "elapsed_seconds": 0.465,
+  "download_sha256": "19c7497770533f5f6eab323380859f1c36a7e07686b37896e503bd32d5915503",
+  "finished_utc": "2026-11-25T12:55:55Z"
+}
