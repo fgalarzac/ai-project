@@ -716,3 +716,26 @@ modificar sus bytes, como hand/Hand.pdf. Se retiró el material auxiliar de
 hand/ y su README describe únicamente el contenido del documento. Se
 actualizaron las referencias al apéndice y se conservaron el paper, las
 presentaciones, el código, Lean y los workflows.
+
+
+## 14. Revisión editorial y organización final del repositorio
+
+**Solicitud literal del usuario**
+
+```text
+Si eso es lo único que falta ignóralo. Dale una última revisada a la redacción y estructura del repositorio. Mejóralo. No cambies lo de hand no digas que está incompleto
+```
+
+**Respuesta literal inicial del asistente**
+
+```text
+Haré una última revisión de la redacción, los enlaces y la organización del repositorio. Mantendré `hand/` tal como está y conservaré los archivos del paper, las diapositivas y Lean.
+```
+
+Resumen de acciones: se revisó la documentación de la entrega, se aclararon
+las definiciones del README principal y se incorporaron índices de lectura
+y reproducción. Se actualizaron los textos que describían etapas anteriores
+y se identificaron los registros históricos por su fecha. Se comprobaron
+los enlaces locales y la preservación de los entregables. La revisión se
+limita a documentación; hand/, los artículos, las presentaciones, los
+archivos generados de Lean y el código ejecutable se conservan.

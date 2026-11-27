@@ -1,97 +1,74 @@
-# Evaluación y mejora del proyecto — 22 de noviembre de 2026
+# Informe de entrega
 
-## Resultado y criterio académico
+El proyecto estudia cuándo el precio relativo del crédito informa sobre el
+riesgo futuro. El banco elige cuánto evaluar a los solicitantes después de
+observar ese precio. El artículo distingue la selección de solicitantes, el
+incentivo a evaluar y la composición del saldo de cartera.
 
-Se conserva el modelo de la presentación del autor. El profesor lo consideró
-bien, con observación de complejidad, según el comentario comunicado por el
-estudiante. La revisión mejora la explicación y las pruebas, sin sustituir
-las primitivas ni agregar resultados teóricos.
+La [edición española](../paper/paper.pdf) tiene 16 páginas de cuerpo y 19 en
+total; la [edición inglesa](../paper/paper_en.pdf), 15 y 18, respectivamente.
+Ambas utilizan 11 puntos, una columna y márgenes de una pulgada. La
+[guía de lectura](guia_lectura_paper.md) sigue las páginas del artículo y
+explica los símbolos antes de utilizar sus resultados.
 
-El paper en español tiene 16 páginas de cuerpo; la edición inglesa, 15, ambas dentro de 8–20, en 11pt, una columna y
-márgenes de una pulgada. Sus tres resultados muestran: el óptimo con dos
-restricciones; un umbral único solo bajo cruce e interioridad; y una condición
-exacta para que la composición invierta el signo del riesgo nuevo.
+## Contribución y estructura
 
-## Cambios realizados
+El artículo presenta la pregunta y la literatura, define el indicador de
+precio relativo y desarrolla las primitivas y la decisión del banco. A
+continuación demuestra tres proposiciones y las contrasta mediante
+simulaciones. La discusión delimita la interpretación económica y las
+condiciones de una aplicación empírica.
 
-- Guía de lectura, diccionario de símbolos y separación de elegir esfuerzo,
-  variar precio y comparar opacidad.
-- Pruebas de P1–P3 divididas en pasos, con reglas y condiciones explícitas.
-- Ejemplo guiado de esfuerzo y riesgo; conversión precisa de unidades.
-- Frontera de composición ya presente en la presentación, ahora reproducida
-  por código y explicada en el paper como aplicación de P3.
-- Validación de probabilidades de referencia, primitivas finitas y saldos,
-  consistente entre el ratio y su derivada.
-- Dependencias fijadas, documentación actualizada y guía de 13 apartados
-  para el manuscrito personal.
+| Resultado | Qué demuestra | Condiciones decisivas |
+|---|---|---|
+| P1: esfuerzo y riesgo óptimos | La solución única compara el esfuerzo deseado con la capacidad y la cota de probabilidad. La pendiente del riesgo depende del régimen vigente. | Supuestos S1–S3; las pendientes se calculan en intervalos con restricciones estrictas. |
+| P2: umbral por opacidad | Existe un único punto donde cambia el signo de la pendiente interior del riesgo respecto del precio. | Continuidad, descenso estricto, cruce de signos e interioridad uniforme al precio comparado, según S4. |
+| P3: composición de cartera | La respuesta del ratio combina calidad y cambios en el peso de la cohorte nueva; la composición puede invertir el signo. | Contabilidad y comparabilidad de cohortes de S5, con las condiciones de diferenciabilidad de la proposición. |
 
-Los cinco supuestos y los tres enunciados se mantuvieron literalmente iguales;
-sus huellas están en modelo_preservado.json. El PDF adjunto coincide con el
-de main y **no se modificó ningún archivo de slides/**.
+El modelo original se conserva: los cinco supuestos y los tres enunciados
+españoles mantienen su texto. El [registro de preservación](modelo_preservado.json)
+y las [comprobaciones entre idiomas](paper_ediciones_qa.json) documentan esa
+correspondencia. Las decisiones económicas se explican en
+[decisiones.md](decisiones.md).
 
-## Evaluación de calidad
+## Reproducción y evidencia
 
-La pregunta, los mecanismos, las proposiciones y las simulaciones cuentan una
-misma historia. La existencia y unicidad no descansan solo en primer orden;
-se tratan esquinas y probabilidades válidas. P2 distingue opacidad de una
-mejora tecnológica impuesta. P3 evita identificar automáticamente un flujo
-de riesgo con un ratio de saldo. La contribución está acotada frente al
-antecedente empírico de Morgan y Ashcraft; no se reclama novedad universal.
+[code/verify.py](../code/verify.py) ejecuta 4018 controles base y 73 adicionales.
+La [documentación del código](../code/README.md) describe las dependencias y
+las salidas. Las comprobaciones incluyen un optimizador acotado independiente,
+los regímenes de la solución, la validez de probabilidades y saldos, las
+pendientes y las conversiones de unidades. Las seis figuras del artículo se
+generan a partir de esos ejercicios.
 
-Las limitaciones sustantivas están visibles: selección reducida, tecnología
-lineal, volumen independiente del esfuerzo, precio dado y contabilidad S5.
-No se reportan causalidad, estimaciones peruanas ni mejora predictiva no ejecutada.
+El ejemplo de composición utiliza una cohorte nueva cuyo riesgo aumenta con
+el precio, mientras su peso en la cartera disminuye. La pendiente del riesgo
+nuevo es 0.13 y la del ratio total es −0.034, por unidad de tasa decimal.
+Una subida de un punto porcentual del precio corresponde a 0.01 unidades:
+las respuestas locales son, respectivamente, 0.13 y −0.034 puntos
+porcentuales. La frontera del ejemplo se alcanza cuando la semielasticidad
+del saldo, es decir, su respuesta proporcional al precio, vale 1.3.
 
-## Verificaciones
+Las cifras simuladas son ilustrativas. La [tabla histórica del BCRP](../code/data/README.md)
+se presenta con su definición y universo originales. El [registro de fuentes](fuentes.md)
+identifica qué se consultó y cómo se utiliza. El alcance del artículo es
+teórico: las estimaciones para el Perú requieren datos y validación adicionales.
 
-El punto único de reproducción es `python code/verify.py`: 4018 controles
-originales y 73 adicionales, seis figuras y archivos de resultados separados.
-El contraejemplo exacto es −17/500 y el corte de composición en w=1/5 es 13/10.
-La semilla base sigue siendo 20261110. Las cifras del plan no reproducibles
-no se presentan como hechos confirmados.
+## Formalización y archivos de la entrega
 
-Los conteos, hashes, revisión visual y compilación figuran en qa_report.json.
-El PR6 fue fusionado con las dos ejecuciones de CI aprobadas: los controles
-numéricos y las cuatro compilaciones pasaron en Linux. La lectura algebraica
-final corrigió dos signos de la explicación nueva: la condición estacionaria
-es e=z y la cota por valor absoluto es débil antes de la desigualdad estricta.
-Los enunciados originales permanecen idénticos.
-El control de preservación compara el SHA256 de los archivos de slides con
-el estado inicial del autor. `build.yml` mantiene el SHA256 original
-e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f.
+Las tres proposiciones están demostradas en Lean y el cierre estricto está
+aceptado sobre la edición española final del 24 de noviembre de 2026. El
+[registro vigente](lean_progreso.md) enlaza la fuente fijada, el grafo aceptado,
+la revisión independiente y los resultados de los controles oficiales. La
+[guía de reproducción](reproducir_lean.md) permite reconstruir los módulos
+y revalidar el recibo con los insumos presentes.
 
-## Estado restante y entrega
+La [propuesta](../proposal/proposal.pdf) y las dos presentaciones se conservan
+en sus rutas originales. El [PDF manuscrito](../hand/Hand.pdf) es el archivo
+suministrado por el autor, de diez páginas. El [registro de IA](../prompts.md)
+reúne las interacciones conservadas y las comprobaciones realizadas.
 
-La [matriz](cumplimiento.md) distingue cumplimiento, límites y pendientes.
-El cierre estricto de Lean sobre el PDF final está aceptado: diez etapas,
-cero errores, tres proposiciones y solo axiomas estándar. La carpeta generada
-se copia íntegra; el [registro vigente](lean_progreso.md) enlaza el grafo,
-la revisión independiente y el paquete humano. La reproducción reconstruye
-todos los módulos y revalida el recibo con fuentes presentes. El fallo de la
-fachada general de esta versión queda documentado; no se afirma su éxito.
-
-El apéndice hand/Hand.pdf contiene el PDF suministrado por el autor, con diez
-páginas de derivaciones manuscritas sobre precio relativo, esfuerzo y riesgo
-óptimos, umbral por opacidad y composición de cartera. Se conserva el archivo
-recibido sin modificaciones.
-El presupuesto de 30 minutos para 29 páginas principales es una estimación;
-cuatro páginas quedan como respaldo. No se inventa un ensayo ni aprobación humana.
-
-Se trabaja en apoyo y se publica por pull request hacia main. La entrega
-oficial requiere el repositorio completo fusionado al 26 de noviembre a las
-22:00 de Lima. La evaluación anterior a esta revisión se conserva en Git.
-La calidad técnica mejora la entrega; no garantiza una nota.
-
-
-## Ediciones finales del 24 de noviembre de 2026
-
-La revisión editorial convierte las notas de seguimiento en una exposición
-académica final, desarrolla las transiciones y conserva literalmente los
-cinco supuestos y los tres enunciados en español. La edición inglesa incluye
-el texto completo, las demostraciones y las seis figuras traducidas.
-La figura 1 tiene márgenes equilibrados, escala y etiquetas legibles y una
-leyenda exterior. Las magnitudes no cambian. Ambas ediciones compilan sin
-desbordamientos ni caracteres faltantes y cumplen el límite de cuerpo.
-La edición española final del 24 de noviembre tiene su propio cierre Lean
-aceptado. La fuente anterior se conserva con sus bytes exactos como archivo
-histórico. La traducción inglesa mantiene los mismos enunciados y condiciones.
+El [índice documental](README.md) permite localizar cada componente; la
+[matriz](cumplimiento.md) lo relaciona con la consigna. Los conteos y huellas
+se registran en [qa_report.json](qa_report.json). El workflow oficial
+compila los cuatro PDF y ejecuta las verificaciones numéricas. Su contenido
+se conserva intacto y las actualizaciones se integran mediante pull requests.

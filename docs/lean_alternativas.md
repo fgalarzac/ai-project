@@ -1,7 +1,8 @@
 # Lean: exploración histórica de alternativas
 
-> Esta nota conserva el diagnóstico inicial. El estado posterior está en
-> [lean_progreso.md](lean_progreso.md): P1–P3 ya compilan y el cierre sigue en curso.
+> Registro histórico de la exploración del entorno. El estado actual está en
+> [lean_progreso.md](lean_progreso.md): las tres proposiciones están demostradas
+> y el cierre estricto está aceptado.
 
 Actualización del 10 de noviembre de 2026. Esta nota reemplaza el diagnóstico
 anterior sobre la disponibilidad del agente. Las proposiciones generales
