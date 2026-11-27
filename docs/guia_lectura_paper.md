@@ -143,6 +143,6 @@ la validación empírica.
 
 Para preparar la defensa, conviene poder explicar primero la decisión y las
 dos cotas, después los tres regímenes, luego el umbral condicional y, por
-último, calidad frente a composición. La guía de `hand/` desarrolla el álgebra
-que debe escribirse y revisarse personalmente. El estado vigente de Lean
+último, calidad frente a composición. El [apéndice manuscrito](../hand/Hand.pdf)
+contiene las derivaciones suministradas por el autor. El estado vigente de Lean
 se consulta en [lean_progreso.md](lean_progreso.md).

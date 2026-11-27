@@ -28,17 +28,16 @@
       "sha256": "381af6e7d069af85faca6774b3c07e0f927fced227c284c41cf9b203ac81f4a5",
       "text_outside_page": 0
     },
-    "hand/guia_derivaciones.pdf": {
-      "pages": 7,
-      "sha256": "744e7eb5ef107f765ea3a3b91020293a081d7a2161dc508d6cd0e245d2e38c3b",
-      "text_outside_page": 0,
-      "external_links": 0
-    },
     "paper/paper_en.pdf": {
       "pages": 18,
       "body_pages": 15,
       "sha256": "92905541206ceda53baab4ed8a96e7429e831dd15e972477a97350708fc29589",
       "text_outside_page": 0
+    },
+    "hand/Hand.pdf": {
+      "pages": 10,
+      "sha256": "1fa28e99df1ca9faf4c1be54a0668e9c19a3a1fe40560e58b97ef5d42b064ebb",
+      "source_pdf_copied_without_changes": true
     }
   },
   "scratch_compilation": {
@@ -302,7 +301,6 @@
     }
   },
   "personal_remaining": [
-    "Correct and supplement the ten authentic handwritten pages received on 2026-11-26; see hand/revision_manuscrito.md",
     "Comprehension and oral rehearsal"
   ],
   "editorial_editions": {
@@ -348,13 +346,11 @@
     }
   },
   "handwritten_appendix": {
-    "received_date": "2026-11-26",
-    "file": "hand/derivaciones_manuscritas.pdf",
+    "file": "hand/Hand.pdf",
     "pages": 10,
-    "pdf_sha256": "246de43ad4fc1f985241b25fe4d9d8e8c81d4aa9f5cc857ca8600e574809d552",
-    "original_jpegs_byte_identical": true,
-    "all_pages_visually_inspected": true,
-    "academic_completeness": "partial; sign corrections and missing calculations documented in hand/revision_manuscrito.md",
-    "lean_human_review_status_changed": false
+    "pdf_sha256": "1fa28e99df1ca9faf4c1be54a0668e9c19a3a1fe40560e58b97ef5d42b064ebb",
+    "bytes": 2420064,
+    "source_pdf_copied_without_changes": true,
+    "description": "Author-supplied handwritten appendix: relative price, optimal effort and risk, opacity threshold and portfolio composition."
   }
 }
