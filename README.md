@@ -26,7 +26,7 @@ los símbolos y cada paso siguiendo las páginas del paper.
 | [Presentación del autor](slides/final.pdf) | Conservada sin cambios: 33 páginas, 29 principales y cuatro de respaldo. [Guía actual](docs/guia_presentacion_actual.md); duración propuesta de 30 min, sin ensayo observado. |
 | [Verificación](code/verify.py) | 4018 controles originales + 73 adicionales; seis figuras, parámetros ilustrativos y dependencias fijadas. |
 | [Lean](docs/lean_progreso.md) | P1–P3 demostradas y cierre estricto aceptado sobre la edición española final del 24-nov; diez etapas y cero errores. [Reproducción](docs/reproducir_lean.md) y paquete de revisión; fallo conocido de la fachada general documentado. |
-| [Derivaciones manuscritas](hand/derivaciones_manuscritas.pdf) | Diez páginas auténticas incorporadas. [Revisión](hand/revision_manuscrito.md): corregir signos y completar comprobaciones y cálculos del paper. |
+| [Apéndice manuscrito](hand/Hand.pdf) | PDF del autor con diez páginas: precio relativo, esfuerzo y riesgo óptimos, umbral por opacidad y composición de cartera. [Índice](hand/README.md). |
 | Historia y evaluación | Propuesta y tema conservados. [Matriz](docs/cumplimiento.md), [informe](docs/informe_final.md), [fuentes](docs/fuentes.md) y [registro IA](prompts.md). |
 
 ```bash

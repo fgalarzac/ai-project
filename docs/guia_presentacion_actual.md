@@ -62,7 +62,7 @@ La guía anterior en slides/ pertenece a otra versión y se conserva como histor
 - **¿Más opacidad mejora evaluar?** No necesariamente. S4 impone el descenso y cruce de la diferencia neta. La simulación alternativa muestra su fracaso.
 - **¿Por qué baja el ratio si sube el riesgo nuevo?** Porque cae el peso de una cohorte más riesgosa que la antigua. Hay que medir calidad y composición.
 - **¿Qué es epsilon?** La sensibilidad proporcional del saldo al precio: B'/B=−epsilon. En términos precisos es una semielasticidad; el deck usa también la palabra elasticidad.
-- **¿Qué falta comprobar personalmente?** Ya se recibieron diez páginas manuscritas en hand/. Corregir sus erratas y completar los cálculos indicados en hand/revision_manuscrito.md; la conversión de fotos no acredita por sí sola comprensión ni ensayo.
+- **¿Dónde están las derivaciones manuscritas?** En [hand/Hand.pdf](../hand/Hand.pdf), con diez páginas sobre precio relativo, esfuerzo y riesgo óptimos, umbral y composición de cartera.
 
 Si el ensayo excede 30 minutos, usar las repeticiones algebraicas como consulta
 y conservar siempre las condiciones e interpretaciones. No consta una duración real.
