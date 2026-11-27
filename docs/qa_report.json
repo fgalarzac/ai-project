@@ -302,7 +302,7 @@
     }
   },
   "personal_remaining": [
-    "Authentic handwritten derivations",
+    "Correct and supplement the ten authentic handwritten pages received on 2026-11-26; see hand/revision_manuscrito.md",
     "Comprehension and oral rehearsal"
   ],
   "editorial_editions": {
@@ -346,5 +346,15 @@
       "text_outside_page": [],
       "all_pages_visually_inspected": true
     }
+  },
+  "handwritten_appendix": {
+    "received_date": "2026-11-26",
+    "file": "hand/derivaciones_manuscritas.pdf",
+    "pages": 10,
+    "pdf_sha256": "246de43ad4fc1f985241b25fe4d9d8e8c81d4aa9f5cc857ca8600e574809d552",
+    "original_jpegs_byte_identical": true,
+    "all_pages_visually_inspected": true,
+    "academic_completeness": "partial; sign corrections and missing calculations documented in hand/revision_manuscrito.md",
+    "lean_human_review_status_changed": false
   }
 }

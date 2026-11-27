@@ -682,3 +682,30 @@ copió íntegra, respetando su ignore. Las dos ediciones del paper y todos los
 archivos de slides conservaron sus hashes. La credencial formal corresponde
 al español; la traducción inglesa se contrastó por separado. No se inventó
 revisión humana, manuscrito ni historial de Claude.
+
+
+## 12. Incorporación del manuscrito auténtico - 26 de noviembre de 2026
+
+**Solicitud literal del usuario**, acompañada de diez fotografías:
+
+```text
+Listo. Convierte estas imágenes a pdf y pon el pdf en la carpeta “hand”. Con eso se acaba el trabajo no?
+```
+
+**Respuesta literal inicial del asistente**
+
+```text
+Voy a unir las diez fotos en orden y guardar el PDF en `hand/`. Usaré la habilidad de PDF para verificar que se lea bien; también revisaré el contenido antes de decirte si ya está completa la entrega.
+```
+
+Resumen de acciones, no transcripción reconstruida: se creó un PDF de diez
+páginas con los JPEG originales en el orden recibido, sin retocar signos ni
+recortar contenido. Se comprobó la identidad de los JPEG incrustados y se
+inspeccionaron las diez páginas renderizadas con Poppler. La revisión de las
+hojas encontró erratas en igualdades intermedias y aplicaciones aún ausentes;
+se documentaron con un complemento concreto en hand/revision_manuscrito.md.
+Se reconoce la recepción de manuscrito auténtico, manteniendo su cumplimiento
+parcial hasta la corrección y ampliación por el autor. Los PDF y fuentes del
+paper, las diapositivas, el workflow oficial y la carpeta generada de Lean
+se conservaron intactos. Las fotos no acreditan una ratificación humana del
+panel formal de Lean.

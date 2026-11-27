@@ -1,4 +1,4 @@
-# Matriz de cumplimiento — revisión del 25 de noviembre de 2026
+# Matriz de cumplimiento — revisión del 26 de noviembre de 2026
 
 Autoridad: [consigna vigente, issue 7](https://github.com/alexanderquispe/AI-Econ-Modeling/issues/7).
 La evaluación distingue evidencia disponible y trabajo personal. No predice una nota.
@@ -28,11 +28,11 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Slide Lean: enunciado, prueba real y límites | Cumplido como presentación | Diapositiva 23 del PDF del autor | Estado histórico en curso; evidencia actual en lean_progreso.md |
 | Lean oficial del paper entregado y carpeta completa | Cumplido sobre la edición española final del 24-nov | lean/, grafo 73176b11…, diez etapas y cero errores | Revisión humana 0/3; fachada general con fallo documentado; controles oficiales de reproducción separados |
 | Tabla Lean con declaración, archivo, hipótesis y estado | Cumplido como reporte técnico | Apéndice B; prueba del kernel separada del cierre integral | Chequeo actual y fuente se registran fuera del PDF |
-| Apéndice manuscrito auténtico completo | Pendiente personal | Guía tipográfica de 13 apartados | Escribir, revisar y escanear; las láminas transcritas no son manuscrito |
+| Apéndice manuscrito auténtico completo | Diez páginas auténticas incorporadas; cumplimiento aún parcial | hand/derivaciones_manuscritas.pdf, índice y manifest.json | Corregir las erratas y completar los desarrollos identificados en hand/revision_manuscrito.md |
 | Registro IA, crítica y verificación | Cumplido como registro disponible | prompts.md y apéndice C | No se inventan prompts de Claude ni revisión humana |
 | Cuatro PDF y fuentes, compilación | Cumplido | Cuatro PDF oficiales y edición inglesa compilados; CI verificable | QA sin texto fuera de página |
 | Workflow oficial intacto | Cumplido | SHA256 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ninguna modificación |
-| Entrega en main antes del 26-nov 22:00 Lima | Entregable técnico completo, sujeto al merge registrado | PR6–PR11; controles numéricos, cuatro PDF y Lean aprobados | Solo el manuscrito, la revisión humana y la comprensión requieren participación personal |
+| Entrega en main antes del 26-nov 22:00 Lima | Entregables técnicos incorporados; manuscrito recibido y revisado con pendientes | PR6–PR11 y PR de incorporación manuscrita; controles numéricos, cuatro PDF y Lean aprobados | Completar y corregir el manuscrito; ratificación humana y comprensión personal no acreditadas por la conversión de fotos |
 
 El juicio del profesor comunicado por el autor fue favorable, con observación
 de complejidad. La respuesta es explicar el modelo existente, no sustituirlo

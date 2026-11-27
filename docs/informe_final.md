@@ -70,9 +70,12 @@ la revisión independiente y el paquete humano. La reproducción reconstruye
 todos los módulos y revalida el recibo con fuentes presentes. El fallo de la
 fachada general de esta versión queda documentado; no se afirma su éxito.
 
-El requisito manuscrito sigue pendiente de participación real del estudiante:
-escribir, revisar y escanear todos los pasos de hand/, contrastarlos con el
-paper y ensayar la defensa. Las láminas transcritas por Claude no son escaneos.
+El 26 de noviembre el estudiante suministró diez fotografías de derivaciones
+auténticas, incorporadas en hand/derivaciones_manuscritas.pdf. Su revisión
+identificó erratas de signos y desarrollos aún ausentes; el detalle y el
+complemento necesario están en hand/revision_manuscrito.md. El apéndice sigue
+parcial hasta corregir y añadir esas hojas. Las láminas transcritas por Claude
+son un material distinto de estos escaneos.
 El presupuesto de 30 minutos para 29 páginas principales es una estimación;
 cuatro páginas quedan como respaldo. No se inventa un ensayo ni aprobación humana.
 
