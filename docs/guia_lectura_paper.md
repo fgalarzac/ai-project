@@ -4,6 +4,9 @@ Esta guía acompaña al paper final de 16 páginas de cuerpo. Explica su misma
 decisión y sus tres proposiciones. Las páginas indicadas son las numeradas en
 el artículo, incluida su primera página.
 
+[Artículo en español](../paper/paper.pdf) · [English](../paper/paper_en.pdf) ·
+[Índice de documentación](README.md).
+
 ## 1. Qué pregunta se responde — páginas 1–3
 
 La pregunta es cuándo una tasa mayor que la de bancos comparables puede
@@ -12,9 +15,9 @@ el promedio simple de las tasas de otros bancos comparables. Las tasas se
 expresan en decimales anuales: D=0.02 significa dos puntos porcentuales por
 encima de ese promedio. El propio banco queda fuera del grupo de referencia.
 
-El precio tiene dos fuerzas. Puede atraer solicitantes más riesgosos, pero
-también aumenta el premio de evitar un crédito malo y, con ello, el incentivo
-a evaluar. El modelo compara ambas fuerzas. El banco elige cuánto evaluar
+Una subida del precio puede atraer solicitantes más riesgosos y, al mismo
+tiempo, aumentar el premio de evitar un crédito malo y el incentivo a
+evaluar. El modelo compara ambas respuestas. El banco elige cuánto evaluar
 después de fijado el precio; la teoría no determina el precio de equilibrio.
 
 La resta elimina una base aditiva común. No elimina diferencias de exposición

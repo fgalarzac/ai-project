@@ -1,18 +1,19 @@
 # Matriz de cumplimiento — revisión del 26 de noviembre de 2026
 
 Autoridad: [consigna vigente, issue 7](https://github.com/alexanderquispe/AI-Econ-Modeling/issues/7).
-La evaluación distingue evidencia disponible y trabajo personal. No predice una nota.
+La matriz relaciona la consigna con los documentos y las verificaciones de la
+entrega. El [índice documental](README.md) organiza su lectura y reproducción.
 
 | Requisito | Estado | Evidencia | Pendiente o límite |
 |---|---|---|---|
 | Tema propio, Línea B y pregunta peruana | Cumplido | Introducción y modelo del paper | Defensa personal de interpretación |
 | Repositorio público y enlace de entrega | Cumplido | Comentario 6157914408 en issue 7 | No se requiere otra publicación |
-| Rama → PR → merge | Paper, guías y cierre Lean incorporados por PR | PR6–PR11; historial de integración verificable | El cierre Lean tiene CI propio desde una instalación limpia |
+| Rama → PR → merge | Entregables incorporados mediante pull requests | [Historial de integración](https://github.com/fgalarzac/ai-project/pulls?q=is%3Apr+is%3Amerged); actualizaciones en main | El cierre Lean tiene CI propio desde una instalación limpia |
 | README de una página con resultado condicionado | Cumplido | README.md | Estado Lean actualizado fuera del PDF fuente |
 | Propuesta 2–4 páginas y fuente | Cumplido | proposal/proposal.tex/pdf: 4 páginas | Documento histórico conservado |
 | Slides del tema conservados | Cumplido | slides/topic.tex/pdf: 19 páginas | No modificados en esta revisión |
 | Slides finales y fuente | Cumplido | slides/final.tex/pdf: 33 páginas; PDF adjunto idéntico | Conservados byte por byte por instrucción del autor |
-| Presentación de unos 30 minutos y discusión | Estimación | docs/guia_presentacion_actual.md y timing de 29 láminas principales | No consta un ensayo real; cuatro láminas son respaldo |
+| Presentación de unos 30 minutos y discusión | Distribución propuesta del tiempo | docs/guia_presentacion_actual.md y timing de 29 láminas principales | Cuatro láminas son respaldo; la distribución corresponde a una estimación |
 | Paper 8–20 páginas de cuerpo, 11pt, 1in y una columna | Cumplido | paper/paper.tex/pdf: 16 páginas de cuerpo; edición inglesa: 15 | Conteo final en qa_report.json |
 | Introducción, literatura y contribución acotada | Cumplido | Secciones 1–3 y bibliografía primaria | No se reclama prioridad universal |
 | Primitivas, unidades, cronología y agente | Cumplido | Sección 4, diccionario y distinción de tres operaciones | Precio y pares dados; no juego estratégico |
@@ -34,7 +35,6 @@ La evaluación distingue evidencia disponible y trabajo personal. No predice una
 | Workflow oficial intacto | Cumplido | SHA256 e67f4c1c24b115ecbf3e8feca11e0d2e4541cec368411d4a1fe508cf3ebf8d0f | Ninguna modificación |
 | Entrega en main antes del 26-nov 22:00 Lima | Paper, presentaciones, código, Lean y PDF manuscrito incorporados | Historial de pull requests; controles numéricos, compilación y verificaciones Lean | La incorporación del manuscrito conserva los demás entregables |
 
-El juicio del profesor comunicado por el autor fue favorable, con observación
-de complejidad. La respuesta es explicar el modelo existente, no sustituirlo
-ni agregar supuestos para facilitar una prueba. La escritura y comprensión
-personales siguen siendo necesarias para completar la entrega.
+La observación docente sobre la complejidad del modelo se aborda con una
+[guía de lectura](guia_lectura_paper.md), un diccionario de símbolos y pruebas
+organizadas por pasos. Los supuestos y resultados del modelo se conservan.

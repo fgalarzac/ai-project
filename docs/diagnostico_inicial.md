@@ -1,5 +1,8 @@
 # Diagnóstico antes de modificar (10 de noviembre de 2026)
 
+> Registro histórico de la revisión inicial. El estado de la entrega se
+> consulta en la [matriz actual](cumplimiento.md) y el [índice documental](README.md).
+
 Repositorio: fgalarzac/ai-project. Rama remota `apoyo`, commit inicial
 6462a960d2687a84c4369c2d23b4c8e25385ea5a. Clon nuevo, árbol limpio.
 La copia de octubre, en `main` con archivos no seguidos, se conserva intacta.

@@ -1,28 +1,49 @@
-# Decisiones sustantivas
+# Decisiones del modelo y de la entrega
 
-1. **Conservar tema y simplificar alcance.** Se resuelve evaluación condicionada
-   en precio. No se presenta existencia abstracta de un precio como solución
-   del juego de precios. No se inventa demanda estratégica para cerrar el tema.
-2. **Promedio principal.** Coincide con el plan. Mediana como sensibilidad,
-   mostrando un ejemplo donde cambia el signo. La resta solo cancela base común.
-3. **Restricción q0/g.** Convierte una FOC interior en una solución global de
-   probabilidades válidas. Capacidad, piso y singleton se tratan expresamente.
-4. **Umbral suficiente.** El objeto decisivo es a−g²/c estrictamente decreciente
-   y con cruce. La opacidad no implica que la tecnología mejore. Se incluye
-   escenario plausible de productividad decreciente y costo creciente.
-5. **Extensión flujo-stock.** Reemplaza el enlace positivo postulado por una
-   identidad con pesos de cohorte y una condición exacta de inversión de signo.
-   Es la extensión con mayor rendimiento económico y pedagógico.
-6. **Datos y novedad limitados.** Se usan hechos institucionales y una pequeña
-   transcripción oficial verificable. No se heredan estimaciones no reproducidas
-   ni se reclama prioridad universal en economía bancaria.
-7. **Historia preservada.** La propuesta y el tema de octubre conservan su
-   definición anterior, identificados como históricos. Se integró main en apoyo.
-   El conflicto modify/delete de speaker_notes se resolvió respetando la
-   eliminación en main y conservando una copia en docs/archive.
-8. **Lean honesto.** Se comprueba aritmética auxiliar con el kernel. El flujo
-   oficial está en cierre. El CLI exigido y Linux real permitieron compilar
-   P1–P3 generales y revisar su correspondencia preliminar. No se
-   copian la carpeta ni las pruebas del proyecto de referencia.
-9. **Manuscrito auténtico.** La guía tipográfica desglosa todas las derivaciones
-   sin fingir que el estudiante ya las escribió o revisó.
+Estas decisiones explican el alcance del [artículo final](../paper/paper.pdf).
+La [guía de lectura](guia_lectura_paper.md) desarrolla su notación y sus pruebas.
+
+1. **Resolver la evaluación a un precio dado.** El banco elige el esfuerzo
+   después de observar el precio relativo y la composición de solicitantes.
+   El análisis compara decisiones condicionadas por ese precio; resolver su
+   equilibrio en un juego entre bancos requiere un modelo adicional.
+
+2. **Usar el promedio simple de otros bancos como referencia principal.**
+   El banco evaluado queda fuera de sus pares. La mediana se conserva como
+   comparación de sensibilidad. Restar la misma base a todas las tasas
+   cancela ese componente común, pero conserva las diferencias de exposición,
+   fondeo y clientela entre bancos.
+
+3. **Imponer conjuntamente capacidad y probabilidades válidas.** El esfuerzo
+   no puede superar la capacidad ni reducir el riesgo por debajo de cero.
+   La solución de P1 compara el candidato interior con ambas cotas. La
+   existencia, la unicidad, los empates y el caso de capacidad cero forman
+   parte de esa solución.
+
+4. **Condicionar el umbral a propiedades verificables.** En P2, la diferencia
+   entre selección y evaluación debe ser continua, estrictamente decreciente
+   y cruzar cero, con interioridad al mismo precio para todas las opacidades.
+   El escenario alternativo muestra por qué la opacidad, por sí sola, no
+   garantiza un cambio de signo.
+
+5. **Distinguir riesgo de cohorte y ratio de cartera.** P3 construye el ratio
+   a partir de saldos antiguos y nuevos, para el mismo evento y horizonte.
+   La derivada separa la calidad de la cohorte nueva de su peso en la cartera.
+   El contraejemplo y la frontera aplican esa identidad a un saldo exponencial.
+
+6. **Separar evidencia histórica y simulación.** La tabla del BCRP se usa con
+   su universo, fechas y definición originales. Las demás cifras generadas
+   ilustran el modelo y sus unidades. La aplicación predictiva al Perú se
+   plantea como una etapa empírica posterior.
+
+7. **Vincular Lean con una fuente exacta.** La formalización demuestra las
+   tres proposiciones de la edición española fijada por commit y huellas de
+   archivos. El [registro de Lean](lean_progreso.md) distingue pruebas,
+   revisiones de correspondencia y cierre oficial. La traducción inglesa
+   conserva la misma matemática y tiene su propia comprobación editorial.
+
+8. **Conservar los antecedentes y los archivos del autor.** La propuesta y
+   la presentación del tema documentan el avance de octubre. Las
+   diapositivas finales y el PDF manuscrito se conservan como archivos
+   suministrados por el autor. El [índice](README.md) identifica los documentos
+   actuales y los registros históricos.
